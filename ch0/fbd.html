@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Free-body diagrams · Chapter 0 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 0</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="vectors.html">A · Vectors</a>
+    <a href="fbd.html" class=active>B · Free-body diagrams</a>
+    <a href="kinematics.html">C · Scalar kinematics</a>
+    <a href="examples.html">Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<section>
+<h2><span class="num">B</span>Free-body diagrams</h2>
+<p>Newton's second law, $\sum\mathbf F = m\mathbf a$, is only as good as the list of forces you put into $\sum\mathbf F$. A <b>free-body diagram</b> (FBD) is how we make that list without missing anything or counting anything twice. The word "free" is the key: you imagine cutting the body free from everything it touches, and replace each contact with the force that contact exerts.</p>
+<div class="card method"><h3 style="margin-top:.2rem">How to draw an FBD</h3>
+<ol><li><b>Choose the system.</b> Decide which body, or which group of bodies, you are isolating. This is the most important decision.</li>
+<li><b>Cut it free.</b> Draw a boundary around the system and sketch it alone.</li>
+<li><b>Add the body forces.</b> Usually just the weight $mg$, acting at the center of mass, straight down.</li>
+<li><b>Add a force wherever the boundary was cut.</b> A rope becomes a tension pulling away from the body. A surface becomes a normal force pushing into the body, plus friction along the surface if it is rough. A pin becomes two unknown reaction components.</li>
+<li><b>Label everything</b>, including coordinate directions and the angles needed to resolve forces.</li></ol></div>
+
+<h3>Which system? Internal and external forces</h3>
+<p>Forces that one part of your system exerts on another part are <b>internal</b>. They come in equal and opposite pairs (Newton's third law), so they cancel when you add up the forces on the whole system and do not appear on its FBD. Forces from outside the boundary are <b>external</b>. The same rope tension can be external for one choice of system and internal for another, so <em>always state which system you are drawing</em>.</p>
+<div class="demo concept" id="c-system">
+  <div class="demo-title"><span class="tag concept-tag">Concept</span><span>Draw the boundary, and the forces follow</span></div>
+  <canvas id="c-system-anim" class="anim" style="height:340px"></canvas>
+  <div class="controls" id="c-system-ctl"></div>
+  <div class="bar" id="c-system-pre"><span class="lbl">System:</span></div>
+  <div class="bar" id="c-system-btn"></div>
+  <div class="stats" id="c-system-stats"></div>
+  <p class="small concept-note">Two blocks on a smooth floor, joined by a rope and pulled by P. Draw the FBD of A alone and the rope tension T is the only horizontal force on it. Draw A + B together and T disappears, because now both ends of the rope are inside the boundary.</p>
+</div>
+<p>Whichever system you choose, the physics must agree. Here A alone gives $T = m_A a$, B alone gives $P - T = m_B a$, and A + B gives $P = (m_A + m_B)a$, which is just the sum of the first two. Choosing the system cleverly can remove unknowns you do not care about.</p>
+
+<h3>Contact forces: normal force and friction</h3>
+<p>A surface pushes on a body with a <b>normal force</b> $N$, perpendicular to the surface and always pushing (never pulling). If the surface is rough, there is also a <b>friction force</b> along the surface:</p>
+<ul>
+<li><b>No sliding (static friction):</b> friction is whatever is needed to prevent sliding, up to a limit: $|f| \le \mu_s N$.</li>
+<li><b>Sliding (kinetic friction):</b> friction has magnitude $f = \mu_k N$ and opposes the direction of sliding.</li>
+</ul>
+<p>Note that $N$ is not automatically $mg$. Any other force with a component perpendicular to the surface changes it, and that changes the friction too. Example 0.B.1 shows exactly this.</p>
+<div class="demo concept" id="c-friction">
+  <div class="demo-title"><span class="tag concept-tag">Concept</span><span>Static vs. kinetic friction</span></div>
+  <canvas id="c-friction-anim" class="anim" style="height:210px"></canvas><canvas id="c-friction-plot" class="plot" style="height:230px"></canvas><div class="legendrow"><span><span class="sw" style="background:var(--c3)"></span>μₛN (breakaway limit)</span><span><span class="sw" style="background:#a61e4d"></span>μₖN (sliding friction)</span><span><span class="sw" style="background:var(--c1)"></span>friction vs. P</span></div>
+  <div class="controls" id="c-friction-ctl"></div>
+  <div class="bar" id="c-friction-btn"></div>
+  <div class="stats" id="c-friction-stats"></div>
+  <div class="notes" id="c-friction-notes"></div>
+  <p class="small concept-note">The applied force P grows slowly. While the block is stuck, friction matches P exactly and the point climbs the 45° line. At P = μₛN the block breaks free, friction drops to μₖN, and the extra force accelerates the block.</p>
+</div>
+<div class="try"><h4>Try this</h4><ul><li>In the two-block demo, make A very light. What happens to the rope tension? Why?</li><li>Make μₖ larger than μₛ. Is that physically reasonable? What does the friction plot do?</li><li>Draw (on paper) the FBD of a book resting on a table that is accelerating upward in an elevator. Is N equal to mg?</li></ul></div>
+<div class="wild"><span class="wi" aria-hidden="true">🧗</span><div><b class="wh">FBDs in the wild</b><p>Climbers trust ropes, anchors and pulleys because someone drew FBDs of every piece. In a pulley system, each strand of the rope pulls on the pulley with the full tension, which is why two strands under a load share it: each holds half.</p></div></div>
+</section>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="vectors.html"><small>← Previous</small>A · Vector operations</a><a class="next" href="kinematics.html"><small>Next →</small>C · Scalar kinematics</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/labels.js"></script>
+<script src="../assets/ch0.js"></script>
+</body>
+</html>

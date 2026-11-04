@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 5.B.3 · Chapter 5 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 5</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="newton-euler.html">A · Newton–Euler</a>
+    <a href="work-energy.html">B · Work–energy</a>
+    <a href="impulse-momentum.html">C · Impulse–momentum</a>
+    <a href="examples.html" class=active>Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Work and energy examples"><a href="examples.html#group-B">All work–energy examples</a><a href="ex-5-b-1.html">5.B.1</a><a href="ex-5-b-3.html" class=active>5.B.3</a><a href="ex-5-b-4.html">5.B.4</a><a href="ex-5-b-5.html">5.B.5</a><a href="ex-5-b-6.html">5.B.6</a><a href="ex-5-b-7.html">5.B.7</a><a href="ex-5-b-8.html">5.B.8</a><a href="ex-5-b-9.html">5.B.9</a><a href="ex-5-b-10.html">5.B.10</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-B">Work and energy</a> › Example 5.B.3</p>
+<h2><span class="num">Example 5.B.3</span>Bar restrained by a spring</h2>
+<div class="tags"><span>work–energy</span><span>springs</span><span>fixed-axis rotation</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>A thin, homogeneous bar OA of length 4 ft and weight $W = 15$ lb is pinned at its lower end O. A spring of stiffness $k = 3$ lb/ft connects end A to a fixed pin B located 6 ft directly above O. The angle $\theta$ of the bar is measured from the vertical, and the spring is unstretched when $\theta = 0$.</p>
+<p><b>Find</b> the angular speed of the bar at $\theta = 0$ if the bar just reaches $\theta = 90°$ before coming to rest.</p>
+</div>
+<div class="demo" id="xw-3">
+  <div class="demo-title"><span class="tag">Interactive</span><span>The bar swings down from the upright position</span></div>
+  <canvas id="xw-3-anim" class="anim" style="height:360px"></canvas>
+  <div class="controls" id="xw-3-ctl"></div>
+  <div class="bar" id="xw-3-pre"><span class="lbl">Try:</span></div>
+  <div class="bar" id="xw-3-btn"></div>
+  <div class="stats" id="xw-3-stats"></div>
+  <p class="small concept-note">The energy bars show the kinetic energy $T$, the gravitational potential energy $V_g$ and the spring potential energy $V_s$. Their total stays constant because only conservative forces do work. With the value of $\omega_1$ found below, the bar comes to rest exactly when it is horizontal.</p>
+</div>
+<div class="demo v3d" data-clip="xw-3"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Every solution follows the four-step method. Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Draw the free-body diagram</summary>
+<p>The bar is acted on by its weight $W$ at its midpoint G, the spring force at A, and the pin reaction at O. The pin O does not move, so the pin reaction does no work. The weight and the spring force are conservative, so we account for them with potential energies.</p><div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 300 400" role="img" aria-label="Bar OA in a general position" style="max-width:300px"><line x1="120.0" y1="300.0" x2="120.0" y2="60.0" stroke="#7b808c" stroke-width="1.4" stroke-dasharray="5 4"/><line x1="222.8" y1="177.4" x2="120.0" y2="60.0" stroke="#7b808c" stroke-width="1.2" stroke-dasharray="5 4"/><circle cx="120.0" cy="60.0" r="2.5" fill="#1c1d21"/><line x1="120.0" y1="300.0" x2="222.8" y2="177.4" stroke="#8a6a12" stroke-width="15" stroke-linecap="round"/><line x1="120.0" y1="300.0" x2="222.8" y2="177.4" stroke="#f1e6c8" stroke-width="11" stroke-linecap="round"/><circle cx="120.0" cy="300.0" r="4.5" fill="#fff" stroke="#1c1d21" stroke-width="2"/><circle cx="222.8" cy="177.4" r="3" fill="#1c1d21"/><circle cx="171.4" cy="238.7" r="4" fill="#1c1d21"/><line x1="222.8" y1="177.4" x2="189.2" y2="139.1" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="182.0,130.8 193.4,135.4 185.1,142.7" fill="#2457d6"/><line x1="171.4" y1="238.7" x2="171.4" y2="289.7" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="171.4,300.7 165.9,289.7 176.9,289.7" fill="#c2410c"/><line x1="58.0" y1="300.0" x2="109.0" y2="300.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="120.0,300.0 109.0,305.5 109.0,294.5" fill="#17915a"/><line x1="120.0" y1="358.0" x2="120.0" y2="311.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="120.0,300.0 125.5,311.0 114.5,311.0" fill="#17915a"/><path d="M145.7,269.4 A40,40 0 0 0 120.0,260.0" fill="none" stroke="#7b808c" stroke-width="1.2"/><line x1="124.0" y1="302.0" x2="226.8" y2="179.4" stroke="#7b808c" stroke-width="1.2"/><line x1="120.2" y1="298.8" x2="127.8" y2="305.2" stroke="#7b808c" stroke-width="1.2"/><line x1="223.0" y1="176.2" x2="230.7" y2="182.6" stroke="#7b808c" stroke-width="1.2"/><line x1="20.0" y1="300.0" x2="280.0" y2="300.0" stroke="#7b808c" stroke-width="1" stroke-dasharray="5 4"/><text x="106.0" y="60.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>B</tspan></text><text x="136.0" y="312.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>O</tspan></text><text x="234.8" y="177.4" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>A</tspan></text><text x="155.4" y="226.7" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>G</tspan></text><text x="188.1" y="109.8" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>F</tspan><tspan dy="4.8" style="font-size:10.8px">s</tspan></text><text x="183.4" y="312.7" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>W</tspan></text><text x="46.0" y="286.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>O</tspan><tspan dy="4.8" style="font-size:10.8px">x</tspan></text><text x="120.0" y="370.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>O</tspan><tspan dy="4.8" style="font-size:10.8px">y</tspan></text><text x="137.4" y="252.1" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>θ</tspan></text><text x="189.2" y="252.3" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>4 ft</tspan></text><text x="236.0" y="290.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:12px;fill:#7b808c"><tspan>datum, V</tspan><tspan dy="3.8" style="font-size:8.6px">g</tspan><tspan dy="-3.8"> = 0</tspan></text></svg><figcaption>Bar OA in a general position</figcaption></figure></div><p class="small fbdnote">The spring force $F_s = k\delta$ acts along the spring, from A toward the fixed point B. The pin reaction ($O_x$, $O_y$) does no work because O does not move. The weight $W$ and $F_s$ are conservative and enter through $V_g$ and $V_s$.</p>
+</details>
+<details class="step"><summary>Step 2 · Write the kinetics equation (work–energy)</summary>
+<p>Because no nonconservative force does work, $T_1 + V_1 = T_2 + V_2$, where state 1 is $\theta = 0$ and state 2 is $\theta = 90°$. The bar rotates about the fixed point O, so</p>
+$$T = \tfrac12 I_O\,\omega^2, \qquad I_O = \tfrac13 \frac{W}{g} L^2 = \tfrac13\left(\frac{15}{32.2}\right)(4)^2 = 2.484\ \text{slug·ft}^2$$
+<p>In state 2 the bar is at rest, so $T_2 = 0$.</p>
+</details>
+<details class="step"><summary>Step 3 · Work out the geometry (spring length and height of G)</summary>
+<p>Place O at the origin with B 6 ft above it. End A is at $(4\sin\theta,\ 4\cos\theta)$, so the spring length is</p>
+$$\ell(\theta) = \sqrt{(4\sin\theta)^2 + (6 - 4\cos\theta)^2} = \sqrt{52 - 48\cos\theta}\ \text{ft}$$
+<p>At $\theta = 0$ the length is 2 ft, which is the unstretched length. At $\theta = 90°$ the length is $\sqrt{52} = 7.211$ ft, so the stretch is $\delta_2 = 5.211$ ft. Measuring heights from O, G is 2 ft above O at $\theta = 0$ and level with O at $\theta = 90°$.</p>
+$$V_1 = W(2) + 0 = 30\ \text{ft·lb}, \qquad V_2 = 0 + \tfrac12(3)(5.211)^2 = 40.73\ \text{ft·lb}$$
+</details>
+<details class="step"><summary>Step 4 · Solve</summary>
+$$\tfrac12 I_O\,\omega_1^2 + 30 = 0 + 40.73 \quad\Longrightarrow\quad \omega_1 = \sqrt{\frac{2(10.73)}{2.484}} = 2.94\ \text{rad/s}$$
+<p class="small">The gravitational energy released (30 ft·lb) is not enough to stretch the spring by 5.211 ft, so the bar must start with 10.73 ft·lb of kinetic energy. A direct simulation of the equation of motion with $\omega_1 = 2.94$ rad/s stops at $\theta = 90.0°$.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>$\omega_1 = 2.94$ rad/s at $\theta = 0$.</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Start the bar slightly faster than $\omega_1$. What happens when it becomes horizontal?</li><li>Set $k = 0$. How fast does the bar now hit the horizontal position if it starts with $\omega_1 = 0$?</li><li>Find the stiffness $k$ for which the bar released from rest at $\theta = 0$ (with a tiny push) just reaches $\theta = 90°$.</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 5, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-5-b-1.html"><small>← Previous</small>Example 5.B.1</a><a class="next" href="ex-5-b-4.html"><small>Next →</small>Example 5.B.4</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/ch5.js"></script>
+<script src="../assets/ch5-exB.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch5-3dB.js"></script>
+</body>
+</html>

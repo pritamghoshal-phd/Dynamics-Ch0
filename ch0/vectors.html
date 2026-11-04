@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vector operations · Chapter 0 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 0</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="vectors.html" class=active>A · Vectors</a>
+    <a href="fbd.html">B · Free-body diagrams</a>
+    <a href="kinematics.html">C · Scalar kinematics</a>
+    <a href="examples.html">Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<section>
+<h2><span class="num">A</span>Vector operations</h2>
+<p>A <b>vector</b> has a magnitude and a direction. In this course we write vectors in bold ($\mathbf a$) and describe them by their components along a set of perpendicular <b>unit vectors</b> (vectors of length one): $\hat{\mathbf i}, \hat{\mathbf j}, \hat{\mathbf k}$ along $x, y, z$:</p>
+$$\mathbf a = a_x\,\hat{\mathbf i} + a_y\,\hat{\mathbf j} + a_z\,\hat{\mathbf k}, \qquad |\mathbf a| = \sqrt{a_x^2+a_y^2+a_z^2}$$
+
+<h3>Addition and subtraction</h3>
+<p>Geometrically, to add $\mathbf b$ to $\mathbf a$, place the tail of $\mathbf b$ at the head of $\mathbf a$; the sum runs from the tail of $\mathbf a$ to the head of $\mathbf b$. Doing it in the other order gives the same arrow, which is why the two paths form a <b>parallelogram</b>. Subtraction is addition of the reversed vector: $\mathbf a-\mathbf b = \mathbf a + (-\mathbf b)$.</p>
+<p>With components, you simply add or subtract like components:</p>
+$$\mathbf a \pm \mathbf b = (a_x\pm b_x)\,\hat{\mathbf i} + (a_y\pm b_y)\,\hat{\mathbf j} + (a_z\pm b_z)\,\hat{\mathbf k}$$
+<div class="demo concept" id="c-add">
+  <div class="demo-title"><span class="tag concept-tag">Concept</span><span>The parallelogram rule</span></div>
+  <canvas id="c-add-anim" class="anim" style="height:360px"></canvas>
+  <div class="controls" id="c-add-ctl"></div>
+  <div class="bar" id="c-add-pre"><span class="lbl">Show:</span></div>
+  <div class="stats" id="c-add-stats"></div>
+  <p class="small concept-note">The shaded parallelogram has sides a and b (or −b). Its diagonal is the result, whichever path you take around it.</p>
+</div>
+
+<h3>The dot (scalar) product</h3>
+<p>The dot product of two vectors is a <em>number</em>:</p>
+$$\mathbf a\cdot\mathbf b = |\mathbf a|\,|\mathbf b|\cos\theta = a_xb_x + a_yb_y + a_zb_z$$
+<p>where $\theta$ is the angle between them. The two forms agree because $\hat{\mathbf i}\cdot\hat{\mathbf i} = 1$ (parallel unit vectors) and $\hat{\mathbf i}\cdot\hat{\mathbf j} = 0$ (perpendicular unit vectors), so all the cross terms vanish. Two uses come up constantly:</p>
+<ul>
+<li><b>Projection.</b> If $\hat{\mathbf e}_a$ is the unit vector along $\mathbf a$, then $\mathbf b\cdot\hat{\mathbf e}_a = |\mathbf b|\cos\theta$ is the component of $\mathbf b$ in the direction of $\mathbf a$.</li>
+<li><b>Perpendicularity test.</b> $\mathbf a\cdot\mathbf b = 0$ (with neither vector zero) means they are perpendicular.</li>
+</ul>
+<div class="demo concept" id="c-dot">
+  <div class="demo-title"><span class="tag concept-tag">Concept</span><span>The dot product is a projection</span></div>
+  <canvas id="c-dot-anim" class="anim" style="height:330px"></canvas>
+  <div class="controls" id="c-dot-ctl"></div>
+  <div class="bar" id="c-dot-pre"><span class="lbl">Try:</span></div>
+  <div class="stats" id="c-dot-stats"></div>
+  <p class="small concept-note">The thick green (or red) bar along a is the shadow of b. Multiply its signed length by |a| and you have a · b. Past 90° the shadow points backwards and the dot product turns negative.</p>
+</div>
+
+<h3>The cross (vector) product</h3>
+<p>The cross product of two vectors is another <em>vector</em>, perpendicular to both:</p>
+<ul>
+<li><b>Magnitude:</b> $|\mathbf a\times\mathbf b| = |\mathbf a|\,|\mathbf b|\sin\theta$, which is the area of the parallelogram the two vectors span.</li>
+<li><b>Direction:</b> by the right-hand rule. Point your fingers along $\mathbf a$, curl them toward $\mathbf b$, and your thumb points along $\mathbf a\times\mathbf b$.</li>
+<li><b>Order matters:</b> $\mathbf b\times\mathbf a = -\,\mathbf a\times\mathbf b$. Parallel vectors give zero.</li>
+</ul>
+<p>For the unit vectors, $\hat{\mathbf i}\times\hat{\mathbf j}=\hat{\mathbf k}$, $\hat{\mathbf j}\times\hat{\mathbf k}=\hat{\mathbf i}$, $\hat{\mathbf k}\times\hat{\mathbf i}=\hat{\mathbf j}$ (cyclic order), and the reverse order flips the sign. In components, a determinant is the easiest bookkeeping:</p>
+<div class="formula">$$\mathbf a\times\mathbf b=\begin{vmatrix}\hat{\mathbf i}&\hat{\mathbf j}&\hat{\mathbf k}\\ a_x&a_y&a_z\\ b_x&b_y&b_z\end{vmatrix} = (a_yb_z-a_zb_y)\,\hat{\mathbf i}+(a_zb_x-a_xb_z)\,\hat{\mathbf j}+(a_xb_y-a_yb_x)\,\hat{\mathbf k}$$</div>
+<div class="demo concept" id="c-cross">
+  <div class="demo-title"><span class="tag concept-tag">Concept</span><span>Cross product in 3D: area and the right-hand rule</span></div>
+  <canvas id="c-cross-anim" class="anim" style="height:360px"></canvas>
+  <div class="controls" id="c-cross-ctl"></div>
+  <div class="bar" id="c-cross-pre"><span class="lbl">Order:</span></div>
+  <div class="bar" id="c-cross-btn"></div>
+  <div class="stats" id="c-cross-stats"></div>
+  <p class="small concept-note">The view slowly turns so you can see that the green arrow stands perpendicular to the shaded plane. Switch to b × a: same length, opposite direction. Try θ = 0° and θ = 180°: the area, and the cross product, vanish.</p>
+</div>
+
+<h3>Moment of a force</h3>
+<p>The most common use of the cross product in mechanics is the <b>moment</b> (torque) of a force $\mathbf F$ applied at a point P, about a point O:</p>
+$$\mathbf M_O = \mathbf r_{P/O}\times\mathbf F$$
+<p>where $\mathbf r_{P/O}$ points from O to P. Its magnitude is $|\mathbf F|\,d$, where $d$ is the perpendicular distance from O to the force's <b>line of action</b> (the lever arm). Sliding the force along its line of action does not change the moment; a force whose line passes through O has no moment about O.</p>
+<div class="demo concept" id="c-moment">
+  <div class="demo-title"><span class="tag concept-tag">Concept</span><span>Moment about O: r × F and the lever arm</span></div>
+  <canvas id="c-moment-anim" class="anim" style="height:360px"></canvas>
+  <div class="controls" id="c-moment-ctl"></div>
+  <div class="stats" id="c-moment-stats"></div>
+  <p class="small concept-note">Move P along the dashed line of action (change both x and y so that P stays on it) and the moment stays the same: only the lever arm d matters. Point F straight at O and the moment disappears.</p>
+</div>
+
+<h3>Writing a vector in a different set of unit vectors</h3>
+<p>A vector is a physical arrow; its <em>components</em> depend on which axes you use. In dynamics we constantly switch between a fixed set $(\hat{\mathbf I},\hat{\mathbf J})$ and a set $(\hat{\mathbf i},\hat{\mathbf j})$ rotated by an angle $\theta$ (for example, axes attached to a turning body). The projection idea does all the work: a component is the dot product with a unit vector.</p>
+<p>Reading the unit vectors off the figure,</p>
+$$\hat{\mathbf i} = \cos\theta\,\hat{\mathbf I} + \sin\theta\,\hat{\mathbf J}, \qquad \hat{\mathbf j} = -\sin\theta\,\hat{\mathbf I} + \cos\theta\,\hat{\mathbf J}$$
+<p>so for $\mathbf a = a_X\hat{\mathbf I} + a_Y\hat{\mathbf J}$,</p>
+$$a_x = \mathbf a\cdot\hat{\mathbf i} = a_X\cos\theta + a_Y\sin\theta, \qquad a_y = \mathbf a\cdot\hat{\mathbf j} = -a_X\sin\theta + a_Y\cos\theta$$
+<div class="demo concept" id="c-basis">
+  <div class="demo-title"><span class="tag concept-tag">Concept</span><span>Same arrow, different components</span></div>
+  <canvas id="c-basis-anim" class="anim" style="height:380px"></canvas>
+  <div class="controls" id="c-basis-ctl"></div>
+  <div class="bar" id="c-basis-pre"><span class="lbl">Try:</span></div>
+  <div class="stats" id="c-basis-stats"></div>
+  <p class="small concept-note">Rotate the purple axes. The orange vector a never moves, but its two green components change. Their lengths always combine to the same |a|.</p>
+</div>
+<div class="try"><h4>Try this</h4><ul><li>In the parallelogram demo, make |a| = |b| and set the angles 180° apart. What is a + b? What is a − b?</li><li>In the dot-product demo, find the angle where a · b = 0 for any lengths. Why is that angle special?</li><li>In the cross-product demo, keep |a| and |b| fixed. At which θ is |a × b| largest?</li><li>In the moment demo, put P at (3, 0) and point F at 90°, then at 180°. Explain the two results using the lever arm.</li></ul></div>
+<div class="wild"><span class="wi" aria-hidden="true">🔧</span><div><b class="wh">Tools in the wild</b><p>A long wrench makes loosening a stuck bolt easier because the moment is force times lever arm. Pull at the end of the handle, perpendicular to it, and the same effort gives the biggest moment. Pull along the handle and you get nothing at all: the line of action passes through the bolt.</p></div></div>
+</section>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="index.html"><small>← Previous</small>Overview</a><a class="next" href="fbd.html"><small>Next →</small>B · Free-body diagrams</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/labels.js"></script>
+<script src="../assets/ch0.js"></script>
+</body>
+</html>

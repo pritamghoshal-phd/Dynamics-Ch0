@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 6.B.7 · Chapter 6 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 6</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="eom.html">A · Equations of motion</a>
+    <a href="free.html">B · Free vibration</a>
+    <a href="damped.html">B · Damped vibration</a>
+    <a href="forced.html">C · Forced vibration</a>
+    <a href="base.html">C · Base excitation</a>
+    <a href="summary.html">Summary</a>
+    <a href="examples.html" class=active>Examples</a>
+    <a href="badges.html">🏅 Badges</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Free response examples"><a href="examples.html#group-B">All Free response examples</a><a href="ex-6-b-1.html">6.B.1</a><a href="ex-6-b-2.html">6.B.2</a><a href="ex-6-b-3.html">6.B.3</a><a href="ex-6-b-4.html">6.B.4</a><a href="ex-6-b-5.html">6.B.5</a><a href="ex-6-b-6.html">6.B.6</a><a href="ex-6-b-7.html" class=active>6.B.7</a><a href="ex-6-b-8.html">6.B.8</a><a href="ex-6-b-9.html">6.B.9</a><a href="ex-6-b-10.html">6.B.10</a><a href="ex-6-b-11.html">6.B.11</a><a href="ex-6-b-12.html">6.B.12</a><a href="ex-6-b-13.html">6.B.13</a><a href="ex-6-b-14.html">6.B.14</a><a href="ex-6-b-15.html">6.B.15</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-B">Free response</a> › Example 6.B.7</p>
+<h2><span class="num">Example 6.B.7</span>Damping for 50 percent of critical</h2>
+<div class="tags"><span>equivalent stiffness</span><span>critical damping</span><span>damping ratio</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>A block of mass $m$ hangs from the ceiling on a spring of stiffness $k$. Below the block, a spring of stiffness $2k$ and a dashpot with damping constant $c$ connect it to the floor. The coordinate $x$ measures the downward displacement of the block from static equilibrium.</p>
+<p>The data are $k = 3000$ N/m and $m = 10$ kg.</p>
+<p><b>Find</b> the value of the damping constant $c$ for which the system has 50 percent of critical damping.</p>
+</div>
+<div class="demo" id="x6b-7">
+  <div class="demo-title"><span class="tag">Interactive</span><span>The block released 25 mm below equilibrium</span></div>
+  <canvas id="x6b-7-anim" class="anim" style="height:380px"></canvas><canvas id="x6b-7-plot" class="plot" style="height:200px"></canvas>
+  <div class="controls" id="x6b-7-ctl"></div>
+  <div class="bar" id="x6b-7-pre"><span class="lbl">Try:</span></div>
+  <div class="bar" id="x6b-7-btn"></div>
+  <div class="stats" id="x6b-7-stats"></div>
+  <p class="small concept-note">Compare the presets. With 50 percent of critical damping the block overshoots equilibrium only slightly. With critical damping it returns without overshooting, and without damping it oscillates indefinitely.</p>
+</div>
+<div class="demo v3d" data-clip="x6b-7"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Every solution starts from free-body diagrams in a displaced position, then writes the equation of motion and reads off the vibration properties. Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Draw the free-body diagram</summary>
+<p>In a position $x$ below static equilibrium the upper spring is stretched by $\delta_1 + x$ and pulls the block up. The lower spring is compressed by $\delta_2 + x$ and pushes the block up. Here $\delta_1$ and $\delta_2$ are the static deflections of the two springs. The dashpot force $c\dot x$ opposes the velocity.</p><div class="fbdrow"><figure style="width:300px;max-width:100%"><svg class="fbd" viewBox="0 0 300 260" role="img" aria-label="Block in a displaced position" style="max-width:300px"><rect x="-40.0" y="-28.0" width="80.0" height="56.0" rx="4" transform="translate(140.0,130.0) rotate(0.0)" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><line x1="140.0" y1="102.0" x2="140.0" y2="51.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="140.0,40.0 145.5,51.0 134.5,51.0" fill="#2457d6"/><line x1="118.0" y1="216.0" x2="118.0" y2="169.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="118.0,158.0 123.5,169.0 112.5,169.0" fill="#17915a"/><line x1="162.0" y1="216.0" x2="162.0" y2="169.0" stroke="#b42346" stroke-width="2.6" stroke-linecap="round"/><polygon points="162.0,158.0 167.5,169.0 156.5,169.0" fill="#b42346"/><line x1="194.0" y1="130.0" x2="194.0" y2="171.0" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="194.0,182.0 188.5,171.0 199.5,171.0" fill="#c2410c"/><line x1="250.0" y1="70.0" x2="250.0" y2="105.0" stroke="#7b808c" stroke-width="2.6" stroke-linecap="round"/><polygon points="250.0,116.0 244.5,105.0 255.5,105.0" fill="#7b808c"/><text x="140.0" y="130.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:16px;font-style:italic;fill:#1c1d21"><tspan>m</tspan></text><text x="140.0" y="28.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>k(δ</tspan><tspan dy="4.8" style="font-size:10.8px">1</tspan><tspan dy="-4.8"> + x)</tspan></text><text x="118.0" y="230.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>2k(δ</tspan><tspan dy="4.8" style="font-size:10.8px">2</tspan><tspan dy="-4.8"> + x)</tspan></text><text x="162.0" y="230.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#b42346"><tspan>cẋ</tspan></text><text x="194.0" y="194.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>mg</tspan></text><text x="250.0" y="128.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#7b808c"><tspan>x</tspan></text></svg><figcaption>Block in a displaced position</figcaption></figure></div><p class="small fbdnote">The upper spring is stretched by $\delta_1 + x$ and the lower spring is compressed by $\delta_2 + x$. Both push or pull the block upward.</p>
+</details>
+<details class="step"><summary>Step 2 · Write the equation of motion</summary>
+$$m\ddot x = mg - k\left(\delta_1 + x\right) - 2k\left(\delta_2 + x\right) - c\dot x$$
+<p>In static equilibrium $k\delta_1 + 2k\delta_2 = mg$, so the constant terms cancel and</p>
+$$m\ddot x + c\dot x + 3k\,x = 0$$
+<p>The two springs act in parallel because both resist the same displacement $x$, so their stiffnesses add, $k_{eq} = 3k$.</p>
+</details>
+<details class="step"><summary>Step 3 · Find the critical damping constant</summary>
+<p>The damping ratio is $\zeta = c/c_{cr}$, where $c_{cr} = 2\sqrt{k_{eq}\,m}$.</p>
+$$c_{cr} = 2\sqrt{3k\,m} = 2\sqrt{3(3000)(10)} = 2\sqrt{90\,000} = 600\ \text{kg/s}$$
+</details>
+<details class="step"><summary>Step 4 · Solve for c</summary>
+$$c = \zeta\,c_{cr} = 0.5\,(600) = 300\ \text{kg/s}$$
+<p class="small">The natural frequency is $\omega_n = \sqrt{3k/m} = 30$ rad/s.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>$c = 300$ kg/s.</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Set $c = 300$ kg/s and read the first overshoot from the graph. Compare it with the prediction $e^{-\pi\zeta/\sqrt{1-\zeta^2}} = 16.3$ percent of the initial displacement.</li><li>If the lower spring were removed, what value of $c$ would give 50 percent of critical damping?</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 6, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-6-b-6.html"><small>← Previous</small>Example 6.B.6</a><a class="next" href="ex-6-b-8.html"><small>Next →</small>Example 6.B.8</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/kit.js"></script>
+<script src="../assets/ch6-exB2.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch6-3dB2.js"></script>
+</body>
+</html>

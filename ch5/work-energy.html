@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Work and energy · Chapter 5 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 5</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="newton-euler.html">A · Newton–Euler</a>
+    <a href="work-energy.html" class=active>B · Work–energy</a>
+    <a href="impulse-momentum.html">C · Impulse–momentum</a>
+    <a href="examples.html">Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<section>
+<h2><span class="num">B</span>Work and energy</h2>
+<p>The work–energy principle for a rigid body has the same form as the one for a particle.</p>
+$$T_1 + V_1 + U_{1\to2}^{(nc)} = T_2 + V_2$$
+<p>In this equation $T$ is the kinetic energy and $V$ is the potential energy of the conservative forces, which are gravity and springs. The term $U_{1\to2}^{(nc)}$ is the work done by all other forces and couples between positions 1 and 2. What is new for a rigid body is the way $T$ and $U$ are computed.</p>
+
+<h3>Kinetic energy of a rigid body</h3>
+<p>Each particle of the body moves with velocity $\mathbf v_i = \mathbf v_G + \boldsymbol\omega\times\mathbf r_{i/G}$. When the kinetic energies $\tfrac12 m_i v_i^2$ of all particles are added, the cross terms cancel because G is the mass center. The result is</p>
+$$T = \tfrac12 m\,v_G^2 + \tfrac12 I_G\,\omega^2$$
+<p>The first term is the kinetic energy of translation and the second is the kinetic energy of rotation. For a body that rotates about a fixed pivot O, the same result can be written as $T = \tfrac12 I_O\,\omega^2$. You can verify this with the parallel-axis theorem.</p>
+<div class="demo concept" id="c-energy">
+  <div class="demo-title"><span class="tag concept-tag">Concept</span><span>How the energy is shared when a body rolls</span></div>
+  <canvas id="c-energy-anim" class="anim" style="height:320px"></canvas>
+  <div class="controls" id="c-energy-ctl"></div>
+  <div class="bar" id="c-energy-pre"><span class="lbl">Body:</span></div>
+  <div class="bar" id="c-energy-btn"></div>
+  <div class="stats" id="c-energy-stats"></div>
+  <p class="small concept-note">As the body rolls down, potential energy is converted into kinetic energy, which is shared between translation and rotation. The fraction that goes into rotation is $k_G^2/(R^2 + k_G^2)$, which depends only on the shape. This explains why the hoop is slow in the race. Half of its kinetic energy is rotational.</p>
+</div>
+
+<h3>Work done by forces and couples</h3>
+<ul>
+<li>A force does work $U = \int \mathbf F\cdot d\mathbf r_P$, where $\mathbf r_P$ is the position of the point at which the force acts. A force that acts at a point that does not move does no work.</li>
+<li>A couple of moment $M$ does work $U = \int M\,d\theta$. If the couple is constant, this is simply $M\,\Delta\theta$.</li>
+<li>Gravity and springs are conservative. Their potential energies are $V_g = m g\,h_G$ and $V_s = \tfrac12 k\,\delta^2$, where $h_G$ is the height of G and $\delta$ is the stretch of the spring.</li>
+<li>Internal forces between connected bodies, such as the forces in a pin or in an inextensible cable that does not slip, do no net work on the system. The two equal and opposite forces move through the same displacement, so their work cancels.</li>
+</ul>
+
+<h3>Friction does no work on a rolling wheel</h3>
+<p>A wheel cannot roll without friction, yet friction does no work on a wheel that rolls without slipping. The reason follows from the definition of work. The contact point of a rolling wheel has zero velocity, so the friction force acts at a point that does not move. If the wheel slips, the contact point slides along the ground, and friction converts mechanical energy into heat.</p>
+<div class="demo concept" id="c-slip">
+  <div class="demo-title"><span class="tag concept-tag">Concept</span><span>Rolling and slipping: when does friction remove energy?</span></div>
+  <canvas id="c-slip-anim" class="anim" style="height:320px"></canvas>
+  <div class="controls" id="c-slip-ctl"></div>
+  <div class="bar" id="c-slip-pre"><span class="lbl">Try:</span></div>
+  <div class="bar" id="c-slip-btn"></div>
+  <div class="stats" id="c-slip-stats"></div>
+  <p class="small concept-note">A solid sphere moves down an incline. When the friction coefficient is large enough, the sphere rolls and $T + V$ stays constant even though friction acts on it. When $\mu$ is lower than $\tfrac27\tan\theta$, the sphere slips, and the red bar shows the energy lost as heat. It grows by exactly $\mu N$ times the sliding distance.</p>
+</div>
+<div class="try"><h4>Try this</h4><ul><li>In the second animation, set $\mu$ exactly equal to $\tfrac27\tan\theta$. How large is the friction force, and is it static or kinetic friction?</li><li>Set $\mu = 0$. Explain why the sphere does not rotate at all, and identify which energy bar stays empty.</li><li>For the disk in the first animation, check that one third of the kinetic energy is rotational.</li></ul></div>
+<div class="wild"><span class="wi" aria-hidden="true">🚲</span><div><b class="wh">Energy in the wild</b><p>Racing cyclists prefer light rims and tires. Mass at the rim must be accelerated twice, once in translation and once in rotation, whereas mass in the frame is accelerated only in translation.</p></div></div>
+</section>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="newton-euler.html"><small>← Previous</small>A · Newton–Euler</a><a class="next" href="impulse-momentum.html"><small>Next →</small>C · Impulse–momentum</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/ch5.js"></script>
+</body>
+</html>

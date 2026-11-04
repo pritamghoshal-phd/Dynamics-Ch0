@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 1.C.3 · Chapter 1 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 1</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="planar.html">A · Planar descriptions</a>
+    <a href="threed.html">B · 3D descriptions</a>
+    <a href="joint.html">C · Joint description</a>
+    <a href="relative.html">D · Relative & constrained</a>
+    <a href="examples.html" class=active>Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Joint description examples"><a href="examples.html#group-C">All Joint description examples</a><a href="ex-1-c-1.html">1.C.1</a><a href="ex-1-c-2.html">1.C.2</a><a href="ex-1-c-3.html" class=active>1.C.3</a><a href="ex-1-c-4.html">1.C.4</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-C">Joint description</a> › Example 1.C.3</p>
+<h2><span class="num">Example 1.C.3</span>Motion along a spiral</h2>
+<div class="tags"><span>polar</span><span>Coriolis term</span><span>speed change</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>The path of point P is given in polar coordinates as $r = 4 + 2\theta$, where $r$ is in meters and $\theta$ is in radians. The angle $\theta$ increases at the constant rate $\dot\theta$.</p>
+<p><b>Find</b> (a) the acceleration vector of P when $\theta = \pi$, if $\dot\theta = 3$ rad/s, and (b) whether the speed of P is increasing, decreasing or constant.</p>
+</div>
+<div class="demo" id="x1c-3">
+  <div class="demo-title"><span class="tag">Interactive</span><span>P moves outward along the spiral as θ increases</span></div>
+  <canvas id="x1c-3-anim" class="anim" style="height:440px"></canvas><canvas id="x1c-3-plot" class="plot" style="height:200px"></canvas>
+  <div class="controls" id="x1c-3-ctl"></div>
+  <div class="bar" id="x1c-3-pre"><span class="lbl">Try:</span></div>
+  <div class="bar" id="x1c-3-btn"></div>
+  <div class="stats" id="x1c-3-stats"></div>
+  <p class="small concept-note">The grey arrows are the polar unit vectors. The red dashed arrows are the radial and transverse parts of the acceleration, and the solid red arrow is their sum. The graph shows that the speed grows steadily as P moves outward.</p>
+</div>
+<div class="demo v3d" data-clip="x1c-3"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Choose a description of the motion</summary>
+<p>The path is given as $r(\theta)$, so polar coordinates are the natural choice. We need $r$, $\dot r$ and $\ddot r$, together with $\theta$, $\dot\theta$ and $\ddot\theta$, at the instant $\theta = \pi$.</p>
+</details>
+<details class="step"><summary>Step 2 · Differentiate the path equation</summary>
+<p>Differentiating $r = 4 + 2\theta$ with respect to time gives</p>
+$$\dot r = 2\dot\theta, \qquad \ddot r = 2\ddot\theta$$
+<p>The angular rate is constant, so $\ddot\theta = 0$ and $\ddot r = 0$. At $\theta = \pi$ with $\dot\theta = 3$ rad/s,</p>
+$$r = 4 + 2\pi = 10.28\ \text{m}, \qquad \dot r = 6\ \text{m/s}, \qquad \ddot r = 0$$
+</details>
+<details class="step"><summary>Step 3 · Draw the kinematics diagram</summary>
+<div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 300 250" role="img" aria-label="Velocity at θ = π" style="max-width:300px"><line x1="95.0" y1="95.0" x2="245.0" y2="95.0" stroke="#7b808c" stroke-width="1.4" stroke-dasharray="5 4"/><circle cx="245.0" cy="95.0" r="4" fill="#1c1d21"/><path d="M126.1,30.0 L123.1,33.6 L120.2,37.3 L117.5,41.1 L114.8,45.0 L112.3,49.1 L109.9,53.2 L107.7,57.5 L105.6,61.9 L103.6,66.3 L101.7,70.9 L100.1,75.6 L98.5,80.3 L97.1,85.1 L95.9,90.0 L94.9,95.0 L94.0,100.0 L93.3,105.1 L92.7,110.3 L92.3,115.5 L92.1,120.7 L92.1,126.0 L92.3,131.3 L92.7,136.6 L93.2,142.0 L93.9,147.3 L94.9,152.7 L96.0,158.0 L97.3,163.4 L98.7,168.7 L100.4,174.0" fill="none" stroke="#7b808c" stroke-width="1.4" stroke-dasharray="5 4"/><line x1="95.0" y1="95.0" x2="86.8" y2="95.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="75.8,95.0 86.8,89.5 86.8,100.5" fill="#2457d6"/><line x1="95.0" y1="95.0" x2="95.0" y2="182.7" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="95.0,193.7 89.5,182.7 100.5,182.7" fill="#2457d6"/><line x1="75.8" y1="95.0" x2="75.8" y2="193.7" stroke="#7b808c" stroke-width="1.4" stroke-dasharray="5 4"/><line x1="95.0" y1="95.0" x2="77.9" y2="182.9" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="75.8,193.7 72.5,181.9 83.3,184.0" fill="#2457d6"/><line x1="205.0" y1="175.0" x2="184.0" y2="175.0" stroke="#7b808c" stroke-width="2.6" stroke-linecap="round"/><polygon points="173.0,175.0 184.0,169.5 184.0,180.5" fill="#7b808c"/><line x1="205.0" y1="175.0" x2="205.0" y2="196.0" stroke="#7b808c" stroke-width="2.6" stroke-linecap="round"/><polygon points="205.0,207.0 199.5,196.0 210.5,196.0" fill="#7b808c"/><circle cx="95.0" cy="95.0" r="4" fill="#1c1d21"/><line x1="30.0" y1="230.0" x2="53.0" y2="230.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="64.0,230.0 53.0,235.5 53.0,224.5" fill="#7b808c"/><line x1="30.0" y1="230.0" x2="30.0" y2="207.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="30.0,196.0 35.5,207.0 24.5,207.0" fill="#7b808c"/><text x="170.0" y="83.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:14px;font-style:italic;fill:#7b808c"><tspan>r</tspan></text><text x="257.0" y="85.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>O</tspan></text><text x="61.8" y="83.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>v</tspan><tspan dy="4.8" style="font-size:10.8px">r</tspan></text><text x="111.0" y="144.4" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>v</tspan><tspan dy="4.8" style="font-size:10.8px">θ</tspan></text><text x="65.1" y="207.5" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>v</tspan></text><text x="159.0" y="175.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#7b808c"><tspan>ê</tspan><tspan dy="4.8" style="font-size:10.8px">r</tspan></text><text x="205.0" y="220.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#7b808c"><tspan>ê</tspan><tspan dy="4.8" style="font-size:10.8px">θ</tspan></text><text x="222.0" y="150.0" text-anchor="middle" dominant-baseline="middle" style="font-family:system-ui,sans-serif;font-size:11px;fill:#7b808c">unit vectors at P</text><text x="107.0" y="83.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>P</tspan></text><text x="74.0" y="230.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>x</tspan></text><text x="30.0" y="186.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>y</tspan></text></svg><figcaption>Velocity at θ = π</figcaption></figure><figure><svg class="fbd" viewBox="0 0 300 250" role="img" aria-label="Acceleration at θ = π" style="max-width:300px"><line x1="70.0" y1="95.0" x2="197.8" y2="95.0" stroke="#b42346" stroke-width="2.6" stroke-linecap="round"/><polygon points="208.8,95.0 197.8,100.5 197.8,89.5" fill="#b42346"/><line x1="70.0" y1="95.0" x2="70.0" y2="138.0" stroke="#b42346" stroke-width="2.6" stroke-linecap="round"/><polygon points="70.0,149.0 64.5,138.0 75.5,138.0" fill="#b42346"/><line x1="208.8" y1="95.0" x2="208.8" y2="149.0" stroke="#7b808c" stroke-width="1.4" stroke-dasharray="5 4"/><line x1="70.0" y1="149.0" x2="208.8" y2="149.0" stroke="#7b808c" stroke-width="1.4" stroke-dasharray="5 4"/><line x1="70.0" y1="95.0" x2="198.6" y2="145.0" stroke="#b42346" stroke-width="2.6" stroke-linecap="round"/><polygon points="208.8,149.0 196.6,150.1 200.6,139.9" fill="#b42346"/><circle cx="70.0" cy="95.0" r="4" fill="#1c1d21"/><text x="139.4" y="107.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#b42346"><tspan>a</tspan><tspan dy="4.8" style="font-size:10.8px">r</tspan></text><text x="84.0" y="122.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#b42346"><tspan>a</tspan><tspan dy="4.8" style="font-size:10.8px">θ</tspan></text><text x="221.9" y="154.1" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#b42346"><tspan>a</tspan></text><text x="58.0" y="83.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>P</tspan></text><text x="150.0" y="225.0" text-anchor="middle" dominant-baseline="middle" style="font-family:system-ui,sans-serif;font-size:11px;fill:#7b808c">the radial part points toward O</text></svg><figcaption>Acceleration at θ = π</figcaption></figure></div><p class="small fbdnote">At θ = π the point P is on the negative x axis, so ê_r points in the −x direction and ê_θ points in the −y direction.</p>
+</details>
+<details class="step"><summary>Step 4 · Write the velocity and the acceleration in polar components</summary>
+$$\mathbf v = \dot r\,\hat{\mathbf e}_r + r\dot\theta\,\hat{\mathbf e}_\theta = 6\,\hat{\mathbf e}_r + 30.85\,\hat{\mathbf e}_\theta\ \text{m/s}$$
+$$\mathbf a = \left(\ddot r - r\dot\theta^2\right)\hat{\mathbf e}_r + \left(r\ddot\theta + 2\dot r\dot\theta\right)\hat{\mathbf e}_\theta = \left(0 - 10.28(3)^2\right)\hat{\mathbf e}_r + \left(0 + 2(6)(3)\right)\hat{\mathbf e}_\theta$$
+$$\mathbf a = -92.55\,\hat{\mathbf e}_r + 36.0\,\hat{\mathbf e}_\theta\ \text{m/s}^2$$
+<p>At $\theta = \pi$ the unit vectors are $\hat{\mathbf e}_r = -\hat{\mathbf i}$ and $\hat{\mathbf e}_\theta = -\hat{\mathbf j}$. In Cartesian components the acceleration is therefore</p>
+$$\mathbf a = 92.55\,\hat{\mathbf i} - 36.0\,\hat{\mathbf j}\ \text{m/s}^2$$
+<p class="small">The transverse part, $2\dot r\dot\theta$, is the Coriolis term. It is present because P moves outward while the radial line turns.</p>
+</details>
+<details class="step"><summary>Step 5 · Decide whether the speed is changing</summary>
+<p>The rate of change of speed is the component of the acceleration along the velocity.</p>
+$$\dot v = \frac{\mathbf a\cdot\mathbf v}{v} = \frac{(-92.55)(6) + (36.0)(30.85)}{\sqrt{6^2 + 30.85^2}} = \frac{555.3}{31.43} = 17.7\ \text{m/s}^2$$
+<p>The result is positive, so the speed is increasing. This holds at every point of the path, because $v^2 = \dot r^2 + r^2\dot\theta^2 = 4\dot\theta^2 + r^2\dot\theta^2$ grows as $r$ grows.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>(a) $\mathbf a = -92.6\,\hat{\mathbf e}_r + 36.0\,\hat{\mathbf e}_\theta = 92.6\,\hat{\mathbf i} - 36.0\,\hat{\mathbf j}$ m/s². (b) The speed is increasing, at $\dot v = 17.7$ m/s².</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>The angular rate is constant, yet the speed increases. Explain this in one sentence.</li><li>Change $\dot\theta$. How do the radial and transverse parts of the acceleration scale with $\dot\theta$?</li><li>Which part of the acceleration changes the direction of the velocity, and which part changes its magnitude?</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 1, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-1-c-2.html"><small>← Previous</small>Example 1.C.2</a><a class="next" href="ex-1-c-4.html"><small>Next →</small>Example 1.C.4</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/kit.js"></script>
+<script src="../assets/ch1-exC.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch1-3dC.js"></script>
+</body>
+</html>

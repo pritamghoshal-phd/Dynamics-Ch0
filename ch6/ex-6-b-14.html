@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 6.B.14 · Chapter 6 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 6</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="eom.html">A · Equations of motion</a>
+    <a href="free.html">B · Free vibration</a>
+    <a href="damped.html">B · Damped vibration</a>
+    <a href="forced.html">C · Forced vibration</a>
+    <a href="base.html">C · Base excitation</a>
+    <a href="summary.html">Summary</a>
+    <a href="examples.html" class=active>Examples</a>
+    <a href="badges.html">🏅 Badges</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Free response examples"><a href="examples.html#group-B">All Free response examples</a><a href="ex-6-b-1.html">6.B.1</a><a href="ex-6-b-2.html">6.B.2</a><a href="ex-6-b-3.html">6.B.3</a><a href="ex-6-b-4.html">6.B.4</a><a href="ex-6-b-5.html">6.B.5</a><a href="ex-6-b-6.html">6.B.6</a><a href="ex-6-b-7.html">6.B.7</a><a href="ex-6-b-8.html">6.B.8</a><a href="ex-6-b-9.html">6.B.9</a><a href="ex-6-b-10.html">6.B.10</a><a href="ex-6-b-11.html">6.B.11</a><a href="ex-6-b-12.html">6.B.12</a><a href="ex-6-b-13.html">6.B.13</a><a href="ex-6-b-14.html" class=active>6.B.14</a><a href="ex-6-b-15.html">6.B.15</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-B">Free response</a> › Example 6.B.14</p>
+<h2><span class="num">Example 6.B.14</span>Critical damping of a pinned bar</h2>
+<div class="tags"><span>rotational EOM</span><span>critical damping</span><span>small angles</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>A homogeneous bar of mass $m$ and length $b$ is pinned to ground at point O and moves in a horizontal plane. A spring of stiffness $k$ is attached at a distance $a$ from O, and a dashpot with constant $c$ is attached at the end of the bar, a distance $b$ from O. The other ends of the spring and the dashpot are fixed to ground. Let $\theta$ be the angular orientation of the bar, measured counterclockwise from the position where the spring is unstretched.</p>
+<p><b>Find</b> the value of $c$ for critical damping. Assume small oscillations, so that $\sin\theta \approx \theta$.</p>
+</div>
+<div class="demo" id="x6b-14">
+  <div class="demo-title"><span class="tag">Interactive</span><span>Top view of the bar released from θ₀</span></div>
+  <canvas id="x6b-14-anim" class="anim" style="height:300px"></canvas><canvas id="x6b-14-plot" class="plot" style="height:220px"></canvas>
+  <div class="controls" id="x6b-14-ctl"></div>
+  <div class="bar" id="x6b-14-pre"><span class="lbl">Try:</span></div>
+  <div class="bar" id="x6b-14-btn"></div>
+  <div class="stats" id="x6b-14-stats"></div>
+  <p class="small concept-note">The animation uses $m = 3$ kg, $b = 1.2$ m, $a = 0.7$ m and $k = 200$ N/m, which give $c_{cr} = 16.5$ N·s/m. The presets compare ¼, 1 and 2 times $c_{cr}$. The critically damped bar returns to rest fastest without crossing the rest line.</p>
+</div>
+<div class="demo v3d" data-clip="x6b-14"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Every solution starts from free-body diagrams in a displaced position, then writes the equation of motion and reads off the vibration properties. Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Draw the free-body diagram</summary>
+<div class="fbdrow"><figure style="width:420px;max-width:100%"><svg class="fbd" viewBox="0 0 420 250" role="img" aria-label="Bar, top view, rotated by a small θ" style="max-width:420px"><line x1="80.0" y1="160.0" x2="355.7" y2="111.4" stroke="#8a6a12" stroke-width="15" stroke-linecap="round"/><line x1="80.0" y1="160.0" x2="355.7" y2="111.4" stroke="#f1e6c8" stroke-width="11" stroke-linecap="round"/><circle cx="80.0" cy="160.0" r="4.5" fill="#fff" stroke="#1c1d21" stroke-width="2"/><line x1="230.9" y1="72.6" x2="238.0" y2="113.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="239.9,123.8 232.6,113.9 243.4,112.0" fill="#2457d6"/><line x1="346.7" y1="52.2" x2="353.8" y2="92.5" stroke="#b42346" stroke-width="2.6" stroke-linecap="round"/><polygon points="355.7,103.4 348.4,93.5 359.3,91.6" fill="#b42346"/><line x1="80.0" y1="160.0" x2="57.0" y2="160.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="46.0,160.0 57.0,154.5 57.0,165.5" fill="#17915a"/><line x1="80.0" y1="160.0" x2="80.0" y2="137.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="80.0,126.0 85.5,137.0 74.5,137.0" fill="#17915a"/><line x1="80.0" y1="160.0" x2="370.0" y2="160.0" stroke="#7b808c" stroke-width="1.4" stroke-dasharray="5 4"/><path d="M164.0,160.0 A84,84 0 0 0 162.7,145.4" fill="none" stroke="#7b808c" stroke-width="1.2"/><line x1="80.0" y1="196.0" x2="239.9" y2="196.0" stroke="#7b808c" stroke-width="1.2"/><line x1="80.0" y1="191.0" x2="80.0" y2="201.0" stroke="#7b808c" stroke-width="1.2"/><line x1="239.9" y1="191.0" x2="239.9" y2="201.0" stroke="#7b808c" stroke-width="1.2"/><line x1="80.0" y1="222.0" x2="355.7" y2="222.0" stroke="#7b808c" stroke-width="1.2"/><line x1="80.0" y1="217.0" x2="80.0" y2="227.0" stroke="#7b808c" stroke-width="1.2"/><line x1="355.7" y1="217.0" x2="355.7" y2="227.0" stroke="#7b808c" stroke-width="1.2"/><text x="66.0" y="176.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>O</tspan></text><text x="228.5" y="58.8" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>k aθ</tspan></text><text x="344.3" y="38.4" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#b42346"><tspan>c b θ̇</tspan></text><text x="30.0" y="160.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>O</tspan><tspan dy="4.8" style="font-size:10.8px">x</tspan></text><text x="96.0" y="122.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>O</tspan><tspan dy="4.8" style="font-size:10.8px">y</tspan></text><text x="174.6" y="151.7" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>θ</tspan></text><text x="160.0" y="208.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>a</tspan></text><text x="217.9" y="234.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>b</tspan></text></svg><figcaption>Bar, top view, rotated by a small θ</figcaption></figure></div><p class="small fbdnote">Weight and the vertical pin force are perpendicular to the plane of motion, so they have no moment about the vertical axis through O.</p><p>For a small counterclockwise rotation $\theta$, the spring end moves sideways by $a\theta$ and the dashpot end by $b\theta$ with speed $b\dot\theta$. Both forces push the bar back, perpendicular to it.</p>
+</details>
+<details class="step"><summary>Step 2 · Take moments about the fixed pin O</summary>
+<p>The pin force passes through O. The bar turns about the fixed point O, so</p>
+$$\sum M_O = I_O\ddot\theta: \qquad -(k\,a\theta)\,a - (c\,b\dot\theta)\,b = \tfrac13 m b^2\,\ddot\theta$$
+<p>Here $I_O = \tfrac13 m b^2$ is the moment of inertia of a uniform bar about its end.</p>
+</details>
+<details class="step"><summary>Step 3 · Write the equation of motion in standard form</summary>
+$$\tfrac13 m b^2\,\ddot\theta + c\,b^2\,\dot\theta + k\,a^2\,\theta = 0$$
+<p>This has the form $m_{eq}\ddot\theta + c_{eq}\dot\theta + k_{eq}\theta = 0$ with $m_{eq} = \tfrac13 mb^2$, $c_{eq} = cb^2$ and $k_{eq} = ka^2$. So</p>
+$$\omega_n = \sqrt{\frac{k a^2}{\tfrac13 m b^2}} = \frac{a}{b}\sqrt{\frac{3k}{m}}, \qquad \zeta = \frac{c_{eq}}{2\sqrt{k_{eq}m_{eq}}} = \frac{c\,b^2}{2\sqrt{k a^2\cdot\tfrac13 m b^2}}$$
+</details>
+<details class="step"><summary>Step 4 · Impose critical damping</summary>
+<p>Critical damping means $\zeta = 1$:</p>
+$$c\,b^2 = 2\sqrt{k a^2\cdot\tfrac13 m b^2} = 2ab\sqrt{\frac{km}{3}} \qquad\Longrightarrow\qquad c_{cr} = \frac{2a}{b}\sqrt{\frac{km}{3}}$$
+<p class="small">With the animation values $m = 3$ kg, $b = 1.2$ m, $a = 0.7$ m and $k = 200$ N/m this gives $c_{cr} = 16.5$ N·s/m.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+$$c_{cr} = \frac{2a}{b}\sqrt{\frac{km}{3}}$$
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Move the spring outward (increase $a$). Does $c_{cr}$ go up or down? Why?</li><li>Compare the ¼ $c_{cr}$ and 2 $c_{cr}$ presets. Which one settles faster to within 1° of zero?</li><li>Why does the weight of the bar not appear anywhere in this problem?</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 6, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-6-b-13.html"><small>← Previous</small>Example 6.B.13</a><a class="next" href="ex-6-b-15.html"><small>Next →</small>Example 6.B.15</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/kit.js"></script>
+<script src="../assets/ch6-exB3.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch6-3dB3.js"></script>
+</body>
+</html>

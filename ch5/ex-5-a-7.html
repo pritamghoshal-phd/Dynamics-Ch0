@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 5.A.7 · Chapter 5 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 5</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="newton-euler.html">A · Newton–Euler</a>
+    <a href="work-energy.html">B · Work–energy</a>
+    <a href="impulse-momentum.html">C · Impulse–momentum</a>
+    <a href="examples.html" class=active>Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Newton–Euler equations examples"><a href="examples.html#group-A">All Newton–Euler examples</a><a href="ex-5-a-1.html">5.A.1</a><a href="ex-5-a-2.html">5.A.2</a><a href="ex-5-a-3.html">5.A.3</a><a href="ex-5-a-4.html">5.A.4</a><a href="ex-5-a-5.html">5.A.5</a><a href="ex-5-a-6.html">5.A.6</a><a href="ex-5-a-7.html" class=active>5.A.7</a><a href="ex-5-a-8.html">5.A.8</a><a href="ex-5-a-9.html">5.A.9</a><a href="ex-5-a-10.html">5.A.10</a><a href="ex-5-a-11.html">5.A.11</a><a href="ex-5-a-12.html">5.A.12</a><a href="ex-5-a-13.html">5.A.13</a><a href="ex-5-a-14.html">5.A.14</a><a href="ex-5-a-15.html">5.A.15</a><a href="ex-5-a-16.html">5.A.16</a><a href="ex-5-a-17.html">5.A.17</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-A">Newton–Euler equations</a> › Example 5.A.7</p>
+<h2><span class="num">Example 5.A.7</span>A ladder in an accelerating cart</h2>
+<div class="tags"><span>Newton–Euler</span><span>friction</span><span>impending slip</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>A ladder rests against the rough vertical wall and the rough floor of a cart. A person stands on the ladder so that the mass center of the person and ladder together is at G, a height $h$ above the floor and a horizontal distance $d$ from the wall. The combined weight is $W$. The cart accelerates to the left with acceleration $a$, toward the side with the wall.</p>
+<p><b>Find</b> the smallest coefficient of static friction $\mu_s$, the same at both ends of the ladder, for which the ladder does not slip.</p>
+<p>Use $W = 250$ lb, $\theta = 70°$, $L = 15$ ft, $h = 10$ ft, $d = 5$ ft and $a = 5$ ft/s².</p>
+</div>
+<div class="demo" id="xa-7">
+  <div class="demo-title"><span class="tag">Interactive</span><span>The ladder in the accelerating cart</span></div>
+  <canvas id="xa-7-anim" class="anim" style="height:400px"></canvas>
+  <div class="controls" id="xa-7-ctl"></div>
+  <div class="bar" id="xa-7-pre"><span class="lbl">Try:</span></div>
+  <div class="bar" id="xa-7-btn"></div>
+  <div class="stats" id="xa-7-stats"></div>
+  <p class="small concept-note">The cart accelerates to the left and the view follows the cart, so the ground slides past underneath. The motion of the ladder is simulated from the Newton–Euler equations with friction at both ends, using a sample radius of gyration $k_G = 3$ ft for the ladder and person together. If $\mu_s \ge \mu_{s,\min}$, the ladder stays put and the drawn forces are the limiting values. If $\mu_s$ is smaller, both ends slide: the foot moves away from the wall and the top slides down until it leaves the wall. With the book value $d = 5$ ft, the wall would have to pull on the ladder, so the top leaves the wall at once and the ladder tips backward about its foot A.</p>
+</div>
+<div class="demo v3d" data-clip="xa-7"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Every solution follows the four-step method. Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Draw the free-body diagram</summary>
+<p>The ladder and person are acted on by the weight $W$ at G, by a normal force $N_A$ and a horizontal friction force $F_A$ at the foot A, and by a horizontal normal force $N_B$ and a vertical friction force $F_B$ at the top B. The wall can only push on the ladder, so $N_B \ge 0$. We place the origin at the bottom of the wall, with $x$ to the right and $y$ upward. Then A is at $(x_A, 0)$ with $x_A = L\cos\theta = 5.13$ ft, B is at $(0, y_B)$ with $y_B = L\sin\theta = 14.10$ ft, and G is at $(d, h)$.</p><div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 310 312" role="img" aria-label="Ladder and person, cut free from the cart" style="max-width:310px"><line x1="161.3" y1="246.0" x2="92.0" y2="55.7" stroke="#8a6a12" stroke-width="13" stroke-linecap="round"/><line x1="161.3" y1="246.0" x2="92.0" y2="55.7" stroke="#f1e6c8" stroke-width="9" stroke-linecap="round"/><circle cx="112.2" cy="111.0" r="4" fill="#1c1d21"/><line x1="112.2" y1="111.0" x2="112.2" y2="156.0" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="112.2,167.0 106.8,156.0 117.8,156.0" fill="#c2410c"/><line x1="161.3" y1="286.0" x2="161.3" y2="257.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="161.3,246.0 166.8,257.0 155.8,257.0" fill="#17915a"/><line x1="161.3" y1="246.0" x2="196.3" y2="246.0" stroke="#b42346" stroke-width="2.6" stroke-linecap="round"/><polygon points="207.3,246.0 196.3,251.5 196.3,240.5" fill="#b42346"/><line x1="42.0" y1="55.7" x2="81.0" y2="55.7" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="92.0,55.7 81.0,61.2 81.0,50.2" fill="#17915a"/><line x1="92.0" y1="55.7" x2="92.0" y2="28.7" stroke="#b42346" stroke-width="2.6" stroke-linecap="round"/><polygon points="92.0,17.7 97.5,28.7 86.5,28.7" fill="#b42346"/><line x1="112.2" y1="111.0" x2="250.0" y2="111.0" stroke="#7b808c" stroke-width="1.4" stroke-dasharray="5 4"/><line x1="244.0" y1="111.0" x2="244.0" y2="246.0" stroke="#7b808c" stroke-width="1.2"/><line x1="249.0" y1="111.0" x2="239.0" y2="111.0" stroke="#7b808c" stroke-width="1.2"/><line x1="249.0" y1="246.0" x2="239.0" y2="246.0" stroke="#7b808c" stroke-width="1.2"/><line x1="92.0" y1="61.7" x2="92.0" y2="246.0" stroke="#7b808c" stroke-width="1.4" stroke-dasharray="5 4"/><line x1="92.0" y1="145.0" x2="112.2" y2="145.0" stroke="#7b808c" stroke-width="1.2"/><line x1="92.0" y1="140.0" x2="92.0" y2="150.0" stroke="#7b808c" stroke-width="1.2"/><line x1="112.2" y1="140.0" x2="112.2" y2="150.0" stroke="#7b808c" stroke-width="1.2"/><path d="M149.6,214.1 A34,34 0 0 0 127.3,246.0" fill="none" stroke="#7b808c" stroke-width="1.2"/><line x1="256.0" y1="64.0" x2="279.0" y2="64.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="290.0,64.0 279.0,69.5 279.0,58.5" fill="#7b808c"/><line x1="256.0" y1="64.0" x2="256.0" y2="41.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="256.0,30.0 261.5,41.0 250.5,41.0" fill="#7b808c"/><text x="175.3" y="230.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>A</tspan></text><text x="108.0" y="51.7" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>B</tspan></text><text x="128.2" y="101.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>G</tspan></text><text x="98.2" y="171.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>W</tspan></text><text x="177.3" y="302.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>N</tspan><tspan dy="4.8" style="font-size:10.8px">A</tspan></text><text x="221.3" y="246.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#b42346"><tspan>F</tspan><tspan dy="4.8" style="font-size:10.8px">A</tspan></text><text x="28.0" y="55.7" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>N</tspan><tspan dy="4.8" style="font-size:10.8px">B</tspan></text><text x="108.0" y="11.7" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#b42346"><tspan>F</tspan><tspan dy="4.8" style="font-size:10.8px">B</tspan></text><text x="228.0" y="178.5" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>h</tspan></text><text x="102.1" y="131.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>d</tspan></text><text x="124.4" y="220.2" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>θ</tspan></text><text x="300.0" y="64.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>x</tspan></text><text x="256.0" y="20.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>y</tspan></text></svg><figcaption>Ladder and person, cut free from the cart</figcaption></figure></div><p class="small fbdnote">The forces $F_A$ and $F_B$ are drawn in the positive $x$ and $y$ directions. In the limiting case found below, $F_A$ points toward the wall and $F_B$ points up.</p>
+</details>
+<details class="step"><summary>Step 2 · Write the kinetics equations</summary>
+<p>If the ladder does not slip, it moves with the cart, so $\mathbf a_G = -a\,\hat{\mathbf i}$ and $\alpha = 0$. Newton's equation gives</p>
+$$F_A + N_B = -\frac Wg\,a, \qquad N_A + F_B - W = 0$$
+<p>For a translating body, the moment about any point A equals $\mathbf r_{G/A}\times m\mathbf a_G$. Taking moments about the foot A removes $N_A$ and $F_A$.</p>
+$$-y_B N_B - x_A F_B + (x_A - d)\,W = \frac Wg\,a\,h$$
+</details>
+<details class="step"><summary>Step 3 · Write the friction conditions</summary>
+<p>There are four unknowns and three equations, so we use the condition of impending slip. A rigid ladder can slip in only two ways. Either the foot A slides away from the wall while B slides down, or A slides toward the wall while B slides up. In the first case $F_A = -\mu_s N_A$ and $F_B = +\mu_s N_B$, and in the second case the signs are reversed.</p>
+</details>
+<details class="step"><summary>Step 4 · Solve</summary>
+<p><b>With the book data.</b> Ignoring $F_B$ for a moment, the moment equation gives</p>
+$$N_B \approx \frac{(x_A - d)W - (W/g)\,a\,h}{y_B} = \frac{(5.13 - 5)(250) - (7.76)(5)(10)}{14.10} = -25\ \text{lb}$$
+<p>The wall would have to pull on the ladder. The mass center is almost directly above the foot A, so its weight barely presses the ladder toward the wall, while the acceleration tends to tip it away. Solving the full equations with either friction pattern confirms that no physically consistent solution exists. Equilibrium would require $\mu_s \ge \tan 70° = 2.75$, and even then the friction forces would grow without bound. With these numbers the ladder tips away from the wall.</p>
+<p><b>With G beside the ladder.</b> In the figure in the book, G is drawn just beside the ladder, about $d = 1.5$ ft from the wall at the height $h = 10$ ft. With that value the first friction pattern applies, and the three equations give</p>
+$$N_A = 240.0\ \text{lb}, \quad F_A = -72.0\ \text{lb}, \quad N_B = 33.2\ \text{lb}, \quad F_B = 10.0\ \text{lb}, \quad \mu_s = 0.300$$
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>With the stated value $d = 5$ ft, the wall would have to pull on the ladder ($N_B \approx -25$ lb), so no realistic friction coefficient can hold it and the ladder tips away from the wall. With G placed beside the ladder as drawn ($d \approx 1.5$ ft), the required coefficient is $\mu_{s,min} \approx 0.30$.</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Reduce the acceleration of the cart with the book data. At what acceleration can the wall start pushing again?</li><li>With $d = 1.5$ ft, increase the acceleration. Does the required friction coefficient rise or fall?</li><li>Explain why a mass center far from the wall makes the ladder easier to tip in this cart.</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 5, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-5-a-6.html"><small>← Previous</small>Example 5.A.6</a><a class="next" href="ex-5-a-8.html"><small>Next →</small>Example 5.A.8</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/ch5.js"></script>
+<script src="../assets/ch5-exA1.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch5-3dA1.js"></script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 3.A.4 · Chapter 3 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 3</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="frames-2d.html">A · 2D rotating frames</a>
+    <a href="frames-3d.html">B · 3D rotating frames</a>
+    <a href="coriolis.html">C · Coriolis in real life</a>
+    <a href="examples.html" class=active>Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="2D rotating frames examples"><a href="examples.html#group-A">All 2D rotating frames examples</a><a href="ex-3-a-1.html">3.A.1</a><a href="ex-3-a-2.html">3.A.2</a><a href="ex-3-a-3.html">3.A.3</a><a href="ex-3-a-4.html" class=active>3.A.4</a><a href="ex-3-a-5.html">3.A.5</a><a href="ex-3-a-6.html">3.A.6</a><a href="ex-3-a-7.html">3.A.7</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-A">2D rotating frames</a> › Example 3.A.4</p>
+<h2><span class="num">Example 3.A.4</span>Pin in a slot of a spinning disk, held by a hanging link</h2>
+<div class="tags"><span>slot</span><span>two descriptions</span><span>Coriolis</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>A disk turns counterclockwise about a fixed pin at O at the constant rate $\omega$. Pin P slides in a straight slot cut in the disk, and P is also the lower end of link AP, which hangs from a fixed pin at A. The $xyz$ axes are attached to the disk. The slot makes the angle $\theta$ with the $x$ axis. At the instant shown, P is on the $x$ axis, the $x$ axis is horizontal, and link AP is vertical.</p>
+<p>The data are $\omega = 8$ rad/s, $r = 0.2$ m (the distance OP), $L = 0.3$ m (the length of AP) and $\theta = 36.87°$.</p>
+<p><b>Find</b> (a) the angular velocity of link AP and (b) the angular acceleration of link AP at this instant.</p>
+</div>
+<div class="demo" id="x3a-4">
+  <div class="demo-title"><span class="tag">Interactive</span><span>The spinning disk drives link AP through the pin in the slot</span></div>
+  <canvas id="x3a-4-anim" class="anim" style="height:460px"></canvas><canvas id="x3a-4-plot" class="plot" style="height:220px"></canvas><div class="legendrow"><span><span class="sw" style="background:var(--c5)"></span>v<sub>O</sub>, a<sub>O</sub></span><span><span class="sw" style="background:var(--c4)"></span>α × r</span><span><span class="sw" style="background:var(--c3)"></span>ω × r, −ω²r</span><span><span class="sw" style="background:#a61e4d"></span>2ω × v<sub>rel</sub> (Coriolis)</span><span><span class="sw" style="background:var(--c2)"></span>v<sub>rel</sub>, a<sub>rel</sub></span><span><span class="sw" style="background:var(--c1)"></span>total</span></div>
+  <div class="bar" id="x3a-4-pre"><span class="lbl">Try:</span></div>
+  <div class="bar" id="x3a-4-btn"></div>
+  <div class="stats" id="x3a-4-stats"></div>
+  <p class="small concept-note">At every disk angle the animation finds the position of P from the two constraints, so the motion is exact. The instant in the problem is close to a position where the mechanism locks (about 10° before it), which is why the link turns quickly there. Use the chips to switch between the velocity terms and the acceleration terms, or to freeze the picture at the instant in the problem. The purple axes are the moving frame. They turn with the body they are attached to.</p>
+</div>
+<div class="demo v3d" data-clip="x3a-4"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Choose the moving frame</summary>
+<p>Attach the $xyz$ frame to the disk with its origin at the fixed pin O. Then</p>
+<div class="formula">$$\vec v_O = \vec a_O = \vec 0, \qquad \vec\omega = 8\,\hat k\ \text{rad/s}, \qquad \vec\alpha = \vec 0$$</div>
+</details>
+<details class="step"><summary>Step 2 · Describe the motion of P relative to the disk</summary>
+<p>P is at $\vec r_{P/O} = r\,\hat\imath = 0.2\,\hat\imath$ m. Relative to the disk, P can only slide along the straight slot, whose direction is $\hat e = \cos\theta\,\hat\imath + \sin\theta\,\hat\jmath = 0.8\,\hat\imath + 0.6\,\hat\jmath$. Its relative speed $u$ and relative rate of change of speed $\dot u$ are unknown.</p>
+<div class="formula">$$\vec v_{rel} = u\,\hat e, \qquad \vec a_{rel} = \dot u\,\hat e$$</div>
+<p>The slot is straight, so the relative acceleration has no normal part.</p>
+<div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 320 330" role="img" aria-label="The disk, the slot, link AP and the frame xyz" style="max-width:320px"><circle cx="130.0" cy="200.0" r="108.9" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><line x1="90.4" y1="279.2" x2="217.1" y2="184.2" stroke="#1b1a17" stroke-width="13" stroke-linecap="round"/><line x1="90.4" y1="279.2" x2="217.1" y2="184.2" stroke="#fff" stroke-width="9" stroke-linecap="round"/><line x1="196.0" y1="101.0" x2="196.0" y2="200.0" stroke="#8a6a12" stroke-width="12" stroke-linecap="round"/><line x1="196.0" y1="101.0" x2="196.0" y2="200.0" stroke="#f1e6c8" stroke-width="8" stroke-linecap="round"/><line x1="130.0" y1="200.0" x2="159.0" y2="200.0" stroke="#7b3f8c" stroke-width="1.6" stroke-linecap="round"/><polygon points="170.0,200.0 159.0,205.5 159.0,194.5" fill="#7b3f8c"/><line x1="130.0" y1="200.0" x2="130.0" y2="171.0" stroke="#7b3f8c" stroke-width="1.6" stroke-linecap="round"/><polygon points="130.0,160.0 135.5,171.0 124.5,171.0" fill="#7b3f8c"/><circle cx="196.0" cy="101.0" r="4.5" fill="#fff" stroke="#1c1d21" stroke-width="2"/><circle cx="196.0" cy="200.0" r="5" fill="#1c1d21"/><circle cx="130.0" cy="200.0" r="3" fill="#1c1d21"/><path d="M105.6,208.9 L106.1,210.2 L106.6,211.4 L107.3,212.6 L108.0,213.8 L108.7,214.9 L109.5,216.0 L110.4,217.1 L111.3,218.1 L112.3,219.0 L113.3,219.9 L114.4,220.8 L115.5,221.6 L116.6,222.3 L117.8,223.0 L119.0,223.6 L120.3,224.1 L121.5,224.6 L122.8,225.0 L124.2,225.3 L125.5,225.6 L126.8,225.8 L128.2,225.9 L129.5,226.0 L130.9,226.0 L132.3,225.9 L133.6,225.7 L135.0,225.5 L136.3,225.2 L137.6,224.9 L138.9,224.4 L140.2,223.9 L141.4,223.4 L142.6,222.7 L143.8,222.0 L144.9,221.3 L146.0,220.5 L147.1,219.6 L148.1,218.7 L149.0,217.7 L149.9,216.7" fill="none" stroke="#2a7f62" stroke-width="2.2"/><polygon points="152.6,213.8 149.5,224.5 142.2,217.7" fill="#2a7f62"/><path d="M242.0,200.0 A46,46 0 0 0 232.8,172.4" fill="none" stroke="#7b808c" stroke-width="1.2"/><line x1="196.0" y1="200.0" x2="256.0" y2="200.0" stroke="#7b808c" stroke-width="1" stroke-dasharray="5 4"/><line x1="130.0" y1="224.0" x2="196.0" y2="224.0" stroke="#7b808c" stroke-width="1.2"/><line x1="130.0" y1="219.0" x2="130.0" y2="229.0" stroke="#7b808c" stroke-width="1.2"/><line x1="196.0" y1="219.0" x2="196.0" y2="229.0" stroke="#7b808c" stroke-width="1.2"/><line x1="170.0" y1="101.0" x2="170.0" y2="200.0" stroke="#7b808c" stroke-width="1.2"/><line x1="175.0" y1="101.0" x2="165.0" y2="101.0" stroke="#7b808c" stroke-width="1.2"/><line x1="175.0" y1="200.0" x2="165.0" y2="200.0" stroke="#7b808c" stroke-width="1.2"/><text x="180.0" y="200.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b3f8c"><tspan>x</tspan></text><text x="130.0" y="150.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b3f8c"><tspan>y</tspan></text><text x="212.0" y="97.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>A</tspan></text><text x="210.0" y="214.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>P</tspan></text><text x="118.0" y="214.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:14px;font-style:italic;fill:#1c1d21"><tspan>O</tspan></text><text x="123.2" y="238.4" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2a7f62"><tspan>ω</tspan></text><text x="250.1" y="182.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>θ</tspan></text><text x="163.0" y="236.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>r</tspan></text><text x="150.0" y="150.5" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>L</tspan></text></svg><figcaption>The disk, the slot, link AP and the frame xyz</figcaption></figure></div>
+</details>
+<details class="step"><summary>Step 3 · Describe P a second way, as a point of link AP</summary>
+<p>P is also the end of link AP, which turns about the fixed pin A. With $\vec r_{P/A} = -L\,\hat\jmath$,</p>
+<div class="formula">$$\vec v_P = \omega_{AP}\hat k\times(-L\,\hat\jmath) = L\,\omega_{AP}\,\hat\imath, \qquad \vec a_P = \alpha_{AP}\hat k\times(-L\,\hat\jmath) - \omega_{AP}^2\,(-L\,\hat\jmath) = L\,\alpha_{AP}\,\hat\imath + L\,\omega_{AP}^2\,\hat\jmath$$</div>
+<p>The two descriptions must give the same velocity and the same acceleration for P. This gives two scalar equations each time.</p>
+</details>
+<details class="step"><summary>Step 4 · Solve the velocity equations</summary>
+<p>With the moving frame,</p>
+<div class="formula">$$\vec v_P = \vec\omega\times\vec r_{P/O} + \vec v_{rel} = \omega r\,\hat\jmath + u\,(0.8\,\hat\imath + 0.6\,\hat\jmath)$$</div>
+<p>Setting this equal to $L\,\omega_{AP}\,\hat\imath$ and comparing components,</p>
+<div class="formula">$$\hat\jmath:\ \ \omega r + 0.6\,u = 0 \ \Rightarrow\ u = -\frac{(8)(0.2)}{0.6} = -2.667\ \text{m/s}$$</div>
+<div class="formula">$$\hat\imath:\ \ 0.8\,u = L\,\omega_{AP} \ \Rightarrow\ \omega_{AP} = \frac{0.8(-2.667)}{0.3} = -7.11\ \text{rad/s}$$</div>
+<p>The negative value of $u$ means that P slides down and to the left along the slot.</p>
+<div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 240 200" role="img" aria-label="The velocity terms at P, drawn to scale" style="max-width:240px"><circle cx="190.0" cy="120.0" r="4" fill="#1c1d21"/><line x1="190.0" y1="120.0" x2="190.0" y2="54.2" stroke="#2a7f62" stroke-width="2.6" stroke-linecap="round"/><polygon points="190.0,43.2 195.5,54.2 184.5,54.2" fill="#2a7f62"/><line x1="190.0" y1="43.2" x2="96.4" y2="113.4" stroke="#c2571a" stroke-width="2.6" stroke-linecap="round"/><polygon points="87.6,120.0 93.1,109.0 99.7,117.8" fill="#c2571a"/><line x1="190.0" y1="120.0" x2="98.6" y2="120.0" stroke="#1f3a5f" stroke-width="3.4" stroke-linecap="round"/><polygon points="87.6,120.0 98.6,114.5 98.6,125.5" fill="#1f3a5f"/><text x="202.0" y="128.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>P</tspan></text><text x="210.0" y="81.6" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2a7f62"><tspan>ω×r</tspan></text><text x="126.8" y="65.6" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2571a"><tspan>v</tspan><tspan dy="4.8" style="font-size:10.8px">rel</tspan></text><text x="138.8" y="106.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1f3a5f"><tspan>v</tspan><tspan dy="4.8" style="font-size:10.8px">P</tspan></text></svg><figcaption>The velocity terms at P, drawn to scale</figcaption></figure></div>
+</details>
+<details class="step"><summary>Step 5 · Solve the acceleration equations</summary>
+<p>With the moving frame, the nonzero terms are</p>
+<div class="formula">$$-\omega^2\,\vec r_{P/O} = -12.8\,\hat\imath, \qquad 2\,\vec\omega\times\vec v_{rel} = 2(8)(-2.667)\,\hat k\times(0.8\,\hat\imath + 0.6\,\hat\jmath) = 25.6\,\hat\imath - 34.13\,\hat\jmath, \qquad \vec a_{rel} = \dot u\,(0.8\,\hat\imath + 0.6\,\hat\jmath)$$</div>
+<p>Setting the sum equal to $L\,\alpha_{AP}\,\hat\imath + L\,\omega_{AP}^2\,\hat\jmath$, where $L\,\omega_{AP}^2 = 0.3(7.111)^2 = 15.17$ m/s²,</p>
+<div class="formula">$$\hat\jmath:\ \ -34.13 + 0.6\,\dot u = 15.17 \ \Rightarrow\ \dot u = 82.17\ \text{m/s}^2$$</div>
+<div class="formula">$$\hat\imath:\ \ -12.8 + 25.6 + 0.8\,(82.17) = 0.3\,\alpha_{AP} \ \Rightarrow\ \alpha_{AP} = 261.8\ \text{rad/s}^2$$</div>
+<div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 320 260" role="img" aria-label="The acceleration terms at P, drawn to scale" style="max-width:320px"><circle cx="100.0" cy="120.0" r="4" fill="#1c1d21"/><line x1="100.0" y1="120.0" x2="88.6" y2="120.0" stroke="#2a7f62" stroke-width="2.6" stroke-linecap="round"/><polygon points="77.6,120.0 88.6,114.5 88.6,125.5" fill="#2a7f62"/><line x1="77.6" y1="120.0" x2="115.8" y2="170.9" stroke="#a61e4d" stroke-width="2.6" stroke-linecap="round"/><polygon points="122.4,179.7 111.4,174.2 120.2,167.6" fill="#a61e4d"/><line x1="122.4" y1="179.7" x2="228.6" y2="100.1" stroke="#c2571a" stroke-width="2.6" stroke-linecap="round"/><polygon points="237.4,93.5 231.9,104.5 225.3,95.7" fill="#c2571a"/><line x1="100.0" y1="120.0" x2="226.6" y2="95.5" stroke="#1f3a5f" stroke-width="3.4" stroke-linecap="round"/><polygon points="237.4,93.5 227.7,100.9 225.6,90.1" fill="#1f3a5f"/><text x="96.0" y="106.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>P</tspan></text><text x="88.8" y="82.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2a7f62"><tspan>−ω</tspan><tspan dy="-5.7" style="font-size:10.8px">2</tspan><tspan dy="5.7">r</tspan></text><text x="69.6" y="172.7" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#a61e4d"><tspan>2ω×v</tspan><tspan dy="4.8" style="font-size:10.8px">rel</tspan></text><text x="191.9" y="152.6" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2571a"><tspan>a</tspan><tspan dy="4.8" style="font-size:10.8px">rel</tspan></text><text x="171.4" y="120.5" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1f3a5f"><tspan>a</tspan><tspan dy="4.8" style="font-size:10.8px">P</tspan></text></svg><figcaption>The acceleration terms at P, drawn to scale</figcaption></figure></div>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>(a) $\vec\omega_{AP} = -7.11\,\hat k$ rad/s, which is 7.11 rad/s clockwise. (b) $\vec\alpha_{AP} = 262\,\hat k$ rad/s², which is 262 rad/s² counterclockwise.</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Watch the plot of $\omega_{AP}$. Why is the link turning so fast at the instant in the problem?</li><li>Show the acceleration terms and play the motion. Which term is responsible for most of the acceleration of P near the instant?</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 3, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-3-a-3.html"><small>← Previous</small>Example 3.A.3</a><a class="next" href="ex-3-a-5.html"><small>Next →</small>Example 3.A.5</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/kit.js"></script>
+<script src="../assets/ch3-exA.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch3-3dA.js"></script>
+</body>
+</html>

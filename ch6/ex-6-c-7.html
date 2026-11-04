@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 6.C.7 · Chapter 6 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 6</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="eom.html">A · Equations of motion</a>
+    <a href="free.html">B · Free vibration</a>
+    <a href="damped.html">B · Damped vibration</a>
+    <a href="forced.html">C · Forced vibration</a>
+    <a href="base.html">C · Base excitation</a>
+    <a href="summary.html">Summary</a>
+    <a href="examples.html" class=active>Examples</a>
+    <a href="badges.html">🏅 Badges</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Forced response examples"><a href="examples.html#group-C">All Forced response examples</a><a href="ex-6-c-1.html">6.C.1</a><a href="ex-6-c-2.html">6.C.2</a><a href="ex-6-c-3.html">6.C.3</a><a href="ex-6-c-4.html">6.C.4</a><a href="ex-6-c-5.html">6.C.5</a><a href="ex-6-c-6.html">6.C.6</a><a href="ex-6-c-7.html" class=active>6.C.7</a><a href="ex-6-c-8.html">6.C.8</a><a href="ex-6-c-9.html">6.C.9</a><a href="ex-6-c-10.html">6.C.10</a><a href="ex-6-c-11.html">6.C.11</a><a href="ex-6-c-12.html">6.C.12</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-C">Forced response</a> › Example 6.C.7</p>
+<h2><span class="num">Example 6.C.7</span>Keeping a base-excited block below 1.5 times the base motion</h2>
+<div class="tags"><span>base excitation</span><span>frequency band</span><span>resonance</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>Block A, of mass $m$, rolls on a smooth floor between two springs of stiffness $k$. The left spring is attached to a base B that is given the prescribed motion $y(t) = y_0\sin\omega t$. The right spring is attached to a fixed wall. The coordinate $x$ of the block is measured from the position where both springs are unstretched.</p>
+<p>The data are $m = 4$ kg and $k = 800$ N/m.</p>
+<p><b>Find</b> the range of forcing frequencies $\omega$ for which the amplitude of the motion of block A does not exceed $1.5\,y_0$.</p>
+</div>
+<div class="demo" id="x6c-7">
+  <div class="demo-title"><span class="tag">Interactive</span><span>The base B drives the block through the left spring</span></div>
+  <canvas id="x6c-7-anim" class="anim" style="height:300px"></canvas><div class="grid2"><canvas id="x6c-7-xt" class="plot" style="height:210px"></canvas><canvas id="x6c-7-fr" class="plot" style="height:210px"></canvas></div>
+  <div class="controls" id="x6c-7-ctl"></div>
+  <div class="bar" id="x6c-7-pre"><span class="lbl">Try:</span></div>
+  <div class="bar" id="x6c-7-btn"></div>
+  <div class="stats" id="x6c-7-stats"></div>
+  <p class="small concept-note">The animation integrates the full equation of motion from rest, so you see the transient and the steady state together. The chip "Steady state only" shows the particular solution alone. The left plot follows the motion over the last 2.5 s, with the predicted steady-state amplitude drawn as dashed lines. The right plot is the frequency response, and the dot marks the current forcing frequency. The book's systems have no damper. The optional damping slider stands for small friction losses and shows how the transient dies out.</p>
+</div>
+<div class="demo v3d" data-clip="x6c-7"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Every solution starts from free-body diagrams in a displaced position, then writes the equation of motion and reads off the vibration properties. Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Draw the free-body diagram</summary>
+<p>Draw the block in a displaced position with $x > 0$ while the base is displaced by $y$. The left spring is then stretched by $x - y$, and the right spring is compressed by $x$. Both spring forces act to the left.</p>
+<div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 340 250" role="img" aria-label="Block A in a displaced position" style="max-width:340px"><rect x="-48.0" y="-35.0" width="96.0" height="70.0" rx="4" transform="translate(170.0,118.0) rotate(0.0)" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><circle cx="170.0" cy="118.0" r="4" fill="#1c1d21"/><line x1="122.0" y1="118.0" x2="53.0" y2="118.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="42.0,118.0 53.0,112.5 53.0,123.5" fill="#2457d6"/><line x1="298.0" y1="118.0" x2="229.0" y2="118.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="218.0,118.0 229.0,112.5 229.0,123.5" fill="#2457d6"/><line x1="170.0" y1="153.0" x2="170.0" y2="194.0" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="170.0,205.0 164.5,194.0 175.5,194.0" fill="#c2410c"/><line x1="144.0" y1="197.0" x2="144.0" y2="164.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="144.0,153.0 149.5,164.0 138.5,164.0" fill="#17915a"/><line x1="196.0" y1="197.0" x2="196.0" y2="164.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="196.0,153.0 201.5,164.0 190.5,164.0" fill="#17915a"/><line x1="32.0" y1="224.0" x2="55.0" y2="224.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="66.0,224.0 55.0,229.5 55.0,218.5" fill="#7b808c"/><line x1="32.0" y1="224.0" x2="32.0" y2="201.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="32.0,190.0 37.5,201.0 26.5,201.0" fill="#7b808c"/><text x="170.0" y="118.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:16px;font-style:italic;fill:#1c1d21"><tspan>m</tspan></text><text x="30.0" y="104.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>k(x − y)</tspan></text><text x="310.0" y="104.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>kx</tspan></text><text x="194.0" y="217.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>mg</tspan></text><text x="128.0" y="209.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>N</tspan><tspan dy="4.8" style="font-size:10.8px">1</tspan></text><text x="212.0" y="209.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>N</tspan><tspan dy="4.8" style="font-size:10.8px">2</tspan></text><text x="76.0" y="224.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>x</tspan></text><text x="32.0" y="180.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>y</tspan></text></svg><figcaption>Block A in a displaced position</figcaption></figure></div><p class="small fbdnote">The block is drawn with $x > 0$ and the base displaced by $y$. The left spring is stretched by $x - y$ and pulls the block to the left. The right spring is compressed by $x$ and pushes the block to the left. The weight and the normal forces are vertical, so they do not enter the $x$ equation.</p>
+</details>
+<details class="step"><summary>Step 2 · Write the equation of motion</summary>
+<p>Newton's second law in the $x$ direction gives</p>
+$$m\ddot x = -k\,(x - y) - kx \qquad\Longrightarrow\qquad m\ddot x + 2kx = k\,y_0\sin\omega t$$
+<p>This is an undamped oscillator with equivalent stiffness $2k$ and a harmonic force of amplitude $F_0 = k\,y_0$.</p>
+</details>
+<details class="step"><summary>Step 3 · Find the natural frequency and the steady-state amplitude</summary>
+<p>The natural frequency is</p>
+$$\omega_n = \sqrt{\frac{2k}{m}} = \sqrt{\frac{2(800)}{4}} = 20\ \text{rad/s}$$
+<p>The particular solution has the form $x_p = X\sin\omega t$. Substituting it into the equation of motion gives</p>
+$$X = \frac{F_0/(2k)}{1 - r^2} = \frac{y_0/2}{1 - r^2}, \qquad r = \frac{\omega}{\omega_n}$$
+<p>A negative $X$ means that the block moves opposite to the base.</p>
+</details>
+<details class="step"><summary>Step 4 · Apply the amplitude limit</summary>
+<p>The amplitude of the motion is $|X|$, and we need $|X| \le 1.5\,y_0$.</p>
+$$\frac{1}{2\,|1 - r^2|} \le 1.5 \qquad\Longrightarrow\qquad |1 - r^2| \ge \frac13$$
+<p>Below resonance ($r < 1$) this requires $1 - r^2 \ge 1/3$, so $r^2 \le 2/3$. Above resonance ($r > 1$) it requires $r^2 - 1 \ge 1/3$, so $r^2 \ge 4/3$.</p>
+$$\omega \le 20\sqrt{2/3} = 16.33\ \text{rad/s} \qquad\text{or}\qquad \omega \ge 20\sqrt{4/3} = 23.09\ \text{rad/s}$$
+<p>Between these two frequencies the response grows toward resonance at $\omega_n = 20$ rad/s, and the amplitude exceeds $1.5\,y_0$. The green bands on the frequency-response plot are the allowed ranges.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>The amplitude of A stays at or below $1.5\,y_0$ for $\omega \le 16.33$ rad/s or $\omega \ge 23.09$ rad/s. Frequencies between these values, which surround the natural frequency $\omega_n = 20$ rad/s, must be avoided.</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Choose $\omega = 16.33$ rad/s with the steady state only. Check that the amplitude in the stats is exactly $1.5\,y_0$.</li><li>Set $\omega = 20$ rad/s and play the full response. Explain why the amplitude grows steadily instead of settling.</li><li>Add a little damping and play the full response at $\omega = 12$ rad/s. How long does the transient take to die out?</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 6, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-6-c-6.html"><small>← Previous</small>Example 6.C.6</a><a class="next" href="ex-6-c-8.html"><small>Next →</small>Example 6.C.8</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/kit.js"></script>
+<script src="../assets/ch6-exC2.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch6-3dC2.js"></script>
+</body>
+</html>

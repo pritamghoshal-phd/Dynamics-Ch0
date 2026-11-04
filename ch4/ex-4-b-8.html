@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 4.B.8 · Chapter 4 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 4</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="newton.html">A · Newton's laws</a>
+    <a href="energy.html">B · Work–energy</a>
+    <a href="impulse.html">C · Linear impulse–momentum</a>
+    <a href="angular.html">D · Angular impulse–momentum</a>
+    <a href="examples.html" class=active>Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Work and energy examples"><a href="examples.html#group-B">All Work and energy examples</a><a href="ex-4-b-1.html">4.B.1</a><a href="ex-4-b-2.html">4.B.2</a><a href="ex-4-b-3.html">4.B.3</a><a href="ex-4-b-4.html">4.B.4</a><a href="ex-4-b-5.html">4.B.5</a><a href="ex-4-b-6.html">4.B.6</a><a href="ex-4-b-7.html">4.B.7</a><a href="ex-4-b-8.html" class=active>4.B.8</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-B">Work and energy</a> › Example 4.B.8</p>
+<h2><span class="num">Example 4.B.8</span>Block pushed up a smooth slot against a spring</h2>
+<div class="tags"><span>work–energy</span><span>springs</span><span>geometry</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>Block A, of mass $m$, slides in a smooth slot inclined at $\theta = 53.13°$ to the horizontal. A spring of stiffness $k$ connects A to a fixed pin O below the slot. A constant horizontal force $F$ acts on the block. The system is released from rest in position 1, where the spring is perpendicular to the slot and unstretched. In position 2, a distance $d$ farther up the slot, block A is directly above O.</p>
+<p>Use $m = 5$ kg, $k = 50$ N/m, $d = 0.2$ m and $F = 300$ N.</p>
+<p><b>Find</b> the speed of A in position 2, assuming that it gets there. If A does not reach position 2, explain why not.</p>
+</div>
+<div class="demo" id="x4b-8">
+  <div class="demo-title"><span class="tag">Interactive</span><span>The force F drives the block up the slot</span></div>
+  <canvas id="x4b-8-anim" class="anim" style="height:400px"></canvas>
+  <div class="controls" id="x4b-8-ctl"></div>
+  <div class="bar" id="x4b-8-pre"><span class="lbl">Try:</span></div>
+  <div class="bar" id="x4b-8-btn"></div>
+  <div class="stats" id="x4b-8-stats"></div>
+  <p class="small concept-note">The bars show the work of $F$, the work of gravity, the spring energy and the kinetic energy. The dashed spring marks position 2, where A is directly above O. Lower $F$ to see a case in which the block cannot reach position 2.</p>
+</div>
+<div class="demo v3d" data-clip="x4b-8"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Every solution follows the four-step method: free-body diagrams, kinetics equations, kinematics, solve. Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Draw the free-body diagram</summary>
+<p>We isolate block A. The forces are the horizontal force $F$, the weight $mg$, the spring force $F_s$ directed toward O, and the force $N$ of the smooth slot.</p><div class="fbdrow"><figure style="width:min(360px,100%)"><svg class="fbd" viewBox="0 0 360 300" role="img" aria-label="Block A at a general position in the slot" style="max-width:360px"><line x1="93.0" y1="241.0" x2="237.0" y2="49.0" stroke="#7b808c" stroke-width="1.2" stroke-dasharray="5 4"/><rect x="-37.0" y="-23.0" width="74.0" height="46.0" rx="4" transform="translate(165.0,145.0) rotate(-53.1)" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><line x1="63.0" y1="145.0" x2="118.0" y2="145.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="129.0,145.0 118.0,150.5 118.0,139.5" fill="#2457d6"/><line x1="161.0" y1="163.0" x2="161.0" y2="216.0" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="161.0,227.0 155.5,216.0 166.5,216.0" fill="#c2410c"/><line x1="113.8" y1="81.6" x2="149.8" y2="108.6" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="158.6,115.2 146.5,113.0 153.1,104.2" fill="#17915a"/><line x1="188.2" y1="137.4" x2="217.7" y2="188.5" stroke="#b42346" stroke-width="2.6" stroke-linecap="round"/><polygon points="223.2,198.0 212.9,191.2 222.5,185.7" fill="#b42346"/><line x1="40.0" y1="278.0" x2="53.0" y2="278.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="64.0,278.0 53.0,283.5 53.0,272.5" fill="#7b808c"/><line x1="40.0" y1="278.0" x2="40.0" y2="265.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="40.0,254.0 45.5,265.0 34.5,265.0" fill="#7b808c"/><text x="125.0" y="111.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:16px;font-style:italic;fill:#1c1d21"><tspan>A</tspan></text><text x="49.0" y="145.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>F</tspan></text><text x="141.0" y="229.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>mg</tspan></text><text x="102.6" y="73.2" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>N</tspan></text><text x="245.2" y="208.4" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#b42346"><tspan>F</tspan><tspan dy="4.8" style="font-size:10.8px">s</tspan></text><text x="250.0" y="262.0" text-anchor="middle" dominant-baseline="middle" style="font-family:system-ui,sans-serif;font-size:11px;fill:#7b808c">the spring force points toward O</text><text x="74.0" y="278.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>x</tspan></text><text x="40.0" y="244.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>y</tspan></text></svg><figcaption>Block A at a general position in the slot</figcaption></figure></div><p class="small fbdnote">The slot is smooth, so its force $N$ is perpendicular to the motion and does no work. The force $F$ and the weight $mg$ are constant. The spring force $F_s = k(\ell - \ell_0)$ points along the spring toward O, and we count its work through the spring potential energy.</p>
+</details>
+<details class="step"><summary>Step 2 · Work out the geometry</summary>
+<p>Let $\ell_0$ be the perpendicular distance from O to the slot, which is the spring length in position 1. In position 2 the spring is vertical and the block has moved $d$ along the slot. The triangle formed by O, position 1 and position 2 has a right angle at position 1, and at position 2 the vertical side makes the angle $90° - \theta$ with the slot. Therefore</p>
+$$\ell_0 = d\tan(90° - \theta) = d\,\frac{\cos\theta}{\sin\theta} = 0.2\left(\frac{0.6}{0.8}\right) = 0.15\ \text{m}$$
+$$\ell_2 = \sqrt{\ell_0^2 + d^2} = \sqrt{0.15^2 + 0.2^2} = 0.25\ \text{m}$$
+<p>The spring is stretched by $\ell_2 - \ell_0 = 0.10$ m in position 2. Moving $d$ up the slot carries the block $d\cos\theta = 0.12$ m to the right and $d\sin\theta = 0.16$ m up.</p>
+</details>
+<details class="step"><summary>Step 3 · Write the work–energy equation</summary>
+<p>The slot force does no work. We count the spring through its potential energy and compute the works of the constant forces $F$ and $mg$ directly.</p>
+$$T_1 + U_{1\to2}^{F} + U_{1\to2}^{g} = T_2 + V_{s2} - V_{s1}$$
+$$U_{1\to2}^{F} = F(d\cos\theta) = 300(0.12) = 36.0\ \text{J}, \qquad U_{1\to2}^{g} = -mg(d\sin\theta) = -5(9.81)(0.16) = -7.85\ \text{J}$$
+$$V_{s2} - V_{s1} = \tfrac12(50)(0.10)^2 - 0 = 0.25\ \text{J}$$
+</details>
+<details class="step"><summary>Step 4 · Solve and check that A reaches position 2</summary>
+$$\tfrac12(5)\,v_2^2 = 36.0 - 7.85 - 0.25 = 27.90\ \text{J} \quad\Longrightarrow\quad v_2 = \sqrt{\frac{2(27.90)}{5}} = 3.34\ \text{m/s}$$
+<p>The block does reach position 2. At any distance $s$ up the slot, the kinetic energy is</p>
+$$T(s) = 180s - 39.2s - \tfrac12(50)\left(\sqrt{0.15^2 + s^2} - 0.15\right)^2$$
+<p>This is positive for every $s$ between 0 and $d$, so the block never stops on the way.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>Block A reaches position 2 with a speed $v_2 = 3.34$ m/s up the slot.</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Find the smallest force $F$ for which the block still starts to move up the slot.</li><li>Set $F$ just above that value. Does the block reach position 2 now? Use the kinetic-energy bar to decide.</li><li>Why is the spring perpendicular to the slot in position 1 important for the start of the motion?</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 4, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-4-b-7.html"><small>← Previous</small>Example 4.B.7</a><a class="next" href="ex-4-c-1.html"><small>Next →</small>Example 4.C.1</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/kit.js"></script>
+<script src="../assets/ch4-exB.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch4-3dB.js"></script>
+</body>
+</html>

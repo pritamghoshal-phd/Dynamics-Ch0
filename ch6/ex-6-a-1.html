@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 6.A.1 · Chapter 6 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 6</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="eom.html">A · Equations of motion</a>
+    <a href="free.html">B · Free vibration</a>
+    <a href="damped.html">B · Damped vibration</a>
+    <a href="forced.html">C · Forced vibration</a>
+    <a href="base.html">C · Base excitation</a>
+    <a href="summary.html">Summary</a>
+    <a href="examples.html" class=active>Examples</a>
+    <a href="badges.html">🏅 Badges</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Equations of motion examples"><a href="examples.html#group-A">All Equations of motion examples</a><a href="ex-6-a-1.html" class=active>6.A.1</a><a href="ex-6-a-2.html">6.A.2</a><a href="ex-6-a-3.html">6.A.3</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-A">Equations of motion</a> › Example 6.A.1</p>
+<h2><span class="num">Example 6.A.1</span>Particle on a spring and a dashpot</h2>
+<div class="tags"><span>equation of motion</span><span>spring</span><span>dashpot</span><span>gravity</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>A particle of mass $m$ is supported by a spring of stiffness $k$ and a dashpot with damping constant $c$. A vertical force $f(t)$ acts upward on the particle, as shown in the animation. Let $x$ describe the position of the particle, where $x$ is measured downward from the position of the particle when the spring is unstretched.</p>
+<p><b>Find</b> the equation of motion (EOM) of this system in terms of the coordinate $x$.</p>
+<p class="small">The animation uses $m = 1$ kg, $k = 100$ N/m and $c = 2$ N·s/m. You can change them, and you can switch on a harmonic force $f(t) = F_0\sin\Omega t$.</p>
+</div>
+<div class="demo" id="x6a-1">
+  <div class="demo-title"><span class="tag">Interactive</span><span>The particle released at the unstretched length</span></div>
+  <div class="grid2"><canvas id="x6a-1-anim" class="anim" style="height:400px"></canvas><div><canvas id="x6a-1-plot" class="plot" style="height:400px"></canvas></div></div>
+  <div class="controls" id="x6a-1-ctl"></div>
+  <div class="bar" id="x6a-1-pre"><span class="lbl">Try:</span></div>
+  <div class="bar" id="x6a-1-btn"></div>
+  <div class="stats" id="x6a-1-stats"></div>
+  <p class="small concept-note">The particle starts at rest at $x = 0$, where the spring is unstretched. Gravity pulls it down, and it oscillates about the static equilibrium position $x = mg/k$ (green dashed line) while the dashpot removes energy. The dashpot piston always stays inside its cylinder because the drawing is sized from the computed motion.</p>
+</div>
+<div class="demo v3d" data-clip="x6a-1"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Every solution starts from free-body diagrams in a displaced position, then writes the equation of motion and reads off the vibration properties. Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Draw the free-body diagram</summary>
+<div class="fbdrow"><figure style="width:min(320px,100%)"><svg class="fbd" viewBox="0 0 320 300" role="img" aria-label="The particle, displaced a distance x below the unstretched position" style="max-width:320px"><rect x="-48.0" y="-32.0" width="96.0" height="64.0" rx="4" transform="translate(160.0,150.0) rotate(0.0)" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><line x1="134.0" y1="118.0" x2="134.0" y2="67.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="134.0,56.0 139.5,67.0 128.5,67.0" fill="#2457d6"/><line x1="186.0" y1="118.0" x2="186.0" y2="67.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="186.0,56.0 191.5,67.0 180.5,67.0" fill="#2457d6"/><line x1="190.0" y1="162.0" x2="190.0" y2="217.0" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="190.0,228.0 184.5,217.0 195.5,217.0" fill="#c2410c"/><line x1="142.0" y1="242.0" x2="142.0" y2="193.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="142.0,182.0 147.5,193.0 136.5,193.0" fill="#17915a"/><line x1="268.0" y1="90.0" x2="268.0" y2="139.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="268.0,150.0 262.5,139.0 273.5,139.0" fill="#7b808c"/><text x="160.0" y="152.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:17px;font-style:italic;fill:#1c1d21"><tspan>m</tspan></text><text x="110.0" y="52.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>cẋ</tspan></text><text x="206.0" y="52.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>kx</tspan></text><text x="212.0" y="226.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>mg</tspan></text><text x="122.0" y="254.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>f(t)</tspan></text><text x="268.0" y="164.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:14px;font-style:italic;fill:#7b808c"><tspan>x</tspan></text></svg><figcaption>The particle, displaced a distance x below the unstretched position</figcaption></figure></div><p class="small fbdnote">The spring is stretched by $x$, so it pulls up with $kx$. The particle moves down with speed $\dot x$, so the dashpot resists with $c\dot x$ upward.</p><p>We draw the particle at a general position $x$ below the unstretched position, moving downward with speed $\dot x$. Four forces act on it. The spring is stretched by $x$ and pulls up with $kx$. The dashpot resists the motion with $c\dot x$, which points up when $\dot x$ is positive. Gravity pulls down with $mg$, and the applied force $f(t)$ pushes up.</p>
+</details>
+<details class="step"><summary>Step 2 · Apply Newton's second law</summary>
+<p>We take down as positive, the direction of $x$. Summing the forces on the particle gives</p>
+$$\sum F_x = m\ddot x \quad\Longrightarrow\quad mg - kx - c\dot x - f(t) = m\ddot x$$
+</details>
+<details class="step"><summary>Step 3 · Write the equation of motion</summary>
+<p>Moving the terms that contain $x$ and its derivatives to the left side gives the equation of motion.</p>
+$$m\ddot x + c\dot x + kx = mg - f(t)$$
+<p>Gravity appears as a constant forcing term because $x$ is measured from the unstretched position. If we measured the position from static equilibrium instead, with $x = mg/k + y$, the constant would cancel and the equation would become $m\ddot y + c\dot y + ky = -f(t)$.</p>
+</details>
+<details class="step"><summary>Step 4 · Read off the vibration properties</summary>
+<p>Dividing by $m$ puts the equation in standard form,</p>
+$$\ddot x + 2\zeta\omega_n\dot x + \omega_n^2 x = g - \frac{f(t)}{m}, \qquad \omega_n = \sqrt{\frac{k}{m}}, \qquad \zeta = \frac{c}{2\sqrt{km}}$$
+<p>For the values in the animation, $\omega_n = \sqrt{100/1} = 10$ rad/s and $\zeta = 2/(2\sqrt{100}) = 0.1$, so the particle oscillates and the motion decays slowly about $x = mg/k = 0.0981$ m.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>$$m\ddot x + c\dot x + kx = mg - f(t)$$ with $x$ measured downward from the unstretched position. The natural frequency is $\omega_n = \sqrt{k/m}$ and the damping ratio is $\zeta = c/(2\sqrt{km})$.</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Choose <i>No damping</i>. The particle now oscillates forever between $x = 0$ and $x = 2mg/k$. Why is the lowest point exactly twice the static deflection?</li><li>Choose <i>Heavy damping</i> ($c = 20$ N·s/m gives $\zeta = 1$). The particle creeps to equilibrium without overshooting. This is critical damping.</li><li>Switch on the harmonic force. After the start-up dies away, the particle settles into a steady oscillation at the forcing frequency $\Omega$ about $x = mg/k$.</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 6, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="examples.html"><small>← Previous</small>All examples</a><a class="next" href="ex-6-a-2.html"><small>Next →</small>Example 6.A.2</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/kit.js"></script>
+<script src="../assets/ch6-exA.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch6-3dA.js"></script>
+</body>
+</html>

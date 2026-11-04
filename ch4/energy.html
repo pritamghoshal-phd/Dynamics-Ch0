@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Work and energy · Chapter 4 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 4</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="newton.html">A · Newton's laws</a>
+    <a href="energy.html" class=active>B · Work–energy</a>
+    <a href="impulse.html">C · Linear impulse–momentum</a>
+    <a href="angular.html">D · Angular impulse–momentum</a>
+    <a href="examples.html">Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<section>
+<h2><span class="num">B</span>Work and energy</h2>
+<p>Take the tangential component of Newton's law, $\sum F_t = m\,v\,dv/ds$, and integrate along the path from position 1 to position 2:</p>
+$$U_{1\to2} = \int_1^2 \mathbf F\cdot d\mathbf r = \tfrac12 m v_2^2 - \tfrac12 m v_1^2 = T_2 - T_1$$
+<p>$T = \tfrac12 mv^2$ is the <b>kinetic energy</b> and $U_{1\to2}$ is the <b>work</b> done by the forces. Only the component of a force <em>along the path</em> does work. A force perpendicular to the motion (a normal force on a fixed surface, a cord holding a particle on a circle) does none. Work is a scalar, so this equation trades vector bookkeeping for one scalar equation, and no time appears in it.</p>
+<div class="demo concept" id="c-work">
+  <div class="demo-title"><span class="tag concept-tag">Concept</span><span>Which forces do work?</span></div>
+  <canvas id="c-work-anim" class="anim" style="height:280px"></canvas>
+  <div class="controls" id="c-work-ctl"></div>
+  <div class="bar" id="c-work-btn"></div>
+  <div class="stats" id="c-work-stats"></div>
+  <p class="small concept-note">The block is pulled 2 m along a rough floor. Only the horizontal part of F does positive work; friction does negative work; the weight and the normal force are perpendicular to the motion and do none. The total work always equals the kinetic energy ½mv² gained.</p>
+</div>
+
+<h3>Conservative forces and potential energy</h3>
+<p>Some forces do work that depends only on where the particle starts and ends, not on the path between. For these <b>conservative</b> forces we define a potential energy $V$ so that $U_{1\to2} = V_1 - V_2$:</p>
+<ul>
+<li><b>Gravity</b> (near the earth): $V_g = mgh$, with $h$ measured upward from any datum you choose.</li>
+<li><b>A linear spring</b> of stiffness $k$: $V_s = \tfrac12 k\,\delta^2$, where $\delta$ is the stretch or compression from the unstretched length.</li>
+</ul>
+<div class="demo concept" id="c-paths">
+  <div class="demo-title"><span class="tag concept-tag">Concept</span><span>The work done by gravity does not depend on the path</span></div>
+  <canvas id="c-paths-anim" class="anim" style="height:320px"></canvas>
+  <div class="controls" id="c-paths-ctl"></div>
+  <div class="bar" id="c-paths-btn"></div>
+  <div class="stats" id="c-paths-stats"></div>
+  <p class="small concept-note">Three frictionless beads drop the same height h along different tracks. Each arrives at the bottom with the same speed √(2gh), because gravity did the same work on each. They arrive at different times: energy says nothing about time.</p>
+</div>
+
+<h3>The work–energy equation</h3>
+<p>Splitting the forces into conservative ones (written as potential energy) and everything else (friction, applied pushes, motors) gives the working form:</p>
+$$T_1 + V_1 + U^{nc}_{1\to2} = T_2 + V_2$$
+<p>If the non-conservative forces do no work, $T + V$ is constant: <b>mechanical energy is conserved</b>. Kinetic friction always opposes sliding, so the work it does is always negative: it drains mechanical energy into heat.</p>
+<div class="demo concept" id="c-energy">
+  <div class="demo-title"><span class="tag concept-tag">Concept</span><span>Energy bookkeeping for a spring with friction</span></div>
+  <canvas id="c-energy-anim" class="anim" style="height:240px"></canvas>
+  <div class="controls" id="c-energy-ctl"></div>
+  <div class="bar" id="c-energy-pre"><span class="lbl">Try:</span></div>
+  <div class="bar" id="c-energy-btn"></div>
+  <div class="stats" id="c-energy-stats"></div>
+  <p class="small concept-note">Pull the block out and let go. Without friction, energy sloshes between ½mv² and ½kx² while the total stays fixed. With friction, the red bar grows as mechanical energy is lost, but the sum of all three never changes.</p>
+</div>
+
+<h3>Systems of particles</h3>
+<p>For a system, add the work–energy equations of all the particles. External forces do work as before. Internal forces need a moment's thought: a pair of equal and opposite forces does zero net work if the two points they act on move the same amount along the line joining them, as for a rigid massless link or an inextensible cord. A spring between two particles is internal but stores energy, so include it as $V_s$. Friction between two sliding parts loses energy even when it is internal.</p>
+<div class="try"><h4>Try this</h4><ul><li>In the work demo, set α = 90°. Why does the block not move, and how much work does F do?</li><li>Pull the block with α negative (pushing down). What happens to N, the friction work, and the final speed?</li><li>In the spring demo, set friction to 0.2 and count the swings before the block sticks. Is the stopping point always at x = 0?</li></ul></div>
+<div class="wild"><span class="wi" aria-hidden="true">🚲</span><div><b class="wh">Energy in the wild</b><p>Regenerative braking in electric cars and e-bikes recovers kinetic energy that ordinary brakes would turn into heat. In the language of this section, it replaces part of the negative non-conservative work $U^{nc}$ with energy stored in the battery, a kind of potential energy you can spend later.</p></div></div>
+</section>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="newton.html"><small>← Previous</small>A · Newton's laws</a><a class="next" href="impulse.html"><small>Next →</small>C · Linear impulse and momentum</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/labels.js"></script>
+<script src="../assets/ch4.js"></script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Overview · Chapter 5 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 5</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html" class=active>Overview</a>
+    <a href="newton-euler.html">A · Newton–Euler</a>
+    <a href="work-energy.html">B · Work–energy</a>
+    <a href="impulse-momentum.html">C · Impulse–momentum</a>
+    <a href="examples.html">Examples</a>
+  </div>
+</nav>
+<header class="hero">
+  <div class="wrap">
+    <h1>Chapter 5 · Planar Rigid Body Kinetics</h1>
+    <p>In Chapter 4 every body was treated as a single point. A rigid body has size and shape, so it can rotate as well as translate, and the point where a force is applied now matters. This chapter extends the three tools developed for particles (Newton's second law, the work–energy principle and the impulse–momentum principle) to rigid bodies that move in a plane. Each idea is accompanied by an animation that you can control.</p>
+    <p class="small" style="margin-top:.8rem">Every slider has a box next to it. You can type any number into the box and press Enter to go beyond the range of the slider.</p>
+  </div>
+</header>
+<main class="wrap">
+<h2>Contents</h2>
+<div class="cards">
+<a class="cardlink" href="newton-euler.html"><span class="k">Section A</span><h3>The Newton–Euler equations</h3><p>How the mass center translates, how the body rotates about it, and how to compute mass moments of inertia.</p></a>
+<a class="cardlink" href="work-energy.html"><span class="k">Section B</span><h3>Work and energy</h3><p>The kinetic energy of a rigid body, the work done by forces and couples, and why friction does no work on a rolling wheel.</p></a>
+<a class="cardlink" href="impulse-momentum.html"><span class="k">Section C</span><h3>Impulse and momentum</h3><p>Linear and angular momentum, conservation laws, impacts and the center of percussion.</p></a>
+<a class="cardlink" href="examples.html"><span class="k">Practice</span><h3>Worked examples</h3><p>All 35 examples from the book, grouped by method (Newton–Euler, work–energy, impulse–momentum). Each one is animated and fully solved with the four-step method.</p></a>
+</div>
+<div class="card method"><h3 style="margin-top:.2rem">The four-step method for kinetics</h3>
+<ol><li><b>Draw the free-body diagrams.</b> Decide which bodies, or which system of bodies, to isolate. Then draw every external force and couple that acts on each one, together with the coordinate directions you intend to use.</li>
+<li><b>Write the kinetics equations.</b> Choose a method (Newton–Euler, work–energy or impulse–momentum) and write its equations using the forces on your diagrams.</li>
+<li><b>Write the kinematics equations.</b> Relate the accelerations or velocities that appear in Step 2. Typical relations come from rolling without slipping, from cables, and from the rigid-body velocity and acceleration equations of Chapter 2.</li>
+<li><b>Solve.</b> Count the unknowns and the equations. If there are fewer equations than unknowns, you need another free-body diagram or more kinematics.</li></ol></div>
+<h2>Which method should I use?</h2>
+<p>All three methods are correct for every problem, but one of them is usually much shorter. The table below gives a good first guess.</p>
+<div class="tblwrap"><table class="tbl"><tr><th>If the question asks for</th><th>the easiest method is usually</th></tr>
+<tr><td>an acceleration, an angular acceleration or a force at one instant</td><td>Newton–Euler (Section A)</td></tr>
+<tr><td>a speed after the body has moved through a distance or an angle</td><td>work–energy (Section B)</td></tr>
+<tr><td>a velocity after a known time, or immediately after an impact</td><td>impulse–momentum (Section C)</td></tr>
+</table></div>
+<nav class="pager" aria-label="Page navigation"><a class="next" href="newton-euler.html"><small>Next →</small>A · Newton–Euler</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/ch5.js"></script>
+</body>
+</html>

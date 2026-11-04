@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 6.C.5 · Chapter 6 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 6</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="eom.html">A · Equations of motion</a>
+    <a href="free.html">B · Free vibration</a>
+    <a href="damped.html">B · Damped vibration</a>
+    <a href="forced.html">C · Forced vibration</a>
+    <a href="base.html">C · Base excitation</a>
+    <a href="summary.html">Summary</a>
+    <a href="examples.html" class=active>Examples</a>
+    <a href="badges.html">🏅 Badges</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Forced response examples"><a href="examples.html#group-C">All Forced response examples</a><a href="ex-6-c-1.html">6.C.1</a><a href="ex-6-c-2.html">6.C.2</a><a href="ex-6-c-3.html">6.C.3</a><a href="ex-6-c-4.html">6.C.4</a><a href="ex-6-c-5.html" class=active>6.C.5</a><a href="ex-6-c-6.html">6.C.6</a><a href="ex-6-c-7.html">6.C.7</a><a href="ex-6-c-8.html">6.C.8</a><a href="ex-6-c-9.html">6.C.9</a><a href="ex-6-c-10.html">6.C.10</a><a href="ex-6-c-11.html">6.C.11</a><a href="ex-6-c-12.html">6.C.12</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-C">Forced response</a> › Example 6.C.5</p>
+<h2><span class="num">Example 6.C.5</span>Block in a shaken box</h2>
+<div class="tags"><span>base excitation</span><span>frequency response</span><span>phase</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>Block A, of mass $m$, rests on the smooth floor of box B and is connected to both end walls of the box by springs of stiffness $k$. Box B is given the prescribed displacement $x_B(t) = b\sin\omega t$. The coordinate $x$ gives the absolute position of A, and both springs are unstretched when $x = x_B = 0$.</p>
+<p><b>Find</b> the two values of the frequency $\omega$ for which the amplitude of the forced response of block A is twice that of box B.</p>
+</div>
+<div class="demo" id="x6c-5">
+  <div class="demo-title"><span class="tag">Interactive</span><span>Box B is shaken and block A responds through the two springs</span></div>
+  <canvas id="x6c-5-anim" class="anim" style="height:300px"></canvas><div class="grid2"><canvas id="x6c-5-t" class="plot" style="height:220px"></canvas><canvas id="x6c-5-f" class="plot" style="height:220px"></canvas></div><div class="legendrow"><span><span class="sw" style="background:var(--c1)"></span>x(t) of A</span><span><span class="sw" style="background:var(--c2)"></span>x_B(t) of B (dashed)</span></div>
+  <div class="controls" id="x6c-5-ctl"></div>
+  <div class="bar" id="x6c-5-pre"><span class="lbl">Try:</span></div>
+  <div class="bar" id="x6c-5-btn"></div>
+  <div class="stats" id="x6c-5-stats"></div>
+  <p class="small concept-note">The animation uses $m = 2$ kg, $k = 100$ N/m and $b = 20$ mm. The two presets put the frequency at the two answers. The block moves with the box at the first and against it at the second, but always twice as far. The chips switch between the full response, which starts from rest, and the steady-state (particular) solution alone. Without damping the free vibration started at $t = 0$ never dies out, so the full response keeps the beat between the two frequencies.</p>
+</div>
+<div class="demo v3d" data-clip="x6c-5"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Every solution starts from free-body diagrams in a displaced position, then writes the equation of motion and reads off the vibration properties. Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Draw the free-body diagram</summary>
+<p>We isolate block A at position $x$ while the box is at $x_B$.</p><div class="fbdrow"><figure style="width:min(460px,100%)"><svg class="fbd" viewBox="0 0 460 230" role="img" aria-label="Block A displaced relative to the moving box" style="max-width:460px"><rect x="-55.0" y="-32.0" width="110.0" height="64.0" rx="4" transform="translate(230.0,110.0) rotate(0.0)" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><line x1="175.0" y1="100.0" x2="100.0" y2="100.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="89.0,100.0 100.0,94.5 100.0,105.5" fill="#2457d6"/><line x1="371.0" y1="120.0" x2="296.0" y2="120.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="285.0,120.0 296.0,114.5 296.0,125.5" fill="#2457d6"/><line x1="248.0" y1="142.0" x2="248.0" y2="183.0" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="248.0,194.0 242.5,183.0 253.5,183.0" fill="#c2410c"/><line x1="212.0" y1="188.0" x2="212.0" y2="153.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="212.0,142.0 217.5,153.0 206.5,153.0" fill="#17915a"/><line x1="40.0" y1="210.0" x2="55.0" y2="210.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="66.0,210.0 55.0,215.5 55.0,204.5" fill="#7b808c"/><line x1="40.0" y1="210.0" x2="40.0" y2="195.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="40.0,184.0 45.5,195.0 34.5,195.0" fill="#7b808c"/><text x="230.0" y="110.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:16px;font-style:italic;fill:#1c1d21"><tspan>A</tspan></text><text x="69.0" y="86.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>k(x - x</tspan><tspan dy="4.8" style="font-size:10.8px">B</tspan><tspan dy="-4.8">)</tspan></text><text x="397.0" y="134.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>k(x - x</tspan><tspan dy="4.8" style="font-size:10.8px">B</tspan><tspan dy="-4.8">)</tspan></text><text x="266.0" y="206.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>mg</tspan></text><text x="212.0" y="200.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>N</tspan></text><text x="76.0" y="210.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>x</tspan></text><text x="40.0" y="174.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>y</tspan></text></svg><figcaption>Block A displaced relative to the moving box</figcaption></figure></div><p class="small fbdnote">When A moves a distance $x - x_B$ to the right relative to the box, the left spring is stretched and pulls A back, and the right spring is compressed and pushes A back. Both forces equal $k(x - x_B)$ and point to the left. The floor of the box is smooth.</p>
+</details>
+<details class="step"><summary>Step 2 · Write the equation of motion</summary>
+<p>Newton's second law in the $x$ direction gives</p>
+$$-2k(x - x_B) = m\ddot x \quad\Longrightarrow\quad m\ddot x + 2kx = 2kb\sin\omega t$$
+<p>The natural frequency is $\omega_n = \sqrt{2k/m}$.</p>
+</details>
+<details class="step"><summary>Step 3 · Find the steady-state amplitude</summary>
+<p>With $x_p = X\sin\omega t$,</p>
+$$X = \frac{b}{1 - r^2}, \qquad r = \frac{\omega}{\omega_n}$$
+<p>We need $|X| = 2b$, which means $1 - r^2 = \pm\tfrac12$.</p>
+</details>
+<details class="step"><summary>Step 4 · Solve for the two frequencies</summary>
+<p>The plus sign gives the in-phase case below resonance.</p>
+$$1 - r^2 = \tfrac12 \quad\Longrightarrow\quad r^2 = \tfrac12 \quad\Longrightarrow\quad \omega = \omega_n\sqrt{\tfrac12} = \sqrt{\frac{k}{m}}$$
+<p>The minus sign gives the out-of-phase case above resonance.</p>
+$$1 - r^2 = -\tfrac12 \quad\Longrightarrow\quad r^2 = \tfrac32 \quad\Longrightarrow\quad \omega = \omega_n\sqrt{\tfrac32} = \sqrt{\frac{3k}{m}}$$
+<p class="small">For the values in the animation, $\omega_n = 10$ rad/s and the two answers are $7.07$ rad/s and $12.25$ rad/s.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>$\omega = \sqrt{k/m}$, where A moves in phase with the box, and $\omega = \sqrt{3k/m}$, where A moves $180°$ out of phase with the box. In both cases $|X| = 2b$.</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Between the two answers the amplitude ratio is larger than 2. Which frequency in that range makes it largest, and why?</li><li>At which frequency does A move exactly as far as the box but in the opposite direction?</li><li>Use "Start from rest" at the first answer. Why does the motion of A not settle to a pure sine wave?</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 6, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-6-c-4.html"><small>← Previous</small>Example 6.C.4</a><a class="next" href="ex-6-c-6.html"><small>Next →</small>Example 6.C.6</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/kit.js"></script>
+<script src="../assets/ch6-exC1.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch6-3dC1.js"></script>
+</body>
+</html>

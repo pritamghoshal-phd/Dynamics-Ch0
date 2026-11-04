@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 4.A.8 · Chapter 4 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 4</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="newton.html">A · Newton's laws</a>
+    <a href="energy.html">B · Work–energy</a>
+    <a href="impulse.html">C · Linear impulse–momentum</a>
+    <a href="angular.html">D · Angular impulse–momentum</a>
+    <a href="examples.html" class=active>Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Newton's second law examples"><a href="examples.html#group-A">All Newton's second law examples</a><a href="ex-4-a-1.html">4.A.1</a><a href="ex-4-a-2.html">4.A.2</a><a href="ex-4-a-3.html">4.A.3</a><a href="ex-4-a-4.html">4.A.4</a><a href="ex-4-a-5.html">4.A.5</a><a href="ex-4-a-6.html">4.A.6</a><a href="ex-4-a-7.html">4.A.7</a><a href="ex-4-a-8.html" class=active>4.A.8</a><a href="ex-4-a-9.html">4.A.9</a><a href="ex-4-a-10.html">4.A.10</a><a href="ex-4-a-11.html">4.A.11</a><a href="ex-4-a-12.html">4.A.12</a><a href="ex-4-a-13.html">4.A.13</a><a href="ex-4-a-14.html">4.A.14</a><a href="ex-4-a-15.html">4.A.15</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-A">Newton's second law</a> › Example 4.A.8</p>
+<h2><span class="num">Example 4.A.8</span>Two blocks joined by a light rod in perpendicular guides</h2>
+<div class="tags"><span>Newton's law</span><span>constraints</span><span>two-force member</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>Blocks A and B, with masses 10 kg and 5 kg, move along smooth vertical and horizontal guides. They are connected by a light rod of length $L = 2.5$ m. A force $F = 50$ N acts to the right on block B. At the position where $s_A = 1.5$ m, block A moves downward with a speed of 4 m/s. Here $s_A$ is the height of A above the horizontal guide and $s_B$ is the horizontal distance from B to the vertical guide.</p>
+<p><b>Find</b> (a) the accelerations of A and B at this instant and (b) the force in rod AB at this instant.</p>
+</div>
+<div class="demo" id="x4a-8">
+  <div class="demo-title"><span class="tag">Interactive</span><span>The blocks slide in their guides</span></div>
+  <div class="grid2"><canvas id="x4a-8-anim" class="anim" style="height:400px"></canvas><div><canvas id="x4a-8-plot" class="plot" style="height:300px"></canvas></div></div>
+  <div class="controls" id="x4a-8-ctl"></div>
+  <div class="bar" id="x4a-8-pre"><span class="lbl">Try:</span></div>
+  <div class="bar" id="x4a-8-btn"></div>
+  <div class="stats" id="x4a-8-stats"></div>
+  <p class="small concept-note">The motion pauses at the instant in the problem, where $s_A = 1.5$ m. The orange arrows show the rod force on each block. In compression the rod pushes the blocks apart.</p>
+</div>
+<div class="demo v3d" data-clip="x4a-8"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Every solution follows the four-step method: free-body diagrams, kinetics equations, kinematics, solve. Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Draw the free-body diagrams</summary>
+<p>The rod is light and pinned at its ends, so it is a two-force member. It acts on A and on B along its own length with the same force $F_{AB}$, which we take as positive in tension. Block A also feels its weight $m_A g$ and the normal force $N_A$ of its vertical guide. Block B feels the force $F$, its weight $m_B g$ and the normal force $N_B$ of its horizontal guide. The rod makes the angle $\phi$ with the horizontal, with $\cos\phi = s_B/L$ and $\sin\phi = s_A/L$.</p>
+<div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 250 260" role="img" aria-label="Block A" style="max-width:250px"><rect x="-20.0" y="-30.0" width="40.0" height="60.0" rx="4" transform="translate(120.0,120.0) rotate(0.0)" fill="#d8d4c8" stroke="#8a6a12" stroke-width="2"/><line x1="120.0" y1="120.0" x2="120.0" y2="179.0" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="120.0,190.0 114.5,179.0 125.5,179.0" fill="#c2410c"/><line x1="195.0" y1="120.0" x2="151.0" y2="120.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="140.0,120.0 151.0,114.5 151.0,125.5" fill="#17915a"/><line x1="120.0" y1="120.0" x2="68.8" y2="158.4" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="60.0,165.0 65.5,154.0 72.1,162.8" fill="#2457d6"/><line x1="30.0" y1="240.0" x2="53.0" y2="240.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="64.0,240.0 53.0,245.5 53.0,234.5" fill="#7b808c"/><line x1="30.0" y1="240.0" x2="30.0" y2="217.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="30.0,206.0 35.5,217.0 24.5,217.0" fill="#7b808c"/><text x="124.0" y="74.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:16px;font-style:italic;fill:#1c1d21"><tspan>A</tspan></text><text x="144.0" y="194.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>m</tspan><tspan dy="4.8" style="font-size:10.8px">A</tspan><tspan dy="-4.8"> g</tspan></text><text x="207.0" y="106.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>N</tspan><tspan dy="4.8" style="font-size:10.8px">A</tspan></text><text x="44.4" y="162.2" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>F</tspan><tspan dy="4.8" style="font-size:10.8px">AB</tspan></text><text x="74.0" y="240.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>x</tspan></text><text x="30.0" y="196.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>y</tspan></text></svg><figcaption>Block A</figcaption></figure><figure><svg class="fbd" viewBox="0 0 300 230" role="img" aria-label="Block B" style="max-width:300px"><rect x="-30.0" y="-15.0" width="60.0" height="30.0" rx="4" transform="translate(150.0,130.0) rotate(0.0)" fill="#d8d4c8" stroke="#8a6a12" stroke-width="2"/><line x1="50.0" y1="130.0" x2="109.0" y2="130.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="120.0,130.0 109.0,135.5 109.0,124.5" fill="#2457d6"/><line x1="138.0" y1="130.0" x2="138.0" y2="179.0" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="138.0,190.0 132.5,179.0 143.5,179.0" fill="#c2410c"/><line x1="165.0" y1="190.0" x2="165.0" y2="156.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="165.0,145.0 170.5,156.0 159.5,156.0" fill="#17915a"/><line x1="150.0" y1="130.0" x2="205.2" y2="88.6" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="214.0,82.0 208.5,93.0 201.9,84.2" fill="#2457d6"/><text x="106.0" y="156.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:16px;font-style:italic;fill:#1c1d21"><tspan>B</tspan></text><text x="32.0" y="118.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>F</tspan></text><text x="108.0" y="194.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>m</tspan><tspan dy="4.8" style="font-size:10.8px">B</tspan><tspan dy="-4.8"> g</tspan></text><text x="187.0" y="208.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>N</tspan><tspan dy="4.8" style="font-size:10.8px">B</tspan></text><text x="231.6" y="74.8" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>F</tspan><tspan dy="4.8" style="font-size:10.8px">AB</tspan></text></svg><figcaption>Block B</figcaption></figure></div><p class="small fbdnote">The rod is light and pinned at both ends, so it is a two-force member: it pulls on A and on B along its own length with the same force $F_{AB}$ (tension positive). The guides are smooth, so they push only perpendicular to themselves. The rod makes the angle $\phi$ with the horizontal, with $\cos\phi = s_B/L = 0.8$ and $\sin\phi = s_A/L = 0.6$.</p>
+</details>
+<details class="step"><summary>Step 2 · Write the kinetics equations</summary>
+<p>Only the directions along the guides are needed. Let $s_A$ increase upward and $s_B$ increase to the left, away from the vertical guide. In tension the rod pulls A down and to the left, and it pulls B up and to the right.</p>
+$$m_A\ddot s_A = -m_A g - F_{AB}\sin\phi, \qquad -m_B\ddot s_B = F + F_{AB}\cos\phi$$
+<p>The second equation is written for the rightward acceleration of B, which is $-\ddot s_B$.</p>
+</details>
+<details class="step"><summary>Step 3 · Write the kinematics equations</summary>
+<p>The rod keeps the distance between the blocks fixed, so $s_A^2 + s_B^2 = L^2$. At the instant, $s_B = \sqrt{2.5^2 - 1.5^2} = 2.0$ m. Differentiating twice gives</p>
+$$s_A\dot s_A + s_B\dot s_B = 0, \qquad s_A\ddot s_A + s_B\ddot s_B + \dot s_A^2 + \dot s_B^2 = 0$$
+<p>With $\dot s_A = -4$ m/s, the first equation gives $\dot s_B = -s_A\dot s_A/s_B = 3$ m/s, so B moves to the left at 3 m/s.</p>
+</details>
+<details class="step"><summary>Step 4 · Solve</summary>
+<p>Substituting the numbers, with $\sin\phi = 0.6$ and $\cos\phi = 0.8$, gives three linear equations.</p>
+$$10\,\ddot s_A = -98.1 - 0.6F_{AB}, \qquad -5\,\ddot s_B = 50 + 0.8F_{AB}, \qquad 1.5\,\ddot s_A + 2.0\,\ddot s_B = -(16 + 9) = -25$$
+<p>Writing $\ddot s_A = -9.81 - 0.06F_{AB}$ and $\ddot s_B = -10 - 0.16F_{AB}$ and substituting into the third equation gives $-34.715 - 0.41F_{AB} = -25$, so</p>
+$$F_{AB} = -23.7\ \text{N}, \qquad \ddot s_A = -8.39\ \text{m/s}^2, \qquad \ddot s_B = -6.21\ \text{m/s}^2$$
+<p class="small">The negative rod force means that the rod is in compression. A accelerates downward at 8.39 m/s², and B accelerates to the right at 6.21 m/s² while it still moves to the left, so B is slowing down.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>(a) $a_A = 8.39$ m/s² downward and $a_B = 6.21$ m/s² to the right. (b) The rod carries a compressive force of 23.7 N.</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Set $F = 0$. Is the rod in tension or in compression now? Explain with the motion of B.</li><li>Watch the graph of the rod force as A slides down. Why does the force grow so quickly as A approaches the horizontal guide?</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 4, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-4-a-7.html"><small>← Previous</small>Example 4.A.7</a><a class="next" href="ex-4-a-9.html"><small>Next →</small>Example 4.A.9</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/kit.js"></script>
+<script src="../assets/ch4-exA1.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch4-3dA1.js"></script>
+</body>
+</html>

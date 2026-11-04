@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 6.C.12 · Chapter 6 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 6</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="eom.html">A · Equations of motion</a>
+    <a href="free.html">B · Free vibration</a>
+    <a href="damped.html">B · Damped vibration</a>
+    <a href="forced.html">C · Forced vibration</a>
+    <a href="base.html">C · Base excitation</a>
+    <a href="summary.html">Summary</a>
+    <a href="examples.html" class=active>Examples</a>
+    <a href="badges.html">🏅 Badges</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Forced response examples"><a href="examples.html#group-C">All Forced response examples</a><a href="ex-6-c-1.html">6.C.1</a><a href="ex-6-c-2.html">6.C.2</a><a href="ex-6-c-3.html">6.C.3</a><a href="ex-6-c-4.html">6.C.4</a><a href="ex-6-c-5.html">6.C.5</a><a href="ex-6-c-6.html">6.C.6</a><a href="ex-6-c-7.html">6.C.7</a><a href="ex-6-c-8.html">6.C.8</a><a href="ex-6-c-9.html">6.C.9</a><a href="ex-6-c-10.html">6.C.10</a><a href="ex-6-c-11.html">6.C.11</a><a href="ex-6-c-12.html" class=active>6.C.12</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-C">Forced response</a> › Example 6.C.12</p>
+<h2><span class="num">Example 6.C.12</span>Frame with a rotating imbalance</h2>
+<div class="tags"><span>rotating imbalance</span><span>steady state</span><span>amplitude</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>A frame of mass $M$ moves horizontally on rollers between two rails. It is connected to fixed walls by a spring of stiffness $k$ on the left and a spring of stiffness $2k$ on the right. A rotor inside the frame carries a particle of mass $m$ at a distance $e$ from its axle O and spins at the constant rate $\omega$, with $\theta = \omega t$ measured from the horizontal. The coordinate $x$ of the frame is measured from the position where both springs are unstretched.</p>
+<p>The data are $m = 0.1$ kg, $M = 4.9$ kg, $k = 1500$ N/m, $e = 20$ mm and $\omega = 40$ rad/s.</p>
+<p><b>Find</b> (a) the equation of motion for this system in terms of $x$ and (b) the amplitude of the steady-state response.</p>
+</div>
+<div class="demo" id="x6c-12">
+  <div class="demo-title"><span class="tag">Interactive</span><span>The spinning particle shakes the frame between its springs</span></div>
+  <canvas id="x6c-12-anim" class="anim" style="height:300px"></canvas><div class="grid2"><canvas id="x6c-12-xt" class="plot" style="height:210px"></canvas><canvas id="x6c-12-fr" class="plot" style="height:210px"></canvas></div>
+  <div class="controls" id="x6c-12-ctl"></div>
+  <div class="bar" id="x6c-12-pre"><span class="lbl">Try:</span></div>
+  <div class="bar" id="x6c-12-btn"></div>
+  <div class="stats" id="x6c-12-stats"></div>
+  <p class="small concept-note">The animation integrates the full equation of motion from rest, so you see the transient and the steady state together. The chip "Steady state only" shows the particular solution alone. The left plot follows the motion over the last 2.5 s, with the predicted steady-state amplitude drawn as dashed lines. The right plot is the frequency response, and the dot marks the current forcing frequency. The book's systems have no damper. The optional damping slider stands for small friction losses and shows how the transient dies out.</p>
+</div>
+<div class="demo v3d" data-clip="x6c-12"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Every solution starts from free-body diagrams in a displaced position, then writes the equation of motion and reads off the vibration properties. Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Draw the free-body diagram</summary>
+<p>Take the frame and the particle together as the system, so the force between the arm and the particle is internal. In a displaced position $x > 0$, the left spring is stretched by $x$ and the right spring is compressed by $x$. Both push or pull the frame to the left, with forces $kx$ and $2kx$. The rail forces and the weights are vertical.</p>
+<div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 360 260" role="img" aria-label="Frame and particle together" style="max-width:360px"><rect x="-60.0" y="-50.0" width="120.0" height="100.0" rx="4" transform="translate(180.0,120.0) rotate(0.0)" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><circle cx="194.0" cy="104.0" r="7.0" fill="#5b5a55" stroke="#8a6a12" stroke-width="2"/><line x1="180.0" y1="120.0" x2="194.0" y2="104.0" stroke="#1c1d21" stroke-width="2"/><circle cx="180.0" cy="120.0" r="4" fill="#1c1d21"/><line x1="120.0" y1="130.0" x2="61.0" y2="130.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="50.0,130.0 61.0,124.5 61.0,135.5" fill="#2457d6"/><line x1="310.0" y1="130.0" x2="251.0" y2="130.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="240.0,130.0 251.0,124.5 251.0,135.5" fill="#2457d6"/><line x1="210.0" y1="170.0" x2="210.0" y2="205.0" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="210.0,216.0 204.5,205.0 215.5,205.0" fill="#c2410c"/><line x1="150.0" y1="30.0" x2="150.0" y2="59.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="150.0,70.0 144.5,59.0 155.5,59.0" fill="#17915a"/><line x1="150.0" y1="210.0" x2="150.0" y2="181.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="150.0,170.0 155.5,181.0 144.5,181.0" fill="#17915a"/><line x1="32.0" y1="236.0" x2="55.0" y2="236.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="66.0,236.0 55.0,241.5 55.0,230.5" fill="#7b808c"/><line x1="32.0" y1="236.0" x2="32.0" y2="213.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="32.0,202.0 37.5,213.0 26.5,213.0" fill="#7b808c"/><text x="146.0" y="148.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:16px;font-style:italic;fill:#1c1d21"><tspan>M</tspan></text><text x="166.0" y="126.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>O</tspan></text><text x="38.0" y="116.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>kx</tspan></text><text x="322.0" y="116.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>2kx</tspan></text><text x="250.0" y="228.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>(M + m)g</tspan></text><text x="132.0" y="18.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>N</tspan><tspan dy="4.8" style="font-size:10.8px">t</tspan></text><text x="132.0" y="222.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>N</tspan><tspan dy="4.8" style="font-size:10.8px">b</tspan></text><text x="76.0" y="236.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>x</tspan></text><text x="32.0" y="192.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>y</tspan></text></svg><figcaption>Frame and particle together</figcaption></figure></div><p class="small fbdnote">The system is the frame M together with the rotating particle m. The force between the arm and the particle is internal. The left spring is stretched by $x$ and the right spring is compressed by $x$, so both push or pull the frame to the left. The rail forces $N_t$, $N_b$ and the weights are vertical.</p>
+</details>
+<details class="step"><summary>Step 2 · Write the kinematics of the particle</summary>
+<p>The particle is at $x_P = x + e\cos\omega t$, so its horizontal acceleration is</p>
+$$\ddot x_P = \ddot x - e\,\omega^2\cos\omega t$$
+</details>
+<details class="step"><summary>Step 3 · Write the equation of motion</summary>
+<p>Newton's second law for the system in the $x$ direction adds the mass times acceleration of each part.</p>
+$$M\ddot x + m\left(\ddot x - e\,\omega^2\cos\omega t\right) = -kx - 2kx$$
+$$\left(M + m\right)\ddot x + 3kx = m\,e\,\omega^2\cos\omega t$$
+<p>The spinning particle acts like a harmonic force of amplitude $F_0 = m e\omega^2$ on the frame.</p>
+</details>
+<details class="step"><summary>Step 4 · Find the steady-state amplitude</summary>
+$$\omega_n = \sqrt{\frac{3k}{M + m}} = \sqrt{\frac{4500}{5.0}} = 30\ \text{rad/s}, \qquad r = \frac{40}{30} = 1.333$$
+$$F_0 = m e\omega^2 = (0.1)(0.020)(40)^2 = 3.2\ \text{N}$$
+$$X = \frac{F_0/(3k)}{1 - r^2} = \frac{3.2/4500}{1 - 1.778} = -0.000914\ \text{m}$$
+<p>The amplitude is $|X| = 0.914$ mm. Because $r > 1$, the frame moves opposite to the horizontal position of the particle.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>(a) $(M + m)\,\ddot x + 3kx = m e\,\omega^2\cos\omega t$. (b) The steady-state amplitude is $|X| = 0.914$ mm.</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Spin the rotor very fast. Show that $X$ approaches $-me/(M + m) = -0.4$ mm, and explain why the mass center of the system then stays still.</li><li>Set $\omega = 30$ rad/s. Why does the amplitude grow so quickly even though $F_0$ is only 1.8 N?</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 6, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-6-c-11.html"><small>← Previous</small>Example 6.C.11</a><a class="next" href="examples.html"><small>Next →</small>All examples</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/kit.js"></script>
+<script src="../assets/ch6-exC2.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch6-3dC2.js"></script>
+</body>
+</html>

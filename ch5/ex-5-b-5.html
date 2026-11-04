@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 5.B.5 · Chapter 5 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 5</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="newton-euler.html">A · Newton–Euler</a>
+    <a href="work-energy.html">B · Work–energy</a>
+    <a href="impulse-momentum.html">C · Impulse–momentum</a>
+    <a href="examples.html" class=active>Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Work and energy examples"><a href="examples.html#group-B">All work–energy examples</a><a href="ex-5-b-1.html">5.B.1</a><a href="ex-5-b-3.html">5.B.3</a><a href="ex-5-b-4.html">5.B.4</a><a href="ex-5-b-5.html" class=active>5.B.5</a><a href="ex-5-b-6.html">5.B.6</a><a href="ex-5-b-7.html">5.B.7</a><a href="ex-5-b-8.html">5.B.8</a><a href="ex-5-b-9.html">5.B.9</a><a href="ex-5-b-10.html">5.B.10</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-B">Work and energy</a> › Example 5.B.5</p>
+<h2><span class="num">Example 5.B.5</span>Two links and a slider pushed by a force</h2>
+<div class="tags"><span>work–energy</span><span>linkages</span><span>constant force</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>Link OA is pinned to the ceiling at O, and link AB connects pin A to a slider block at B that moves in a vertical guide directly below O. Both links are homogeneous, with mass $m$ and length $L$, and the slider has mass $M$. The angle $\theta$ of link OA is measured from the vertical. A constant horizontal force $F$ acts at pin A, as shown in the book's figure. The system moves in a vertical plane and is released from rest at $\theta = 0$.</p>
+<p>The data are $m = 5$ kg, $M = 10$ kg, $L = 2$ m and $F = 800$ N.</p>
+<p><b>Find</b> the speed of B when $\theta = 53.13°$.</p>
+</div>
+<div class="demo" id="xw-5">
+  <div class="demo-title"><span class="tag">Interactive</span><span>The linkage opens under the horizontal force</span></div>
+  <canvas id="xw-5-anim" class="anim" style="height:380px"></canvas>
+  <div class="controls" id="xw-5-ctl"></div>
+  <div class="bar" id="xw-5-btn"></div>
+  <div class="stats" id="xw-5-stats"></div>
+  <p class="small concept-note">The bars show the work done by $F$, the work done by gravity and the total kinetic energy. The two work bars always add up to the kinetic energy. The animation stops at $\theta = 53.13°$.</p>
+</div>
+<div class="demo v3d" data-clip="xw-5"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Every solution follows the four-step method. Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Draw the free-body diagram</summary>
+<p>We take the whole system: both links, the slider and the pins. The external forces are the force $F$ at A, the weights $mg$, $mg$ and $Mg$, the pin reaction at O and the normal force from the smooth guide on the slider. The pin reaction at O does no work because O does not move. The guide force is horizontal while B moves vertically, so it does no work either. The forces in the pins A and B are internal and their work cancels.</p>
+<p class="small">The problem statement in the book says that $F$ acts at pin B, but the figure shows it at pin A. A horizontal force at B would do no work, because B moves vertically, so we use the figure.</p><div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 320 330" role="img" aria-label="System: both links, the slider and the pins" style="max-width:320px"><line x1="110.0" y1="70.0" x2="110.0" y2="270.9" stroke="#7b808c" stroke-width="1" stroke-dasharray="5 4"/><line x1="110.0" y1="70.0" x2="177.5" y2="150.4" stroke="#8a6a12" stroke-width="14" stroke-linecap="round"/><line x1="110.0" y1="70.0" x2="177.5" y2="150.4" stroke="#f1e6c8" stroke-width="10" stroke-linecap="round"/><line x1="177.5" y1="150.4" x2="110.0" y2="230.9" stroke="#8a6a12" stroke-width="14" stroke-linecap="round"/><line x1="177.5" y1="150.4" x2="110.0" y2="230.9" stroke="#f1e6c8" stroke-width="10" stroke-linecap="round"/><rect x="-17.0" y="-14.0" width="34.0" height="28.0" rx="4" transform="translate(110.0,230.9) rotate(0.0)" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><circle cx="110.0" cy="70.0" r="4.5" fill="#fff" stroke="#1c1d21" stroke-width="2"/><circle cx="177.5" cy="150.4" r="4.5" fill="#fff" stroke="#1c1d21" stroke-width="2"/><circle cx="110.0" cy="230.9" r="4.5" fill="#fff" stroke="#1c1d21" stroke-width="2"/><circle cx="143.7" cy="110.2" r="3.5" fill="#1c1d21"/><circle cx="143.7" cy="190.7" r="3.5" fill="#1c1d21"/><line x1="177.5" y1="150.4" x2="238.5" y2="150.4" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="249.5,150.4 238.5,155.9 238.5,144.9" fill="#2457d6"/><line x1="143.7" y1="110.2" x2="143.7" y2="143.2" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="143.7,154.2 138.2,143.2 149.2,143.2" fill="#c2410c"/><line x1="143.7" y1="190.7" x2="143.7" y2="223.7" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="143.7,234.7 138.2,223.7 149.2,223.7" fill="#c2410c"/><line x1="110.0" y1="244.9" x2="110.0" y2="281.9" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="110.0,292.9 104.5,281.9 115.5,281.9" fill="#c2410c"/><line x1="41.0" y1="230.9" x2="82.0" y2="230.9" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="93.0,230.9 82.0,236.4 82.0,225.4" fill="#17915a"/><line x1="110.0" y1="70.0" x2="110.0" y2="35.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="110.0,24.0 115.5,35.0 104.5,35.0" fill="#17915a"/><line x1="110.0" y1="70.0" x2="69.0" y2="70.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="58.0,70.0 69.0,64.5 69.0,75.5" fill="#17915a"/><path d="M131.9,96.0 A34,34 0 0 1 110.0,104.0" fill="none" stroke="#7b808c" stroke-width="1.2"/><text x="126.0" y="68.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:14px;font-style:italic;fill:#1c1d21"><tspan>O</tspan></text><text x="179.5" y="172.4" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:14px;font-style:italic;fill:#1c1d21"><tspan>A</tspan></text><text x="82.0" y="254.9" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:14px;font-style:italic;fill:#1c1d21"><tspan>B</tspan></text><text x="261.5" y="150.4" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>F</tspan></text><text x="129.7" y="162.2" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>mg</tspan></text><text x="157.7" y="242.7" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>mg</tspan></text><text x="126.0" y="298.9" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>Mg</tspan></text><text x="29.0" y="230.9" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>N</tspan></text><text x="110.0" y="12.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>O</tspan><tspan dy="4.8" style="font-size:10.8px">y</tspan></text><text x="46.0" y="70.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>O</tspan><tspan dy="4.8" style="font-size:10.8px">x</tspan></text><text x="125.4" y="112.3" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>θ</tspan></text></svg><figcaption>System: both links, the slider and the pins</figcaption></figure></div><p class="small fbdnote">The pin forces at A and B are internal to the system and are not drawn. The pin reaction ($O_x$, $O_y$) does no work because O is fixed, and the guide force $N$ is horizontal while B moves vertically, so it does no work either. Only $F$ and the three weights do work.</p>
+</details>
+<details class="step"><summary>Step 2 · Write the kinetics equation (work–energy)</summary>
+<p>The system starts from rest, so $U_{1\to2} = T_2$. With O as the origin and $\theta$ measured from the vertical, the positions are $x_A = L\sin\theta$, the center of OA is $\tfrac L2\cos\theta$ below O, the center of AB is $\tfrac{3L}{2}\cos\theta$ below O, and B is $2L\cos\theta$ below O. Each of these points rises by its depth times $(1 - \cos\theta)$.</p>
+$$U_{1\to2} = F L\sin\theta - mg\,\tfrac L2(1-\cos\theta) - mg\,\tfrac{3L}2(1-\cos\theta) - Mg\,2L(1-\cos\theta)$$
+<p>At $\theta = 53.13°$ we have $\sin\theta = 0.8$ and $\cos\theta = 0.6$, so</p>
+$$U_{1\to2} = 800(2)(0.8) - 5(9.81)(0.4) - 5(9.81)(1.2) - 10(9.81)(1.6) = 1280 - 235.4 = 1044.6\ \text{J}$$
+</details>
+<details class="step"><summary>Step 3 · Write the kinematics equations</summary>
+<p>Let $\omega = \dot\theta$ be the angular speed of OA. Because the two links have equal length, AB makes the same angle $\theta$ with the vertical on the other side, so it turns with the same angular speed in the opposite sense. Differentiating the positions gives</p>
+$$v_A = L\omega, \qquad v_{G,AB}^2 = L^2\omega^2\left(\tfrac14\cos^2\theta + \tfrac94\sin^2\theta\right), \qquad v_B = 2L\sin\theta\,\omega$$
+<p>The kinetic energy of the system is then</p>
+$$T = \tfrac12\left(\tfrac13 mL^2\right)\omega^2 + \tfrac12 m\,v_{G,AB}^2 + \tfrac12\left(\tfrac1{12}mL^2\right)\omega^2 + \tfrac12 M v_B^2$$
+<p>At $\theta = 53.13°$ this evaluates to $T_2 = 70.67\,\omega^2$ J (with $\omega$ in rad/s).</p>
+</details>
+<details class="step"><summary>Step 4 · Solve</summary>
+$$70.67\,\omega^2 = 1044.6 \quad\Longrightarrow\quad \omega = 3.845\ \text{rad/s}$$
+$$v_B = 2L\sin\theta\,\omega = 2(2)(0.8)(3.845) = 12.30\ \text{m/s}$$
+<p class="small">B moves upward, toward O. A direct simulation of the equation of motion from $\theta = 0$ gives the same speed.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>$v_B = 12.3$ m/s, directed upward, when $\theta = 53.13°$.</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Lower $F$ until the linkage no longer reaches $\theta = 53.13°$. Estimate that force with the work–energy principle first.</li><li>Make the slider massless ($M = 0$). How much faster is B?</li><li>Explain why the normal force from the guide never appears in the work–energy equation.</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 5, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-5-b-4.html"><small>← Previous</small>Example 5.B.4</a><a class="next" href="ex-5-b-6.html"><small>Next →</small>Example 5.B.6</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/ch5.js"></script>
+<script src="../assets/ch5-exB.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch5-3dB.js"></script>
+</body>
+</html>

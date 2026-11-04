@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 0.A.1 · Chapter 0 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 0</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="vectors.html">A · Vectors</a>
+    <a href="fbd.html">B · Free-body diagrams</a>
+    <a href="kinematics.html">C · Scalar kinematics</a>
+    <a href="examples.html" class=active>Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Vectors examples"><a href="examples.html#group-A">All Vectors examples</a><a href="ex-0-a-1.html" class=active>0.A.1</a><a href="ex-0-a-2.html">0.A.2</a><a href="ex-0-a-3.html">0.A.3</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-A">Vectors</a> › Example 0.A.1</p>
+<h2><span class="num">Example 0.A.1</span>Vector operations in three dimensions</h2>
+<div class="tags"><span>vectors</span><span>dot product</span><span>cross product</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>The vectors $\mathbf a$ and $\mathbf b$ are given in terms of their $xyz$ components as</p>
+$$\mathbf a = \hat{\mathbf i} - 3\hat{\mathbf j} + 5\hat{\mathbf k}, \qquad \mathbf b = -2\hat{\mathbf i} - 4\hat{\mathbf j} + 6\hat{\mathbf k}$$
+<p><b>Find</b> (a) $\mathbf a + \mathbf b$, (b) $\mathbf a - \mathbf b$, (c) $\mathbf a\cdot\mathbf b$, (d) $\mathbf a\times\mathbf b$ and (e) $\mathbf b\times\mathbf a$.</p>
+</div>
+<div class="demo" id="x0a-1">
+  <div class="demo-title"><span class="tag">Interactive</span><span>The two vectors and each operation</span></div>
+  <canvas id="x0a-1-anim" class="anim" style="height:380px"></canvas>
+  <div class="bar" id="x0a-1-pre"><span class="lbl">Show:</span></div>
+  <div class="bar" id="x0a-1-btn"></div>
+  <div class="stats" id="x0a-1-stats"></div>
+  <p class="small concept-note">The view turns slowly so that you can see the three-dimensional geometry. The dotted lines drop each vector to the $xy$ plane. The cross products are drawn at 0.35 scale so that they fit.</p>
+</div>
+<div class="demo v3d" data-clip="x0a-1"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Sketch the vectors</summary>
+<p>Before computing anything, it helps to see where the vectors point. Both have a large positive $z$ component and a negative $y$ component, so they point in fairly similar directions. We therefore expect a positive dot product.</p><div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 330 320" role="img" aria-label="The vectors a and b" style="max-width:330px"><line x1="175.0" y1="250.0" x2="103.6" y2="291.2" stroke="#7b808c" stroke-width="1.4" stroke-dasharray="5 4"/><line x1="175.0" y1="250.0" x2="295.0" y2="250.0" stroke="#7b808c" stroke-width="1.4" stroke-dasharray="5 4"/><line x1="175.0" y1="250.0" x2="175.0" y2="40.0" stroke="#7b808c" stroke-width="1.4" stroke-dasharray="5 4"/><line x1="175.0" y1="250.0" x2="70.7" y2="258.2" stroke="#2457d6" stroke-width="1" stroke-dasharray="5 4"/><line x1="70.7" y1="258.2" x2="70.7" y2="108.2" stroke="#2457d6" stroke-width="1" stroke-dasharray="5 4"/><line x1="175.0" y1="250.0" x2="77.2" y2="117.1" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="70.7,108.2 81.7,113.9 72.8,120.4" fill="#2457d6"/><line x1="175.0" y1="250.0" x2="83.6" y2="233.5" stroke="#b42346" stroke-width="1" stroke-dasharray="5 4"/><line x1="83.6" y1="233.5" x2="83.6" y2="53.5" stroke="#b42346" stroke-width="1" stroke-dasharray="5 4"/><line x1="175.0" y1="250.0" x2="88.2" y2="63.5" stroke="#b42346" stroke-width="2.6" stroke-linecap="round"/><polygon points="83.6,53.5 93.2,61.2 83.2,65.8" fill="#b42346"/><circle cx="175.0" cy="250.0" r="4" fill="#1c1d21"/><text x="95.0" y="296.2" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>x</tspan></text><text x="309.4" y="250.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>y</tspan></text><text x="175.0" y="14.8" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>z</tspan></text><text x="63.6" y="98.6" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>a</tspan></text><text x="78.5" y="42.6" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#b42346"><tspan>b</tspan></text><text x="185.0" y="262.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>O</tspan></text></svg><figcaption>The vectors a and b</figcaption></figure><figure><svg class="fbd" viewBox="0 0 330 320" role="img" aria-label="The cross products (0.35 scale, x axis toward you)" style="max-width:330px"><line x1="150.0" y1="175.0" x2="283.0" y2="175.0" stroke="#7b808c" stroke-width="1.4" stroke-dasharray="5 4"/><line x1="150.0" y1="175.0" x2="150.0" y2="51.5" stroke="#7b808c" stroke-width="1.4" stroke-dasharray="5 4"/><line x1="150.0" y1="175.0" x2="90.5" y2="94.1" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="84.0,85.2 94.9,90.8 86.0,97.3" fill="#2457d6"/><line x1="150.0" y1="175.0" x2="96.7" y2="60.5" stroke="#b42346" stroke-width="2.6" stroke-linecap="round"/><polygon points="92.1,50.5 101.7,58.2 91.8,62.8" fill="#b42346"/><line x1="150.0" y1="175.0" x2="46.6" y2="239.3" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="37.3,245.2 43.7,234.7 49.5,244.0" fill="#17915a"/><line x1="150.0" y1="175.0" x2="253.4" y2="110.7" stroke="#8a3fd1" stroke-width="2.6" stroke-linecap="round"/><polygon points="262.7,104.8 256.3,115.3 250.5,106.0" fill="#8a3fd1"/><text x="299.0" y="175.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>y</tspan></text><text x="150.0" y="36.7" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>z</tspan></text><text x="75.7" y="73.9" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>a</tspan></text><text x="86.2" y="37.9" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#b42346"><tspan>b</tspan></text><text x="25.4" y="266.6" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>a × b</tspan></text><text x="274.6" y="97.4" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#8a3fd1"><tspan>b × a</tspan></text></svg><figcaption>The cross products (0.35 scale, x axis toward you)</figcaption></figure></div><p class="small fbdnote">Dashed lines trace each vector down to the $xy$ plane. The cross product $\mathbf a\times\mathbf b$ is perpendicular to both $\mathbf a$ and $\mathbf b$, and $\mathbf b\times\mathbf a$ points the opposite way.</p>
+</details>
+<details class="step"><summary>Step 2 · Add and subtract component by component</summary>
+<p>Vectors are added and subtracted by adding and subtracting their like components.</p>
+$$\mathbf a + \mathbf b = (1-2)\hat{\mathbf i} + (-3-4)\hat{\mathbf j} + (5+6)\hat{\mathbf k} = -\hat{\mathbf i} - 7\hat{\mathbf j} + 11\hat{\mathbf k}$$
+$$\mathbf a - \mathbf b = (1+2)\hat{\mathbf i} + (-3+4)\hat{\mathbf j} + (5-6)\hat{\mathbf k} = 3\hat{\mathbf i} + \hat{\mathbf j} - \hat{\mathbf k}$$
+</details>
+<details class="step"><summary>Step 3 · Compute the dot product</summary>
+<p>The dot product is the sum of the products of like components.</p>
+$$\mathbf a\cdot\mathbf b = (1)(-2) + (-3)(-4) + (5)(6) = -2 + 12 + 30 = 40$$
+<p class="small">As a check, $|\mathbf a| = \sqrt{35}$ and $|\mathbf b| = \sqrt{56}$, so $\cos\theta = 40/\sqrt{35\cdot 56} = 0.904$ and the angle between the vectors is $\theta = 25.4°$. The vectors are indeed close in direction.</p>
+</details>
+<details class="step"><summary>Step 4 · Compute the cross product a × b</summary>
+<p>The cross product can be written as a determinant whose first row holds the unit vectors.</p>
+<div class="formula">$$\mathbf a\times\mathbf b = \begin{vmatrix}\hat{\mathbf i}&\hat{\mathbf j}&\hat{\mathbf k}\\ 1&-3&5\\ -2&-4&6\end{vmatrix}
+= \big[(-3)(6)-(5)(-4)\big]\hat{\mathbf i} - \big[(1)(6)-(5)(-2)\big]\hat{\mathbf j} + \big[(1)(-4)-(-3)(-2)\big]\hat{\mathbf k}$$</div>
+$$\mathbf a\times\mathbf b = 2\hat{\mathbf i} - 16\hat{\mathbf j} - 10\hat{\mathbf k}$$
+<p class="small">As a check, $(\mathbf a\times\mathbf b)\cdot\mathbf a = 2 + 48 - 50 = 0$ and $(\mathbf a\times\mathbf b)\cdot\mathbf b = -4 + 64 - 60 = 0$. The result is perpendicular to both vectors, as it must be.</p>
+</details>
+<details class="step"><summary>Step 5 · Reverse the order for b × a</summary>
+<p>Reversing the order of a cross product changes its sign, so no new computation is needed.</p>
+$$\mathbf b\times\mathbf a = -\,\mathbf a\times\mathbf b = -2\hat{\mathbf i} + 16\hat{\mathbf j} + 10\hat{\mathbf k}$$
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>(a) $\mathbf a + \mathbf b = -\hat{\mathbf i} - 7\hat{\mathbf j} + 11\hat{\mathbf k}$</p><p>(b) $\mathbf a - \mathbf b = 3\hat{\mathbf i} + \hat{\mathbf j} - \hat{\mathbf k}$</p><p>(c) $\mathbf a\cdot\mathbf b = 40$</p>
+<p>(d) $\mathbf a\times\mathbf b = 2\hat{\mathbf i} - 16\hat{\mathbf j} - 10\hat{\mathbf k}$</p><p>(e) $\mathbf b\times\mathbf a = -2\hat{\mathbf i} + 16\hat{\mathbf j} + 10\hat{\mathbf k}$</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Choose “a · b” and look at the projection of $\mathbf b$ onto $\mathbf a$. Is it longer or shorter than $\mathbf b$, and why?</li><li>Switch between “a × b” and “b × a” and use the right-hand rule to confirm each direction in the 3D view.</li><li>Without computing, what is $\mathbf a\times\mathbf a$? What is $(\mathbf a\times\mathbf b)\cdot\mathbf a$?</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 0, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="examples.html"><small>← Previous</small>All examples</a><a class="next" href="ex-0-a-2.html"><small>Next →</small>Example 0.A.2</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/kit.js"></script>
+<script src="../assets/ch0-exA.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch0-3dA.js"></script>
+</body>
+</html>

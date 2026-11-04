@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 5.C.8 · Chapter 5 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 5</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="newton-euler.html">A · Newton–Euler</a>
+    <a href="work-energy.html">B · Work–energy</a>
+    <a href="impulse-momentum.html">C · Impulse–momentum</a>
+    <a href="examples.html" class=active>Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Impulse and momentum examples"><a href="examples.html#group-C">All impulse–momentum examples</a><a href="ex-5-c-1.html">5.C.1</a><a href="ex-5-c-2.html">5.C.2</a><a href="ex-5-c-3.html">5.C.3</a><a href="ex-5-c-4.html">5.C.4</a><a href="ex-5-c-5.html">5.C.5</a><a href="ex-5-c-6.html">5.C.6</a><a href="ex-5-c-7.html">5.C.7</a><a href="ex-5-c-8.html" class=active>5.C.8</a><a href="ex-5-c-9.html">5.C.9</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-C">Impulse and momentum</a> › Example 5.C.8</p>
+<h2><span class="num">Example 5.C.8</span>Raising the bars on a spinning frame</h2>
+<div class="tags"><span>angular momentum</span><span>conservation</span><span>moment of inertia</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>Two thin homogeneous bars, each of length $2R$ and mass $m$, are pinned to a frame of negligible mass at a distance $R$ from the fixed vertical axis of rotation. Initially the frame rotates at $\Omega_1$, with both bars hanging straight down and at rest relative to the frame (position 1). The bars are then slowly raised until they point horizontally outward, perpendicular to the axis (position 2).</p>
+<p>The data are $m = 10$ kg, $\Omega_1 = 8$ rad/s and $R = 0.5$ m.</p>
+<p><b>Find</b> the angular speed $\Omega_2$ of the frame in position 2.</p>
+</div>
+<div class="demo" id="xi-8">
+  <div class="demo-title"><span class="tag">Interactive</span><span>The bars are raised, held and lowered again</span></div>
+  <div class="grid2"><canvas id="xi-8-anim" class="anim" style="height:360px"></canvas><div><canvas id="xi-8-plot" class="plot" style="height:280px"></canvas></div></div>
+  <div class="controls" id="xi-8-ctl"></div>
+  <div class="bar" id="xi-8-btn"></div>
+  <div class="stats" id="xi-8-stats"></div>
+  <p class="small concept-note">The bars swing slowly in the vertical plane that contains the axis. The graph shows $\Omega = \Omega_1/\left(1 + 2\sin\phi + \tfrac43\sin^2\phi\right)$, where $\phi$ is the angle of the bars from the vertical.</p>
+</div>
+<div class="demo v3d" data-clip="xi-8"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Every solution follows the four-step method. Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Draw the free-body diagram</summary>
+<p>Take the frame and both bars as the system. The external forces are the weights, which are parallel to the axis, and the bearing forces, which pass through the axis. None of these has a moment about the axis of rotation. The forces that raise the bars are internal.</p>
+<div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 320 312" role="img" aria-label="System in position 1" style="max-width:320px"><line x1="160.0" y1="20.0" x2="160.0" y2="290.0" stroke="#7b808c" stroke-width="1.2" stroke-dasharray="5 4"/><line x1="160.0" y1="60.0" x2="160.0" y2="235.0" stroke="#8a6a12" stroke-width="7" stroke-linecap="round"/><line x1="160.0" y1="60.0" x2="160.0" y2="235.0" stroke="#f1e6c8" stroke-width="3" stroke-linecap="round"/><line x1="100.0" y1="60.0" x2="220.0" y2="60.0" stroke="#8a6a12" stroke-width="7" stroke-linecap="round"/><line x1="100.0" y1="60.0" x2="220.0" y2="60.0" stroke="#f1e6c8" stroke-width="3" stroke-linecap="round"/><circle cx="100.0" cy="60.0" r="4.5" fill="#fff" stroke="#1c1d21" stroke-width="2"/><line x1="100.0" y1="60.0" x2="100.0" y2="180.0" stroke="#8a6a12" stroke-width="13" stroke-linecap="round"/><line x1="100.0" y1="60.0" x2="100.0" y2="180.0" stroke="#f1e6c8" stroke-width="9" stroke-linecap="round"/><circle cx="100.0" cy="120.0" r="4" fill="#1c1d21"/><line x1="94.0" y1="120.0" x2="94.0" y2="164.0" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="94.0,175.0 88.5,164.0 99.5,164.0" fill="#c2410c"/><circle cx="220.0" cy="60.0" r="4.5" fill="#fff" stroke="#1c1d21" stroke-width="2"/><line x1="220.0" y1="60.0" x2="220.0" y2="180.0" stroke="#8a6a12" stroke-width="13" stroke-linecap="round"/><line x1="220.0" y1="60.0" x2="220.0" y2="180.0" stroke="#f1e6c8" stroke-width="9" stroke-linecap="round"/><circle cx="220.0" cy="120.0" r="4" fill="#1c1d21"/><line x1="226.0" y1="120.0" x2="226.0" y2="164.0" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="226.0,175.0 220.5,164.0 231.5,164.0" fill="#c2410c"/><line x1="157.0" y1="279.0" x2="157.0" y2="250.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="157.0,239.0 162.5,250.0 151.5,250.0" fill="#17915a"/><circle cx="160.0" cy="235.0" r="4.5" fill="#fff" stroke="#1c1d21" stroke-width="2"/><line x1="101.0" y1="235.0" x2="145.0" y2="235.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="156.0,235.0 145.0,240.5 145.0,229.5" fill="#17915a"/><text x="78.0" y="181.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>mg</tspan></text><text x="242.0" y="181.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>mg</tspan></text><text x="141.0" y="291.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>O</tspan><tspan dy="4.8" style="font-size:10.8px">z</tspan></text><text x="89.0" y="223.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>O</tspan><tspan dy="4.8" style="font-size:10.8px">x</tspan></text><text x="240.0" y="280.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:14px;font-style:italic;fill:#8a3fd1"><tspan>Ω</tspan><tspan dy="4.5" style="font-size:10.1px">1</tspan></text></svg><figcaption>System in position 1</figcaption></figure><figure><svg class="fbd" viewBox="0 0 420 312" role="img" aria-label="System in position 2" style="max-width:420px"><line x1="210.0" y1="20.0" x2="210.0" y2="290.0" stroke="#7b808c" stroke-width="1.2" stroke-dasharray="5 4"/><line x1="210.0" y1="60.0" x2="210.0" y2="235.0" stroke="#8a6a12" stroke-width="7" stroke-linecap="round"/><line x1="210.0" y1="60.0" x2="210.0" y2="235.0" stroke="#f1e6c8" stroke-width="3" stroke-linecap="round"/><line x1="150.0" y1="60.0" x2="270.0" y2="60.0" stroke="#8a6a12" stroke-width="7" stroke-linecap="round"/><line x1="150.0" y1="60.0" x2="270.0" y2="60.0" stroke="#f1e6c8" stroke-width="3" stroke-linecap="round"/><line x1="150.0" y1="60.0" x2="30.0" y2="60.0" stroke="#8a6a12" stroke-width="13" stroke-linecap="round"/><line x1="150.0" y1="60.0" x2="30.0" y2="60.0" stroke="#f1e6c8" stroke-width="9" stroke-linecap="round"/><circle cx="90.0" cy="60.0" r="4" fill="#1c1d21"/><line x1="90.0" y1="66.0" x2="90.0" y2="110.0" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="90.0,121.0 84.5,110.0 95.5,110.0" fill="#c2410c"/><circle cx="150.0" cy="60.0" r="4.5" fill="#fff" stroke="#1c1d21" stroke-width="2"/><line x1="270.0" y1="60.0" x2="390.0" y2="60.0" stroke="#8a6a12" stroke-width="13" stroke-linecap="round"/><line x1="270.0" y1="60.0" x2="390.0" y2="60.0" stroke="#f1e6c8" stroke-width="9" stroke-linecap="round"/><circle cx="330.0" cy="60.0" r="4" fill="#1c1d21"/><line x1="330.0" y1="66.0" x2="330.0" y2="110.0" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="330.0,121.0 324.5,110.0 335.5,110.0" fill="#c2410c"/><circle cx="270.0" cy="60.0" r="4.5" fill="#fff" stroke="#1c1d21" stroke-width="2"/><line x1="207.0" y1="279.0" x2="207.0" y2="250.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="207.0,239.0 212.5,250.0 201.5,250.0" fill="#17915a"/><circle cx="210.0" cy="235.0" r="4.5" fill="#fff" stroke="#1c1d21" stroke-width="2"/><line x1="151.0" y1="235.0" x2="195.0" y2="235.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="206.0,235.0 195.0,240.5 195.0,229.5" fill="#17915a"/><line x1="210.0" y1="30.0" x2="270.0" y2="30.0" stroke="#7b808c" stroke-width="1.2"/><line x1="210.0" y1="25.0" x2="210.0" y2="35.0" stroke="#7b808c" stroke-width="1.2"/><line x1="270.0" y1="25.0" x2="270.0" y2="35.0" stroke="#7b808c" stroke-width="1.2"/><line x1="270.0" y1="30.0" x2="390.0" y2="30.0" stroke="#7b808c" stroke-width="1.2"/><line x1="270.0" y1="25.0" x2="270.0" y2="35.0" stroke="#7b808c" stroke-width="1.2"/><line x1="390.0" y1="25.0" x2="390.0" y2="35.0" stroke="#7b808c" stroke-width="1.2"/><text x="76.0" y="127.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>mg</tspan></text><text x="344.0" y="127.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>mg</tspan></text><text x="191.0" y="291.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>O</tspan><tspan dy="4.8" style="font-size:10.8px">z</tspan></text><text x="139.0" y="223.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>O</tspan><tspan dy="4.8" style="font-size:10.8px">x</tspan></text><text x="240.0" y="18.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>R</tspan></text><text x="330.0" y="18.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>2R</tspan></text><text x="290.0" y="280.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:14px;font-style:italic;fill:#8a3fd1"><tspan>Ω</tspan><tspan dy="4.5" style="font-size:10.1px">2</tspan></text></svg><figcaption>System in position 2</figcaption></figure></div><p class="small fbdnote">In both positions the weights are parallel to the axis and the bearing forces $O_x$ and $O_z$ pass through it, so no external force has a moment about the axis. The forces that raise the bars act between the bars and the frame and are internal. ($O_x$ stands for the horizontal bearing force in any direction.)</p>
+</details>
+<details class="step"><summary>Step 2 · Write the kinetics equation</summary>
+<p>The angular momentum about the vertical axis is conserved, and the frame has no mass.</p>
+$$I_1\,\Omega_1 = I_2\,\Omega_2$$
+</details>
+<details class="step"><summary>Step 3 · Find the moments of inertia about the axis</summary>
+<p>In position 1 every particle of each bar is at the distance $R$ from the axis, so each bar contributes $mR^2$ and $I_1 = 2mR^2$.</p>
+<p>In position 2 each bar lies along a radius, from $r = R$ to $r = 3R$. With mass $m/(2R)$ per unit length,</p>
+$$I_{bar} = \int_R^{3R} r^2\,\frac{m}{2R}\,dr = \frac{m}{2R}\cdot\frac{(3R)^3 - R^3}{3} = \frac{13}{3}\,mR^2, \qquad I_2 = \frac{26}{3}\,mR^2$$
+</details>
+<details class="step"><summary>Step 4 · Solve</summary>
+$$\Omega_2 = \frac{I_1}{I_2}\,\Omega_1 = \frac{2}{26/3}\,\Omega_1 = \frac{3}{13}\,\Omega_1 = \frac{3}{13}(8) = 1.85\ \text{rad/s}$$
+<p class="small">The values of $m$ and $R$ cancel. The kinetic energy drops to $3/13$ of its initial value, because the mechanism that raises the bars must hold them back against their tendency to swing outward.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>$\Omega_2 = \tfrac{3}{13}\,\Omega_1 = 1.85$ rad/s.</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Find the angle of the bars at which the frame turns at exactly half of $\Omega_1$.</li><li>Does the answer depend on how fast the bars are raised? Explain with the free-body diagram.</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 5, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-5-c-7.html"><small>← Previous</small>Example 5.C.7</a><a class="next" href="ex-5-c-9.html"><small>Next →</small>Example 5.C.9</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/ch5.js"></script>
+<script src="../assets/ch5-exC.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch5-3dC.js"></script>
+</body>
+</html>

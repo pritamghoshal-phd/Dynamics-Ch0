@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 6.B.13 · Chapter 6 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 6</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="eom.html">A · Equations of motion</a>
+    <a href="free.html">B · Free vibration</a>
+    <a href="damped.html">B · Damped vibration</a>
+    <a href="forced.html">C · Forced vibration</a>
+    <a href="base.html">C · Base excitation</a>
+    <a href="summary.html">Summary</a>
+    <a href="examples.html" class=active>Examples</a>
+    <a href="badges.html">🏅 Badges</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Free response examples"><a href="examples.html#group-B">All Free response examples</a><a href="ex-6-b-1.html">6.B.1</a><a href="ex-6-b-2.html">6.B.2</a><a href="ex-6-b-3.html">6.B.3</a><a href="ex-6-b-4.html">6.B.4</a><a href="ex-6-b-5.html">6.B.5</a><a href="ex-6-b-6.html">6.B.6</a><a href="ex-6-b-7.html">6.B.7</a><a href="ex-6-b-8.html">6.B.8</a><a href="ex-6-b-9.html">6.B.9</a><a href="ex-6-b-10.html">6.B.10</a><a href="ex-6-b-11.html">6.B.11</a><a href="ex-6-b-12.html">6.B.12</a><a href="ex-6-b-13.html" class=active>6.B.13</a><a href="ex-6-b-14.html">6.B.14</a><a href="ex-6-b-15.html">6.B.15</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-B">Free response</a> › Example 6.B.13</p>
+<h2><span class="num">Example 6.B.13</span>A block sticks to a damped carriage</h2>
+<div class="tags"><span>impact</span><span>damped free response</span><span>initial conditions</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>Block A (mass $2m$) strikes a stationary block B (mass $m$) with a speed of $v$. Upon impact, A sticks to B. Block B is an L-shaped carriage held to a wall by a spring of stiffness $k$ and a dashpot with constant $c$. All surfaces are smooth. The coordinate $x$ is the displacement of B to the left, measured from its rest position, where the spring is unstretched.</p>
+<p><b>Find</b> the time history of motion $x(t)$ of the system after A sticks to B.</p>
+<p>Use $v = 30$ m/s, $k = 3000$ N/m, $c = 30$ N·s/m and $m = 10$ kg.</p>
+</div>
+<div class="demo" id="x6b-13">
+  <div class="demo-title"><span class="tag">Interactive</span><span>Impact, then the damped free vibration</span></div>
+  <canvas id="x6b-13-anim" class="anim" style="height:250px"></canvas><canvas id="x6b-13-plot" class="plot" style="height:230px"></canvas>
+  <div class="controls" id="x6b-13-ctl"></div>
+  <div class="bar" id="x6b-13-pre"><span class="lbl">Try:</span></div>
+  <div class="bar" id="x6b-13-btn"></div>
+  <div class="stats" id="x6b-13-stats"></div>
+  <p class="small concept-note">Everything is drawn at true scale. A slides along B’s smooth base toward the upright (shown in slow motion, since it takes only about 0.04 s) and sticks to it. After the impact the clock runs in real time. The spring and the dashpot are long enough for the 2 m swing, so the carriage never reaches the wall.</p>
+</div>
+<div class="demo v3d" data-clip="x6b-13"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Every solution starts from free-body diagrams in a displaced position, then writes the equation of motion and reads off the vibration properties. Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Draw the free-body diagrams</summary>
+<div class="fbdrow"><figure style="width:320px;max-width:100%"><svg class="fbd" viewBox="0 0 320 200" role="img" aria-label="During the impact: A and B separately" style="max-width:320px"><rect x="-23.0" y="-60.0" width="46.0" height="120.0" rx="4" transform="translate(70.0,110.0) rotate(0.0)" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><rect x="-30.0" y="-30.0" width="60.0" height="60.0" rx="4" transform="translate(250.0,140.0) rotate(0.0)" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><line x1="143.0" y1="150.0" x2="104.0" y2="150.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="93.0,150.0 104.0,144.5 104.0,155.5" fill="#17915a"/><line x1="170.0" y1="150.0" x2="209.0" y2="150.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="220.0,150.0 209.0,155.5 209.0,144.5" fill="#17915a"/><text x="70.0" y="110.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:16px;font-style:italic;fill:#1c1d21"><tspan>B</tspan></text><text x="250.0" y="140.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:16px;font-style:italic;fill:#1c1d21"><tspan>A</tspan></text><text x="118.0" y="166.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>F̂</tspan></text><text x="195.0" y="166.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>F̂</tspan></text><text x="160.0" y="26.0" text-anchor="middle" dominant-baseline="middle" style="font-family:system-ui,sans-serif;font-size:11px;fill:#7b808c">spring and dashpot forces are finite: no impulse</text></svg><figcaption>During the impact: A and B separately</figcaption></figure><figure style="width:340px;max-width:100%"><svg class="fbd" viewBox="0 0 340 230" role="img" aria-label="After the impact: A and B together (3m)" style="max-width:340px"><rect x="-60.0" y="-40.0" width="120.0" height="80.0" rx="4" transform="translate(165.0,110.0) rotate(0.0)" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><line x1="225.0" y1="90.0" x2="272.0" y2="90.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="283.0,90.0 272.0,95.5 272.0,84.5" fill="#2457d6"/><line x1="225.0" y1="128.0" x2="272.0" y2="128.0" stroke="#b42346" stroke-width="2.6" stroke-linecap="round"/><polygon points="283.0,128.0 272.0,133.5 272.0,122.5" fill="#b42346"/><line x1="165.0" y1="150.0" x2="165.0" y2="179.0" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="165.0,190.0 159.5,179.0 170.5,179.0" fill="#c2410c"/><line x1="135.0" y1="190.0" x2="135.0" y2="161.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="135.0,150.0 140.5,161.0 129.5,161.0" fill="#17915a"/><line x1="80.0" y1="40.0" x2="51.0" y2="40.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="40.0,40.0 51.0,34.5 51.0,45.5" fill="#7b808c"/><text x="165.0" y="110.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:16px;font-style:italic;fill:#1c1d21"><tspan>3m</tspan></text><text x="301.0" y="90.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>kx</tspan></text><text x="307.0" y="128.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#b42346"><tspan>c ẋ</tspan></text><text x="193.0" y="192.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>3mg</tspan></text><text x="117.0" y="200.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>N</tspan></text><text x="60.0" y="26.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:14px;font-style:italic;fill:#7b808c"><tspan>+x</tspan></text></svg><figcaption>After the impact: A and B together (3m)</figcaption></figure></div><p class="small fbdnote">With x positive to the left, a positive x compresses the spring and the spring pushes the carriage back to the right. The dashpot force opposes the velocity.</p><p>During the impact, the only large forces are the equal and opposite contact forces between A and B. The spring and dashpot forces stay finite, so over the very short impact they produce no impulse. After the impact, A and B move together as one body of mass $3m$.</p>
+</details>
+<details class="step"><summary>Step 2 · Find the velocity just after the impact</summary>
+<p>Linear momentum of A and B is conserved during the impact:</p>
+$$(2m)\,v + m\,(0) = (3m)\,V_0 \qquad\Longrightarrow\qquad V_0 = \frac{2}{3}v = \frac{2}{3}(30) = 20\ \text{m/s}$$
+<p>The velocity points to the left, so $\dot x(0) = +20$ m/s. The impact is instantaneous, so B has not moved yet and $x(0) = 0$. One third of the kinetic energy of A is lost in the sticking collision.</p>
+</details>
+<details class="step"><summary>Step 3 · Write the equation of motion after the impact</summary>
+<p>For the combined body, Newton’s second law in the $x$ direction (to the left) gives $3m\ddot x = -kx - c\dot x$, so</p>
+$$3m\,\ddot x + c\,\dot x + k\,x = 0$$
+$$\omega_n = \sqrt{\frac{k}{3m}} = \sqrt{\frac{3000}{30}} = 10.0\ \text{rad/s}, \qquad \zeta = \frac{c}{2\sqrt{3m\,k}} = \frac{30}{2\sqrt{90\,000}} = 0.050$$
+$$\omega_d = \omega_n\sqrt{1-\zeta^2} = 9.987\ \text{rad/s}, \qquad \zeta\omega_n = 0.50\ \text{s}^{-1}$$
+</details>
+<details class="step"><summary>Step 4 · Apply the initial conditions</summary>
+<p>The underdamped response is $x(t) = e^{-\zeta\omega_n t}(A\cos\omega_d t + B\sin\omega_d t)$. The condition $x(0) = 0$ gives $A = 0$. Then $\dot x(0) = B\,\omega_d = V_0$ gives $B = V_0/\omega_d = 20/9.987 = 2.003$ m.</p>
+$$x(t) = 2.003\,e^{-0.50\,t}\sin(9.987\,t)\ \text{m}$$
+</details>
+<details class="answer"><summary>Answer</summary>
+$$x(t) = \frac{V_0}{\omega_d}e^{-\zeta\omega_n t}\sin\omega_d t = 2.00\,e^{-0.50\,t}\sin(9.99\,t)\ \text{m}, \qquad x \text{ positive to the left}$$
+<p>The largest leftward displacement is 1.85 m, reached at $t = 0.152$ s.</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Set $c = 0$. Is the motion still decaying? What is the amplitude now?</li><li>Find the value of $c$ that makes the system critically damped. Why is it so much larger than the book’s value?</li><li>Double the speed of A. Does the frequency change, or only the amplitude?</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 6, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-6-b-12.html"><small>← Previous</small>Example 6.B.12</a><a class="next" href="ex-6-b-14.html"><small>Next →</small>Example 6.B.14</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/kit.js"></script>
+<script src="../assets/ch6-exB3.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch6-3dB3.js"></script>
+</body>
+</html>

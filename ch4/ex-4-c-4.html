@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 4.C.4 · Chapter 4 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 4</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="newton.html">A · Newton's laws</a>
+    <a href="energy.html">B · Work–energy</a>
+    <a href="impulse.html">C · Linear impulse–momentum</a>
+    <a href="angular.html">D · Angular impulse–momentum</a>
+    <a href="examples.html" class=active>Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Linear impulse and momentum examples"><a href="examples.html#group-C">All Linear impulse and momentum examples</a><a href="ex-4-c-1.html">4.C.1</a><a href="ex-4-c-2.html">4.C.2</a><a href="ex-4-c-3.html">4.C.3</a><a href="ex-4-c-4.html" class=active>4.C.4</a><a href="ex-4-c-5.html">4.C.5</a><a href="ex-4-c-6.html">4.C.6</a><a href="ex-4-c-7.html">4.C.7</a><a href="ex-4-c-8.html">4.C.8</a><a href="ex-4-c-9.html">4.C.9</a><a href="ex-4-c-10.html">4.C.10</a><a href="ex-4-c-11.html">4.C.11</a><a href="ex-4-c-12.html">4.C.12</a><a href="ex-4-c-13.html">4.C.13</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-C">Linear impulse and momentum</a> › Example 4.C.4</p>
+<h2><span class="num">Example 4.C.4</span>Coupling two cars: the energy lost</h2>
+<div class="tags"><span>perfectly plastic impact</span><span>conservation of momentum</span><span>kinetic energy</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>Car A, of mass $m_A$, travels to the right with an initial speed $v_{A1}$. It runs into car B, of mass $m_B$, which is at rest. After the impact the two cars stay coupled together.</p>
+<p><b>Find</b> the change in kinetic energy of the system of A and B, $T_2 - T_1$, caused by the impact. What fraction of the initial kinetic energy is this change?</p>
+<p class="small">The book solves this problem with symbols. The animation uses $m_A = 1500$ kg, $m_B = 1000$ kg and $v_{A1} = 20$ m/s as sample values.</p>
+</div>
+<div class="demo" id="x4c-4">
+  <div class="demo-title"><span class="tag">Interactive</span><span>Car A couples with car B</span></div>
+  <canvas id="x4c-4-anim" class="anim" style="height:230px"></canvas><canvas id="x4c-4-plot" class="plot" style="height:200px"></canvas>
+  <div class="controls" id="x4c-4-ctl"></div>
+  <div class="bar" id="x4c-4-btn"></div>
+  <div class="stats" id="x4c-4-stats"></div>
+  <p class="small concept-note">The bars compare the kinetic energy before the impact with the kinetic energy now. Change the masses and watch the lost fraction, which depends only on the mass ratio.</p>
+</div>
+<div class="demo v3d" data-clip="x4c-4"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Every solution follows the four-step method: free-body diagrams, kinetics equations, kinematics, solve. Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Draw the free-body diagrams</summary>
+<p>Take cars A and B together as the system. During the impact the coupling force $P$ between the cars is very large, but it is internal. The weights and the normal forces are vertical and finite. No horizontal force acts on the system from outside.</p>
+<div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 330 210" role="img" aria-label="A and B together during the impact" style="max-width:330px"><rect x="-48.0" y="-17.0" width="96.0" height="34.0" rx="4" transform="translate(110.0,100.0) rotate(0.0)" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><circle cx="81.2" cy="124.0" r="7.0" fill="#3a3d44" stroke="#8a6a12" stroke-width="2"/><circle cx="138.8" cy="124.0" r="7.0" fill="#3a3d44" stroke="#8a6a12" stroke-width="2"/><rect x="-48.0" y="-17.0" width="96.0" height="34.0" rx="4" transform="translate(214.0,100.0) rotate(0.0)" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><circle cx="185.2" cy="124.0" r="7.0" fill="#3a3d44" stroke="#8a6a12" stroke-width="2"/><circle cx="242.8" cy="124.0" r="7.0" fill="#3a3d44" stroke="#8a6a12" stroke-width="2"/><circle cx="130.0" cy="100.0" r="4" fill="#1c1d21"/><line x1="130.0" y1="100.0" x2="130.0" y2="139.0" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="130.0,150.0 124.5,139.0 135.5,139.0" fill="#c2410c"/><circle cx="234.0" cy="100.0" r="4" fill="#1c1d21"/><line x1="234.0" y1="100.0" x2="234.0" y2="139.0" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="234.0,150.0 228.5,139.0 239.5,139.0" fill="#c2410c"/><line x1="82.0" y1="160.0" x2="82.0" y2="135.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="82.0,124.0 87.5,135.0 76.5,135.0" fill="#17915a"/><line x1="186.0" y1="160.0" x2="186.0" y2="135.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="186.0,124.0 191.5,135.0 180.5,135.0" fill="#17915a"/><line x1="24.0" y1="196.0" x2="47.0" y2="196.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="58.0,196.0 47.0,201.5 47.0,190.5" fill="#7b808c"/><line x1="24.0" y1="196.0" x2="24.0" y2="173.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="24.0,162.0 29.5,173.0 18.5,173.0" fill="#7b808c"/><text x="110.0" y="100.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:16px;font-style:italic;fill:#1c1d21"><tspan>A</tspan></text><text x="214.0" y="100.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:16px;font-style:italic;fill:#1c1d21"><tspan>B</tspan></text><text x="156.0" y="148.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>m</tspan><tspan dy="4.8" style="font-size:10.8px">A</tspan><tspan dy="-4.8"> g</tspan></text><text x="260.0" y="148.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>m</tspan><tspan dy="4.8" style="font-size:10.8px">B</tspan><tspan dy="-4.8"> g</tspan></text><text x="64.0" y="172.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>N</tspan><tspan dy="4.8" style="font-size:10.8px">A</tspan></text><text x="168.0" y="172.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>N</tspan><tspan dy="4.8" style="font-size:10.8px">B</tspan></text><text x="68.0" y="196.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>x</tspan></text><text x="24.0" y="152.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>y</tspan></text></svg><figcaption>A and B together during the impact</figcaption></figure><figure><svg class="fbd" viewBox="0 0 330 210" role="img" aria-label="Each car alone" style="max-width:330px"><rect x="-45.0" y="-17.0" width="90.0" height="34.0" rx="4" transform="translate(80.0,100.0) rotate(0.0)" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><circle cx="53.0" cy="124.0" r="7.0" fill="#3a3d44" stroke="#8a6a12" stroke-width="2"/><circle cx="107.0" cy="124.0" r="7.0" fill="#3a3d44" stroke="#8a6a12" stroke-width="2"/><rect x="-45.0" y="-17.0" width="90.0" height="34.0" rx="4" transform="translate(250.0,100.0) rotate(0.0)" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><circle cx="223.0" cy="124.0" r="7.0" fill="#3a3d44" stroke="#8a6a12" stroke-width="2"/><circle cx="277.0" cy="124.0" r="7.0" fill="#3a3d44" stroke="#8a6a12" stroke-width="2"/><line x1="175.0" y1="100.0" x2="136.0" y2="100.0" stroke="#b42346" stroke-width="2.6" stroke-linecap="round"/><polygon points="125.0,100.0 136.0,94.5 136.0,105.5" fill="#b42346"/><line x1="155.0" y1="100.0" x2="194.0" y2="100.0" stroke="#b42346" stroke-width="2.6" stroke-linecap="round"/><polygon points="205.0,100.0 194.0,105.5 194.0,94.5" fill="#b42346"/><text x="80.0" y="100.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:16px;font-style:italic;fill:#1c1d21"><tspan>A</tspan></text><text x="250.0" y="100.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:16px;font-style:italic;fill:#1c1d21"><tspan>B</tspan></text><text x="185.0" y="86.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#b42346"><tspan>P</tspan></text><text x="145.0" y="86.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#b42346"><tspan>P</tspan></text></svg><figcaption>Each car alone</figcaption></figure></div><p class="small fbdnote">During the short impact the coupling force $P$ is very large. For the pair it is internal (equal and opposite). The weights and normal forces are finite and vertical, so they give no horizontal impulse.</p>
+</details>
+<details class="step"><summary>Step 2 · Write the kinetics equations</summary>
+<p>With no horizontal external impulse, linear momentum is conserved in the horizontal direction:</p>
+$$m_A v_{A1} + m_B (0) = (m_A + m_B)\,v_2$$
+<p>The kinetic energies before and after the impact are</p>
+$$T_1 = \tfrac12 m_A v_{A1}^2, \qquad T_2 = \tfrac12 (m_A + m_B)\,v_2^2$$
+<p>We cannot use the work–energy equation across the impact, because the coupling force does an unknown amount of work as the bumpers deform.</p>
+</details>
+<details class="step"><summary>Step 3 · Write the kinematics equation</summary>
+<p>The cars stay coupled, so after the impact they share one velocity $v_2$.</p>
+</details>
+<details class="step"><summary>Step 4 · Solve</summary>
+<p>Momentum gives $v_2 = \dfrac{m_A}{m_A + m_B}\,v_{A1}$. Then</p>
+$$T_2 = \tfrac12 (m_A + m_B)\left(\frac{m_A v_{A1}}{m_A + m_B}\right)^2 = \frac{m_A}{m_A + m_B}\,T_1$$
+$$T_2 - T_1 = -\frac{m_B}{m_A + m_B}\,T_1 = -\frac{m_A m_B\,v_{A1}^2}{2(m_A + m_B)}$$
+$$\frac{T_2 - T_1}{T_1} = -\frac{m_B}{m_A + m_B}$$
+<p class="small">With the sample values, $v_2 = 12$ m/s and 40 % of the kinetic energy is lost. The lost energy goes into deforming the couplers, sound and heat.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>$T_2 - T_1 = -\dfrac{m_A m_B\, v_{A1}^2}{2(m_A + m_B)}$, which is the fraction $\dfrac{T_2 - T_1}{T_1} = -\dfrac{m_B}{m_A + m_B}$ of the initial kinetic energy.</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Make car B very light. What fraction of the energy is lost, and why does that make sense?</li><li>Make the two masses equal. Check that exactly half of the kinetic energy is lost.</li><li>Does the lost fraction depend on the speed $v_{A1}$? Try it with the slider.</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 4, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-4-c-3.html"><small>← Previous</small>Example 4.C.3</a><a class="next" href="ex-4-c-5.html"><small>Next →</small>Example 4.C.5</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/kit.js"></script>
+<script src="../assets/ch4-exC1.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch4-3dC1.js"></script>
+</body>
+</html>

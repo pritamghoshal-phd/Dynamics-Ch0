@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 0.C.3 · Chapter 0 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 0</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="vectors.html">A · Vectors</a>
+    <a href="fbd.html">B · Free-body diagrams</a>
+    <a href="kinematics.html">C · Scalar kinematics</a>
+    <a href="examples.html" class=active>Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Scalar kinematics examples"><a href="examples.html#group-C">All Scalar kinematics examples</a><a href="ex-0-c-1.html">0.C.1</a><a href="ex-0-c-2.html">0.C.2</a><a href="ex-0-c-3.html" class=active>0.C.3</a><a href="ex-0-c-4.html">0.C.4</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-C">Scalar kinematics</a> › Example 0.C.3</p>
+<h2><span class="num">Example 0.C.3</span>Speed from the acceleration as a function of time</h2>
+<div class="tags"><span>scalar kinematics</span><span>integration</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>The acceleration of point P, which travels on a straight-line path, is given by</p>
+$$a(t) = 6\sin 2t, \qquad v(0) = 4$$
+<p><b>Find</b> the speed of P as a function of time.</p><p class="small">The book does not state units. The animation uses metres for $s$ and seconds for $t$.</p>
+</div>
+<div class="demo" id="x0c-3">
+  <div class="demo-title"><span class="tag">Interactive</span><span>A step-by-step simulation of the motion compared with the formula</span></div>
+  <canvas id="x0c-3-anim" class="anim" style="height:110px"></canvas><div class="grid2"><canvas id="x0c-3-plot" class="plot" style="height:230px"></canvas><canvas id="x0c-3-plot2" class="plot" style="height:230px"></canvas></div><div class="legendrow"><span><span class="sw" style="background:var(--c3)"></span>speed from the simulation</span><span><span class="sw" style="background:var(--c2)"></span>formula v = 7 − 3 cos 2t</span></div>
+  <div class="bar" id="x0c-3-btn"></div>
+  <div class="stats" id="x0c-3-stats"></div>
+  <p class="small concept-note">The simulation knows only the acceleration a = 6 sin 2t and the starting speed. It adds up the small changes in speed, and its result (thick line) falls exactly on the formula (dashed). P starts at s = 0.</p>
+</div>
+<div class="demo v3d" data-clip="x0c-3"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Draw the kinematics diagram</summary>
+<p>The acceleration is known as a function of time. It changes sign, so P alternately speeds up and slows down, but we will see that it never stops.</p><div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 440 150" role="img" aria-label="Point P on its straight path" style="max-width:440px"><line x1="20.0" y1="100.0" x2="420.0" y2="100.0" stroke="#1c1d21" stroke-width="2"/><circle cx="60.0" cy="100.0" r="3" fill="#1c1d21"/><circle cx="270" cy="100" r="9" fill="#2457d6"/><line x1="60.0" y1="84.0" x2="270.0" y2="84.0" stroke="#7b808c" stroke-width="1.2"/><line x1="60.0" y1="79.0" x2="60.0" y2="89.0" stroke="#7b808c" stroke-width="1.2"/><line x1="270.0" y1="79.0" x2="270.0" y2="89.0" stroke="#7b808c" stroke-width="1.2"/><line x1="270.0" y1="56.0" x2="329.0" y2="56.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="340.0,56.0 329.0,61.5 329.0,50.5" fill="#17915a"/><line x1="270.0" y1="30.0" x2="314.0" y2="30.0" stroke="#b42346" stroke-width="2.6" stroke-linecap="round"/><polygon points="325.0,30.0 314.0,35.5 314.0,24.5" fill="#b42346"/><text x="60.0" y="118.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>O</tspan></text><text x="270.0" y="122.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>P</tspan></text><text x="165.0" y="92.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>s</tspan></text><text x="352.0" y="56.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>v</tspan></text><text x="337.0" y="30.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#b42346"><tspan>a</tspan></text><text x="410.0" y="118.0" text-anchor="end" dominant-baseline="middle" style="font-family:system-ui,sans-serif;font-size:11px;fill:#7b808c">positive direction →</text></svg><figcaption>Point P on its straight path</figcaption></figure></div>
+</details>
+<details class="step"><summary>Step 2 · Separate the variables</summary>
+<p>Because $a = dv/dt$, we can write $dv = a\,dt$ and integrate from the known starting state, $v = 4$ at $t = 0$.</p>
+$$\int_{4}^{v} dv = \int_{0}^{t} 6\sin 2\tau\,d\tau$$
+</details>
+<details class="step"><summary>Step 3 · Integrate</summary>
+$$v - 4 = \Big[-3\cos 2\tau\Big]_0^t = -3\cos 2t + 3$$
+</details>
+<details class="step"><summary>Step 4 · Solve for the speed</summary>
+$$v(t) = 7 - 3\cos 2t$$
+<p class="small">At $t = 0$ this gives $v = 7 - 3 = 4$, which matches the starting speed. The speed varies between 4 and 10 and is never negative, so P always moves forward.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>$v(t) = 7 - 3\cos 2t$</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>At what times is the speed largest? Check your answer against the animation.</li><li>Find the position $s(t)$ if $s(0) = 0$. How far does P travel in one period of the acceleration, $t = \pi$ s?</li><li>Why could we integrate directly with respect to time here, while Example 0.C.4 needs $a = v\,dv/ds$?</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 0, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-0-c-2.html"><small>← Previous</small>Example 0.C.2</a><a class="next" href="ex-0-c-4.html"><small>Next →</small>Example 0.C.4</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/kit.js"></script>
+<script src="../assets/ch0-exC.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch0-3dC.js"></script>
+</body>
+</html>

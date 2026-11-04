@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 1.C.4 · Chapter 1 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 1</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="planar.html">A · Planar descriptions</a>
+    <a href="threed.html">B · 3D descriptions</a>
+    <a href="joint.html">C · Joint description</a>
+    <a href="relative.html">D · Relative & constrained</a>
+    <a href="examples.html" class=active>Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Joint description examples"><a href="examples.html#group-C">All Joint description examples</a><a href="ex-1-c-1.html">1.C.1</a><a href="ex-1-c-2.html">1.C.2</a><a href="ex-1-c-3.html">1.C.3</a><a href="ex-1-c-4.html" class=active>1.C.4</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-C">Joint description</a> › Example 1.C.4</p>
+<h2><span class="num">Example 1.C.4</span>Radar tracking an airplane in a loop</h2>
+<div class="tags"><span>path and polar</span><span>joint description</span><span>tracking</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>At the bottom of a loop, an airplane P has a constant speed $v_P$, and the radius of curvature of its path is $\rho$. The airplane is at a radial distance $r$ and at an angle $\theta$ from a radar tracking station at O.</p>
+<p>Use $v_P = 75$ m/s, $\rho = 3000$ m, $r = 1000$ m and $\theta = 36.87^\circ$.</p>
+<p><b>Find</b> numerical values for $\ddot r$ and $\ddot\theta$ at this instant.</p>
+</div>
+<div class="demo" id="x1c-4">
+  <div class="demo-title"><span class="tag">Interactive</span><span>The loop as the radar station sees it</span></div>
+  <canvas id="x1c-4-anim" class="anim" style="height:380px"></canvas><div class="grid2"><canvas id="x1c-4-plot" class="plot" style="height:200px"></canvas><canvas id="x1c-4-plot2" class="plot" style="height:200px"></canvas></div>
+  <div class="controls" id="x1c-4-ctl"></div>
+  <div class="bar" id="x1c-4-pre"><span class="lbl">Try:</span></div>
+  <div class="bar" id="x1c-4-btn"></div>
+  <div class="stats" id="x1c-4-stats"></div>
+  <p class="small concept-note">The airplane flies through the bottom of the loop at constant speed while the radar dish turns to follow it. The graphs show $\ddot r$ and $\ddot\theta$ as the radar measures them, and the vertical line marks the instant in the problem.</p>
+</div>
+<div class="demo v3d" data-clip="x1c-4"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Describe the motion in path components</summary>
+<p>The information about the airplane is given in path terms. Its speed is constant, so $\dot v = 0$. At the bottom of the loop the velocity is horizontal and the center of curvature is straight above the airplane, so with $\hat{\mathbf i}$ to the right and $\hat{\mathbf j}$ upward,</p>
+$$\mathbf v = 75\,\hat{\mathbf i}\ \text{m/s}, \qquad \mathbf a = \dot v\,\hat{\mathbf e}_t + \frac{v^2}{\rho}\,\hat{\mathbf e}_n = 0 + \frac{(75)^2}{3000}\,\hat{\mathbf j} = 1.875\,\hat{\mathbf j}\ \text{m/s}^2$$
+</details>
+<details class="step"><summary>Step 2 · Draw the kinematics diagram</summary>
+<div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 330 270" role="img" aria-label="Radar geometry at the bottom of the loop" style="max-width:330px"><line x1="15" y1="235" x2="320" y2="235" stroke="#8b8f98" stroke-width="2"/><line x1="19" y1="235" x2="13" y2="242" stroke="#8b8f98" stroke-width="1.2"/><line x1="29" y1="235" x2="23" y2="242" stroke="#8b8f98" stroke-width="1.2"/><line x1="39" y1="235" x2="33" y2="242" stroke="#8b8f98" stroke-width="1.2"/><line x1="49" y1="235" x2="43" y2="242" stroke="#8b8f98" stroke-width="1.2"/><line x1="59" y1="235" x2="53" y2="242" stroke="#8b8f98" stroke-width="1.2"/><line x1="69" y1="235" x2="63" y2="242" stroke="#8b8f98" stroke-width="1.2"/><line x1="79" y1="235" x2="73" y2="242" stroke="#8b8f98" stroke-width="1.2"/><line x1="89" y1="235" x2="83" y2="242" stroke="#8b8f98" stroke-width="1.2"/><line x1="99" y1="235" x2="93" y2="242" stroke="#8b8f98" stroke-width="1.2"/><line x1="109" y1="235" x2="103" y2="242" stroke="#8b8f98" stroke-width="1.2"/><line x1="119" y1="235" x2="113" y2="242" stroke="#8b8f98" stroke-width="1.2"/><line x1="129" y1="235" x2="123" y2="242" stroke="#8b8f98" stroke-width="1.2"/><line x1="139" y1="235" x2="133" y2="242" stroke="#8b8f98" stroke-width="1.2"/><line x1="149" y1="235" x2="143" y2="242" stroke="#8b8f98" stroke-width="1.2"/><line x1="159" y1="235" x2="153" y2="242" stroke="#8b8f98" stroke-width="1.2"/><line x1="169" y1="235" x2="163" y2="242" stroke="#8b8f98" stroke-width="1.2"/><line x1="179" y1="235" x2="173" y2="242" stroke="#8b8f98" stroke-width="1.2"/><line x1="189" y1="235" x2="183" y2="242" stroke="#8b8f98" stroke-width="1.2"/><line x1="199" y1="235" x2="193" y2="242" stroke="#8b8f98" stroke-width="1.2"/><line x1="209" y1="235" x2="203" y2="242" stroke="#8b8f98" stroke-width="1.2"/><line x1="219" y1="235" x2="213" y2="242" stroke="#8b8f98" stroke-width="1.2"/><line x1="229" y1="235" x2="223" y2="242" stroke="#8b8f98" stroke-width="1.2"/><line x1="239" y1="235" x2="233" y2="242" stroke="#8b8f98" stroke-width="1.2"/><line x1="249" y1="235" x2="243" y2="242" stroke="#8b8f98" stroke-width="1.2"/><line x1="259" y1="235" x2="253" y2="242" stroke="#8b8f98" stroke-width="1.2"/><line x1="269" y1="235" x2="263" y2="242" stroke="#8b8f98" stroke-width="1.2"/><line x1="279" y1="235" x2="273" y2="242" stroke="#8b8f98" stroke-width="1.2"/><line x1="289" y1="235" x2="283" y2="242" stroke="#8b8f98" stroke-width="1.2"/><line x1="299" y1="235" x2="293" y2="242" stroke="#8b8f98" stroke-width="1.2"/><line x1="309" y1="235" x2="303" y2="242" stroke="#8b8f98" stroke-width="1.2"/><line x1="319" y1="235" x2="313" y2="242" stroke="#8b8f98" stroke-width="1.2"/><line x1="45.0" y1="235.0" x2="213.0" y2="109.0" stroke="#7b808c" stroke-width="1.4" stroke-dasharray="5 4"/><path d="M85.0,235.0 A40,40 0 0 0 77.0,211.0" fill="none" stroke="#7b808c" stroke-width="1.2"/><line x1="213.0" y1="109.0" x2="213.0" y2="12.0" stroke="#7b808c" stroke-width="1.4" stroke-dasharray="5 4"/><line x1="213.0" y1="109.0" x2="272.0" y2="109.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="283.0,109.0 272.0,114.5 272.0,103.5" fill="#2457d6"/><line x1="213.0" y1="109.0" x2="213.0" y2="70.0" stroke="#b42346" stroke-width="2.6" stroke-linecap="round"/><polygon points="213.0,59.0 218.5,70.0 207.5,70.0" fill="#b42346"/><line x1="213.0" y1="109.0" x2="231.4" y2="95.2" stroke="#7b808c" stroke-width="2.6" stroke-linecap="round"/><polygon points="240.2,88.6 234.7,99.6 228.1,90.8" fill="#7b808c"/><line x1="213.0" y1="109.0" x2="199.2" y2="90.6" stroke="#7b808c" stroke-width="2.6" stroke-linecap="round"/><polygon points="192.6,81.8 203.6,87.3 194.8,93.9" fill="#7b808c"/><circle cx="213.0" cy="109.0" r="4" fill="#1c1d21"/><circle cx="45.0" cy="235.0" r="4" fill="#1c1d21"/><text x="123.0" y="158.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:14px;font-style:italic;fill:#7b808c"><tspan>r</tspan></text><text x="93.4" y="218.9" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>θ</tspan></text><text x="207.0" y="18.0" text-anchor="end" dominant-baseline="middle" style="font-family:system-ui,sans-serif;font-size:11px;fill:#7b808c">to the center of curvature</text><text x="299.0" y="109.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>v</tspan><tspan dy="4.8" style="font-size:10.8px">P</tspan></text><text x="229.0" y="47.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#b42346"><tspan>a</tspan><tspan dy="4.8" style="font-size:10.8px">P</tspan></text><text x="250.6" y="80.8" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#7b808c"><tspan>ê</tspan><tspan dy="4.8" style="font-size:10.8px">r</tspan></text><text x="184.8" y="71.4" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#7b808c"><tspan>ê</tspan><tspan dy="4.8" style="font-size:10.8px">θ</tspan></text><text x="223.0" y="125.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>P</tspan></text><text x="33.0" y="227.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>O</tspan></text></svg><figcaption>Radar geometry at the bottom of the loop</figcaption></figure></div><p class="small fbdnote">At the bottom of the loop the velocity is horizontal and the center of curvature is straight above P, so the acceleration points straight up.</p>
+</details>
+<details class="step"><summary>Step 3 · Write the polar unit vectors at this instant</summary>
+$$\hat{\mathbf e}_r = \cos\theta\,\hat{\mathbf i} + \sin\theta\,\hat{\mathbf j} = 0.8\,\hat{\mathbf i} + 0.6\,\hat{\mathbf j}, \qquad \hat{\mathbf e}_\theta = -\sin\theta\,\hat{\mathbf i} + \cos\theta\,\hat{\mathbf j} = -0.6\,\hat{\mathbf i} + 0.8\,\hat{\mathbf j}$$
+</details>
+<details class="step"><summary>Step 4 · Find the rates ṙ and θ̇ from the velocity</summary>
+<p>In polar components the velocity is $\mathbf v = \dot r\,\hat{\mathbf e}_r + r\dot\theta\,\hat{\mathbf e}_\theta$. Projecting the known velocity onto the two unit vectors gives</p>
+$$\dot r = \mathbf v\cdot\hat{\mathbf e}_r = 75(0.8) = 60\ \text{m/s}, \qquad r\dot\theta = \mathbf v\cdot\hat{\mathbf e}_\theta = 75(-0.6) = -45\ \text{m/s}$$
+<p>so $\dot\theta = -45/1000 = -0.045$ rad/s. The angle is decreasing because the airplane is moving to the right, away from the vertical.</p>
+</details>
+<details class="step"><summary>Step 5 · Find r̈ and θ̈ from the acceleration</summary>
+<p>In polar components the acceleration is $\mathbf a = (\ddot r - r\dot\theta^2)\,\hat{\mathbf e}_r + (r\ddot\theta + 2\dot r\dot\theta)\,\hat{\mathbf e}_\theta$. Projecting the known acceleration onto the unit vectors gives two scalar equations.</p>
+$$\ddot r - r\dot\theta^2 = \mathbf a\cdot\hat{\mathbf e}_r = 1.875(0.6) = 1.125\ \text{m/s}^2$$
+$$r\ddot\theta + 2\dot r\dot\theta = \mathbf a\cdot\hat{\mathbf e}_\theta = 1.875(0.8) = 1.50\ \text{m/s}^2$$
+<p>Solving each equation for the unknown rate gives</p>
+$$\ddot r = 1.125 + 1000(-0.045)^2 = 3.15\ \text{m/s}^2$$
+$$\ddot\theta = \frac{1.50 - 2(60)(-0.045)}{1000} = 0.0069\ \text{rad/s}^2$$
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>$\ddot r = 3.15$ m/s² and $\ddot\theta = 0.0069$ rad/s² (with $\dot r = 60$ m/s and $\dot\theta = -0.045$ rad/s).</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>The airplane flies at a constant speed, yet $\ddot r$ is not zero. Explain why in words.</li><li>Make $\rho$ very large, so that the airplane flies almost in a straight line. Is $\ddot r$ then zero? Why not?</li><li>Use the graphs to find the time at which $\ddot\theta$ is largest. Where is the airplane at that moment?</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 1, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-1-c-3.html"><small>← Previous</small>Example 1.C.3</a><a class="next" href="ex-1-d-1.html"><small>Next →</small>Example 1.D.1</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/kit.js"></script>
+<script src="../assets/ch1-exC.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch1-3dC.js"></script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 4.D.6 · Chapter 4 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 4</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="newton.html">A · Newton's laws</a>
+    <a href="energy.html">B · Work–energy</a>
+    <a href="impulse.html">C · Linear impulse–momentum</a>
+    <a href="angular.html">D · Angular impulse–momentum</a>
+    <a href="examples.html" class=active>Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Angular impulse and momentum examples"><a href="examples.html#group-D">All Angular impulse and momentum examples</a><a href="ex-4-d-1.html">4.D.1</a><a href="ex-4-d-2.html">4.D.2</a><a href="ex-4-d-3.html">4.D.3</a><a href="ex-4-d-4.html">4.D.4</a><a href="ex-4-d-5.html">4.D.5</a><a href="ex-4-d-6.html" class=active>4.D.6</a><a href="ex-4-d-7.html">4.D.7</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-D">Angular impulse and momentum</a> › Example 4.D.6</p>
+<h2><span class="num">Example 4.D.6</span>Particle sticking to a pinned rod</h2>
+<div class="tags"><span>angular momentum</span><span>plastic impact</span><span>horizontal plane</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>Particles A and B, of masses $4m$ and $2m$, are attached to the ends of a stationary rigid rod of negligible mass. The rod is pinned to the ground at O, with A a distance $2L$ from O and B a distance $L$ from O. A third particle C, of mass $m$, moves perpendicular to the rod with speed $v_1$ and strikes B. On impact, C sticks to B. The system lies in the horizontal plane.</p>
+<p><b>Find</b> the angular speed of the rod immediately after the impact.</p>
+</div>
+<div class="demo" id="x4d-6">
+  <div class="demo-title"><span class="tag">Interactive</span><span>Top view of the rod as C strikes B</span></div>
+  <canvas id="x4d-6-anim" class="anim" style="height:380px"></canvas>
+  <div class="controls" id="x4d-6-ctl"></div>
+  <div class="bar" id="x4d-6-btn"></div>
+  <div class="stats" id="x4d-6-stats"></div>
+  <p class="small concept-note">The bars compare the angular momentum about O and the linear momentum before and after the impact. The pin at O pushes on the rod during the impact, so only the angular momentum about O is unchanged.</p>
+</div>
+<div class="demo v3d" data-clip="x4d-6"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Every solution follows the four-step method: free-body diagrams, kinetics equations, kinematics, solve. Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Draw the free-body diagram</summary>
+<p>Take the rod, A, B and C together, so that the impact force between C and B is internal. In the horizontal plane the only external force is the pin force at O, with components $O_x$ and $O_y$. The weights and the vertical support forces are perpendicular to the plane.</p>
+<div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 380 230" role="img" aria-label="Rod, A, B and C during the impact (top view)" style="max-width:380px"><line x1="70.0" y1="115.0" x2="320.0" y2="115.0" stroke="#8a6a12" stroke-width="9" stroke-linecap="round"/><line x1="70.0" y1="115.0" x2="320.0" y2="115.0" stroke="#f1e6c8" stroke-width="5" stroke-linecap="round"/><rect x="-17.0" y="-17.0" width="34.0" height="34.0" rx="4" transform="translate(70.0,115.0) rotate(0.0)" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><rect x="-14.0" y="-14.0" width="28.0" height="28.0" rx="4" transform="translate(320.0,115.0) rotate(0.0)" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><circle cx="320.0" cy="80.0" r="9.0" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><line x1="340.0" y1="50.0" x2="340.0" y2="71.0" stroke="#7b808c" stroke-width="2.6" stroke-linecap="round"/><polygon points="340.0,82.0 334.5,71.0 345.5,71.0" fill="#7b808c"/><circle cx="230.0" cy="115.0" r="4.5" fill="#fff" stroke="#1c1d21" stroke-width="2"/><line x1="178.0" y1="115.0" x2="213.0" y2="115.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="224.0,115.0 213.0,120.5 213.0,109.5" fill="#17915a"/><line x1="230.0" y1="110.0" x2="230.0" y2="75.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="230.0,64.0 235.5,75.0 224.5,75.0" fill="#17915a"/><line x1="70.0" y1="160.0" x2="230.0" y2="160.0" stroke="#7b808c" stroke-width="1.2"/><line x1="70.0" y1="155.0" x2="70.0" y2="165.0" stroke="#7b808c" stroke-width="1.2"/><line x1="230.0" y1="155.0" x2="230.0" y2="165.0" stroke="#7b808c" stroke-width="1.2"/><line x1="230.0" y1="160.0" x2="320.0" y2="160.0" stroke="#7b808c" stroke-width="1.2"/><line x1="230.0" y1="155.0" x2="230.0" y2="165.0" stroke="#7b808c" stroke-width="1.2"/><line x1="320.0" y1="155.0" x2="320.0" y2="165.0" stroke="#7b808c" stroke-width="1.2"/><text x="70.0" y="82.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>A</tspan></text><text x="352.0" y="128.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>B</tspan></text><text x="300.0" y="62.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:14px;font-style:italic;fill:#1c1d21"><tspan>C</tspan></text><text x="356.0" y="80.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#7b808c"><tspan>v</tspan><tspan dy="4.8" style="font-size:10.8px">1</tspan></text><text x="230.0" y="135.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>O</tspan></text><text x="166.0" y="103.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>O</tspan><tspan dy="4.8" style="font-size:10.8px">x</tspan></text><text x="246.0" y="58.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>O</tspan><tspan dy="4.8" style="font-size:10.8px">y</tspan></text><text x="150.0" y="172.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>2L</tspan></text><text x="275.0" y="172.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>L</tspan></text></svg><figcaption>Rod, A, B and C during the impact (top view)</figcaption></figure></div><p class="small fbdnote">In the horizontal plane the only external force on this system is the pin force at O. The weights and the vertical support forces are perpendicular to the plane and have no moment about the vertical axis through O.</p>
+</details>
+<details class="step"><summary>Step 2 · Write the kinetics equation (angular impulse and momentum about O)</summary>
+<p>The pin force acts at O, and the vertical forces are parallel to the axis through O. So no external force has a moment about the vertical axis through O, and the angular momentum about O is conserved through the impact.</p>
+$$\left(H_O\right)_1 = \left(H_O\right)_2$$
+</details>
+<details class="step"><summary>Step 3 · Write the kinematics equations</summary>
+<p>Before the impact only C moves, at speed $v_1$ perpendicular to the rod, a distance $L$ from O. So $\left(H_O\right)_1 = m v_1 L$. After the impact the rod turns with angular speed $\omega$. A moves at $2L\,\omega$, and B and C together move at $L\,\omega$, all perpendicular to the rod.</p>
+$$\left(H_O\right)_2 = 4m\,(2L)(2L\,\omega) + (2m + m)\,L\,(L\,\omega) = 19\,m L^2\omega$$
+</details>
+<details class="step"><summary>Step 4 · Solve</summary>
+$$m v_1 L = 19\,m L^2\,\omega \quad\Longrightarrow\quad \omega = \frac{v_1}{19\,L}$$
+<p>The rod turns in the direction in which C pushes B, which is clockwise in the top view of the figure.</p>
+<p class="small">Linear momentum is not conserved. Afterward the system has momentum $4m(2L\omega) - 3m(L\omega) = 5mL\omega = \tfrac{5}{19}\,m v_1$ in the direction opposite to $v_1$, so the pin impulse is $\tfrac{24}{19}\,m v_1$, also opposite to $v_1$. Only $1/19$ of the kinetic energy of C remains.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>$\omega = \dfrac{v_1}{19\,L}$, clockwise in the top view. For example, $v_1 = 5$ m/s and $L = 0.5$ m give $\omega = 0.526$ rad/s.</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Change the mass $m$. Why does $\omega$ not depend on it?</li><li>Suppose C struck A instead, a distance $2L$ from O. Find the new angular speed.</li><li>Compare the two momentum bar charts. Which quantity would also be conserved if the pin were removed?</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 4, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-4-d-5.html"><small>← Previous</small>Example 4.D.5</a><a class="next" href="ex-4-d-7.html"><small>Next →</small>Example 4.D.7</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/kit.js"></script>
+<script src="../assets/ch4-exD.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch4-3dD.js"></script>
+</body>
+</html>

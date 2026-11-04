@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Overview · Chapter 3 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 3</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html" class=active>Overview</a>
+    <a href="frames-2d.html">A · 2D rotating frames</a>
+    <a href="frames-3d.html">B · 3D rotating frames</a>
+    <a href="coriolis.html">C · Coriolis in real life</a>
+    <a href="examples.html">Examples</a>
+  </div>
+</nav>
+<header class="hero">
+  <div class="wrap">
+    <h1>Chapter 3 · Moving Reference Frames</h1>
+    <p>So far, every velocity and acceleration was measured by an observer standing still. Many real problems are easier, or only possible, if you describe the motion as seen by an observer who is <em>moving and turning</em>: a pin sliding in a rotating slot, a person walking on a merry-go-round, a shell travelling down a barrel that is swinging around. This chapter gives the equations that convert what a moving observer sees into what a fixed observer sees.</p>
+    <p class="small" style="margin-top:.8rem">Every slider has a box next to it. Type any number into the box and press Enter to go beyond the slider range.</p>
+  </div>
+</header>
+<main class="wrap">
+<h2>Contents</h2>
+<div class="cards">
+<a class="cardlink" href="frames-2d.html"><span class="k">Section A</span><h3>2D rotating reference frames</h3><p>Rotating unit vectors, the moving-frame velocity and acceleration equations, and the Coriolis term.</p></a>
+<a class="cardlink" href="frames-3d.html"><span class="k">Section B</span><h3>3D rotating reference frames</h3><p>Angular velocity built from several rotations, why α ≠ 0 even at constant rates, and 3D rigid bodies.</p></a>
+<a class="cardlink" href="coriolis.html"><span class="k">Section C</span><h3>Coriolis in real life</h3><p>Playing catch on a merry-go-round, long-range shells, hurricanes, the Foucault pendulum and a robot arm.</p></a>
+<a class="cardlink" href="examples.html"><span class="k">Practice</span><h3>Worked examples</h3><p>Every example from the chapter, each with 2D and 3D animations and a step-by-step solution.</p></a>
+</div>
+<h2>The idea in one picture</h2>
+<p>In Chapter 2 we related two points A and B on the <em>same</em> rigid body: $\vec v_B = \vec v_A + \vec\omega\times\vec r_{B/A}$. That works because the distance AB never changes. When B is <em>not</em> fixed to the body (a pin in a slot, a bead on a wire, a shell in a barrel), we attach an <b>observer</b> and a set of $xyz$ axes to the moving body at A, and let the observer report how B moves relative to them. The fixed-frame motion of B is then</p>
+<div class="formula">$$\vec v_B = \vec v_A + (\vec v_{B/A})_{rel} + \vec\omega\times\vec r_{B/A}$$</div>
+<div class="formula">$$\vec a_B = \vec a_A + (\vec a_{B/A})_{rel} + \vec\alpha\times\vec r_{B/A} + 2\vec\omega\times(\vec v_{B/A})_{rel} + \vec\omega\times(\vec\omega\times\vec r_{B/A})$$</div>
+<p>Here $\vec\omega$ and $\vec\alpha$ belong to the observer, and the "rel" terms are what the observer sees. Section A derives these equations in the plane; Section B shows that they hold unchanged in 3D, with more care needed in finding $\vec\omega$ and $\vec\alpha$.</p>
+<nav class="pager" aria-label="Page navigation"><a class="next" href="frames-2d.html"><small>Next →</small>A · 2D rotating frames</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/labels.js"></script>
+<script src="../assets/ch3.js"></script>
+</body>
+</html>

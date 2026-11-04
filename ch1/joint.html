@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Joint description · Chapter 1 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 1</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="planar.html">A · Planar descriptions</a>
+    <a href="threed.html">B · 3D descriptions</a>
+    <a href="joint.html" class=active>C · Joint description</a>
+    <a href="relative.html">D · Relative & constrained</a>
+    <a href="examples.html">Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<section>
+<h2><span class="num">C</span>Joint description: using two descriptions at once</h2>
+<p>The key fact of this section is short:</p>
+<div class="card method"><p style="margin:.2rem 0"><b>Velocity is velocity, and acceleration is acceleration.</b> The Cartesian, path and polar descriptions are three ways of writing the <em>same</em> two vectors. Only the components change.</p></div>
+<p>That lets us mix descriptions. The information in a problem often arrives in one description (a radar measures $r$ and $\theta$; a slot guides $x$ and $y$), while the question is asked in another (how fast is the speed changing? what is the radius of curvature?).</p>
+<div class="demo concept" id="c-joint">
+  <div class="demo-title"><span class="tag concept-tag">Concept</span><span>One motion, three sets of components</span></div>
+  <canvas id="c-joint-anim" class="anim" style="height:340px"></canvas>
+  <div class="bar" id="c-joint-pre"><span class="lbl">Describe with:</span></div>
+  <div class="bar" id="c-joint-btn"></div>
+  <div class="stats" id="c-joint-stats"></div>
+  <p class="small concept-note">Switch the description while the particle moves. The solid v and a arrows never change; only the purple unit vectors and the dashed components do. The magnitudes in the last two statistics are the same in all three.</p>
+</div>
+
+<h3>How to move between descriptions</h3>
+<p>Two equivalent strategies:</p>
+<ul>
+<li><b>Projection.</b> A component along a unit vector is a dot product. For example, $\dot v = a_t = \mathbf a\cdot\hat{\mathbf e}_t$ and $a_n = \mathbf a\cdot\hat{\mathbf e}_n$, with $\hat{\mathbf e}_t = \mathbf v/v$.</li>
+<li><b>Balancing coefficients.</b> Write the unit vectors of one description in terms of the other (for instance $\hat{\mathbf e}_r = \cos\theta\,\hat{\mathbf i} + \sin\theta\,\hat{\mathbf j}$), set the two expressions for $\mathbf v$ (or $\mathbf a$) equal, and match the coefficients of each unit vector.</li>
+</ul>
+<p>Two formulas that come straight from the path description are worth remembering:</p>
+$$\dot v = \frac{\mathbf v\cdot\mathbf a}{v}, \qquad \rho = \frac{v^2}{a_n} = \frac{v^3}{|\mathbf v\times\mathbf a|}$$
+<p>The first says the speed changes only through the part of $\mathbf a$ along $\mathbf v$. The second gives the radius of curvature from any description in which you can compute $\mathbf v$ and $\mathbf a$.</p>
+<div class="demo concept" id="c-curv">
+  <div class="demo-title"><span class="tag concept-tag">Concept</span><span>Radius of curvature along a projectile path</span></div>
+  <canvas id="c-curv-anim" class="anim" style="height:340px"></canvas>
+  <div class="controls" id="c-curv-ctl"></div>
+  <div class="bar" id="c-curv-btn"></div>
+  <div class="stats" id="c-curv-stats"></div>
+  <p class="small concept-note">Gravity is the whole acceleration. Split it along the path: on the way up, a_t is negative (slowing down); at the top, all of g is normal and ρ = v²/g, the tightest point of the arc; on the way down, a_t is positive.</p>
+</div>
+<div class="try"><h4>Try this</h4><ul><li>In the joint demo, choose the path description. When is a_t zero? Check that the speed is at a maximum or minimum there.</li><li>In the projectile demo, set the launch angle to 85°. Why is ρ at the top so small?</li><li>Using the projection idea, show that for the projectile at the top, a_n = g exactly.</li></ul></div>
+<div class="wild"><span class="wi" aria-hidden="true">📡</span><div><b class="wh">Kinematics in the wild</b><p>Air-traffic and speed-camera radars measure only distance and its rate of change (r and ṙ), plus a bearing angle. Turning those polar measurements into a speed or a turning radius is a joint-description problem, exactly like Example 1.C.4.</p></div></div>
+</section>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="threed.html"><small>← Previous</small>B · 3D descriptions</a><a class="next" href="relative.html"><small>Next →</small>D · Relative & constrained</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/labels.js"></script>
+<script src="../assets/ch1.js"></script>
+</body>
+</html>

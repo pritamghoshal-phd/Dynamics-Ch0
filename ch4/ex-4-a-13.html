@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 4.A.13 · Chapter 4 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 4</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="newton.html">A · Newton's laws</a>
+    <a href="energy.html">B · Work–energy</a>
+    <a href="impulse.html">C · Linear impulse–momentum</a>
+    <a href="angular.html">D · Angular impulse–momentum</a>
+    <a href="examples.html" class=active>Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Newton's second law examples"><a href="examples.html#group-A">All Newton's second law examples</a><a href="ex-4-a-1.html">4.A.1</a><a href="ex-4-a-2.html">4.A.2</a><a href="ex-4-a-3.html">4.A.3</a><a href="ex-4-a-4.html">4.A.4</a><a href="ex-4-a-5.html">4.A.5</a><a href="ex-4-a-6.html">4.A.6</a><a href="ex-4-a-7.html">4.A.7</a><a href="ex-4-a-8.html">4.A.8</a><a href="ex-4-a-9.html">4.A.9</a><a href="ex-4-a-10.html">4.A.10</a><a href="ex-4-a-11.html">4.A.11</a><a href="ex-4-a-12.html">4.A.12</a><a href="ex-4-a-13.html" class=active>4.A.13</a><a href="ex-4-a-14.html">4.A.14</a><a href="ex-4-a-15.html">4.A.15</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-A">Newton's second law</a> › Example 4.A.13</p>
+<h2><span class="num">Example 4.A.13</span>Block slipping on a rotating arm</h2>
+<div class="tags"><span>polar components</span><span>static friction</span><span>vertical plane</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>Arm CA turns in a vertical plane about the fixed pin C at a constant rate $\omega$. When CA is horizontal, block P (mass $m$) rests on the arm at a distance $r$ from C and does not move relative to the arm. P starts to slip relative to CA when the arm reaches the angle $\theta_{slip}$.</p>
+<p>The data are $\omega = 2$ rad/s, $r = 3$ ft and $\theta_{slip} = 53.13°$.</p>
+<p><b>Find</b> the coefficient of static friction $\mu_s$ between P and CA.</p>
+</div>
+<div class="demo" id="x4a-13">
+  <div class="demo-title"><span class="tag">Interactive</span><span>The arm turns at a constant rate until friction can no longer hold P</span></div>
+  <canvas id="x4a-13-anim" class="anim" style="height:380px"></canvas><canvas id="x4a-13-plot" class="plot" style="height:210px"></canvas>
+  <div class="controls" id="x4a-13-ctl"></div>
+  <div class="bar" id="x4a-13-btn"></div>
+  <div class="stats" id="x4a-13-stats"></div>
+  <p class="small concept-note">The forces on P are drawn to scale. The graph shows the friction needed to hold P, divided by the normal force. P slips when this ratio reaches $\pm\mu_s$. After slipping, the block slides toward C with the kinetic coefficient $\mu_k$, which the book does not give, so it has its own slider.</p>
+</div>
+<div class="demo v3d" data-clip="x4a-13"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Every solution follows the four-step method: free-body diagrams, kinetics equations, kinematics, solve. Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Draw the free-body diagram</summary>
+<p>Isolate P while it is still held by friction. Three forces act on it, the weight $mg$, the normal force $N$ perpendicular to the arm, and the friction force $f$ along the arm. Use polar coordinates centered at C, with $\hat{\mathbf e}_r$ along the arm and $\hat{\mathbf e}_\theta$ perpendicular to it. We take $f$ positive in the $+\hat{\mathbf e}_r$ direction.</p>
+<div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 330 280" role="img" aria-label="P on the arm at angle θ" style="max-width:330px"><line x1="60.0" y1="240.0" x2="216.0" y2="32.0" stroke="#8a6a12" stroke-width="13" stroke-linecap="round"/><line x1="60.0" y1="240.0" x2="216.0" y2="32.0" stroke="#f1e6c8" stroke-width="9" stroke-linecap="round"/><circle cx="60.0" cy="240.0" r="4.5" fill="#fff" stroke="#1c1d21" stroke-width="2"/><rect x="-17.0" y="-15.0" width="34.0" height="30.0" rx="4" transform="translate(146.0,92.0) rotate(-53.1)" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><line x1="146.0" y1="92.0" x2="146.0" y2="153.0" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="146.0,164.0 140.5,153.0 151.5,153.0" fill="#c2410c"/><line x1="206.0" y1="137.0" x2="166.8" y2="107.6" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="158.0,101.0 170.1,103.2 163.5,112.0" fill="#17915a"/><line x1="147.8" y1="114.6" x2="177.2" y2="75.4" stroke="#b42346" stroke-width="2.6" stroke-linecap="round"/><polygon points="183.8,66.6 181.6,78.7 172.8,72.1" fill="#b42346"/><line x1="60.0" y1="240.0" x2="170.0" y2="240.0" stroke="#7b808c" stroke-width="1.4" stroke-dasharray="5 4"/><path d="M106.0,240.0 A46,46 0 0 0 87.6,203.2" fill="none" stroke="#7b808c" stroke-width="1.2"/><line x1="270.0" y1="250.0" x2="283.8" y2="231.6" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="290.4,222.8 288.2,234.9 279.4,228.3" fill="#7b808c"/><line x1="270.0" y1="250.0" x2="251.6" y2="236.2" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="242.8,229.6 254.9,231.8 248.3,240.6" fill="#7b808c"/><text x="46.0" y="248.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>C</tspan></text><text x="164.0" y="166.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>mg</tspan></text><text x="201.6" y="150.2" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>N</tspan></text><text x="129.4" y="135.8" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#b42346"><tspan>f</tspan></text><text x="111.0" y="214.5" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>θ</tspan></text><text x="296.4" y="214.8" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>e</tspan><tspan dy="4.2" style="font-size:9.4px">r</tspan></text><text x="234.8" y="223.6" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>e</tspan><tspan dy="4.2" style="font-size:9.4px">θ</tspan></text></svg><figcaption>P on the arm at angle θ</figcaption></figure></div><p class="small fbdnote">The block is acted on by its weight $mg$, the normal force $N$ perpendicular to the arm, and the friction force $f$ along the arm. We draw $f$ pointing away from C, in the $+\hat{\mathbf e}_r$ direction, and let its sign decide its true direction.</p>
+</details>
+<details class="step"><summary>Step 2 · Write the kinetics equations</summary>
+<p>The weight has components $-mg\sin\theta$ along $\hat{\mathbf e}_r$ and $-mg\cos\theta$ along $\hat{\mathbf e}_\theta$. Newton's second law gives</p>
+$$\sum F_r = m a_r: \quad f - mg\sin\theta = m a_r, \qquad \sum F_\theta = m a_\theta: \quad N - mg\cos\theta = m a_\theta$$
+</details>
+<details class="step"><summary>Step 3 · Write the kinematics equations</summary>
+<p>Until it slips, P stays at $r = 3$ ft, so $\dot r = \ddot r = 0$. The arm turns at a constant rate, so $\dot\omega = 0$. Then</p>
+$$a_r = \ddot r - r\omega^2 = -r\omega^2 = -12\ \text{ft/s}^2, \qquad a_\theta = r\dot\omega + 2\dot r\omega = 0$$
+</details>
+<details class="step"><summary>Step 4 · Solve</summary>
+<p>The kinetics equations give the friction force needed to hold P and the normal force,</p>
+$$f = m\,(g\sin\theta - r\omega^2), \qquad N = mg\cos\theta$$
+<p>P is about to slip when $|f| = \mu_s N$. At $\theta_{slip} = 53.13°$, $\sin\theta = 0.8$ and $\cos\theta = 0.6$, so</p>
+$$\mu_s = \frac{g\sin\theta - r\omega^2}{g\cos\theta} = \frac{32.2(0.8) - 12}{32.2(0.6)} = \frac{13.76}{19.32} = 0.712$$
+<p class="small">The value of $f$ is positive, so friction acts away from C and P slips down the arm toward C. When the arm is horizontal, $f/N = -12/32.2 = -0.373$, which is well within $\pm 0.712$, so P could not have slipped earlier.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>$\mu_s = 0.712$. At the slip angle friction acts up the arm, away from C, and P starts to slide toward C.</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Lower $\mu_s$. How does the slip angle change, and does P ever slip outward instead of inward?</li><li>Increase $\omega$ to 3 rad/s. Why does P now need friction pointing toward C when the arm is horizontal?</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 4, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-4-a-12.html"><small>← Previous</small>Example 4.A.12</a><a class="next" href="ex-4-a-14.html"><small>Next →</small>Example 4.A.14</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/kit.js"></script>
+<script src="../assets/ch4-exA2.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch4-3dA2.js"></script>
+</body>
+</html>

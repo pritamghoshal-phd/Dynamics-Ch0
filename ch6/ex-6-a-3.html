@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 6.A.3 · Chapter 6 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 6</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="eom.html">A · Equations of motion</a>
+    <a href="free.html">B · Free vibration</a>
+    <a href="damped.html">B · Damped vibration</a>
+    <a href="forced.html">C · Forced vibration</a>
+    <a href="base.html">C · Base excitation</a>
+    <a href="summary.html">Summary</a>
+    <a href="examples.html" class=active>Examples</a>
+    <a href="badges.html">🏅 Badges</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Equations of motion examples"><a href="examples.html#group-A">All Equations of motion examples</a><a href="ex-6-a-1.html">6.A.1</a><a href="ex-6-a-2.html">6.A.2</a><a href="ex-6-a-3.html" class=active>6.A.3</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-A">Equations of motion</a> › Example 6.A.3</p>
+<h2><span class="num">Example 6.A.3</span>Disk under a board that rests on a smooth post</h2>
+<div class="tags"><span>equation of motion</span><span>rolling without slipping</span><span>two bodies</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>A homogeneous disk of mass $m$ and radius $r$ rolls without slipping on a rough horizontal surface. A spring of stiffness $k$ is attached between the disk center O and the ground. A block (a long board), also of mass $m$, is in no-slip contact with the top surface of the disk and rests on a smooth vertical support at A. A second spring of stiffness $k$ is connected between the block and the ground. Let $x$ describe the position of O, where the springs are unstretched when $x = 0$.</p>
+<p><b>Find</b> the equation of motion for the disk in terms of the coordinate $x$.</p>
+<p class="small">The animation uses $m = 2$ kg, $r = 0.15$ m and $k = 40$ N/m, with the disk released from rest at $x_0 = 0.07$ m.</p>
+</div>
+<div class="demo" id="x6a-3">
+  <div class="demo-title"><span class="tag">Interactive</span><span>The board moves twice as far as the disk center</span></div>
+  <div class="grid2"><canvas id="x6a-3-anim" class="anim" style="height:280px"></canvas><div><canvas id="x6a-3-plot" class="plot" style="height:280px"></canvas></div></div>
+  <div class="controls" id="x6a-3-ctl"></div>
+  <div class="bar" id="x6a-3-pre"><span class="lbl">Try:</span></div>
+  <div class="bar" id="x6a-3-btn"></div>
+  <div class="stats" id="x6a-3-stats"></div>
+  <p class="small concept-note">The green arrows show that the board moves at $2v_O$. The board always stays in contact with the top of the disk and with the post at A, and the largest starting displacement is limited so that it never slides off either one.</p>
+</div>
+<div class="demo v3d" data-clip="x6a-3"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Every solution starts from free-body diagrams in a displaced position, then writes the equation of motion and reads off the vibration properties. Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Draw the free-body diagrams</summary>
+<div class="fbdrow"><figure style="width:min(330px,100%)"><svg class="fbd" viewBox="0 0 330 300" role="img" aria-label="The disk" style="max-width:330px"><circle cx="175.0" cy="150.0" r="66.0" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><circle cx="175.0" cy="150.0" r="4" fill="#1c1d21"/><line x1="175.0" y1="150.0" x2="102.0" y2="150.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="91.0,150.0 102.0,144.5 102.0,155.5" fill="#2457d6"/><line x1="179.0" y1="154.0" x2="179.0" y2="189.0" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="179.0,200.0 173.5,189.0 184.5,189.0" fill="#c2410c"/><line x1="185.0" y1="262.0" x2="185.0" y2="227.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="185.0,216.0 190.5,227.0 179.5,227.0" fill="#17915a"/><line x1="113.0" y1="217.0" x2="160.0" y2="217.0" stroke="#b42346" stroke-width="2.6" stroke-linecap="round"/><polygon points="171.0,217.0 160.0,222.5 160.0,211.5" fill="#b42346"/><line x1="185.0" y1="38.0" x2="185.0" y2="73.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="185.0,84.0 179.5,73.0 190.5,73.0" fill="#17915a"/><line x1="113.0" y1="83.0" x2="160.0" y2="83.0" stroke="#b42346" stroke-width="2.6" stroke-linecap="round"/><polygon points="171.0,83.0 160.0,88.5 160.0,77.5" fill="#b42346"/><text x="189.0" y="136.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:16px;font-style:italic;fill:#1c1d21"><tspan>O</tspan></text><text x="79.0" y="136.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>kx</tspan></text><text x="197.0" y="192.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>mg</tspan></text><text x="201.0" y="274.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>N</tspan><tspan dy="4.8" style="font-size:10.8px">1</tspan></text><text x="97.0" y="207.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#b42346"><tspan>F</tspan><tspan dy="4.8" style="font-size:10.8px">1</tspan></text><text x="201.0" y="26.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>N</tspan><tspan dy="4.8" style="font-size:10.8px">2</tspan></text><text x="97.0" y="93.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#b42346"><tspan>F</tspan><tspan dy="4.8" style="font-size:10.8px">2</tspan></text></svg><figcaption>The disk</figcaption></figure><figure style="width:min(420px,100%)"><svg class="fbd" viewBox="0 0 420 230" role="img" aria-label="The block (board)" style="max-width:420px"><rect x="-150.0" y="-15.0" width="300.0" height="30.0" rx="4" transform="translate(190.0,110.0) rotate(0.0)" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><line x1="250.0" y1="110.0" x2="250.0" y2="151.0" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="250.0,162.0 244.5,151.0 255.5,151.0" fill="#c2410c"/><line x1="90.0" y1="171.0" x2="90.0" y2="136.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="90.0,125.0 95.5,136.0 84.5,136.0" fill="#17915a"/><line x1="162.0" y1="126.0" x2="115.0" y2="126.0" stroke="#b42346" stroke-width="2.6" stroke-linecap="round"/><polygon points="104.0,126.0 115.0,120.5 115.0,131.5" fill="#b42346"/><line x1="310.0" y1="171.0" x2="310.0" y2="136.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="310.0,125.0 315.5,136.0 304.5,136.0" fill="#17915a"/><line x1="396.0" y1="110.0" x2="351.0" y2="110.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="340.0,110.0 351.0,104.5 351.0,115.5" fill="#2457d6"/><line x1="40.0" y1="200.0" x2="81.0" y2="200.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="92.0,200.0 81.0,205.5 81.0,194.5" fill="#7b808c"/><text x="150.0" y="111.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:16px;font-style:italic;fill:#1c1d21"><tspan>m</tspan></text><text x="268.0" y="164.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>mg</tspan></text><text x="74.0" y="183.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>N</tspan><tspan dy="4.8" style="font-size:10.8px">2</tspan></text><text x="176.0" y="138.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#b42346"><tspan>F</tspan><tspan dy="4.8" style="font-size:10.8px">2</tspan></text><text x="326.0" y="183.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>N</tspan><tspan dy="4.8" style="font-size:10.8px">A</tspan></text><text x="368.0" y="94.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>k(2x)</tspan></text><text x="104.0" y="200.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:14px;font-style:italic;fill:#7b808c"><tspan>x</tspan></text></svg><figcaption>The block (board)</figcaption></figure></div><p class="small fbdnote">At the top of the disk the board and the disk push on each other with equal and opposite forces $N_2$ and $F_2$. The post at A is smooth, so it exerts only the vertical force $N_A$. The board has moved $2x$, which compresses the right spring by $2x$.</p><p>We separate the disk from the board because the contact force between them is unknown. At the top of the disk the board pushes down with $N_2$ and the friction force $F_2$ acts on the disk, while the opposite forces act on the board. The ground exerts $N_1$ and $F_1$ on the disk. The smooth post exerts only the vertical force $N_A$ on the board.</p>
+</details>
+<details class="step"><summary>Step 2 · Write the kinematics</summary>
+<p>The disk rolls without slipping on the ground, so its contact point C is at rest and $\omega = \dot x/r$ (clockwise). The top of the disk is a distance $2r$ above C, so it moves at $2\dot x$. The board does not slip on the disk, so it moves with the top of the disk.</p>
+$$x_{\text{board}} = 2x, \qquad \ddot x_{\text{board}} = 2\ddot x, \qquad \alpha = \frac{\ddot x}{r}$$
+</details>
+<details class="step"><summary>Step 3 · Write the Newton–Euler equations</summary>
+<p>Taking $x$ to the right and clockwise rotation as positive, the equations for the disk and the horizontal equation for the board are</p>
+$$\text{disk, forces:}\qquad -kx + F_1 + F_2 = m\ddot x$$
+$$\text{disk, moments about O:}\qquad F_2 r - F_1 r = \tfrac12 m r^2\,\frac{\ddot x}{r}$$
+$$\text{board:}\qquad -F_2 - k(2x) = m(2\ddot x)$$
+</details>
+<details class="step"><summary>Step 4 · Eliminate the contact forces</summary>
+<p>The board equation gives $F_2 = -2m\ddot x - 2kx$. The moment equation gives $F_1 = F_2 - \tfrac12 m\ddot x$. Substituting both into the disk force equation gives</p>
+$$-kx + 2F_2 - \tfrac12 m\ddot x = m\ddot x \quad\Longrightarrow\quad -kx - 4m\ddot x - 4kx = \tfrac32 m\ddot x$$
+$$\tfrac{11}{2}m\ddot x + 5kx = 0$$
+</details>
+<details class="step"><summary>Step 5 · Find the natural frequency</summary>
+<p>Dividing by $\tfrac{11}{2}m$ gives $\ddot x + \frac{10k}{11m}x = 0$, so</p>
+$$\omega_n = \sqrt{\frac{10k}{11m}}$$
+<p>For the values in the animation, $\omega_n = \sqrt{10(40)/(11 \cdot 2)} = 4.26$ rad/s.</p>
+<p class="small">Energy gives a quick check. The kinetic energy is $T = \tfrac12(\tfrac32 m)\dot x^2 + \tfrac12 m(2\dot x)^2 = \tfrac12(\tfrac{11}{2}m)\dot x^2$ and the potential energy is $V = \tfrac12 kx^2 + \tfrac12 k(2x)^2 = \tfrac12(5k)x^2$.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>$$\tfrac{11}{2}m\ddot x + 5kx = 0, \qquad \omega_n = \sqrt{\frac{10k}{11m}}$$</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>The board has the same mass as the disk, yet it contributes $4m$ to the effective mass. Explain why, using its speed $2\dot x$.</li><li>The right spring has the same stiffness as the left one, yet it contributes $4k$. Explain why with the energy $\tfrac12 k(2x)^2$.</li><li>Is the friction force $F_2$ between the board and the disk ever zero? Use $F_2 = -2m\ddot x - 2kx$ together with the equation of motion.</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 6, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-6-a-2.html"><small>← Previous</small>Example 6.A.2</a><a class="next" href="ex-6-b-1.html"><small>Next →</small>Example 6.B.1</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/kit.js"></script>
+<script src="../assets/ch6-exA.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch6-3dA.js"></script>
+</body>
+</html>

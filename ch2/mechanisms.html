@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mechanisms · Chapter 2 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 2</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="rigid.html">A · Rigid body equations</a>
+    <a href="instant.html">B · Instant centers</a>
+    <a href="mechanisms.html" class=active>C · Mechanisms</a>
+    <a href="examples.html">Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<section>
+<h2><span class="num">C</span>Kinematic analysis of planar mechanisms</h2>
+<p>A <b>mechanism</b> is a set of rigid links joined by pins and sliders: an engine's piston and crank, a windshield wiper, a car's suspension. Every kinematics question about a planar mechanism can be answered with just the two rigid-body equations, applied link by link:</p>
+<div class="formula">$$\mathbf v_B = \mathbf v_A + \boldsymbol\omega\times\mathbf r_{B/A}, \qquad \mathbf a_B = \mathbf a_A + \boldsymbol\alpha\times\mathbf r_{B/A} - \omega^2\,\mathbf r_{B/A}$$</div>
+
+<div class="card method"><h3 style="margin-top:.2rem">Recipe for a mechanism</h3>
+<ol><li><b>Set up axes</b> with $\hat{\mathbf k}$ out of the page, and write every position vector you need in components.</li>
+<li><b>Write one velocity equation for each link</b>, relating two points on that link (pins at its ends, usually). Give every link its own $\omega$ with a unique subscript, e.g. $\omega_{AB}$. Treat unknown $\omega$'s as $+\hat{\mathbf k}$: a negative answer just means clockwise. Known angular velocities must carry their correct sign.</li>
+<li><b>Combine</b> the equations so that shared points (pins) have the same velocity, then <b>balance the $\hat{\mathbf i}$ and $\hat{\mathbf j}$ parts</b>. Count: each vector equation gives two scalar equations. If you have fewer equations than unknowns, you have missed a link or a constraint (a slider's direction, a no-slip condition).</li>
+<li><b>Check</b> the directions with instant centers.</li>
+<li><b>Accelerations second.</b> Repeat with the acceleration equation. It needs every $\omega$ (the $-\omega^2\mathbf r$ terms), so the velocity problem must always be solved first, even if only accelerations are asked.</li></ol></div>
+
+<h3>The slider–crank</h3>
+<p>A crank OA turns about a fixed pin O. A connecting rod AB joins it to a slider B that moves along a straight guide. The rod is the interesting link: it neither rotates about a fixed point nor translates. Writing $\mathbf v_B = \mathbf v_A + \omega_{AB}\hat{\mathbf k}\times\mathbf r_{B/A}$, with $\mathbf v_B$ horizontal, gives two equations for the two unknowns $\omega_{AB}$ and $v_B$.</p>
+<div class="demo concept" id="c-slider">
+  <div class="demo-title"><span class="tag concept-tag">Concept</span><span>Slider–crank: piston speed and rod angular velocity</span></div>
+  <canvas id="c-slider-anim" class="anim" style="height:300px"></canvas><canvas id="c-slider-plot" class="plot" style="height:230px"></canvas><div class="legendrow"><span><span class="sw" style="background:var(--c2)"></span>v_B, slider velocity</span><span><span class="sw" style="background:var(--c3)"></span>ω_AB, rod angular velocity (dashed)</span></div>
+  <div class="controls" id="c-slider-ctl"></div>
+  <div class="bar" id="c-slider-pre"><span class="lbl">Try:</span></div>
+  <div class="bar" id="c-slider-btn"></div>
+  <div class="stats" id="c-slider-stats"></div>
+  <div class="notes" id="c-slider-notes"></div>
+  <p class="small concept-note">The curves come from the vector method at every crank angle; the dots follow the animation. The rod's instant center lies where line OA (extended) meets the vertical through B. The slider stops (v<sub>B</sub> = 0) at the two dead positions, when O, A and B are in line.</p>
+</div>
+
+<h3>The four-bar linkage</h3>
+<p>Four links (the ground counts as one) joined by four pins: crank OA, coupler AB and rocker BD. Pins A and B each move on a circle (about O and D), so their velocities are perpendicular to OA and to DB. The coupler's instant center is where the lines OA and DB (extended) cross. When those lines are parallel, the coupler is momentarily translating and $\omega_{AB}=0$; Example 2.C.2 is exactly that situation.</p>
+<div class="demo concept" id="c-fourbar">
+  <div class="demo-title"><span class="tag concept-tag">Concept</span><span>Four-bar linkage and the coupler's instant center</span></div>
+  <canvas id="c-fourbar-anim" class="anim" style="height:360px"></canvas>
+  <div class="controls" id="c-fourbar-ctl"></div>
+  <div class="bar" id="c-fourbar-pre"><span class="lbl">Try:</span></div>
+  <div class="bar" id="c-fourbar-btn"></div>
+  <div class="stats" id="c-fourbar-stats"></div>
+  <p class="small concept-note">Velocities of A and B are perpendicular to OA and DB. Their perpendiculars, which are just the links themselves, extended, meet at the IC of the coupler. The two ω<sub>AB</sub> statistics (vector method vs. instant center) always agree. If the lengths only allow rocking, the crank reverses at the dead positions.</p>
+</div>
+<div class="try"><h4>Try this</h4><ul><li>In the slider–crank, make the rod short. How does the v<sub>B</sub> curve change shape? Where is the slider fastest?</li><li>At which crank angles is ω<sub>AB</sub> zero? Explain using the rod's instant center.</li><li>In the four-bar, choose "Parallelogram". What is ω<sub>AB</sub> all the time, and why?</li></ul></div>
+<div class="wild"><span class="wi" aria-hidden="true">🚗</span><div><b class="wh">Mechanisms in the wild</b><p>Every piston engine is a slider–crank: the crankshaft is the crank, the connecting rod is the rod and the piston is the slider. Because the rod has finite length, the piston spends slightly longer near the bottom of its stroke than near the top, which the asymmetric v<sub>B</sub> curve above shows.</p></div></div>
+</section>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="instant.html"><small>← Previous</small>B · Instant centers</a><a class="next" href="examples.html"><small>Next →</small>Worked examples</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/labels.js"></script>
+<script src="../assets/ch2.js"></script>
+</body>
+</html>

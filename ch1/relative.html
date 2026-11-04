@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Relative and constrained motion · Chapter 1 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 1</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="planar.html">A · Planar descriptions</a>
+    <a href="threed.html">B · 3D descriptions</a>
+    <a href="joint.html">C · Joint description</a>
+    <a href="relative.html" class=active>D · Relative & constrained</a>
+    <a href="examples.html">Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<section>
+<h2><span class="num">D</span>Relative and constrained motion</h2>
+<h3>Relative motion</h3>
+<p>Let $\mathbf r_A$ and $\mathbf r_B$ locate two particles from a fixed origin. The position of A <b>relative to</b> B is the vector from B to A:</p>
+$$\mathbf r_{A/B} = \mathbf r_A - \mathbf r_B \quad\Longrightarrow\quad \mathbf v_{A/B} = \mathbf v_A - \mathbf v_B, \qquad \mathbf a_{A/B} = \mathbf a_A - \mathbf a_B$$
+<p>$\mathbf v_{A/B}$ is what an observer riding on B sees, <em>as long as that observer does not rotate</em> (a translating observer). Rotating observers need the tools of Chapter 3. Rearranged, $\mathbf v_A = \mathbf v_B + \mathbf v_{A/B}$ is a vector triangle, which is usually the fastest way to solve these problems.</p>
+<div class="demo concept" id="c-rel">
+  <div class="demo-title"><span class="tag concept-tag">Concept</span><span>Same motion, two observers</span></div>
+  <canvas id="c-rel-anim" class="anim" style="height:380px"></canvas>
+  <div class="controls" id="c-rel-ctl"></div>
+  <div class="bar" id="c-rel-pre"><span class="lbl">View:</span></div>
+  <div class="bar" id="c-rel-btn"></div>
+  <div class="stats" id="c-rel-stats"></div>
+  <p class="small concept-note">Switch to "Seen from B": B now sits still and the ground grid streams past. A moves along a straight line with velocity v_A − v_B. The inset shows the velocity triangle v_A = v_B + v_A/B.</p>
+</div>
+
+<h3>Constrained motion</h3>
+<p>Bodies connected by inextensible cables cannot move independently. The method is always the same:</p>
+<div class="card method"><ol>
+<li><b>Choose coordinates</b> that measure each body's position from a <em>fixed</em> point, with a clear positive direction.</li>
+<li><b>Write the cable length</b> as a sum of the segment lengths, in terms of those coordinates. Pieces wrapped around pulleys of fixed size add only constants.</li>
+<li><b>Set the length constant</b> and differentiate: $\dot L = 0$ relates the velocities, $\ddot L = 0$ the accelerations.</li>
+</ol></div>
+<p>If several cables are present, each one gives its own constraint equation.</p>
+<div class="demo concept" id="c-strands">
+  <div class="demo-title"><span class="tag concept-tag">Concept</span><span>More supporting strands, slower load</span></div>
+  <canvas id="c-strands-anim" class="anim" style="height:330px"></canvas>
+  <div class="controls" id="c-strands-ctl"></div>
+  <div class="bar" id="c-strands-pre"><span class="lbl">Load held by:</span></div>
+  <div class="bar" id="c-strands-btn"></div>
+  <div class="stats" id="c-strands-stats"></div>
+  <p class="small concept-note">The load B hangs from n strands, and the free end is pulled down at speed u. Every metre of cable pulled out must come from shortening all n strands equally, so B rises n times slower. This is the trade-off of a block and tackle: less force, more rope.</p>
+</div>
+<div class="try"><h4>Try this</h4><ul><li>In the relative-motion demo, give A and B the same velocity. What does A look like from B?</li><li>Make B fly due north and A due east at equal speeds. In which direction does A appear to move, seen from B?</li><li>For 3 strands, how far must you pull the free end to lift B by 1 m?</li></ul></div>
+<div class="wild"><span class="wi" aria-hidden="true">🌧️</span><div><b class="wh">Relative motion in the wild</b><p>Rain falling straight down looks slanted from a moving car: $\mathbf v_{\mathrm{rain/car}} = \mathbf v_{\mathrm{rain}} - \mathbf v_{\mathrm{car}}$ adds a backward component equal to the car’s speed. The faster you drive, the more the rain seems to come at you from the front.</p></div></div>
+</section>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="joint.html"><small>← Previous</small>C · Joint description</a><a class="next" href="examples.html"><small>Next →</small>Worked examples</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/labels.js"></script>
+<script src="../assets/ch1.js"></script>
+</body>
+</html>

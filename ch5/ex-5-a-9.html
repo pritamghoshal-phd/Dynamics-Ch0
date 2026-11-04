@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 5.A.9 · Chapter 5 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 5</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="newton-euler.html">A · Newton–Euler</a>
+    <a href="work-energy.html">B · Work–energy</a>
+    <a href="impulse-momentum.html">C · Impulse–momentum</a>
+    <a href="examples.html" class=active>Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Newton–Euler equations examples"><a href="examples.html#group-A">All Newton–Euler examples</a><a href="ex-5-a-1.html">5.A.1</a><a href="ex-5-a-2.html">5.A.2</a><a href="ex-5-a-3.html">5.A.3</a><a href="ex-5-a-4.html">5.A.4</a><a href="ex-5-a-5.html">5.A.5</a><a href="ex-5-a-6.html">5.A.6</a><a href="ex-5-a-7.html">5.A.7</a><a href="ex-5-a-8.html">5.A.8</a><a href="ex-5-a-9.html" class=active>5.A.9</a><a href="ex-5-a-10.html">5.A.10</a><a href="ex-5-a-11.html">5.A.11</a><a href="ex-5-a-12.html">5.A.12</a><a href="ex-5-a-13.html">5.A.13</a><a href="ex-5-a-14.html">5.A.14</a><a href="ex-5-a-15.html">5.A.15</a><a href="ex-5-a-16.html">5.A.16</a><a href="ex-5-a-17.html">5.A.17</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-A">Newton–Euler equations</a> › Example 5.A.9</p>
+<h2><span class="num">Example 5.A.9</span>Bearing force on a bar driven by a moment</h2>
+<div class="tags"><span>Newton–Euler</span><span>fixed-axis rotation</span><span>bearing reactions</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>A thin, homogeneous bar of weight $W = 20$ lb is attached to a vertical shaft at O. One part of the bar extends 18 in from the shaft and the other part extends 12 in. A moment $M = 100$ lb·in is applied to the shaft while the bar is at rest.</p>
+<p><b>Find</b> the horizontal reaction force $R$ that the bearings of the shaft exert at that instant.</p>
+</div>
+<div class="demo" id="xb-9">
+  <div class="demo-title"><span class="tag">Interactive</span><span>The bar seen from above as it starts to turn</span></div>
+  <canvas id="xb-9-anim" class="anim" style="height:360px"></canvas>
+  <div class="controls" id="xb-9-ctl"></div>
+  <div class="bar" id="xb-9-btn"></div>
+  <div class="stats" id="xb-9-stats"></div>
+  <p class="small concept-note">The animation shows the first quarter turn and then repeats. The red arrow is the horizontal force of the bearings on the bar, drawn to scale. At the instant of release it is perpendicular to the bar. As the bar picks up speed, a component directed toward the shaft appears, because G then also needs a normal acceleration $d\omega^2$.</p>
+</div>
+<div class="demo v3d" data-clip="xb-9"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Every solution follows the four-step method. Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Draw the free-body diagram</summary>
+<div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 340 250" role="img" aria-label="Bar seen from above (horizontal plane)" style="max-width:340px"><line x1="32.0" y1="95.0" x2="302.0" y2="95.0" stroke="#8a6a12" stroke-width="15" stroke-linecap="round"/><line x1="32.0" y1="95.0" x2="302.0" y2="95.0" stroke="#f1e6c8" stroke-width="11" stroke-linecap="round"/><path d="M111.0,102.8 L111.6,104.6 L112.3,106.5 L113.1,108.3 L114.0,110.0 L115.1,111.7 L116.2,113.3 L117.4,114.8 L118.8,116.2 L120.2,117.6 L121.7,118.8 L123.3,119.9 L125.0,121.0 L126.7,121.9 L128.5,122.7 L130.4,123.4 L132.2,124.0 L134.1,124.4 L136.1,124.7 L138.0,124.9 L140.0,125.0 L142.0,124.9 L143.9,124.7 L145.9,124.4 L147.8,124.0 L149.6,123.4 L151.5,122.7 L153.3,121.9 L155.0,121.0 L156.7,119.9 L158.3,118.8 L159.8,117.6 L161.2,116.2 L162.6,114.8 L163.8,113.3 L164.9,111.7 L166.0,110.0 L166.9,108.3 L167.7,106.5 L168.4,104.6 L169.0,102.8" fill="none" stroke="#8a3fd1" stroke-width="2.2"/><polygon points="170.3,99.0 171.8,110.1 162.3,106.8" fill="#8a3fd1"/><line x1="140.0" y1="95.0" x2="140.0" y2="44.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="140.0,33.0 145.5,44.0 134.5,44.0" fill="#17915a"/><circle cx="140.0" cy="95.0" r="7" fill="#fff" stroke="#17915a" stroke-width="2"/><circle cx="140.0" cy="95.0" r="2.4" fill="#17915a"/><circle cx="171.0" cy="95.0" r="6" fill="#fff" stroke="#c2410c" stroke-width="2"/><line x1="167.4" y1="91.4" x2="174.6" y2="98.6" stroke="#c2410c" stroke-width="2"/><line x1="167.4" y1="98.6" x2="174.6" y2="91.4" stroke="#c2410c" stroke-width="2"/><line x1="32.0" y1="171.0" x2="140.0" y2="171.0" stroke="#7b808c" stroke-width="1.2"/><line x1="32.0" y1="166.0" x2="32.0" y2="176.0" stroke="#7b808c" stroke-width="1.2"/><line x1="140.0" y1="166.0" x2="140.0" y2="176.0" stroke="#7b808c" stroke-width="1.2"/><line x1="140.0" y1="171.0" x2="302.0" y2="171.0" stroke="#7b808c" stroke-width="1.2"/><line x1="140.0" y1="166.0" x2="140.0" y2="176.0" stroke="#7b808c" stroke-width="1.2"/><line x1="302.0" y1="166.0" x2="302.0" y2="176.0" stroke="#7b808c" stroke-width="1.2"/><line x1="140.0" y1="199.0" x2="171.0" y2="199.0" stroke="#7b808c" stroke-width="1.2"/><line x1="140.0" y1="194.0" x2="140.0" y2="204.0" stroke="#7b808c" stroke-width="1.2"/><line x1="171.0" y1="194.0" x2="171.0" y2="204.0" stroke="#7b808c" stroke-width="1.2"/><line x1="24.0" y1="236.0" x2="47.0" y2="236.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="58.0,236.0 47.0,241.5 47.0,230.5" fill="#7b808c"/><line x1="24.0" y1="236.0" x2="24.0" y2="213.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="24.0,202.0 29.5,213.0 18.5,213.0" fill="#7b808c"/><text x="140.0" y="138.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#8a3fd1"><tspan>M</tspan></text><text x="140.0" y="21.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>R</tspan></text><text x="158.0" y="77.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>V</tspan></text><text x="189.0" y="79.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>W</tspan></text><text x="124.0" y="75.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:14px;font-style:italic;fill:#1c1d21"><tspan>O</tspan></text><text x="181.0" y="145.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:14px;font-style:italic;fill:#1c1d21"><tspan>G</tspan></text><text x="86.0" y="157.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>12 in</tspan></text><text x="221.0" y="157.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>18 in</tspan></text><text x="155.5" y="185.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>d = 3 in</tspan></text><text x="68.0" y="236.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>x</tspan></text><text x="24.0" y="192.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>y</tspan></text></svg><figcaption>Bar seen from above (horizontal plane)</figcaption></figure></div><p class="small fbdnote">Seen from above, the bearing force $R$ acts at O perpendicular to the bar, in the direction in which G starts to move. The weight $W$ points into the page at G and the vertical bearing force $V$ points out of the page at O. Both are parallel to the axis of rotation, so they have no moment about it.</p><p>The bar is acted on by the applied moment $M$, its weight $W$ (vertical), and the bearing reactions. In the horizontal plane the bearings exert a single force $R$, and in the vertical direction they support the weight. The bar is 30 in long, so its mass center G lies 15 in from either end. That places G a distance $d = 18 - 15 = 3$ in from the shaft, on the longer side.</p>
+</details>
+<details class="step"><summary>Step 2 · Write the kinetics equations</summary>
+<p>The shaft is a fixed axis, so Euler's equation about O gives the angular acceleration. The weight is parallel to the axis and the bearing force passes through it, so only $M$ has a moment about the axis.</p>
+$$M = I_O\,\alpha, \qquad I_O = \frac{W}{g}\left(\frac{L^2}{12} + d^2\right)$$
+<p>In the horizontal plane, Newton's equation states that the bearing force is the only horizontal force on the bar. The moment $M$ is a couple, so it contributes no net force.</p>
+$$R = \frac{W}{g}\,a_G$$
+</details>
+<details class="step"><summary>Step 3 · Write the kinematics equations</summary>
+<p>G moves on a circle of radius $d$ about the shaft. The bar starts from rest, so $\omega = 0$ and the normal acceleration $d\,\omega^2$ is zero at this instant. Only the tangential acceleration remains.</p>
+$$a_G = d\,\alpha$$
+</details>
+<details class="step"><summary>Step 4 · Solve</summary>
+<p>With $W/g = 20/386.4 = 0.05176$ lb·s²/in, the moment of inertia is</p>
+$$I_O = 0.05176\left(\frac{30^2}{12} + 3^2\right) = 0.05176\,(84) = 4.348\ \text{lb·in·s}^2$$
+<p>so $\alpha = 100/4.348 = 23.0$ rad/s². The bearing force is then</p>
+$$R = \frac{W}{g}\,d\,\alpha = \frac{M\,d}{L^2/12 + d^2} = \frac{100\,(3)}{84} = 3.57\ \text{lb}$$
+<p class="small">The weight cancels out, so the answer does not depend on $W$. The force $R$ is horizontal and perpendicular to the bar. The bearings must also support the 20 lb weight, and because G is not on the shaft they carry a couple $W d = 60$ lb·in about a horizontal axis as well.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>$R = \dfrac{M d}{L^2/12 + d^2} = 3.57$ lb, horizontal and perpendicular to the bar, with $\alpha = 23.0$ rad/s².</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Change $W$ in the animation. Explain why the bearing force at release stays the same.</li><li>Watch how the bearing force changes as the bar speeds up. Which component grows, and why?</li><li>Where would the shaft have to be for the bearing force to be zero at release?</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 5, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-5-a-8.html"><small>← Previous</small>Example 5.A.8</a><a class="next" href="ex-5-a-10.html"><small>Next →</small>Example 5.A.10</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/ch5.js"></script>
+<script src="../assets/ch5-exA2.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch5-3dA2.js"></script>
+</body>
+</html>

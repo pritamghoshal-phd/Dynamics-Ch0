@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Instant centers · Chapter 2 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 2</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="rigid.html">A · Rigid body equations</a>
+    <a href="instant.html" class=active>B · Instant centers</a>
+    <a href="mechanisms.html">C · Mechanisms</a>
+    <a href="examples.html">Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<section>
+<h2><span class="num">B</span>Instant centers of rotation</h2>
+<p>If a body is pinned at a fixed point A, every point moves on a circle around A: its velocity is perpendicular to the line from A, and its speed is $|\omega|$ times its distance from A. The remarkable fact is that <b>any</b> body in planar motion (that is not purely translating) behaves this way at each instant, about some point C whose velocity is momentarily zero. That point is the <b>instantaneous center of rotation</b>, or <b>instant center</b> (IC).</p>
+<p>Put $\mathbf v_C = \mathbf 0$ in the velocity equation and you get, for any point D of the body,</p>
+<div class="formula">$$\mathbf v_D = \boldsymbol\omega\times\mathbf r_{D/C}, \qquad |\mathbf v_D| = |\omega|\,|\mathbf r_{D/C}|$$</div>
+<p>So at this instant:</p>
+<ul>
+<li>the velocity of every point is <b>perpendicular to the line joining it to the IC</b>;</li>
+<li>speeds are <b>proportional to the distance</b> from the IC;</li>
+<li>the IC does not have to lie on the body itself; it is just the point the body is turning about right now.</li>
+</ul>
+<div class="demo concept" id="c-field">
+  <div class="demo-title"><span class="tag concept-tag">Concept</span><span>Every velocity is perpendicular to the line to the IC</span></div>
+  <canvas id="c-field-anim" class="anim" style="height:340px"></canvas>
+  <div class="controls" id="c-field-ctl"></div>
+  <div class="bar" id="c-field-pre"><span class="lbl">Try:</span></div>
+  <div class="stats" id="c-field-stats"></div>
+  <p class="small concept-note">Grey arrows: the velocity of points across the body. Pick any two (orange, at A and B), draw the perpendicular to each velocity (red dashed), and the lines cross at the IC. Move the IC far away with a small ω and the body is almost translating: all arrows become equal.</p>
+</div>
+
+<h3>Finding the instant center</h3>
+<div class="card method"><h3 style="margin-top:.2rem">Recipe</h3>
+<ol><li>Find two points on the body whose velocity <b>directions</b> you know (for example, a pin moving on a circle, or a slider moving along a guide). For at least one of them, also know the speed.</li>
+<li>Through each point, draw a line perpendicular to its velocity.</li>
+<li>The two lines cross at the instant center C.</li>
+<li>Angular speed: $|\omega| = |\mathbf v_A|/|\mathbf r_{A/C}|$. The sense (CW or CCW) follows from picturing the body turning about C so that A moves the way it does.</li>
+<li>Any other point D: speed $|\omega|\,|\mathbf r_{D/C}|$, direction perpendicular to CD.</li></ol></div>
+<p>Two special cases: if the two perpendicular lines are <b>parallel</b> (the velocities are parallel and not lined up), they meet "at infinity", so $\omega = 0$ and the body is translating at that instant. For a wheel rolling without slipping, the contact point is the IC.</p>
+<p>The IC <b>moves</b> as the body moves. In the sliding-link animation below, the IC sweeps out a circle around the corner. Its path is called the <em>centrode</em>.</p>
+<div class="demo concept" id="c-ladder">
+  <div class="demo-title"><span class="tag concept-tag">Concept</span><span>A sliding link and its moving instant center</span></div>
+  <canvas id="c-ladder-anim" class="anim" style="height:360px"></canvas>
+  <div class="controls" id="c-ladder-ctl"></div>
+  <div class="bar" id="c-ladder-btn"></div>
+  <div class="stats" id="c-ladder-stats"></div>
+  <p class="small concept-note">End A slides down the wall and end B along the floor. The perpendiculars to their velocities (red dashed) cross at the IC. The midpoint G stays at distance L/2 from the IC, and the IC traces a quarter circle of radius L about the corner.</p>
+</div>
+
+<h3>Instant centers are for velocities only</h3>
+<p>The IC has zero velocity at this instant, but in general it does <b>not</b> have zero acceleration. The rolling wheel is the classic example: the contact point is the IC, yet its acceleration is $R\omega^2$ upward. Writing the acceleration equation about C,</p>
+<div class="formula">$$\mathbf a_D = \mathbf a_C + \boldsymbol\alpha\times\mathbf r_{D/C} - \omega^2\,\mathbf r_{D/C}$$</div>
+<p>shows two terms ($\mathbf a_C$ and $-\omega^2\mathbf r_{D/C}$) that are not perpendicular to CD. So <b>never use the instant center to find accelerations</b>. Use it to find velocities quickly, or to check the direction of a velocity answer you got with vectors.</p>
+<div class="try"><h4>Try this</h4><ul><li>In the velocity-field demo, put the IC inside the body. Which points are moving slowest?</li><li>In the sliding-link demo, watch v<sub>A</sub> as θ gets small. Why does A move so fast near the floor? Where is the IC then?</li><li>Is the IC of the sliding link a fixed point? Does the IC have zero acceleration?</li></ul></div>
+<div class="wild"><span class="wi" aria-hidden="true">🏎️</span><div><b class="wh">Instant centers in the wild</b><p>A photo of a moving tire shows sharp lettering near the road and blurred lettering higher up, and the blur streaks follow circles centered on the contact patch. The camera is recording that the tire is rotating about its instant center, the contact point.</p></div></div>
+</section>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="rigid.html"><small>← Previous</small>A · Rigid body equations</a><a class="next" href="mechanisms.html"><small>Next →</small>C · Mechanisms</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/labels.js"></script>
+<script src="../assets/ch2.js"></script>
+</body>
+</html>

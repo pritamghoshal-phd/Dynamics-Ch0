@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 2.B.5 · Chapter 2 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 2</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="rigid.html">A · Rigid body equations</a>
+    <a href="instant.html">B · Instant centers</a>
+    <a href="mechanisms.html">C · Mechanisms</a>
+    <a href="examples.html" class=active>Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Instant centers examples"><a href="examples.html#group-B">All Instant centers examples</a><a href="ex-2-b-1.html">2.B.1</a><a href="ex-2-b-2.html">2.B.2</a><a href="ex-2-b-3.html">2.B.3</a><a href="ex-2-b-4.html">2.B.4</a><a href="ex-2-b-5.html" class=active>2.B.5</a><a href="ex-2-b-6.html">2.B.6</a><a href="ex-2-b-7.html">2.B.7</a><a href="ex-2-b-8.html">2.B.8</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-B">Instant centers</a> › Example 2.B.5</p>
+<h2><span class="num">Example 2.B.5</span>Hydraulic cylinder driving a rocker</h2>
+<div class="tags"><span>instant centers</span><span>linkage</span><span>hydraulic cylinder</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>The piston rod of the hydraulic cylinder C gives pin A an upward speed $v_A = 4$ m/s. Pin A moves along the vertical line through the fixed pin O. Link OB has length 400 mm and link AB has length 250 mm. The angle $\theta$ is measured at A between the vertical line AO and link AB.</p>
+<p><b>Find</b>, for the instant when $\theta = 45°$, the angular velocity of link OB, using the method of instant centers.</p>
+</div>
+<div class="demo" id="x2b-5">
+  <div class="demo-title"><span class="tag">Interactive</span><span>The piston raising pin A (slow motion)</span></div>
+  <div class="grid2"><canvas id="x2b-5-anim" class="anim" style="height:500px"></canvas><div><canvas id="x2b-5-plot" class="plot" style="height:300px"></canvas></div></div>
+  <div class="bar" id="x2b-5-pre"><span class="lbl">View:</span></div>
+  <div class="bar" id="x2b-5-btn"></div>
+  <div class="stats" id="x2b-5-stats"></div>
+  <p class="small concept-note">The instant center of AB is where the horizontal line through A meets line OB extended. The graph shows $\omega_{OB}$ for the whole stroke, with the dot at the current position.</p>
+</div>
+<div class="demo v3d" data-clip="x2b-5"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">The method of instant centers has four steps. Find the direction of the velocity of two points of the body, locate the instant center where the perpendiculars to those velocities meet, find ω from one known speed, and then find any other velocity from its distance to the instant center.</p>
+<details class="step"><summary>Step 1 · Find the geometry and the velocity directions</summary>
+<p>Place O at the origin with $y$ upward, and let A be a distance $d$ below O. With $\theta = 45°$, B is $0.25\sin 45° = 0.1768$ m to the right of A and $0.1768$ m above it. The length of OB fixes $d$.</p>
+$$0.1768^2 + (d - 0.1768)^2 = 0.4^2 \quad\Rightarrow\quad d = 0.5356\ \text{m}$$
+<p>So A is at $(0, -0.5356)$ m and B is at $(0.1768, -0.3588)$ m. The velocity of A is vertical. B belongs to link OB, which turns about O, so $\mathbf v_B$ is perpendicular to OB.</p>
+<div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 330 300" role="img" aria-label="Links OB and AB with the instant center of AB" style="max-width:330px"><line x1="46" y1="10" x2="46" y2="50" stroke="#8b8f98" stroke-width="1.8"/><line x1="46" y1="14" x2="39" y2="9" stroke="#8b8f98" stroke-width="1"/><line x1="46" y1="23" x2="39" y2="18" stroke="#8b8f98" stroke-width="1"/><line x1="46" y1="32" x2="39" y2="27" stroke="#8b8f98" stroke-width="1"/><line x1="46" y1="41" x2="39" y2="36" stroke="#8b8f98" stroke-width="1"/><line x1="70.0" y1="30.0" x2="140.7" y2="173.5" stroke="#8a6a12" stroke-width="15" stroke-linecap="round"/><line x1="70.0" y1="30.0" x2="140.7" y2="173.5" stroke="#f1e6c8" stroke-width="11" stroke-linecap="round"/><line x1="70.0" y1="244.2" x2="140.7" y2="173.5" stroke="#8a6a12" stroke-width="15" stroke-linecap="round"/><line x1="70.0" y1="244.2" x2="140.7" y2="173.5" stroke="#f1e6c8" stroke-width="11" stroke-linecap="round"/><circle cx="70.0" cy="30.0" r="4.5" fill="#fff" stroke="#1c1d21" stroke-width="2"/><circle cx="70.0" cy="244.2" r="4.5" fill="#fff" stroke="#1c1d21" stroke-width="2"/><circle cx="140.7" cy="173.5" r="4.5" fill="#fff" stroke="#1c1d21" stroke-width="2"/><line x1="70.0" y1="30.0" x2="70.0" y2="244.2" stroke="#7b808c" stroke-width="1" stroke-dasharray="5 4"/><line x1="140.7" y1="173.5" x2="175.6" y2="244.2" stroke="#8a3fd1" stroke-width="1.3" stroke-dasharray="5 4"/><line x1="175.6" y1="244.2" x2="70.0" y2="244.2" stroke="#8a3fd1" stroke-width="1.3" stroke-dasharray="5 4"/><polyline points="78.0,244.2 78.0,236.2 70.0,236.2" fill="none" stroke="#8a3fd1" stroke-width="1.2"/><line x1="175.6" y1="244.2" x2="140.7" y2="173.5" stroke="#8a3fd1" stroke-width="1.3" stroke-dasharray="5 4"/><polyline points="144.3,180.7 151.4,177.2 147.9,170.0" fill="none" stroke="#8a3fd1" stroke-width="1.2"/><circle cx="175.6" cy="244.2" r="10" fill="#8a3fd1" fill-opacity=".15"/><circle cx="175.6" cy="244.2" r="6" fill="none" stroke="#8a3fd1" stroke-width="2"/><circle cx="175.6" cy="244.2" r="2.4" fill="#8a3fd1"/><line x1="34.0" y1="274.2" x2="34.0" y2="241.2" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="34.0,230.2 39.5,241.2 28.5,241.2" fill="#2457d6"/><line x1="140.7" y1="173.5" x2="175.7" y2="156.3" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="185.6,151.4 178.1,161.2 173.3,151.4" fill="#17915a"/><path d="M70.0,210.2 A34,34 0 0 1 94.0,220.2" fill="none" stroke="#7b808c" stroke-width="1.2"/><text x="54.0" y="30.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>O</tspan></text><text x="82.0" y="260.2" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>A</tspan></text><text x="150.7" y="155.5" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>B</tspan></text><text x="189.6" y="232.2" text-anchor="start" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:14px;font-style:italic;fill:#8a3fd1"><tspan>IC</tspan><tspan dy="4.5" style="font-size:10.1px">AB</tspan></text><text x="18.0" y="228.2" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>v</tspan><tspan dy="4.8" style="font-size:10.8px">A</tspan></text><text x="196.4" y="138.1" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>v</tspan><tspan dy="4.8" style="font-size:10.8px">B</tspan></text><text x="87.2" y="202.7" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>θ</tspan></text><text x="150.0" y="85.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:12px;font-style:italic;fill:#7b808c"><tspan>400 mm</tspan></text><text x="118.0" y="220.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:12px;font-style:italic;fill:#7b808c"><tspan>250 mm</tspan></text></svg><figcaption>Links OB and AB with the instant center of AB</figcaption></figure></div><p class="small fbdnote">$\mathbf v_A$ is vertical, so the instant center of AB lies on the horizontal line through A. $\mathbf v_B$ is perpendicular to OB, so it also lies on line OB extended.</p>
+</details>
+<details class="step"><summary>Step 2 · Locate the instant center of AB</summary>
+<p>The instant center lies on the horizontal line through A, $y = -0.5356$ m. It also lies on line OB extended, whose points are $s(0.1768, -0.3588)$. Setting $-0.3588s = -0.5356$ gives $s = 1.493$, so</p>
+$$IC_{AB} = (0.2639,\ -0.5356)\ \text{m}$$
+<p>Its distance from A is $r_{A/IC} = 0.2639$ m. Its distance from B is $(s - 1)\,L_{OB} = 0.493(0.4) = 0.1971$ m.</p>
+</details>
+<details class="step"><summary>Step 3 · Find the angular velocity of AB</summary>
+<p>A moves up at 4 m/s and lies to the left of the instant center, so AB turns clockwise with</p>
+$$\omega_{AB} = \frac{v_A}{r_{A/IC}} = \frac{4}{0.2639} = 15.16\ \text{rad/s}$$
+</details>
+<details class="step"><summary>Step 4 · Find the angular velocity of OB</summary>
+<p>The speed of B follows from its distance to the instant center of AB.</p>
+$$v_B = \omega_{AB}\, r_{B/IC} = 15.16(0.1971) = 2.987\ \text{m/s}$$
+<p>B moves on a circle of radius 0.4 m about O, so</p>
+$$\omega_{OB} = \frac{v_B}{L_{OB}} = \frac{2.987}{0.4} = 7.47\ \text{rad/s}$$
+<p>B moves up and to the right, perpendicular to OB, which is a <b>counterclockwise</b> rotation of OB about O.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>$\omega_{OB} = 7.47$ rad/s counterclockwise. Along the way, $\omega_{AB} = 15.2$ rad/s clockwise and $v_B = 2.99$ m/s.</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Watch the graph near the end of the stroke. Why does $\omega_{OB}$ grow when OB and AB come close to forming a straight line?</li><li>Check the answer with the vector equation $\mathbf v_B = \mathbf v_A + \boldsymbol\omega_{AB}\times\mathbf r_{B/A}$.</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 2, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-2-b-4.html"><small>← Previous</small>Example 2.B.4</a><a class="next" href="ex-2-b-6.html"><small>Next →</small>Example 2.B.6</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/kit.js"></script>
+<script src="../assets/ch2-exB.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch2-3dB.js"></script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Overview · Chapter 1 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 1</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html" class=active>Overview</a>
+    <a href="planar.html">A · Planar descriptions</a>
+    <a href="threed.html">B · 3D descriptions</a>
+    <a href="joint.html">C · Joint description</a>
+    <a href="relative.html">D · Relative & constrained</a>
+    <a href="examples.html">Examples</a>
+  </div>
+</nav>
+<header class="hero">
+  <div class="wrap">
+    <h1>Chapter 1 · Particle Kinematics</h1>
+    <p>Kinematics is the geometry of motion: how to describe where a point is, how fast it moves and how its velocity changes, without yet asking which forces cause it. In this chapter a body is shrunk to a single point, a <em>particle</em>, and we learn several ways to write its velocity and acceleration. Each way is a different set of unit vectors, chosen to make a particular problem easy.</p>
+    <p class="small" style="margin-top:.8rem">Every slider has a box next to it. Type any number into the box and press Enter to go beyond the slider range.</p>
+  </div>
+</header>
+<main class="wrap">
+<h2>Contents</h2>
+<div class="cards">
+<a class="cardlink" href="planar.html"><span class="k">Section A</span><h3>Planar kinematics</h3><p>Cartesian, path (tangential–normal) and polar descriptions of motion in a plane.</p></a>
+<a class="cardlink" href="threed.html"><span class="k">Section B</span><h3>3D kinematics</h3><p>Cartesian and cylindrical descriptions of motion in space.</p></a>
+<a class="cardlink" href="joint.html"><span class="k">Section C</span><h3>Joint description</h3><p>Using two descriptions at once to find speed changes and radii of curvature.</p></a>
+<a class="cardlink" href="relative.html"><span class="k">Section D</span><h3>Relative and constrained motion</h3><p>Motion seen from a moving observer, and cables that tie the motions of bodies together.</p></a>
+<a class="cardlink" href="examples.html"><span class="k">Practice</span><h3>Worked examples</h3><p>Eight problems, two from each section, each with an animation and a step-by-step solution.</p></a>
+</div>
+<h2>The big picture</h2>
+<p>The velocity and acceleration of a particle are vectors, and a vector does not care how you describe it. What changes from one description to the next is only the set of unit vectors you use to write the components:</p>
+<div class="tblwrap"><table class="tbl"><tr><th>Description</th><th>Unit vectors</th><th>Best when</th></tr>
+<tr><td>Cartesian</td><td>$\hat{\mathbf i}, \hat{\mathbf j}, \hat{\mathbf k}$ (fixed)</td><td>$x(t)$, $y(t)$ are known, or the motion is guided by straight slots</td></tr>
+<tr><td>Path</td><td>$\hat{\mathbf e}_t, \hat{\mathbf e}_n$ (follow the path)</td><td>you know the speed and the shape of the path (cars, roads, loops)</td></tr>
+<tr><td>Polar / cylindrical</td><td>$\hat{\mathbf e}_r, \hat{\mathbf e}_\theta$ (and $\hat{\mathbf k}$)</td><td>distance and angle from a fixed point are measured (radar, rotating arms)</td></tr>
+</table></div>
+<p>The Cartesian unit vectors never change. The path and polar unit vectors turn as the particle moves, and their rates of turning are the source of the "extra" terms such as $v^2/\rho$, $-r\dot\theta^2$ and $2\dot r\dot\theta$.</p>
+<nav class="pager" aria-label="Page navigation"><a class="next" href="planar.html"><small>Next →</small>A · Planar descriptions</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/labels.js"></script>
+<script src="../assets/ch1.js"></script>
+</body>
+</html>

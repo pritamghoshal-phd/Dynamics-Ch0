@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 4.A.9 · Chapter 4 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 4</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="newton.html">A · Newton's laws</a>
+    <a href="energy.html">B · Work–energy</a>
+    <a href="impulse.html">C · Linear impulse–momentum</a>
+    <a href="angular.html">D · Angular impulse–momentum</a>
+    <a href="examples.html" class=active>Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Newton's second law examples"><a href="examples.html#group-A">All Newton's second law examples</a><a href="ex-4-a-1.html">4.A.1</a><a href="ex-4-a-2.html">4.A.2</a><a href="ex-4-a-3.html">4.A.3</a><a href="ex-4-a-4.html">4.A.4</a><a href="ex-4-a-5.html">4.A.5</a><a href="ex-4-a-6.html">4.A.6</a><a href="ex-4-a-7.html">4.A.7</a><a href="ex-4-a-8.html">4.A.8</a><a href="ex-4-a-9.html" class=active>4.A.9</a><a href="ex-4-a-10.html">4.A.10</a><a href="ex-4-a-11.html">4.A.11</a><a href="ex-4-a-12.html">4.A.12</a><a href="ex-4-a-13.html">4.A.13</a><a href="ex-4-a-14.html">4.A.14</a><a href="ex-4-a-15.html">4.A.15</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-A">Newton's second law</a> › Example 4.A.9</p>
+<h2><span class="num">Example 4.A.9</span>Zero-gravity flight</h2>
+<div class="tags"><span>path components</span><span>radius of curvature</span><span>free fall</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>An aircraft is used to simulate weightlessness for its passengers. It climbs at 45° nose high, flies over the top of its path, and then descends at 30° nose low. During about 25 s near the top of the path the passengers feel weightless. At the maximum height the aircraft travels at $v = 230$ m/s, and the gravitational acceleration there is $g = 9.79$ m/s².</p>
+<p><b>Find</b> the radius of curvature of the path at the maximum height. What is the shape of the trajectory near the maximum height?</p>
+</div>
+<div class="demo" id="x4a-9">
+  <div class="demo-title"><span class="tag">Interactive</span><span>One zero-gravity maneuver, drawn to true scale</span></div>
+  <canvas id="x4a-9-anim" class="anim" style="height:360px"></canvas><div class="grid2"><canvas id="x4a-9-plot" class="plot" style="height:200px"></canvas><canvas id="x4a-9-plot2" class="plot" style="height:200px"></canvas></div><div class="legendrow"><span><span class="sw" style="background:var(--c3)"></span>free-fall part of the path (zero g)</span><span><span class="sw" style="background:var(--c4)"></span>circle of curvature at the top, radius ρ</span></div>
+  <div class="controls" id="x4a-9-ctl"></div>
+  <div class="bar" id="x4a-9-btn"></div>
+  <div class="stats" id="x4a-9-stats"></div>
+  <p class="small concept-note">The aircraft enters and leaves the free-fall part with 2g pull-ups, flown at constant speed on circular arcs. On the green part only gravity acts, so the acceleration is $g$ downward and the scale under a passenger reads zero. The aircraft icon is not to scale.</p>
+</div>
+<div class="demo v3d" data-clip="x4a-9"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Every solution follows the four-step method: free-body diagrams, kinetics equations, kinematics, solve. Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Draw the free-body diagram</summary>
+<p>Take a passenger as the particle. A passenger feels weightless when the seat pushes on him with zero force. At the top of the path the only force on the passenger is then his weight $mg$, downward. The same is true for the aircraft as a whole, because the pilot sets the thrust to cancel the drag, so the aircraft moves as a free projectile.</p>
+<div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 250 250" role="img" aria-label="Passenger at the top of the path" style="max-width:250px"><rect x="-22.0" y="-35.0" width="44.0" height="70.0" rx="4" transform="translate(125.0,100.0) rotate(0.0)" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><circle cx="125.0" cy="100.0" r="4" fill="#1c1d21"/><line x1="125.0" y1="100.0" x2="125.0" y2="169.0" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="125.0,180.0 119.5,169.0 130.5,169.0" fill="#c2410c"/><line x1="30.0" y1="40.0" x2="53.0" y2="40.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="64.0,40.0 53.0,45.5 53.0,34.5" fill="#7b808c"/><line x1="30.0" y1="40.0" x2="30.0" y2="63.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="30.0,74.0 24.5,63.0 35.5,63.0" fill="#7b808c"/><text x="89.0" y="100.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>G</tspan></text><text x="143.0" y="180.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>mg</tspan></text><text x="125.0" y="236.0" text-anchor="middle" dominant-baseline="middle" style="font-family:system-ui,sans-serif;font-size:11px;fill:#7b808c">seat force = 0 while weightless</text><text x="76.0" y="40.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>e</tspan><tspan dy="4.2" style="font-size:9.4px">t</tspan></text><text x="30.0" y="86.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>e</tspan><tspan dy="4.2" style="font-size:9.4px">n</tspan></text></svg><figcaption>Passenger at the top of the path</figcaption></figure><figure><svg class="fbd" viewBox="0 0 320 250" role="img" aria-label="Kinematics at the top of the path" style="max-width:320px"><line x1="30.0" y1="70.0" x2="290.0" y2="70.0" stroke="#7b808c" stroke-width="1.4"/><polyline points="30.0,141.0 36.5,134.1 43.0,127.5 49.5,121.3 56.0,115.4 62.5,109.9 69.0,104.8 75.5,100.0 82.0,95.6 88.5,91.5 95.0,87.7 101.5,84.4 108.0,81.4 114.5,78.7 121.0,76.4 127.5,74.4 134.0,72.8 140.5,71.6 147.0,70.7 153.5,70.2 160.0,70.0 166.5,70.2 173.0,70.7 179.5,71.6 186.0,72.8 192.5,74.4 199.0,76.4 205.5,78.7 212.0,81.4 218.5,84.4 225.0,87.7 231.5,91.5 238.0,95.6 244.5,100.0 251.0,104.8 257.5,109.9 264.0,115.4 270.5,121.3 277.0,127.5 283.5,134.1 290.0,141.0" fill="none" stroke="#8a6a12" stroke-width="2" stroke-linejoin="round"/><circle cx="160.0" cy="70.0" r="4" fill="#1c1d21"/><line x1="160.0" y1="70.0" x2="224.0" y2="70.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="235.0,70.0 224.0,75.5 224.0,64.5" fill="#2457d6"/><line x1="160.0" y1="70.0" x2="160.0" y2="119.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="160.0,130.0 154.5,119.0 165.5,119.0" fill="#17915a"/><line x1="160.0" y1="70.0" x2="160.0" y2="240.0" stroke="#8a3fd1" stroke-width="1.2" stroke-dasharray="5 4"/><line x1="240.0" y1="170.0" x2="263.0" y2="170.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="274.0,170.0 263.0,175.5 263.0,164.5" fill="#7b808c"/><line x1="240.0" y1="170.0" x2="240.0" y2="193.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="240.0,204.0 234.5,193.0 245.5,193.0" fill="#7b808c"/><text x="160.0" y="56.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>P</tspan></text><text x="247.0" y="70.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>v</tspan></text><text x="186.0" y="128.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>a = g</tspan></text><text x="172.0" y="200.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#8a3fd1"><tspan>ρ</tspan></text><text x="288.0" y="170.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>e</tspan><tspan dy="4.2" style="font-size:9.4px">t</tspan></text><text x="240.0" y="216.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>e</tspan><tspan dy="4.2" style="font-size:9.4px">n</tspan></text></svg><figcaption>Kinematics at the top of the path</figcaption></figure></div><p class="small fbdnote">Left: at the top only the weight acts on the passenger, so the seat pushes with zero force. Right: the path near the top. The velocity is horizontal, so $\hat{\mathbf e}_t$ is horizontal and $\hat{\mathbf e}_n$ points down toward the center of curvature.</p>
+</details>
+<details class="step"><summary>Step 2 · Write the kinetics equations</summary>
+<p>Use path components. At the top of the path the velocity is horizontal, so $\hat{\mathbf e}_t$ is horizontal and $\hat{\mathbf e}_n$ points straight down, toward the center of curvature.</p>
+$$\sum F_t = m\dot v: \quad 0 = m\dot v, \qquad \sum F_n = m\frac{v^2}{\rho}: \quad mg = m\frac{v^2}{\rho}$$
+</details>
+<details class="step"><summary>Step 3 · Write the kinematics equations</summary>
+<p>The acceleration in path components is $\mathbf a = \dot v\,\hat{\mathbf e}_t + \dfrac{v^2}{\rho}\,\hat{\mathbf e}_n$. Since the acceleration is $\mathbf a = g$ downward and $\hat{\mathbf e}_n$ is downward at the top, the normal component is $a_n = v^2/\rho = g$ and the tangential component is zero.</p>
+</details>
+<details class="step"><summary>Step 4 · Solve</summary>
+$$\rho = \frac{v^2}{g} = \frac{(230)^2}{9.79} = 5400\ \text{m} \approx 17{,}700\ \text{ft}$$
+<p>While the passengers are weightless, the acceleration of the aircraft is constant and equal to $g$ downward. Its horizontal velocity is therefore constant, and its vertical position changes as $\tfrac12 g t^2$. This is projectile motion, so the trajectory near the top is a <b>parabola</b>. The circle of radius $\rho$ in the animation touches this parabola at the top and has the same curvature there.</p>
+<p class="small">The free-fall part from 45° nose high to 30° nose low lasts $v(1 + \tan 30°)/g = 37$ s with these numbers. The real aircraft flies more slowly at the top, which gives the shorter weightless time of about 25 s quoted in the problem.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>$\rho = v^2/g = 5400$ m (about 17,700 ft). Near the top the path is a parabola, the path of a projectile.</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Lower the speed at the top. How do the radius of curvature and the time in free fall change?</li><li>Look at the apparent-weight plot. Why does the passenger feel almost twice his weight just before and just after the weightless part?</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 4, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-4-a-8.html"><small>← Previous</small>Example 4.A.8</a><a class="next" href="ex-4-a-10.html"><small>Next →</small>Example 4.A.10</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/kit.js"></script>
+<script src="../assets/ch4-exA2.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch4-3dA2.js"></script>
+</body>
+</html>

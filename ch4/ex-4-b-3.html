@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 4.B.3 · Chapter 4 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 4</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="newton.html">A · Newton's laws</a>
+    <a href="energy.html">B · Work–energy</a>
+    <a href="impulse.html">C · Linear impulse–momentum</a>
+    <a href="angular.html">D · Angular impulse–momentum</a>
+    <a href="examples.html" class=active>Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Work and energy examples"><a href="examples.html#group-B">All Work and energy examples</a><a href="ex-4-b-1.html">4.B.1</a><a href="ex-4-b-2.html">4.B.2</a><a href="ex-4-b-3.html" class=active>4.B.3</a><a href="ex-4-b-4.html">4.B.4</a><a href="ex-4-b-5.html">4.B.5</a><a href="ex-4-b-6.html">4.B.6</a><a href="ex-4-b-7.html">4.B.7</a><a href="ex-4-b-8.html">4.B.8</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-B">Work and energy</a> › Example 4.B.3</p>
+<h2><span class="num">Example 4.B.3</span>Maximum height of a particle launched upward</h2>
+<div class="tags"><span>work–energy</span><span>conservation of energy</span><span>gravity</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>A particle is launched vertically upward with a speed $v_0$. Air resistance on the particle is negligible.</p>
+<p><b>Find</b> the maximum height $h$ reached by the particle.</p>
+</div>
+<div class="demo" id="x4b-3">
+  <div class="demo-title"><span class="tag">Interactive</span><span>The particle rises, stops and falls back</span></div>
+  <canvas id="x4b-3-anim" class="anim" style="height:380px"></canvas>
+  <div class="controls" id="x4b-3-ctl"></div>
+  <div class="bar" id="x4b-3-pre"><span class="lbl">Try:</span></div>
+  <div class="bar" id="x4b-3-btn"></div>
+  <div class="stats" id="x4b-3-stats"></div>
+  <p class="small concept-note">The bars show the kinetic energy $T$, the potential energy $V$ and their sum. The total stays constant, and the particle stops when all of the kinetic energy has become potential energy. The dashed line marks $h = v_0^2/2g$.</p>
+</div>
+<div class="demo v3d" data-clip="x4b-3"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Every solution follows the four-step method: free-body diagrams, kinetics equations, kinematics, solve. Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Draw the free-body diagram</summary>
+<p>Once the particle has left the launcher, the only force acting on it is its weight $mg$.</p><div class="fbdrow"><figure style="width:min(220px,100%)"><svg class="fbd" viewBox="0 0 220 230" role="img" aria-label="Particle in flight" style="max-width:220px"><circle cx="110.0" cy="100.0" r="16.0" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><line x1="110.0" y1="100.0" x2="110.0" y2="159.0" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="110.0,170.0 104.5,159.0 115.5,159.0" fill="#c2410c"/><line x1="30.0" y1="205.0" x2="45.0" y2="205.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="56.0,205.0 45.0,210.5 45.0,199.5" fill="#7b808c"/><line x1="30.0" y1="205.0" x2="30.0" y2="190.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="30.0,179.0 35.5,190.0 24.5,190.0" fill="#7b808c"/><text x="128.0" y="172.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>mg</tspan></text><text x="110.0" y="30.0" text-anchor="middle" dominant-baseline="middle" style="font-family:system-ui,sans-serif;font-size:11px;fill:#7b808c">no air resistance</text><text x="66.0" y="205.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>x</tspan></text><text x="30.0" y="169.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>y</tspan></text></svg><figcaption>Particle in flight</figcaption></figure></div><p class="small fbdnote">The weight is the only force on the particle, and it is conservative. Mechanical energy is therefore conserved during the flight.</p>
+</details>
+<details class="step"><summary>Step 2 · Write the work–energy equation</summary>
+<p>Let state 1 be the launch and state 2 the highest point. The weight is conservative and no other force acts, so mechanical energy is conserved. We measure the potential energy from the launch point.</p>
+$$T_1 + V_1 = T_2 + V_2 \quad\Longrightarrow\quad \tfrac12 m v_0^2 + 0 = T_2 + mgh$$
+</details>
+<details class="step"><summary>Step 3 · Write the kinematics</summary>
+<p>At the highest point the particle is momentarily at rest, so $v_2 = 0$ and $T_2 = 0$.</p>
+</details>
+<details class="step"><summary>Step 4 · Solve</summary>
+$$\tfrac12 m v_0^2 = mgh \quad\Longrightarrow\quad h = \frac{v_0^2}{2g}$$
+<p>The mass cancels, so every particle launched with the same speed reaches the same height. For example, $v_0 = 10$ m/s gives $h = 100/19.62 = 5.10$ m.</p>
+<p class="small">The same result follows from constant-acceleration kinematics, $v^2 = v_0^2 - 2gh$ with $v = 0$. The energy method gets there without ever finding the time of flight.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>$h = \dfrac{v_0^2}{2g}$, which is independent of the mass of the particle.</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Double $v_0$. By what factor does the height change?</li><li>Change the mass in the animation. Which energy bars change and which quantity does not?</li><li>Use the energy equation to find the speed of the particle at half the maximum height.</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 4, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-4-b-2.html"><small>← Previous</small>Example 4.B.2</a><a class="next" href="ex-4-b-4.html"><small>Next →</small>Example 4.B.4</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/kit.js"></script>
+<script src="../assets/ch4-exB.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch4-3dB.js"></script>
+</body>
+</html>

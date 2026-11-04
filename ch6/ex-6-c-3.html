@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 6.C.3 · Chapter 6 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 6</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="eom.html">A · Equations of motion</a>
+    <a href="free.html">B · Free vibration</a>
+    <a href="damped.html">B · Damped vibration</a>
+    <a href="forced.html">C · Forced vibration</a>
+    <a href="base.html">C · Base excitation</a>
+    <a href="summary.html">Summary</a>
+    <a href="examples.html" class=active>Examples</a>
+    <a href="badges.html">🏅 Badges</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Forced response examples"><a href="examples.html#group-C">All Forced response examples</a><a href="ex-6-c-1.html">6.C.1</a><a href="ex-6-c-2.html">6.C.2</a><a href="ex-6-c-3.html" class=active>6.C.3</a><a href="ex-6-c-4.html">6.C.4</a><a href="ex-6-c-5.html">6.C.5</a><a href="ex-6-c-6.html">6.C.6</a><a href="ex-6-c-7.html">6.C.7</a><a href="ex-6-c-8.html">6.C.8</a><a href="ex-6-c-9.html">6.C.9</a><a href="ex-6-c-10.html">6.C.10</a><a href="ex-6-c-11.html">6.C.11</a><a href="ex-6-c-12.html">6.C.12</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-C">Forced response</a> › Example 6.C.3</p>
+<h2><span class="num">Example 6.C.3</span>Damping ratio from two measured amplitudes</h2>
+<div class="tags"><span>frequency response</span><span>damping ratio</span><span>measurement</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>The steady-state response of the spring–mass–damper system shown can be written as $x_{ss}(t) = X(\omega)\sin(\omega t - \phi)$. The steady-state amplitude is measured at two excitation frequencies, $\omega_1$ and $\omega_2$, with $\omega_2/\omega_1 = 2$. The measurements give $X(\omega_1)/X(\omega_2) = 4$.</p>
+<p><b>Find</b> the damping ratio $\zeta$ of the system.</p>
+</div>
+<div class="demo" id="x6c-3">
+  <div class="demo-title"><span class="tag">Interactive</span><span>The same system driven at ω₁ (top) and at ω₂ = 2ω₁ (bottom)</span></div>
+  <canvas id="x6c-3-anim" class="anim" style="height:340px"></canvas><div class="grid2"><canvas id="x6c-3-t" class="plot" style="height:220px"></canvas><canvas id="x6c-3-f" class="plot" style="height:220px"></canvas></div><div class="legendrow"><span><span class="sw" style="background:var(--c2)"></span>x at ω₁</span><span><span class="sw" style="background:var(--c4)"></span>x at ω₂ = 2ω₁</span></div>
+  <div class="controls" id="x6c-3-ctl"></div>
+  <div class="bar" id="x6c-3-pre"><span class="lbl">Try:</span></div>
+  <div class="bar" id="x6c-3-btn"></div>
+  <div class="stats" id="x6c-3-stats"></div>
+  <p class="small concept-note">Both carts have the same $m$, $k$, $c$ and force amplitude. Adjust $\zeta$ until the ratio of the amplitudes is 4. The animation uses $m = 1$ kg, $k = 400$ N/m ($\omega_n = 20$ rad/s) and $f_0 = 8$ N.</p>
+</div>
+<div class="demo v3d" data-clip="x6c-3"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Every solution starts from free-body diagrams in a displaced position, then writes the equation of motion and reads off the vibration properties. Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Draw the free-body diagram</summary>
+<p>The system is the same as in Example 6.C.2. We isolate the block at a displaced position while it moves to the right.</p><div class="fbdrow"><figure style="width:min(380px,100%)"><svg class="fbd" viewBox="0 0 380 250" role="img" aria-label="Block at a displaced position, moving to the right" style="max-width:380px"><rect x="-60.0" y="-35.0" width="120.0" height="70.0" rx="4" transform="translate(190.0,115.0) rotate(0.0)" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><line x1="130.0" y1="99.0" x2="71.0" y2="99.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="60.0,99.0 71.0,93.5 71.0,104.5" fill="#2457d6"/><line x1="130.0" y1="131.0" x2="71.0" y2="131.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="60.0,131.0 71.0,125.5 71.0,136.5" fill="#2457d6"/><line x1="250.0" y1="115.0" x2="319.0" y2="115.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="330.0,115.0 319.0,120.5 319.0,109.5" fill="#2457d6"/><line x1="190.0" y1="150.0" x2="190.0" y2="195.0" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="190.0,206.0 184.5,195.0 195.5,195.0" fill="#c2410c"/><line x1="134.0" y1="196.0" x2="134.0" y2="161.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="134.0,150.0 139.5,161.0 128.5,161.0" fill="#17915a"/><line x1="246.0" y1="196.0" x2="246.0" y2="161.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="246.0,150.0 251.5,161.0 240.5,161.0" fill="#17915a"/><line x1="40.0" y1="230.0" x2="55.0" y2="230.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="66.0,230.0 55.0,235.5 55.0,224.5" fill="#7b808c"/><line x1="40.0" y1="230.0" x2="40.0" y2="215.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="40.0,204.0 45.5,215.0 34.5,215.0" fill="#7b808c"/><text x="190.0" y="115.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:16px;font-style:italic;fill:#1c1d21"><tspan>m</tspan></text><text x="48.0" y="85.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>kx</tspan></text><text x="48.0" y="145.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>cdot x</tspan></text><text x="352.0" y="101.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>f</tspan><tspan dy="4.8" style="font-size:10.8px">0sinω</tspan><tspan dy="-4.8"> t</tspan></text><text x="170.0" y="212.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>mg</tspan></text><text x="134.0" y="208.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>N</tspan><tspan dy="4.8" style="font-size:10.8px">1</tspan></text><text x="246.0" y="208.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>N</tspan><tspan dy="4.8" style="font-size:10.8px">2</tspan></text><text x="76.0" y="230.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>x</tspan></text><text x="40.0" y="194.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>y</tspan></text></svg><figcaption>Block at a displaced position, moving to the right</figcaption></figure></div><p class="small fbdnote">This is the same system as in Example 6.C.2. Only the horizontal forces enter the equation of motion.</p>
+</details>
+<details class="step"><summary>Step 2 · Write the equation of motion and its steady state</summary>
+<p>Newton's second law gives $m\ddot x + c\dot x + kx = f_0\sin\omega t$. The steady-state amplitude is</p>
+$$X(\omega) = \frac{f_0/k}{\sqrt{(1 - r^2)^2 + (2\zeta r)^2}}, \qquad r = \frac{\omega}{\omega_n}$$
+<p>The ratio of two amplitudes does not depend on $f_0/k$.</p>
+$$\frac{X(\omega_1)}{X(\omega_2)} = \sqrt{\frac{(1 - 4r_1^2)^2 + (4\zeta r_1)^2}{(1 - r_1^2)^2 + (2\zeta r_1)^2}} = 4$$
+</details>
+<details class="step"><summary>Step 3 · Count the unknowns</summary>
+<p>This one equation contains two unknowns, the damping ratio $\zeta$ and the frequency ratio $r_1 = \omega_1/\omega_n$. A second piece of information is needed. The usual laboratory procedure, and the intended reading of the problem, is that the first measurement is taken at resonance, where the phase angle is $90°$, so that $\omega_1 = \omega_n$ and $r_1 = 1$.</p>
+<p class="small">If $\omega_1$ is not the natural frequency, each choice of $r_1$ gives a different $\zeta$. For example, $r_1 = 0.9$ requires $\zeta = 0.338$, and for $r_1$ below about $0.76$ no damping ratio can produce a ratio of 4. The second preset in the animation shows the $r_1 = 0.9$ case.</p>
+</details>
+<details class="step"><summary>Step 4 · Solve with ω₁ = ωₙ</summary>
+<p>With $r_1 = 1$ and $r_2 = 2$, the two amplitudes are</p>
+$$X(\omega_1) = \frac{f_0/k}{2\zeta}, \qquad X(\omega_2) = \frac{f_0/k}{\sqrt{(1 - 4)^2 + (4\zeta)^2}} = \frac{f_0/k}{\sqrt{9 + 16\zeta^2}}$$
+<p>Their ratio must be 4.</p>
+$$\frac{\sqrt{9 + 16\zeta^2}}{2\zeta} = 4 \quad\Longrightarrow\quad 9 + 16\zeta^2 = 64\zeta^2 \quad\Longrightarrow\quad \zeta^2 = \frac{9}{48}$$
+$$\zeta = \frac{\sqrt3}{4} = 0.433$$
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>Taking the first measurement at resonance ($\omega_1 = \omega_n$), the damping ratio is $\zeta = \sqrt3/4 = 0.433$. Without that information the problem has a family of solutions, one for each $\omega_1/\omega_n$.</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Use the first preset and confirm that the amplitude ratio in the statistics is 4.</li><li>Keep $\zeta = 0.433$ and move $\omega_1/\omega_n$ away from 1. How sensitive is the measured ratio to the frequency you chose?</li><li>Why is a measurement at resonance so useful for estimating damping? Look at how the peak height depends on $\zeta$.</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 6, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-6-c-2.html"><small>← Previous</small>Example 6.C.2</a><a class="next" href="ex-6-c-4.html"><small>Next →</small>Example 6.C.4</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/kit.js"></script>
+<script src="../assets/ch6-exC1.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch6-3dC1.js"></script>
+</body>
+</html>

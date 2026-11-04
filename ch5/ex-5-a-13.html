@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 5.A.13 · Chapter 5 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 5</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="newton-euler.html">A · Newton–Euler</a>
+    <a href="work-energy.html">B · Work–energy</a>
+    <a href="impulse-momentum.html">C · Impulse–momentum</a>
+    <a href="examples.html" class=active>Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Newton–Euler equations examples"><a href="examples.html#group-A">All Newton–Euler examples</a><a href="ex-5-a-1.html">5.A.1</a><a href="ex-5-a-2.html">5.A.2</a><a href="ex-5-a-3.html">5.A.3</a><a href="ex-5-a-4.html">5.A.4</a><a href="ex-5-a-5.html">5.A.5</a><a href="ex-5-a-6.html">5.A.6</a><a href="ex-5-a-7.html">5.A.7</a><a href="ex-5-a-8.html">5.A.8</a><a href="ex-5-a-9.html">5.A.9</a><a href="ex-5-a-10.html">5.A.10</a><a href="ex-5-a-11.html">5.A.11</a><a href="ex-5-a-12.html">5.A.12</a><a href="ex-5-a-13.html" class=active>5.A.13</a><a href="ex-5-a-14.html">5.A.14</a><a href="ex-5-a-15.html">5.A.15</a><a href="ex-5-a-16.html">5.A.16</a><a href="ex-5-a-17.html">5.A.17</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-A">Newton–Euler equations</a> › Example 5.A.13</p>
+<h2><span class="num">Example 5.A.13</span>Bar sliding down a smooth wall</h2>
+<div class="tags"><span>Newton–Euler</span><span>general plane motion</span><span>smooth contacts</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>A thin, homogeneous bar AB of mass $m = 30$ kg and length $L = 4$ m rests with end A on a smooth floor and end B against a smooth vertical wall. The bar makes an angle $\theta = 36.87°$ with the floor. It is released from rest.</p>
+<p><b>Find</b> the angular acceleration of the bar at the instant of release.</p>
+</div>
+<div class="demo" id="xb-13">
+  <div class="demo-title"><span class="tag">Interactive</span><span>The bar sliding down the wall</span></div>
+  <canvas id="xb-13-anim" class="anim" style="height:360px"></canvas>
+  <div class="controls" id="xb-13-ctl"></div>
+  <div class="bar" id="xb-13-btn"></div>
+  <div class="stats" id="xb-13-stats"></div>
+  <p class="small concept-note">The green and blue arrows are the floor and wall reactions, drawn to scale. The wall force decreases as the bar falls and reaches zero before the bar hits the floor. From then on end B leaves the wall, and the simulation switches to the motion with only the floor in contact.</p>
+</div>
+<div class="demo v3d" data-clip="xb-13"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Every solution follows the four-step method. Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Draw the free-body diagram</summary>
+<div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 340 270" role="img" aria-label="Bar AB (released at θ = 36.87°)" style="max-width:340px"><line x1="50.0" y1="200.0" x2="226.0" y2="68.0" stroke="#8a6a12" stroke-width="15" stroke-linecap="round"/><line x1="50.0" y1="200.0" x2="226.0" y2="68.0" stroke="#f1e6c8" stroke-width="11" stroke-linecap="round"/><circle cx="138.0" cy="134.0" r="4" fill="#1c1d21"/><line x1="138.0" y1="134.0" x2="138.0" y2="163.0" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="138.0,174.0 132.5,163.0 143.5,163.0" fill="#c2410c"/><line x1="50.0" y1="250.0" x2="50.0" y2="211.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="50.0,200.0 55.5,211.0 44.5,211.0" fill="#17915a"/><line x1="281.0" y1="68.0" x2="237.0" y2="68.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="226.0,68.0 237.0,62.5 237.0,73.5" fill="#17915a"/><line x1="50.0" y1="200.0" x2="130.0" y2="200.0" stroke="#7b808c" stroke-width="1.4" stroke-dasharray="5 4"/><path d="M96.0,200.0 A46,46 0 0 0 86.8,172.4" fill="none" stroke="#7b808c" stroke-width="1.2"/><line x1="282.0" y1="256.0" x2="305.0" y2="256.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="316.0,256.0 305.0,261.5 305.0,250.5" fill="#7b808c"/><line x1="282.0" y1="256.0" x2="282.0" y2="233.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="282.0,222.0 287.5,233.0 276.5,233.0" fill="#7b808c"/><text x="34.0" y="192.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:14px;font-style:italic;fill:#1c1d21"><tspan>A</tspan></text><text x="230.0" y="48.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:14px;font-style:italic;fill:#1c1d21"><tspan>B</tspan></text><text x="124.0" y="122.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>G</tspan></text><text x="138.0" y="186.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>mg</tspan></text><text x="32.0" y="250.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>N</tspan><tspan dy="4.8" style="font-size:10.8px">A</tspan></text><text x="297.0" y="68.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>N</tspan><tspan dy="4.8" style="font-size:10.8px">B</tspan></text><text x="104.1" y="182.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>θ</tspan></text><text x="326.0" y="256.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>x</tspan></text><text x="282.0" y="212.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>y</tspan></text></svg><figcaption>Bar AB (released at θ = 36.87°)</figcaption></figure></div><p class="small fbdnote">Both surfaces are smooth, so the floor pushes up on A and the wall pushes horizontally on B, away from the wall (to the left). There is no friction. G is at the middle of the bar, a distance $L/2$ from each end.</p><p>The bar is acted on by its weight $mg$ at its center G, a vertical normal force $N_A$ from the floor at A, and a horizontal normal force $N_B$ from the wall at B, pointing away from the wall. Both surfaces are smooth, so there is no friction. We measure $\theta$ from the floor, so the bar turns counterclockwise when $\theta$ increases.</p>
+</details>
+<details class="step"><summary>Step 2 · Write the kinetics equations</summary>
+<p>Place the origin where the wall meets the floor, with $x$ to the right and $y$ upward. Newton's equations for G and Euler's equation about G are</p>
+$$-N_B = m\,\ddot x_G, \qquad N_A - mg = m\,\ddot y_G$$
+$$-N_A\,\frac L2\cos\theta + N_B\,\frac L2\sin\theta = \frac{1}{12}mL^2\,\ddot\theta$$
+</details>
+<details class="step"><summary>Step 3 · Write the kinematics equations</summary>
+<p>The ends stay on the floor and the wall, so G is at $x_G = -\tfrac L2\cos\theta$ and $y_G = \tfrac L2\sin\theta$. The bar starts from rest, so at release $\dot\theta = 0$ and</p>
+$$\ddot x_G = \frac L2\sin\theta\,\ddot\theta, \qquad \ddot y_G = \frac L2\cos\theta\,\ddot\theta$$
+</details>
+<details class="step"><summary>Step 4 · Solve</summary>
+<p>Substitute $N_B = -m\ddot x_G$ and $N_A = mg + m\ddot y_G$ into Euler's equation. The terms in $\ddot\theta$ combine to $\tfrac13 mL^2\ddot\theta$, and</p>
+$$\ddot\theta = -\frac{3g}{2L}\cos\theta = -\frac{3(9.81)}{2(4)}(0.8) = -2.94\ \text{rad/s}^2$$
+<p>The negative sign means that $\theta$ decreases, so the bar turns clockwise as it slides down the wall.</p>
+<p class="small">The reactions at release follow from the same equations: $N_A = 153.0$ N and $N_B = 105.9$ N.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>$\boldsymbol\alpha = -2.94\,\hat{\mathbf k}$ rad/s², that is 2.94 rad/s² clockwise.</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Change the release angle. Check the statistic against $\ddot\theta = -\tfrac{3g}{2L}\cos\theta_0$.</li><li>Note the angle at which end B leaves the wall. Show that it satisfies $\sin\theta = \tfrac23\sin\theta_0$.</li><li>Why is $N_A$ smaller than the weight $mg$ at release?</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 5, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-5-a-12.html"><small>← Previous</small>Example 5.A.12</a><a class="next" href="ex-5-a-14.html"><small>Next →</small>Example 5.A.14</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/ch5.js"></script>
+<script src="../assets/ch5-exA2.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch5-3dA2.js"></script>
+</body>
+</html>

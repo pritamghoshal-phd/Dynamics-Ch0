@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rigid body equations · Chapter 2 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 2</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="rigid.html" class=active>A · Rigid body equations</a>
+    <a href="instant.html">B · Instant centers</a>
+    <a href="mechanisms.html">C · Mechanisms</a>
+    <a href="examples.html">Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<section>
+<h2><span class="num">A</span>Kinematic equations for a rigid body</h2>
+<p>A <b>rigid body</b> is an object in which the distance between any two points never changes. In <b>planar motion</b> every point of the body moves in the same plane (or in parallel planes), so the body can slide around the plane and turn about an axis perpendicular to it, which we call $\hat{\mathbf k}$ (out of the page).</p>
+
+<h3>Angular velocity and angular acceleration</h3>
+<p>Pick two points A and B on the body. The vector $\mathbf r_{B/A}$ from A to B keeps a fixed length $r$, but its direction, measured by an angle $\theta$, changes as the body turns. Its rate of turning defines the <b>angular velocity</b> and <b>angular acceleration</b> of the body:</p>
+<div class="formula">$$\boldsymbol\omega = \dot\theta\,\hat{\mathbf k}, \qquad \boldsymbol\alpha = \ddot\theta\,\hat{\mathbf k}$$</div>
+<p>By the right-hand rule, a positive value means counterclockwise (with $\hat{\mathbf k}$ out of the page) and a negative value means clockwise. Any other pair of points on the body, say D and E, gives a line whose angle differs from $\theta$ by a constant, so it turns at the same rate. That is why <b>a rigid body has exactly one $\boldsymbol\omega$ and one $\boldsymbol\alpha$</b>: they belong to the body, not to a particular pair of points.</p>
+
+<h3>The relative velocity equation</h3>
+<p>Write $\mathbf r_{B/A} = r\,\hat{\mathbf e}_r$ in polar coordinates centered at A. From particle kinematics, $\mathbf v_{B/A} = \dot r\,\hat{\mathbf e}_r + r\dot\theta\,\hat{\mathbf e}_\theta$. On a rigid body $\dot r = 0$, and since $\hat{\mathbf e}_\theta = \hat{\mathbf k}\times\hat{\mathbf e}_r$,</p>
+<div class="formula">$$\mathbf v_B = \mathbf v_A + \boldsymbol\omega\times\mathbf r_{B/A}$$</div>
+<p>In words: the velocity of B is the velocity of A plus the velocity B would have if the body were spinning about A. The extra term $\boldsymbol\omega\times\mathbf r_{B/A}$ is always <b>perpendicular to the line AB</b> and has magnitude $|\omega|\,r$. This is the "rigid" condition: the two points can't approach or separate, so their relative velocity has no component along AB.</p>
+<div class="demo concept" id="c-relvel">
+  <div class="demo-title"><span class="tag concept-tag">Concept</span><span>v_B = v_A + ω × r_B/A on a moving plate</span></div>
+  <canvas id="c-relvel-anim" class="anim" style="height:360px"></canvas>
+  <div class="controls" id="c-relvel-ctl"></div>
+  <div class="bar" id="c-relvel-pre"><span class="lbl">Try:</span></div>
+  <div class="bar" id="c-relvel-btn"></div>
+  <div class="stats" id="c-relvel-stats"></div>
+  <p class="small concept-note">Blue: the velocity of A, copied (dashed) to B. Green: ω × r, the part due to the turning, always perpendicular to the dashed line AB. Orange: their sum, the velocity of B. Set ω = 0 and every point has the same velocity (translation).</p>
+</div>
+
+<h3>The relative acceleration equation</h3>
+<p>Doing the same with the polar acceleration formula, with $\dot r = \ddot r = 0$, gives</p>
+<div class="formula">$$\mathbf a_B = \mathbf a_A + \boldsymbol\alpha\times\mathbf r_{B/A} + \boldsymbol\omega\times(\boldsymbol\omega\times\mathbf r_{B/A}) = \mathbf a_A + \boldsymbol\alpha\times\mathbf r_{B/A} - \omega^2\,\mathbf r_{B/A}$$</div>
+<p>(the last form holds for planar motion). The relative acceleration has two parts:</p>
+<ul>
+<li>$\boldsymbol\alpha\times\mathbf r_{B/A}$: <b>tangential</b>, perpendicular to AB, size $|\alpha| r$. It is there only if the body's spin is speeding up or slowing down.</li>
+<li>$-\omega^2\mathbf r_{B/A}$: <b>centripetal</b>, pointing from B back toward A, size $\omega^2 r$. It is there whenever the body is turning.</li>
+</ul>
+<p>So unlike the relative velocity, the relative acceleration is generally <b>not</b> perpendicular to AB.</p>
+<div class="demo concept" id="c-relacc">
+  <div class="demo-title"><span class="tag concept-tag">Concept</span><span>Relative acceleration: tangential plus centripetal</span></div>
+  <canvas id="c-relacc-anim" class="anim" style="height:360px"></canvas>
+  <div class="controls" id="c-relacc-ctl"></div>
+  <div class="bar" id="c-relacc-pre"><span class="lbl">Try:</span></div>
+  <div class="bar" id="c-relacc-btn"></div>
+  <div class="stats" id="c-relacc-stats"></div>
+  <p class="small concept-note">A is a fixed pin, so a<sub>B</sub> is the whole relative acceleration. The plum arrow (−ω²r) always points at A and grows as the bar spins faster; the green arrow (α × r) is perpendicular to the bar. Only when ω = 0 is the total perpendicular to AB.</p>
+</div>
+<div class="card"><h3 style="margin-top:.2rem">Using the equations</h3>
+<ul><li>$\mathbf r_{B/A}$ points <b>from A to B</b>, and A and B must be on the <b>same</b> rigid body.</li>
+<li>Use axes with $\hat{\mathbf k}=\hat{\mathbf i}\times\hat{\mathbf j}$ (right-handed), so $\hat{\mathbf k}\times\hat{\mathbf i}=\hat{\mathbf j}$ and $\hat{\mathbf k}\times\hat{\mathbf j}=-\hat{\mathbf i}$.</li>
+<li>If A is a fixed pin, $\mathbf v_A = \mathbf a_A = \mathbf 0$ and the body simply rotates about A: every point moves on a circle around A.</li>
+<li>Each vector equation gives <b>two</b> scalar equations ($\hat{\mathbf i}$ and $\hat{\mathbf j}$ parts), so it can be solved for two unknowns.</li></ul></div>
+
+<h3>Rolling without slipping</h3>
+<p>A wheel rolls on a fixed, rough surface. "No slip" means the point C of the wheel touching the ground has no velocity along the surface, and no acceleration along it either:</p>
+<div class="formula">$$v_{Cx} = 0, \qquad a_{Cx} = 0$$</div>
+<p>For a wheel of radius $R$ with center O, apply the rigid-body equations between O and C (with $\mathbf r_{C/O} = -R\,\hat{\mathbf j}$):</p>
+<div class="formula">$$\mathbf v_C = (v_O + R\omega)\,\hat{\mathbf i} \;\Rightarrow\; v_O = -R\,\omega, \qquad \mathbf a_C = (a_O + R\alpha)\,\hat{\mathbf i} + R\omega^2\,\hat{\mathbf j} \;\Rightarrow\; a_O = -R\,\alpha$$</div>
+<p>(the minus signs just say that rolling to the right means turning clockwise). Two surprises: the contact point has <b>zero velocity</b> but a <b>non-zero acceleration</b>, $R\omega^2$ straight up; and the top of the wheel moves at <b>twice</b> the speed of the center. If the wheel rolls on a body that is itself moving, "no slip" means the contact points share the same velocity and the same acceleration along the surface.</p>
+<div class="demo concept" id="c-roll">
+  <div class="demo-title"><span class="tag concept-tag">Concept</span><span>Rolling without slipping, skidding, and spinning</span></div>
+  <canvas id="c-roll-anim" class="anim" style="height:330px"></canvas>
+  <div class="controls" id="c-roll-ctl"></div>
+  <div class="bar" id="c-roll-pre"><span class="lbl">Motion:</span></div>
+  <div class="bar" id="c-roll-btn"></div>
+  <div class="stats" id="c-roll-stats"></div>
+  <p class="small concept-note">Orange arrows: velocities of eight points on the rim. When rolling without slipping, the contact point is momentarily at rest and the top moves at 2v<sub>O</sub>; the marked point traces a cycloid with sharp cusps at the ground. Try the other motions and watch the contact point slide.</p>
+</div>
+<div class="try"><h4>Try this</h4><ul><li>In the plate demo, choose "Pure rotation about A". How does |v<sub>B</sub>| depend on the distance AB?</li><li>In the relative-acceleration demo, set α = 0. Which way does a<sub>B</sub> point? Now set ω = 0 at the start. Which way does it point at that instant?</li><li>In the rolling demo, compare the speed of the top point with v<sub>O</sub>. Then pick "Skidding" and explain the shape the marked point traces.</li></ul></div>
+<div class="wild"><span class="wi" aria-hidden="true">🚲</span><div><b class="wh">Rolling in the wild</b><p>Look at a photo of a moving bicycle: the spokes near the top of the wheel are blurred while the spokes near the ground look sharp. The top of the wheel moves at twice the bike's speed and the bottom is momentarily at rest, exactly as the rolling animation shows.</p></div></div>
+</section>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="index.html"><small>← Previous</small>Overview</a><a class="next" href="instant.html"><small>Next →</small>B · Instant centers</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/labels.js"></script>
+<script src="../assets/ch2.js"></script>
+</body>
+</html>

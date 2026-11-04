@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 5.B.7 · Chapter 5 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 5</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="newton-euler.html">A · Newton–Euler</a>
+    <a href="work-energy.html">B · Work–energy</a>
+    <a href="impulse-momentum.html">C · Impulse–momentum</a>
+    <a href="examples.html" class=active>Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Work and energy examples"><a href="examples.html#group-B">All work–energy examples</a><a href="ex-5-b-1.html">5.B.1</a><a href="ex-5-b-3.html">5.B.3</a><a href="ex-5-b-4.html">5.B.4</a><a href="ex-5-b-5.html">5.B.5</a><a href="ex-5-b-6.html">5.B.6</a><a href="ex-5-b-7.html" class=active>5.B.7</a><a href="ex-5-b-8.html">5.B.8</a><a href="ex-5-b-9.html">5.B.9</a><a href="ex-5-b-10.html">5.B.10</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-B">Work and energy</a> › Example 5.B.7</p>
+<h2><span class="num">Example 5.B.7</span>Link carrying a disk on a pin</h2>
+<div class="tags"><span>work–energy</span><span>fixed-axis rotation</span><span>translation</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>Link OC is pinned to a wall at O and carries a circular disk on a smooth pin at C. The link has length $L = 1.2$ m, mass 10 kg and radius of gyration $k_O = 0.5$ m about O, and its mass center G is $0.3L$ from O. The disk has mass 8 kg and radius $r = 0.4$ m. The system is released from rest with OC horizontal.</p>
+<p><b>Find</b> the angular speed of OC when OC has swung down to the vertical position.</p>
+</div>
+<div class="demo" id="xw-7">
+  <div class="demo-title"><span class="tag">Interactive</span><span>The link swings down, and the disk translates</span></div>
+  <canvas id="xw-7-anim" class="anim" style="height:420px"></canvas>
+  <div class="bar" id="xw-7-pre"><span class="lbl">Disk:</span></div>
+  <div class="bar" id="xw-7-btn"></div>
+  <div class="stats" id="xw-7-stats"></div>
+  <p class="small concept-note">Watch the orange line on the disk. Because the pin at C is smooth, nothing exerts a moment on the disk about C, so the disk never starts to rotate. It translates in a circle. Choose the welded option to compare.</p>
+</div>
+<div class="demo v3d" data-clip="xw-7"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Every solution follows the four-step method. Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Draw the free-body diagrams</summary>
+<p>For the whole system, the external forces are the weights of the link and the disk and the pin reaction at O. The pin O does not move, so only gravity does work.</p>
+<p>For the disk alone, the forces are its weight, which acts at its center C, and the pin force at C. Both pass through C, so $\sum M_C = 0$. The disk starts at rest, so $\omega_{disk} = 0$ for all time, and the disk translates.</p><div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 330 330" role="img" aria-label="System: link and disk" style="max-width:330px"><circle cx="238.0" cy="190.5" r="70.0" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><line x1="66.0" y1="70.0" x2="238.0" y2="190.5" stroke="#8a6a12" stroke-width="15" stroke-linecap="round"/><line x1="66.0" y1="70.0" x2="238.0" y2="190.5" stroke="#f1e6c8" stroke-width="11" stroke-linecap="round"/><circle cx="66.0" cy="70.0" r="4.5" fill="#fff" stroke="#1c1d21" stroke-width="2"/><circle cx="238.0" cy="190.5" r="4.5" fill="#fff" stroke="#1c1d21" stroke-width="2"/><circle cx="117.6" cy="106.1" r="3.5" fill="#1c1d21"/><line x1="117.6" y1="106.1" x2="117.6" y2="147.1" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="117.6,158.1 112.1,147.1 123.1,147.1" fill="#c2410c"/><line x1="242.0" y1="194.5" x2="242.0" y2="279.5" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="242.0,290.5 236.5,279.5 247.5,279.5" fill="#c2410c"/><line x1="20.0" y1="70.0" x2="55.0" y2="70.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="66.0,70.0 55.0,75.5 55.0,64.5" fill="#17915a"/><line x1="66.0" y1="70.0" x2="66.0" y2="37.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="66.0,26.0 71.5,37.0 60.5,37.0" fill="#17915a"/><path d="M103.7,96.4 A46,46 0 0 0 112.0,70.0" fill="none" stroke="#7b808c" stroke-width="1.2"/><line x1="66.0" y1="70.0" x2="176.0" y2="70.0" stroke="#7b808c" stroke-width="1" stroke-dasharray="5 4"/><text x="64.0" y="92.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:14px;font-style:italic;fill:#1c1d21"><tspan>O</tspan></text><text x="220.0" y="196.5" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:14px;font-style:italic;fill:#1c1d21"><tspan>C</tspan></text><text x="103.6" y="116.1" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>G</tspan></text><text x="115.6" y="170.1" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>m</tspan><tspan dy="4.8" style="font-size:10.8px">L</tspan><tspan dy="-4.8"> g</tspan></text><text x="266.0" y="298.5" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>m</tspan><tspan dy="4.8" style="font-size:10.8px">D</tspan><tspan dy="-4.8"> g</tspan></text><text x="8.0" y="70.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>O</tspan><tspan dy="4.8" style="font-size:10.8px">x</tspan></text><text x="66.0" y="14.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>O</tspan><tspan dy="4.8" style="font-size:10.8px">y</tspan></text><text x="120.4" y="87.1" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>φ</tspan></text></svg><figcaption>System: link and disk</figcaption></figure><figure><svg class="fbd" viewBox="0 0 200 250" role="img" aria-label="Disk alone" style="max-width:200px"><circle cx="100.0" cy="115.0" r="62.0" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><circle cx="100.0" cy="115.0" r="4.5" fill="#fff" stroke="#1c1d21" stroke-width="2"/><line x1="100.0" y1="115.0" x2="129.0" y2="115.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="140.0,115.0 129.0,120.5 129.0,109.5" fill="#17915a"/><line x1="100.0" y1="115.0" x2="100.0" y2="82.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="100.0,71.0 105.5,82.0 94.5,82.0" fill="#17915a"/><line x1="100.0" y1="115.0" x2="100.0" y2="204.0" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="100.0,215.0 94.5,204.0 105.5,204.0" fill="#c2410c"/><text x="84.0" y="103.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:14px;font-style:italic;fill:#1c1d21"><tspan>C</tspan></text><text x="140.0" y="103.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>C</tspan><tspan dy="4.8" style="font-size:10.8px">x</tspan></text><text x="114.0" y="65.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>C</tspan><tspan dy="4.8" style="font-size:10.8px">y</tspan></text><text x="124.0" y="221.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>m</tspan><tspan dy="4.8" style="font-size:10.8px">D</tspan><tspan dy="-4.8"> g</tspan></text></svg><figcaption>Disk alone</figcaption></figure></div><p class="small fbdnote">For the system, the pin reaction ($O_x$, $O_y$) does no work, so only the two weights do work. For the disk alone, the weight and the pin force at C both pass through C, so $\sum M_C = 0$ and the disk does not rotate.</p>
+</details>
+<details class="step"><summary>Step 2 · Write the kinetics equation (work–energy)</summary>
+<p>Mechanical energy is conserved, $T_1 + V_1 = T_2 + V_2$, with $T_1 = 0$. The link rotates about the fixed point O and the disk only translates, so</p>
+$$T_2 = \tfrac12\,m_L k_O^2\,\omega^2 + \tfrac12\,m_D\,v_C^2$$
+<p>Measured from the starting level, G falls $0.3L = 0.36$ m and C falls $L = 1.2$ m.</p>
+$$V_1 - V_2 = m_L g(0.36) + m_D g(1.2) = 10(9.81)(0.36) + 8(9.81)(1.2) = 129.5\ \text{J}$$
+</details>
+<details class="step"><summary>Step 3 · Write the kinematics equation</summary>
+<p>Point C moves on a circle of radius $L$ about O, so $v_C = L\omega = 1.2\,\omega$.</p>
+$$T_2 = \tfrac12(10)(0.5)^2\omega^2 + \tfrac12(8)(1.2\,\omega)^2 = (1.25 + 5.76)\,\omega^2 = 7.01\,\omega^2$$
+</details>
+<details class="step"><summary>Step 4 · Solve</summary>
+$$7.01\,\omega^2 = 129.5 \quad\Longrightarrow\quad \omega = 4.30\ \text{rad/s}$$
+<p class="small">If the disk were welded to the link, it would also rotate with $\omega$ and add $\tfrac12\left(\tfrac12 m_D r^2\right)\omega^2 = 0.32\,\omega^2$ to $T_2$. The angular speed would then be 4.20 rad/s, slightly smaller.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>$\omega_{OC} = 4.30$ rad/s when OC is vertical.</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Switch between the smooth pin and the welded disk. Which one swings faster, and why?</li><li>Does the radius of the disk matter for the smooth-pin case? Explain.</li><li>How fast is point C moving when OC is vertical?</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 5, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-5-b-6.html"><small>← Previous</small>Example 5.B.6</a><a class="next" href="ex-5-b-8.html"><small>Next →</small>Example 5.B.8</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/ch5.js"></script>
+<script src="../assets/ch5-exB.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch5-3dB.js"></script>
+</body>
+</html>

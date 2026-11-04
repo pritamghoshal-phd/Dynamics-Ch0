@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 4.D.5 · Chapter 4 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 4</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="newton.html">A · Newton's laws</a>
+    <a href="energy.html">B · Work–energy</a>
+    <a href="impulse.html">C · Linear impulse–momentum</a>
+    <a href="angular.html">D · Angular impulse–momentum</a>
+    <a href="examples.html" class=active>Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Angular impulse and momentum examples"><a href="examples.html#group-D">All Angular impulse and momentum examples</a><a href="ex-4-d-1.html">4.D.1</a><a href="ex-4-d-2.html">4.D.2</a><a href="ex-4-d-3.html">4.D.3</a><a href="ex-4-d-4.html">4.D.4</a><a href="ex-4-d-5.html" class=active>4.D.5</a><a href="ex-4-d-6.html">4.D.6</a><a href="ex-4-d-7.html">4.D.7</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-D">Angular impulse and momentum</a> › Example 4.D.5</p>
+<h2><span class="num">Example 4.D.5</span>Bullet embedding in a pinned bar</h2>
+<div class="tags"><span>angular momentum</span><span>impact</span><span>pin reaction</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>Particles A and B, each of mass $M$, are attached to a rigid bar OA of negligible mass. B is at the middle of the bar and A is at its end, a distance $L$ from O. The bar is pinned to the ground at O and hangs at rest when a bullet P of mass $m$ strikes A. Just before the impact the bullet moves with speed $v_{P1}$ in the vertical plane, upward and to the right at $36.87°$ from the vertical. The bullet becomes embedded in A.</p>
+<p>Use $M = 2$ kg, $m = 0.1$ kg, $L = 3$ m and $v_{P1} = 700$ m/s. <b>Find</b> the angular velocity of bar OA immediately after the collision.</p>
+</div>
+<div class="demo" id="x4d-5">
+  <div class="demo-title"><span class="tag">Interactive</span><span>The bullet strikes A and the bar swings about O</span></div>
+  <canvas id="x4d-5-anim" class="anim" style="height:420px"></canvas><canvas id="x4d-5-plot" class="plot" style="height:200px"></canvas>
+  <div class="controls" id="x4d-5-ctl"></div>
+  <div class="bar" id="x4d-5-btn"></div>
+  <div class="stats" id="x4d-5-stats"></div>
+  <p class="small concept-note">The bullet is shown in slow motion. After the impact the bar starts with the angular velocity found below. With these numbers it has enough energy to swing over the top, so the pin is carried by a post behind the bar. The red arrow is the impulse of the pin on the bar.</p>
+</div>
+<div class="demo v3d" data-clip="x4d-5"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Every solution follows the four-step method: free-body diagrams, kinetics equations, kinematics, solve. Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Draw the free-body diagram</summary>
+<p>Take the bar, A, B and the bullet together, so that the large contact force between the bullet and A is internal. During the impact the external forces are the pin force at O, with components $O_x$ and $O_y$, and the weights. The pin force can be very large, but it acts at O. The weights are finite, so their impulse during the very short impact is negligible.</p>
+</details>
+<details class="step"><summary>Step 2 · Write the kinetics equation (angular impulse and momentum about O)</summary>
+<p>The pin force has no moment about O and the weights have negligible impulse, so the angular momentum of the system about O is the same just before and just after the impact.</p>
+$$\left(H_O\right)_1 = \left(H_O\right)_2$$
+</details>
+<details class="step"><summary>Step 3 · Write the kinematics equations</summary>
+<p>Take $x$ to the right and $y$ upward, with O as origin. Just before the impact only the bullet moves. It is at $\mathbf r = -L\,\hat\jmath$ with velocity $\mathbf v_{P1} = v_{P1}\left(\sin 36.87°\,\hat\imath + \cos 36.87°\,\hat\jmath\right)$.</p>
+$$\left(\mathbf H_O\right)_1 = \mathbf r \times m\mathbf v_{P1} = m L v_{P1}\sin 36.87°\;\hat k$$
+<p>Just after the impact the bar turns with angular velocity $\omega_2$. A (with the bullet) moves at $L\omega_2$ and B moves at $(L/2)\,\omega_2$, both perpendicular to the bar.</p>
+$$\left(H_O\right)_2 = \left[(M + m)L^2 + M\left(\frac L2\right)^2\right]\omega_2$$
+</details>
+<details class="step"><summary>Step 4 · Solve</summary>
+$$\left(H_O\right)_1 = 0.1(3)(700)(0.6) = 126\ \text{kg·m}^2/\text{s}$$
+$$(M + m)L^2 + M\left(\frac L2\right)^2 = 2.1(9) + 2(2.25) = 23.4\ \text{kg·m}^2$$
+$$\omega_2 = \frac{126}{23.4} = 5.38\ \text{rad/s, counterclockwise}$$
+<p class="small">Linear momentum is not conserved, because the pin pushes on the bar during the impact. The pin impulse is $8.08\,\hat\imath - 56.0\,\hat\jmath$ N·s. Only about 1.4% of the bullet's kinetic energy remains after the impact.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>$\boldsymbol\omega_{OA} = 5.38\,\hat k$ rad/s (counterclockwise in the figure).</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Lower the bullet speed until the bar no longer swings over the top. Use energy to find that speed.</li><li>Which component of the bullet velocity matters for $\omega_2$? What happens if the bullet travels straight up?</li><li>Compare the pin impulse with the bullet momentum. Why is the vertical part so large?</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 4, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-4-d-4.html"><small>← Previous</small>Example 4.D.4</a><a class="next" href="ex-4-d-6.html"><small>Next →</small>Example 4.D.6</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/kit.js"></script>
+<script src="../assets/ch4-exD.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch4-3dD.js"></script>
+</body>
+</html>

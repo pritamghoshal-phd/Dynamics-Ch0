@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 2.A.6 · Chapter 2 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 2</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="rigid.html">A · Rigid body equations</a>
+    <a href="instant.html">B · Instant centers</a>
+    <a href="mechanisms.html">C · Mechanisms</a>
+    <a href="examples.html" class=active>Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Rigid body equations examples"><a href="examples.html#group-A">All Rigid body equations examples</a><a href="ex-2-a-1.html">2.A.1</a><a href="ex-2-a-2.html">2.A.2</a><a href="ex-2-a-3.html">2.A.3</a><a href="ex-2-a-4.html">2.A.4</a><a href="ex-2-a-5.html">2.A.5</a><a href="ex-2-a-6.html" class=active>2.A.6</a><a href="ex-2-a-7.html">2.A.7</a><a href="ex-2-a-8.html">2.A.8</a><a href="ex-2-a-9.html">2.A.9</a><a href="ex-2-a-10.html">2.A.10</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-A">Rigid body equations</a> › Example 2.A.6</p>
+<h2><span class="num">Example 2.A.6</span>Spool pulled by a cable from its hub</h2>
+<div class="tags"><span>rolling without slipping</span><span>velocity</span><span>instant center</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>A cable is wrapped around the inner hub, of radius $r$, of a spool whose outer radius is $R$. The cable leaves the bottom of the hub horizontally, and its end A moves to the right with speed $v_A$. The spool rolls without slipping on a rough horizontal surface, and C is its point of contact with the surface.</p>
+<p>The data are $v_A = 2$ m/s, $r = 0.4$ m and $R = 0.8$ m.</p>
+<p><b>Find</b> (a) the velocity of the center O of the spool and (b) the angular velocity of the spool. Express both answers as vectors.</p>
+</div>
+<div class="demo" id="x2a-6">
+  <div class="demo-title"><span class="tag">Interactive</span><span>The spool rolls to the right faster than the cable end</span></div>
+  <canvas id="x2a-6-anim" class="anim" style="height:330px"></canvas>
+  <div class="controls" id="x2a-6-ctl"></div>
+  <div class="bar" id="x2a-6-pre"><span class="lbl">View:</span></div>
+  <div class="bar" id="x2a-6-btn"></div>
+  <div class="stats" id="x2a-6-stats"></div>
+  <p class="small concept-note">The red point C is the contact point, which has zero velocity. Every point on the vertical line through C moves to the right with a speed proportional to its height above C (dashed red line). The grey arrow is the velocity of the top of the spool.</p>
+</div>
+<div class="demo v3d" data-clip="x2a-6"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Draw a kinematics diagram</summary>
+<p>Take $\hat{\mathbf i}$ to the right, $\hat{\mathbf j}$ upward and $\hat{\mathbf k}$ out of the page, so that a counterclockwise rotation is positive. Let P be the point of the hub where the cable leaves it, directly below O. The cable is inextensible and does not slip on the hub, so P moves with the cable, $\mathbf v_P = v_A\,\hat{\mathbf i}$.</p>
+<p>The spool rolls without slipping, so its contact point C has zero velocity. The position of P relative to C is $\mathbf r_{P/C} = (R - r)\,\hat{\mathbf j} = 0.4\,\hat{\mathbf j}$ m, and the position of O relative to C is $\mathbf r_{O/C} = R\,\hat{\mathbf j} = 0.8\,\hat{\mathbf j}$ m.</p>
+<div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 340 262" role="img" aria-label="Kinematics diagram of the spool" style="max-width:340px"><line x1="10.0" y1="218.0" x2="330.0" y2="218.0" stroke="#8b8f98" stroke-width="2"/><circle cx="120.0" cy="128.0" r="90.0" fill="#e4dfd2" stroke="#8a6a12" stroke-width="2"/><circle cx="120.0" cy="128.0" r="45.0" fill="#f3eee2" stroke="#8a6a12" stroke-width="2"/><line x1="120.0" y1="173.0" x2="260.0" y2="173.0" stroke="#1c1d21" stroke-width="3"/><line x1="120.0" y1="218.0" x2="230.0" y2="94.2" stroke="#b42346" stroke-width="1.2" stroke-dasharray="5 4"/><line x1="120.0" y1="128.0" x2="189.0" y2="128.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="200.0,128.0 189.0,133.5 189.0,122.5" fill="#2457d6"/><line x1="120.0" y1="173.0" x2="149.0" y2="173.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="160.0,173.0 149.0,178.5 149.0,167.5" fill="#2457d6"/><line x1="260.0" y1="173.0" x2="289.0" y2="173.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="300.0,173.0 289.0,178.5 289.0,167.5" fill="#2457d6"/><circle cx="120.0" cy="218.0" r="4" fill="#1c1d21"/><circle cx="120.0" cy="173.0" r="3" fill="#1c1d21"/><circle cx="260.0" cy="173.0" r="3" fill="#1c1d21"/><circle cx="120.0" cy="128.0" r="4.5" fill="#fff" stroke="#1c1d21" stroke-width="2"/><path d="M64.6,96.0 L66.0,93.6 L67.6,91.3 L69.2,89.0 L71.0,86.9 L72.8,84.8 L74.7,82.7 L76.8,80.8 L78.9,79.0 L81.0,77.2 L83.3,75.6 L85.6,74.0 L88.0,72.6 L90.4,71.2 L93.0,70.0 L95.5,68.9 L98.1,67.9 L100.8,67.0 L103.4,66.2 L106.1,65.5 L108.9,65.0 L111.6,64.5 L114.4,64.2 L117.2,64.1 L120.0,64.0 L122.8,64.1 L125.6,64.2 L128.4,64.5 L131.1,65.0 L133.9,65.5 L136.6,66.2 L139.2,67.0 L141.9,67.9 L144.5,68.9 L147.0,70.0 L149.6,71.2 L152.0,72.6 L154.4,74.0 L156.7,75.6 L159.0,77.2 L161.1,79.0" fill="none" stroke="#8a3fd1" stroke-width="2.2"/><polygon points="164.3,81.4 153.3,79.3 159.4,71.4" fill="#8a3fd1"/><line x1="282.0" y1="64.0" x2="305.0" y2="64.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="316.0,64.0 305.0,69.5 305.0,58.5" fill="#7b808c"/><line x1="282.0" y1="64.0" x2="282.0" y2="41.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="282.0,30.0 287.5,41.0 276.5,41.0" fill="#7b808c"/><text x="220.0" y="145.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>v</tspan><tspan dy="4.8" style="font-size:10.8px">O</tspan></text><text x="170.0" y="188.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>v</tspan><tspan dy="4.8" style="font-size:10.8px">P</tspan></text><text x="314.0" y="161.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>v</tspan><tspan dy="4.8" style="font-size:10.8px">A</tspan></text><text x="106.0" y="230.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>C</tspan></text><text x="106.0" y="183.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>P</tspan></text><text x="260.0" y="159.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>A</tspan></text><text x="106.0" y="116.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>O</tspan></text><text x="106.6" y="52.2" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#8a3fd1"><tspan>ω</tspan></text><text x="326.0" y="64.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>x</tspan></text><text x="282.0" y="20.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>y</tspan></text></svg><figcaption>Kinematics diagram of the spool</figcaption></figure></div><p class="small fbdnote">The contact point C has zero velocity. The cable point P moves with the cable at $v_A$, and the velocities of P and O grow in proportion to their heights above C (thin red line). The rotation $\omega$ is drawn clockwise, the direction it turns out to have.</p>
+</details>
+<details class="step"><summary>Step 2 · Find the angular velocity from point P</summary>
+<p>Apply the rigid-body velocity equation between C and P.</p>
+$$\mathbf v_P = \mathbf v_C + \boldsymbol\omega\times\mathbf r_{P/C}$$
+$$2\,\hat{\mathbf i} = \mathbf 0 + \omega\,\hat{\mathbf k}\times 0.4\,\hat{\mathbf j} = -0.4\,\omega\,\hat{\mathbf i}$$
+<p>The $\hat{\mathbf i}$ components give $\omega = -2/0.4 = -5$ rad/s. The negative sign means that the spool turns clockwise.</p>
+</details>
+<details class="step"><summary>Step 3 · Find the velocity of the center O</summary>
+<p>Apply the same equation between C and O.</p>
+$$\mathbf v_O = \mathbf v_C + \boldsymbol\omega\times\mathbf r_{O/C} = (-5\,\hat{\mathbf k})\times 0.8\,\hat{\mathbf j} = 4\,\hat{\mathbf i}\ \text{m/s}$$
+<p class="small">The center moves at 4 m/s while the cable end moves at only 2 m/s. The spool therefore rolls toward A and winds up cable at $4 - 2 = 2$ m/s. Points of the spool above O move even faster, and the top point moves at $2R|\omega| = 8$ m/s.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>(a) $\mathbf v_O = 4\,\hat{\mathbf i}$ m/s. (b) $\boldsymbol\omega = -5\,\hat{\mathbf k}$ rad/s, which is 5 rad/s clockwise.</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Move the hub radius $r$ close to $R$. Why does the spool then move much faster than the cable?</li><li>Suppose the cable left the top of the hub instead. Use the same method to show that $v_O = v_A R/(R + r)$, which is slower than the cable.</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 2, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-2-a-5.html"><small>← Previous</small>Example 2.A.5</a><a class="next" href="ex-2-a-7.html"><small>Next →</small>Example 2.A.7</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/kit.js"></script>
+<script src="../assets/ch2-exA2.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch2-3dA2.js"></script>
+</body>
+</html>

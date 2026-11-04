@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 5.A.17 · Chapter 5 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 5</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="newton-euler.html">A · Newton–Euler</a>
+    <a href="work-energy.html">B · Work–energy</a>
+    <a href="impulse-momentum.html">C · Impulse–momentum</a>
+    <a href="examples.html" class=active>Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Newton–Euler equations examples"><a href="examples.html#group-A">All Newton–Euler examples</a><a href="ex-5-a-1.html">5.A.1</a><a href="ex-5-a-2.html">5.A.2</a><a href="ex-5-a-3.html">5.A.3</a><a href="ex-5-a-4.html">5.A.4</a><a href="ex-5-a-5.html">5.A.5</a><a href="ex-5-a-6.html">5.A.6</a><a href="ex-5-a-7.html">5.A.7</a><a href="ex-5-a-8.html">5.A.8</a><a href="ex-5-a-9.html">5.A.9</a><a href="ex-5-a-10.html">5.A.10</a><a href="ex-5-a-11.html">5.A.11</a><a href="ex-5-a-12.html">5.A.12</a><a href="ex-5-a-13.html">5.A.13</a><a href="ex-5-a-14.html">5.A.14</a><a href="ex-5-a-15.html">5.A.15</a><a href="ex-5-a-16.html">5.A.16</a><a href="ex-5-a-17.html" class=active>5.A.17</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-A">Newton–Euler equations</a> › Example 5.A.17</p>
+<h2><span class="num">Example 5.A.17</span>Center of percussion of a pinned bar</h2>
+<div class="tags"><span>Newton–Euler</span><span>impact forces</span><span>center of percussion</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>A ball of mass $m$ strikes a homogeneous bar of length $L$ and mass $M$ that hangs from a pin at O. The ball hits the bar at a distance $h$ below O.</p>
+<p><b>Find</b> the distance $h$ for which the horizontal reaction force at O on the bar is zero. This point is called the center of percussion of the bar.</p>
+</div>
+<div class="demo" id="xb-17">
+  <div class="demo-title"><span class="tag">Interactive</span><span>The forces during the impact</span></div>
+  <div class="grid2"><canvas id="xb-17-anim" class="anim" style="height:330px"></canvas><div><canvas id="xb-17-plot" class="plot" style="height:300px"></canvas><div class="legendrow"><span><span class="sw" style="background:var(--c2)"></span>contact force F on the bar</span><span><span class="sw" style="background:#a61e4d"></span>horizontal pin force O<sub>x</sub></span></div></div></div>
+  <div class="controls" id="xb-17-ctl"></div>
+  <div class="bar" id="xb-17-pre"><span class="lbl">Try:</span></div>
+  <div class="bar" id="xb-17-btn"></div>
+  <div class="stats" id="xb-17-stats"></div>
+  <p class="small concept-note">The impact is modeled as a very stiff spring between the ball and the bar, so the force histories in the graph come from integrating the equations of motion. The pin force is always the same fraction of the contact force, $O_x/F = 3h/(2L) - 1$, and it vanishes when $h = 2L/3$. The bar has $M = 2$ kg and $L = 1$ m, and the ball has a mass of 0.5 kg and a speed of 3 m/s.</p>
+</div>
+<div class="demo v3d" data-clip="xb-17"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Every solution follows the four-step method. Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Draw the free-body diagram during the impact</summary>
+<div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 300 320" role="img" aria-label="Bar during the impact" style="max-width:300px"><line x1="140.0" y1="90.0" x2="140.0" y2="280.0" stroke="#8a6a12" stroke-width="15" stroke-linecap="round"/><line x1="140.0" y1="90.0" x2="140.0" y2="280.0" stroke="#f1e6c8" stroke-width="11" stroke-linecap="round"/><circle cx="140.0" cy="90.0" r="4.5" fill="#fff" stroke="#1c1d21" stroke-width="2"/><line x1="70.0" y1="90.0" x2="129.0" y2="90.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="140.0,90.0 129.0,95.5 129.0,84.5" fill="#17915a"/><line x1="140.0" y1="90.0" x2="140.0" y2="51.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="140.0,40.0 145.5,51.0 134.5,51.0" fill="#17915a"/><circle cx="140.0" cy="185.0" r="4" fill="#1c1d21"/><line x1="144.0" y1="185.0" x2="144.0" y2="218.0" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="144.0,229.0 138.5,218.0 149.5,218.0" fill="#c2410c"/><line x1="70.0" y1="238.7" x2="129.0" y2="238.7" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="140.0,238.7 129.0,244.2 129.0,233.2" fill="#2457d6"/><line x1="196.0" y1="90.0" x2="196.0" y2="238.7" stroke="#7b808c" stroke-width="1.2"/><line x1="201.0" y1="90.0" x2="191.0" y2="90.0" stroke="#7b808c" stroke-width="1.2"/><line x1="201.0" y1="238.7" x2="191.0" y2="238.7" stroke="#7b808c" stroke-width="1.2"/><line x1="236.0" y1="90.0" x2="236.0" y2="280.0" stroke="#7b808c" stroke-width="1.2"/><line x1="241.0" y1="90.0" x2="231.0" y2="90.0" stroke="#7b808c" stroke-width="1.2"/><line x1="241.0" y1="280.0" x2="231.0" y2="280.0" stroke="#7b808c" stroke-width="1.2"/><line x1="24.0" y1="306.0" x2="47.0" y2="306.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="58.0,306.0 47.0,311.5 47.0,300.5" fill="#7b808c"/><line x1="24.0" y1="306.0" x2="24.0" y2="283.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="24.0,272.0 29.5,283.0 18.5,283.0" fill="#7b808c"/><text x="156.0" y="94.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:14px;font-style:italic;fill:#1c1d21"><tspan>O</tspan></text><text x="54.0" y="90.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>O</tspan><tspan dy="4.8" style="font-size:10.8px">x</tspan></text><text x="140.0" y="28.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>O</tspan><tspan dy="4.8" style="font-size:10.8px">y</tspan></text><text x="154.0" y="173.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:14px;font-style:italic;fill:#1c1d21"><tspan>G</tspan></text><text x="162.0" y="233.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>Mg</tspan></text><text x="56.0" y="238.7" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>F</tspan></text><text x="184.0" y="164.3" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>h</tspan></text><text x="224.0" y="185.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>L</tspan></text><text x="68.0" y="306.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>x</tspan></text><text x="24.0" y="262.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>y</tspan></text></svg><figcaption>Bar during the impact</figcaption></figure></div><p class="small fbdnote">$F$ and $O_x$ are drawn positive in the direction in which the ball moves. The bar is still vertical during the short impact.</p><p>During the short impact the bar is acted on by the contact force $F$ from the ball at a distance $h$ below O, the pin reactions $O_x$ and $O_y$, and its weight $Mg$. The bar starts from rest and hardly moves during the impact, so it is still vertical. We take $F$ and $O_x$ as positive in the direction in which the ball is moving.</p>
+</details>
+<details class="step"><summary>Step 2 · Write the kinetics equations</summary>
+<p>Newton's equation in the horizontal direction and Euler's equation about the fixed pin O are</p>
+$$F + O_x = M\,a_{Gx}, \qquad F\,h = I_O\,\alpha = \tfrac13 ML^2\,\alpha$$
+<p>The weight and $O_y$ have no moment about O while the bar is vertical.</p>
+</details>
+<details class="step"><summary>Step 3 · Write the kinematics equation</summary>
+<p>G moves on a circle of radius $L/2$ about O. The bar starts from rest, so the horizontal acceleration of G is purely tangential.</p>
+$$a_{Gx} = \frac L2\,\alpha$$
+</details>
+<details class="step"><summary>Step 4 · Solve</summary>
+<p>Euler's equation gives $\alpha = 3Fh/(ML^2)$. Substituting into Newton's equation,</p>
+$$O_x = M\,\frac L2\,\frac{3Fh}{ML^2} - F = F\left(\frac{3h}{2L} - 1\right)$$
+<p>The pin force vanishes when</p>
+$$h = \frac23\,L$$
+<p class="small">This result holds at every instant of the impact, because $O_x$ is proportional to $F$. A practical application is the "sweet spot" of a baseball bat or a tennis racket. When the ball hits the center of percussion, the hands at the pivot feel no sting.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>$h = \tfrac23 L$. At that point $O_x = F\left(\tfrac{3h}{2L} - 1\right) = 0$.</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Strike the bar at its tip, $h = L$. In which direction does the pin push, and what fraction of the contact force is it?</li><li>Strike the bar at $h = 0.4L$. Check that the ratio of the two curves on the graph equals $3h/(2L) - 1$.</li><li>Where is the center of percussion of a bar pinned at a point a distance $L/4$ from its top end?</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 5, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-5-a-16.html"><small>← Previous</small>Example 5.A.16</a><a class="next" href="ex-5-b-1.html"><small>Next →</small>Example 5.B.1</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/ch5.js"></script>
+<script src="../assets/ch5-exA2.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch5-3dA2.js"></script>
+</body>
+</html>

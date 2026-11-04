@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 1.C.2 · Chapter 1 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 1</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="planar.html">A · Planar descriptions</a>
+    <a href="threed.html">B · 3D descriptions</a>
+    <a href="joint.html">C · Joint description</a>
+    <a href="relative.html">D · Relative & constrained</a>
+    <a href="examples.html" class=active>Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Joint description examples"><a href="examples.html#group-C">All Joint description examples</a><a href="ex-1-c-1.html">1.C.1</a><a href="ex-1-c-2.html" class=active>1.C.2</a><a href="ex-1-c-3.html">1.C.3</a><a href="ex-1-c-4.html">1.C.4</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-C">Joint description</a> › Example 1.C.2</p>
+<h2><span class="num">Example 1.C.2</span>Pin driven by two slotted guides</h2>
+<div class="tags"><span>Cartesian</span><span>path components</span><span>radius of curvature</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>Pin P is constrained to move in two slotted guides that move at right angles to one another. Guide A, whose slot is vertical, moves to the right with a speed $v_A$ that changes at the rate $\dot v_A$. At the same time, guide B, whose slot is horizontal, moves downward with a speed $v_B$ that changes at the rate $\dot v_B$.</p>
+<p>The data are $v_A = 0.2$ m/s, $v_B = 0.15$ m/s, $\dot v_A = 0.75$ m/s² and $\dot v_B = 0$.</p>
+<p><b>Find</b> (a) the rate of change of speed of P at this instant and (b) the radius of curvature $\rho$ of the path followed by P at this instant.</p>
+</div>
+<div class="demo" id="x1c-2">
+  <div class="demo-title"><span class="tag">Interactive</span><span>Two guides drive the pin along a curved path</span></div>
+  <canvas id="x1c-2-anim" class="anim" style="height:470px"></canvas><canvas id="x1c-2-plot" class="plot" style="height:210px"></canvas>
+  <div class="controls" id="x1c-2-ctl"></div>
+  <div class="bar" id="x1c-2-pre"><span class="lbl">Try:</span></div>
+  <div class="bar" id="x1c-2-btn"></div>
+  <div class="stats" id="x1c-2-stats"></div>
+  <p class="small concept-note">Guide A carries the vertical slot and guide B carries the horizontal slot, so P always sits where the two slots cross. The dashed circle is the osculating circle at the current position. The graph shows the speed of P, and the slope of the dashed tangent line at $t = 0$ is the answer to part (a).</p>
+</div>
+<div class="demo v3d" data-clip="x1c-2"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Relate the motion of P to the guides</summary>
+<p>The vertical slot of guide A forces P to have the same horizontal position as guide A, and the horizontal slot of guide B forces P to have the same vertical position as guide B. With $\hat{\mathbf i}$ to the right and $\hat{\mathbf j}$ upward, the Cartesian velocity and acceleration of P are therefore</p>
+$$\mathbf v_P = v_A\,\hat{\mathbf i} - v_B\,\hat{\mathbf j} = 0.2\,\hat{\mathbf i} - 0.15\,\hat{\mathbf j}\ \text{m/s}$$
+$$\mathbf a_P = \dot v_A\,\hat{\mathbf i} - \dot v_B\,\hat{\mathbf j} = 0.75\,\hat{\mathbf i}\ \text{m/s}^2$$
+</details>
+<details class="step"><summary>Step 2 · Draw the kinematics diagram</summary>
+<div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 290 250" role="img" aria-label="Velocity of P" style="max-width:290px"><line x1="90.0" y1="95.0" x2="159.0" y2="95.0" stroke="#7b808c" stroke-width="2.6" stroke-linecap="round"/><polygon points="170.0,95.0 159.0,100.5 159.0,89.5" fill="#7b808c"/><line x1="90.0" y1="95.0" x2="90.0" y2="144.0" stroke="#7b808c" stroke-width="2.6" stroke-linecap="round"/><polygon points="90.0,155.0 84.5,144.0 95.5,144.0" fill="#7b808c"/><line x1="170.0" y1="95.0" x2="170.0" y2="155.0" stroke="#7b808c" stroke-width="1.4" stroke-dasharray="5 4"/><line x1="90.0" y1="155.0" x2="170.0" y2="155.0" stroke="#7b808c" stroke-width="1.4" stroke-dasharray="5 4"/><line x1="90.0" y1="95.0" x2="161.2" y2="148.4" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="170.0,155.0 157.9,152.8 164.5,144.0" fill="#2457d6"/><circle cx="90.0" cy="95.0" r="4" fill="#1c1d21"/><line x1="210.0" y1="195.0" x2="230.0" y2="210.0" stroke="#7b808c" stroke-width="2.6" stroke-linecap="round"/><polygon points="238.8,216.6 226.7,214.4 233.3,205.6" fill="#7b808c"/><line x1="210.0" y1="195.0" x2="225.0" y2="175.0" stroke="#7b808c" stroke-width="2.6" stroke-linecap="round"/><polygon points="231.6,166.2 229.4,178.3 220.6,171.7" fill="#7b808c"/><line x1="30.0" y1="225.0" x2="53.0" y2="225.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="64.0,225.0 53.0,230.5 53.0,219.5" fill="#7b808c"/><line x1="30.0" y1="225.0" x2="30.0" y2="202.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="30.0,191.0 35.5,202.0 24.5,202.0" fill="#7b808c"/><text x="184.0" y="95.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#7b808c"><tspan>v</tspan><tspan dy="4.8" style="font-size:10.8px">A</tspan></text><text x="90.0" y="167.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#7b808c"><tspan>v</tspan><tspan dy="4.8" style="font-size:10.8px">B</tspan></text><text x="182.8" y="164.6" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>v</tspan><tspan dy="4.8" style="font-size:10.8px">P</tspan></text><text x="76.0" y="85.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>P</tspan></text><text x="249.2" y="224.4" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#7b808c"><tspan>ê</tspan><tspan dy="4.8" style="font-size:10.8px">t</tspan></text><text x="239.4" y="155.8" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#7b808c"><tspan>ê</tspan><tspan dy="4.8" style="font-size:10.8px">n</tspan></text><text x="74.0" y="225.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>x</tspan></text><text x="30.0" y="181.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>y</tspan></text></svg><figcaption>Velocity of P</figcaption></figure><figure><svg class="fbd" viewBox="0 0 290 250" role="img" aria-label="Acceleration of P and its path components" style="max-width:290px"><line x1="70.0" y1="130.0" x2="118.8" y2="166.6" stroke="#b42346" stroke-width="2.6" stroke-linecap="round"/><polygon points="127.6,173.2 115.5,171.0 122.1,162.2" fill="#b42346"/><line x1="70.0" y1="130.0" x2="95.8" y2="95.6" stroke="#b42346" stroke-width="2.6" stroke-linecap="round"/><polygon points="102.4,86.8 100.2,98.9 91.4,92.3" fill="#b42346"/><line x1="160.0" y1="130.0" x2="127.6" y2="173.2" stroke="#7b808c" stroke-width="1.4" stroke-dasharray="5 4"/><line x1="160.0" y1="130.0" x2="102.4" y2="86.8" stroke="#7b808c" stroke-width="1.4" stroke-dasharray="5 4"/><line x1="70.0" y1="130.0" x2="149.0" y2="130.0" stroke="#b42346" stroke-width="2.6" stroke-linecap="round"/><polygon points="160.0,130.0 149.0,135.5 149.0,124.5" fill="#b42346"/><circle cx="70.0" cy="130.0" r="4" fill="#1c1d21"/><text x="107.2" y="140.4" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#b42346"><tspan>a</tspan><tspan dy="4.8" style="font-size:10.8px">t</tspan></text><text x="97.4" y="116.8" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#b42346"><tspan>a</tspan><tspan dy="4.8" style="font-size:10.8px">n</tspan></text><text x="204.0" y="116.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#b42346"><tspan>a</tspan><tspan dy="4.8" style="font-size:10.8px">P</tspan><tspan dy="-4.8"> = v̇</tspan><tspan dy="4.8" style="font-size:10.8px">A</tspan><tspan dy="-4.8"> î</tspan></text><text x="56.0" y="120.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>P</tspan></text><text x="150.0" y="235.0" text-anchor="middle" dominant-baseline="middle" style="font-family:system-ui,sans-serif;font-size:11px;fill:#7b808c">ê_n points toward the center of curvature</text></svg><figcaption>Acceleration of P and its path components</figcaption></figure></div><p class="small fbdnote">The pin moves with guide A horizontally and with guide B vertically, so its velocity has components $v_A$ and $v_B$. Only guide A speeds up, so the acceleration of P points to the right.</p>
+</details>
+<details class="step"><summary>Step 3 · Find the path unit vectors</summary>
+<p>The speed of P is $v = \sqrt{0.2^2 + 0.15^2} = 0.25$ m/s. The tangent unit vector points along the velocity.</p>
+$$\hat{\mathbf e}_t = \frac{\mathbf v_P}{v} = 0.8\,\hat{\mathbf i} - 0.6\,\hat{\mathbf j}$$
+<p>The normal unit vector is perpendicular to $\hat{\mathbf e}_t$, on the side of the path toward which the acceleration points. The acceleration points to the right, which is on the upper side of the velocity, so</p>
+$$\hat{\mathbf e}_n = 0.6\,\hat{\mathbf i} + 0.8\,\hat{\mathbf j}$$
+</details>
+<details class="step"><summary>Step 4 · Project the acceleration onto the path directions</summary>
+$$a_t = \mathbf a_P\cdot\hat{\mathbf e}_t = 0.75(0.8) = 0.60\ \text{m/s}^2, \qquad a_n = \mathbf a_P\cdot\hat{\mathbf e}_n = 0.75(0.6) = 0.45\ \text{m/s}^2$$
+<p>As a check, $\sqrt{a_t^2 + a_n^2} = \sqrt{0.36 + 0.2025} = 0.75$ m/s², which is the magnitude of $\mathbf a_P$.</p>
+</details>
+<details class="step"><summary>Step 5 · Find the rate of change of speed and the radius of curvature</summary>
+$$\dot v = a_t = 0.60\ \text{m/s}^2$$
+$$\rho = \frac{v^2}{a_n} = \frac{(0.25)^2}{0.45} = 0.139\ \text{m}$$
+<p class="small">The same results follow without unit vectors from $\dot v = \mathbf v\cdot\mathbf a / v$ and $a_n = |\mathbf v\times\mathbf a|/v$.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>(a) $\dot v = 0.600$ m/s², so P is speeding up. (b) $\rho = 0.139$ m.</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Set $\dot v_A = 0$. What is the path of P, and what is its radius of curvature?</li><li>Reverse the direction of guide B (make $v_B$ negative). Does the speed of P change faster or slower?</li><li>Watch the osculating circle as the animation runs. Where along the path is the radius of curvature smallest?</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 1, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-1-c-1.html"><small>← Previous</small>Example 1.C.1</a><a class="next" href="ex-1-c-3.html"><small>Next →</small>Example 1.C.3</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/kit.js"></script>
+<script src="../assets/ch1-exC.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch1-3dC.js"></script>
+</body>
+</html>

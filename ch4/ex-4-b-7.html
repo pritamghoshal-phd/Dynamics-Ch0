@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 4.B.7 · Chapter 4 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 4</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="newton.html">A · Newton's laws</a>
+    <a href="energy.html">B · Work–energy</a>
+    <a href="impulse.html">C · Linear impulse–momentum</a>
+    <a href="angular.html">D · Angular impulse–momentum</a>
+    <a href="examples.html" class=active>Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Work and energy examples"><a href="examples.html#group-B">All Work and energy examples</a><a href="ex-4-b-1.html">4.B.1</a><a href="ex-4-b-2.html">4.B.2</a><a href="ex-4-b-3.html">4.B.3</a><a href="ex-4-b-4.html">4.B.4</a><a href="ex-4-b-5.html">4.B.5</a><a href="ex-4-b-6.html">4.B.6</a><a href="ex-4-b-7.html" class=active>4.B.7</a><a href="ex-4-b-8.html">4.B.8</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-B">Work and energy</a> › Example 4.B.7</p>
+<h2><span class="num">Example 4.B.7</span>Bar launched by two springs</h2>
+<div class="tags"><span>work–energy</span><span>springs</span><span>systems of particles</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>Particles A and B, with masses $m$ and $2m$, are connected by a rigid bar AB of negligible mass. The bar is pinned to the ground at O, with $OA = 2L$ and $OB = L$. The system is released from rest in position 1, where $\theta = \theta_1$ and particle A rests on a platform supported by two identical springs. Each spring has stiffness $k$, and the springs are unstretched when $\theta = 0$. The particles are small.</p>
+<p>Use $\theta_1 = 36.87°$, $L = 0.1$ m, $m = 10$ kg and $k = 100$ N/m.</p>
+<p><b>Find</b> the speeds of A and B in position 2, where A is directly above O.</p>
+</div>
+<div class="demo" id="x4b-7">
+  <div class="demo-title"><span class="tag">Interactive</span><span>The springs launch the bar over the top</span></div>
+  <canvas id="x4b-7-anim" class="anim" style="height:400px"></canvas>
+  <div class="controls" id="x4b-7-ctl"></div>
+  <div class="bar" id="x4b-7-pre"><span class="lbl">Try:</span></div>
+  <div class="bar" id="x4b-7-btn"></div>
+  <div class="stats" id="x4b-7-stats"></div>
+  <p class="small concept-note">The springs push A up only while they are compressed. At $\theta = 0$ the platform stops and A leaves it. Because $m(2L) = 2m(L)$, the bar is balanced about O and gravity does no net work. The animation stops when A is directly above O.</p>
+</div>
+<div class="demo v3d" data-clip="x4b-7"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Every solution follows the four-step method: free-body diagrams, kinetics equations, kinematics, solve. Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Draw the free-body diagram</summary>
+<p>We isolate the bar with both particles. The forces are the weights $mg$ and $2mg$, the pin reactions at O, and the upward push $2k\delta$ of the spring platform on A while the springs are compressed.</p><div class="fbdrow"><figure style="width:min(380px,100%)"><svg class="fbd" viewBox="0 0 380 320" role="img" aria-label="Bar AB with A and B, while A rests on the spring platform" style="max-width:380px"><line x1="115.0" y1="75.0" x2="295.0" y2="210.0" stroke="#8a6a12" stroke-width="10" stroke-linecap="round"/><line x1="115.0" y1="75.0" x2="295.0" y2="210.0" stroke="#f1e6c8" stroke-width="6" stroke-linecap="round"/><circle cx="295.0" cy="210.0" r="12.0" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><circle cx="115.0" cy="75.0" r="12.0" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><circle cx="175.0" cy="120.0" r="4.5" fill="#fff" stroke="#1c1d21" stroke-width="2"/><line x1="304.0" y1="219.0" x2="304.0" y2="256.0" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="304.0,267.0 298.5,256.0 309.5,256.0" fill="#c2410c"/><line x1="286.0" y1="274.0" x2="286.0" y2="231.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="286.0,220.0 291.5,231.0 280.5,231.0" fill="#2457d6"/><line x1="115.0" y1="87.0" x2="115.0" y2="134.0" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="115.0,145.0 109.5,134.0 120.5,134.0" fill="#c2410c"/><line x1="175.0" y1="178.0" x2="175.0" y2="131.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="175.0,120.0 180.5,131.0 169.5,131.0" fill="#17915a"/><line x1="231.0" y1="120.0" x2="186.0" y2="120.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="175.0,120.0 186.0,114.5 186.0,125.5" fill="#17915a"/><line x1="340.0" y1="60.0" x2="353.0" y2="60.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="364.0,60.0 353.0,65.5 353.0,54.5" fill="#7b808c"/><line x1="340.0" y1="60.0" x2="340.0" y2="47.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="340.0,36.0 345.5,47.0 334.5,47.0" fill="#7b808c"/><text x="171.0" y="98.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:16px;font-style:italic;fill:#1c1d21"><tspan>O</tspan></text><text x="319.0" y="198.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:16px;font-style:italic;fill:#1c1d21"><tspan>A</tspan></text><text x="111.0" y="49.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:16px;font-style:italic;fill:#1c1d21"><tspan>B</tspan></text><text x="322.0" y="269.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>mg</tspan></text><text x="262.0" y="286.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>2kδ</tspan></text><text x="91.0" y="145.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>2mg</tspan></text><text x="189.0" y="192.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>O</tspan><tspan dy="4.8" style="font-size:10.8px">y</tspan></text><text x="247.0" y="120.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>O</tspan><tspan dy="4.8" style="font-size:10.8px">x</tspan></text><text x="374.0" y="60.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>x</tspan></text><text x="340.0" y="26.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>y</tspan></text></svg><figcaption>Bar AB with A and B, while A rests on the spring platform</figcaption></figure></div><p class="small fbdnote">The two springs push up on A through the platform with a total force $2k\delta$, where $\delta$ is their compression. This force acts only until A leaves the platform at $\theta = 0$. The pin reactions at O do no work.</p>
+</details>
+<details class="step"><summary>Step 2 · Write the work–energy equation</summary>
+<p>Gravity and the springs are conservative, and the pin reactions do no work. Energy is therefore conserved from position 1 to position 2.</p>
+$$T_1 + V_{g1} + V_{s1} = T_2 + V_{g2} + V_{s2}$$
+<p>The system starts from rest, so $T_1 = 0$. In position 2 the springs have returned to their unstretched length, so $V_{s2} = 0$.</p>
+</details>
+<details class="step"><summary>Step 3 · Work out the geometry</summary>
+<p>In position 1, A is $2L\sin\theta_1 = 0.12$ m below O, so each spring is compressed by $\delta_1 = 0.12$ m. The stored energy in the two springs is</p>
+$$V_{s1} = 2 \cdot \tfrac12 k\delta_1^2 = 100(0.12)^2 = 1.44\ \text{J}$$
+<p>From position 1 to position 2, A rises from 0.12 m below O to $2L = 0.2$ m above O, a rise of 0.32 m. B moves from 0.06 m above O to $L = 0.1$ m below O, a drop of 0.16 m. The change in gravitational potential energy is</p>
+$$V_{g2} - V_{g1} = mg(0.32) - 2mg(0.16) = 0$$
+</details>
+<details class="step"><summary>Step 4 · Write the kinematics and solve</summary>
+<p>Both particles turn about O with the same angular speed $\omega$, so $v_A = 2L\omega$ and $v_B = L\omega$.</p>
+$$T_2 = \tfrac12 m(2L\omega)^2 + \tfrac12(2m)(L\omega)^2 = 3mL^2\omega^2 = 0.3\,\omega^2$$
+<p>Setting $T_2 = V_{s1} = 1.44$ J gives $\omega = \sqrt{1.44/0.3} = 2.19$ rad/s. Therefore</p>
+$$v_A = 2L\omega = 0.438\ \text{m/s}, \qquad v_B = L\omega = 0.219\ \text{m/s}$$
+<p class="small">The figure in the book labels B with $3m$, while the text gives $2m$. With $2m$ the bar is balanced about O, which is clearly intended. With $3m$, gravity would add $15.7$ J and the speeds would be much larger.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>$v_A = 0.438$ m/s and $v_B = 0.219$ m/s in position 2.</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Make B heavier than $2m$. Does gravity now help or oppose the motion from position 1 to position 2?</li><li>Find the smallest spring stiffness for which A still reaches the top when B has mass $2m$.</li><li>Watch the platform in the animation. Why does it stop at $\theta = 0$ while A keeps moving?</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 4, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-4-b-6.html"><small>← Previous</small>Example 4.B.6</a><a class="next" href="ex-4-b-8.html"><small>Next →</small>Example 4.B.8</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/kit.js"></script>
+<script src="../assets/ch4-exB.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch4-3dB.js"></script>
+</body>
+</html>

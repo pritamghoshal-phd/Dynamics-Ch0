@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 2.A.7 · Chapter 2 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 2</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="rigid.html">A · Rigid body equations</a>
+    <a href="instant.html">B · Instant centers</a>
+    <a href="mechanisms.html">C · Mechanisms</a>
+    <a href="examples.html" class=active>Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Rigid body equations examples"><a href="examples.html#group-A">All Rigid body equations examples</a><a href="ex-2-a-1.html">2.A.1</a><a href="ex-2-a-2.html">2.A.2</a><a href="ex-2-a-3.html">2.A.3</a><a href="ex-2-a-4.html">2.A.4</a><a href="ex-2-a-5.html">2.A.5</a><a href="ex-2-a-6.html">2.A.6</a><a href="ex-2-a-7.html" class=active>2.A.7</a><a href="ex-2-a-8.html">2.A.8</a><a href="ex-2-a-9.html">2.A.9</a><a href="ex-2-a-10.html">2.A.10</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-A">Rigid body equations</a> › Example 2.A.7</p>
+<h2><span class="num">Example 2.A.7</span>Link sliding on a wall and a floor</h2>
+<div class="tags"><span>velocity equation</span><span>acceleration equation</span><span>constrained ends</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>Link AB has length $L$. End A slides along a smooth vertical wall, and end B slides along a smooth horizontal floor. End B moves to the right with a constant speed $v_B$. The angle between the link and the floor is $\theta$.</p>
+<p>The data are $v_B = 3$ m/s, $L = 0.5$ m and $\theta = 36.87°$.</p>
+<p><b>Find</b> (a) the angular velocity and (b) the angular acceleration of link AB. Express both answers as vectors.</p>
+</div>
+<div class="demo" id="x2a-7">
+  <div class="demo-title"><span class="tag">Interactive</span><span>The link slides down the wall (slow motion, 20 times slower)</span></div>
+  <canvas id="x2a-7-anim" class="anim" style="height:330px"></canvas><div class="grid2"><canvas id="x2a-7-plot" class="plot" style="height:210px"></canvas><canvas id="x2a-7-plot2" class="plot" style="height:210px"></canvas></div>
+  <div class="controls" id="x2a-7-ctl"></div>
+  <div class="bar" id="x2a-7-pre"><span class="lbl">View:</span></div>
+  <div class="bar" id="x2a-7-btn"></div>
+  <div class="stats" id="x2a-7-stats"></div>
+  <p class="small concept-note">The red tick on the floor marks where B is when θ = 36.87°. End B moves at a constant speed, yet the link turns faster and faster as it flattens, so its angular acceleration is not zero.</p>
+</div>
+<div class="demo v3d" data-clip="x2a-7"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Draw a kinematics diagram</summary>
+<p>Take $\hat{\mathbf i}$ to the right, $\hat{\mathbf j}$ upward and $\hat{\mathbf k}$ out of the page. With $\cos\theta = 0.8$ and $\sin\theta = 0.6$, the position of A relative to B is</p>
+$$\mathbf r_{A/B} = -L\cos\theta\,\hat{\mathbf i} + L\sin\theta\,\hat{\mathbf j} = -0.4\,\hat{\mathbf i} + 0.3\,\hat{\mathbf j}\ \text{m}$$
+<p>The wall and the floor constrain the ends. Point A can move only vertically and point B only horizontally, so $\mathbf v_A = v_A\,\hat{\mathbf j}$ and $\mathbf a_A = a_A\,\hat{\mathbf j}$. Point B moves at constant velocity, so $\mathbf v_B = 3\,\hat{\mathbf i}$ m/s and $\mathbf a_B = \mathbf 0$. The unknowns are $\omega$, $v_A$, $\alpha$ and $a_A$.</p>
+<div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 330 262" role="img" aria-label="Kinematics diagram of link AB" style="max-width:330px"><line x1="40.0" y1="20.0" x2="40.0" y2="226.0" stroke="#8b8f98" stroke-width="2"/><line x1="40.0" y1="226.0" x2="320.0" y2="226.0" stroke="#8b8f98" stroke-width="2"/><line x1="46.0" y1="98.0" x2="206.0" y2="218.0" stroke="#8a6a12" stroke-width="14" stroke-linecap="round"/><line x1="46.0" y1="98.0" x2="206.0" y2="218.0" stroke="#f1e6c8" stroke-width="10" stroke-linecap="round"/><line x1="206.0" y1="204.0" x2="245.0" y2="204.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="256.0,204.0 245.0,209.5 245.0,198.5" fill="#2457d6"/><line x1="56.0" y1="98.0" x2="56.0" y2="153.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="56.0,164.0 50.5,153.0 61.5,153.0" fill="#2457d6"/><line x1="72.0" y1="102.0" x2="72.0" y2="137.0" stroke="#b42346" stroke-width="2.6" stroke-linecap="round"/><polygon points="72.0,148.0 66.5,137.0 77.5,137.0" fill="#b42346"/><line x1="214.0" y1="192.0" x2="68.0" y2="90.0" stroke="#17915a" stroke-width="1.3" stroke-dasharray="5 4"/><circle cx="46.0" cy="98.0" r="4.5" fill="#fff" stroke="#1c1d21" stroke-width="2"/><circle cx="206.0" cy="218.0" r="4.5" fill="#fff" stroke="#1c1d21" stroke-width="2"/><path d="M174.0,218.0 A32,32 0 0 1 180.4,198.8" fill="none" stroke="#7b808c" stroke-width="1.2"/><path d="M184.0,117.9 L185.4,116.9 L186.7,115.9 L187.9,114.7 L188.9,113.4 L189.9,112.0 L190.6,110.5 L191.2,108.9 L191.7,107.3 L191.9,105.7 L192.0,104.0 L191.9,102.3 L191.7,100.7 L191.2,99.1 L190.6,97.5 L189.9,96.0 L188.9,94.6 L187.9,93.3 L186.7,92.1 L185.4,91.1 L184.0,90.1 L182.5,89.4 L180.9,88.8 L179.3,88.3 L177.7,88.1 L176.0,88.0 L174.3,88.1 L172.7,88.3 L171.1,88.8 L169.5,89.4 L168.0,90.1 L166.6,91.1 L165.3,92.1 L164.1,93.3 L163.1,94.6 L162.1,96.0 L161.4,97.5 L160.8,99.1 L160.3,100.7 L160.1,102.3 L160.0,104.0" fill="none" stroke="#8a3fd1" stroke-width="2.2"/><polygon points="159.6,108.0 155.7,97.5 165.6,98.6" fill="#8a3fd1"/><line x1="270.0" y1="70.0" x2="293.0" y2="70.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="304.0,70.0 293.0,75.5 293.0,64.5" fill="#7b808c"/><line x1="270.0" y1="70.0" x2="270.0" y2="47.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="270.0,36.0 275.5,47.0 264.5,47.0" fill="#7b808c"/><text x="270.0" y="192.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>v</tspan><tspan dy="4.8" style="font-size:10.8px">B</tspan></text><text x="72.0" y="170.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>v</tspan><tspan dy="4.8" style="font-size:10.8px">A</tspan></text><text x="88.0" y="154.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#b42346"><tspan>a</tspan><tspan dy="4.8" style="font-size:10.8px">A</tspan></text><text x="94.0" y="92.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:14px;font-style:italic;fill:#17915a"><tspan>r</tspan><tspan dy="4.5" style="font-size:10.1px">A/B</tspan></text><text x="58.0" y="76.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>A</tspan></text><text x="200.0" y="238.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>B</tspan></text><text x="165.2" y="204.4" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>θ</tspan></text><text x="190.5" y="78.9" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#8a3fd1"><tspan>ω</tspan></text><text x="314.0" y="70.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>x</tspan></text><text x="270.0" y="26.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>y</tspan></text></svg><figcaption>Kinematics diagram of link AB</figcaption></figure></div><p class="small fbdnote">The wall allows A to move only vertically, and the floor allows B to move only horizontally. B moves at constant velocity, so $\mathbf a_B = \mathbf 0$. The unknown rotation $\omega$ is drawn counterclockwise (positive).</p>
+</details>
+<details class="step"><summary>Step 2 · Write the velocity equation</summary>
+$$\mathbf v_A = \mathbf v_B + \boldsymbol\omega\times\mathbf r_{A/B}$$
+$$v_A\,\hat{\mathbf j} = 3\,\hat{\mathbf i} + \omega\,\hat{\mathbf k}\times(-0.4\,\hat{\mathbf i} + 0.3\,\hat{\mathbf j}) = (3 - 0.3\,\omega)\,\hat{\mathbf i} - 0.4\,\omega\,\hat{\mathbf j}$$
+<p>The $\hat{\mathbf i}$ components give $0 = 3 - 0.3\,\omega$, so $\omega = 10$ rad/s. The $\hat{\mathbf j}$ components then give $v_A = -4$ m/s, which means that A moves down the wall.</p>
+<p class="small">As a check, the instant center of AB is where the horizontal line through A meets the vertical line through B. Its distance from B is 0.3 m, so $\omega = v_B/0.3 = 10$ rad/s.</p>
+</details>
+<details class="step"><summary>Step 3 · Write the acceleration equation</summary>
+$$\mathbf a_A = \mathbf a_B + \boldsymbol\alpha\times\mathbf r_{A/B} - \omega^2\,\mathbf r_{A/B}$$
+$$a_A\,\hat{\mathbf j} = \mathbf 0 + \alpha\,\hat{\mathbf k}\times(-0.4\,\hat{\mathbf i} + 0.3\,\hat{\mathbf j}) - (10)^2(-0.4\,\hat{\mathbf i} + 0.3\,\hat{\mathbf j})$$
+$$a_A\,\hat{\mathbf j} = (40 - 0.3\,\alpha)\,\hat{\mathbf i} + (-0.4\,\alpha - 30)\,\hat{\mathbf j}$$
+</details>
+<details class="step"><summary>Step 4 · Solve</summary>
+<p>The $\hat{\mathbf i}$ components give $0 = 40 - 0.3\,\alpha$, so $\alpha = 133.3$ rad/s². The $\hat{\mathbf j}$ components give $a_A = -0.4(133.3) - 30 = -83.3$ m/s².</p>
+<p class="small">The angular acceleration is large even though B moves at a constant speed. In general $\omega = v_B/(L\sin\theta)$, which grows quickly as $\theta$ becomes small, and the plots in the animation show this growth.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>(a) $\boldsymbol\omega_{AB} = 10\,\hat{\mathbf k}$ rad/s (counterclockwise). (b) $\boldsymbol\alpha_{AB} = 133.3\,\hat{\mathbf k}$ rad/s² (counterclockwise).</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Show that $\omega = v_B/(L\sin\theta)$ for any angle. What happens to $\omega$ as $\theta$ approaches zero?</li><li>Halve $L$ with the slider. By what factors do $\omega$ and $\alpha$ change at the same angle?</li><li>Why can the instant center give $\omega$ but not $\alpha$?</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 2, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-2-a-6.html"><small>← Previous</small>Example 2.A.6</a><a class="next" href="ex-2-a-8.html"><small>Next →</small>Example 2.A.8</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/kit.js"></script>
+<script src="../assets/ch2-exA2.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch2-3dA2.js"></script>
+</body>
+</html>

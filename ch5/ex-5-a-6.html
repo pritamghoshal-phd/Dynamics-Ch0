@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 5.A.6 · Chapter 5 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 5</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="newton-euler.html">A · Newton–Euler</a>
+    <a href="work-energy.html">B · Work–energy</a>
+    <a href="impulse-momentum.html">C · Impulse–momentum</a>
+    <a href="examples.html" class=active>Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Newton–Euler equations examples"><a href="examples.html#group-A">All Newton–Euler examples</a><a href="ex-5-a-1.html">5.A.1</a><a href="ex-5-a-2.html">5.A.2</a><a href="ex-5-a-3.html">5.A.3</a><a href="ex-5-a-4.html">5.A.4</a><a href="ex-5-a-5.html">5.A.5</a><a href="ex-5-a-6.html" class=active>5.A.6</a><a href="ex-5-a-7.html">5.A.7</a><a href="ex-5-a-8.html">5.A.8</a><a href="ex-5-a-9.html">5.A.9</a><a href="ex-5-a-10.html">5.A.10</a><a href="ex-5-a-11.html">5.A.11</a><a href="ex-5-a-12.html">5.A.12</a><a href="ex-5-a-13.html">5.A.13</a><a href="ex-5-a-14.html">5.A.14</a><a href="ex-5-a-15.html">5.A.15</a><a href="ex-5-a-16.html">5.A.16</a><a href="ex-5-a-17.html">5.A.17</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-A">Newton–Euler equations</a> › Example 5.A.6</p>
+<h2><span class="num">Example 5.A.6</span>A bar hanging from an accelerating collar</h2>
+<div class="tags"><span>Newton–Euler</span><span>accelerating pin</span><span>pendulum</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>A collar O slides along a horizontal guide with a constant acceleration $a$ to the left. A thin homogeneous bar of length $L$ and mass $m$ is pinned to the collar and hangs below it.</p>
+<p><b>Find</b> the value of $a$ for which the bar stays at a constant angle $\theta = 25°$ from the vertical.</p>
+</div>
+<div class="demo" id="xa-6">
+  <div class="demo-title"><span class="tag">Interactive</span><span>The collar and the hanging bar</span></div>
+  <canvas id="xa-6-anim" class="anim" style="height:320px"></canvas><canvas id="xa-6-plot" class="plot" style="height:230px"></canvas>
+  <div class="controls" id="xa-6-ctl"></div>
+  <div class="bar" id="xa-6-pre"><span class="lbl">Try:</span></div>
+  <div class="bar" id="xa-6-btn"></div>
+  <div class="stats" id="xa-6-stats"></div>
+  <p class="small concept-note">The collar starts from rest and accelerates to the left. The plot shows the angle of the bar and, dashed, the steady angle $\tan^{-1}(a/g)$. When the bar starts at that angle it stays there. Otherwise it swings about it.</p>
+</div>
+<div class="demo v3d" data-clip="xa-6"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Every solution follows the four-step method. Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Draw the free-body diagram</summary>
+<p>The bar is acted on by its weight $mg$ at its midpoint G and by the pin force at O, with horizontal component $O_x$ and vertical component $O_y$.</p><div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 280 290" role="img" aria-label="Bar, cut free from the collar at O" style="max-width:280px"><line x1="110.0" y1="70.0" x2="187.8" y2="236.8" stroke="#8a6a12" stroke-width="13" stroke-linecap="round"/><line x1="110.0" y1="70.0" x2="187.8" y2="236.8" stroke="#f1e6c8" stroke-width="9" stroke-linecap="round"/><circle cx="110.0" cy="70.0" r="4.5" fill="#fff" stroke="#1c1d21" stroke-width="2"/><circle cx="148.9" cy="153.4" r="4" fill="#1c1d21"/><line x1="52.0" y1="70.0" x2="99.0" y2="70.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="110.0,70.0 99.0,75.5 99.0,64.5" fill="#17915a"/><line x1="110.0" y1="70.0" x2="110.0" y2="31.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="110.0,20.0 115.5,31.0 104.5,31.0" fill="#17915a"/><line x1="148.9" y1="153.4" x2="148.9" y2="198.4" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="148.9,209.4 143.4,198.4 154.4,198.4" fill="#c2410c"/><line x1="110.0" y1="70.0" x2="110.0" y2="190.0" stroke="#7b808c" stroke-width="1.4" stroke-dasharray="5 4"/><path d="M110.0,116.0 A46,46 0 0 0 129.4,111.7" fill="none" stroke="#7b808c" stroke-width="1.2"/><line x1="220.0" y1="272.0" x2="243.0" y2="272.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="254.0,272.0 243.0,277.5 243.0,266.5" fill="#7b808c"/><line x1="220.0" y1="272.0" x2="220.0" y2="249.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="220.0,238.0 225.5,249.0 214.5,249.0" fill="#7b808c"/><text x="96.0" y="56.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>O</tspan></text><text x="164.9" y="147.4" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>G</tspan></text><text x="38.0" y="70.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>O</tspan><tspan dy="4.8" style="font-size:10.8px">x</tspan></text><text x="124.0" y="14.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>O</tspan><tspan dy="4.8" style="font-size:10.8px">y</tspan></text><text x="132.9" y="213.4" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>mg</tspan></text><text x="122.3" y="125.6" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>θ</tspan></text><text x="151.4" y="109.7" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>L/2</tspan></text><text x="264.0" y="272.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>x</tspan></text><text x="220.0" y="228.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>y</tspan></text></svg><figcaption>Bar, cut free from the collar at O</figcaption></figure></div><p class="small fbdnote">$O_x$ and $O_y$ are drawn in the positive $x$ and $y$ directions. The solution finds $O_x = -ma$, so the pin actually pulls the bar to the left.</p>
+</details>
+<details class="step"><summary>Step 2 · Write the kinetics equations</summary>
+<p>If the angle stays constant, the bar moves with the collar. Then $a_G = a$ to the left and $\alpha = 0$. With $x$ to the right and $y$ upward, Newton's equation gives</p>
+$$O_x = -m\,a, \qquad O_y - mg = 0$$
+<p>G is at $\left(\tfrac L2\sin\theta,\ -\tfrac L2\cos\theta\right)$ relative to O, so O is at $\left(-\tfrac L2\sin\theta,\ \tfrac L2\cos\theta\right)$ relative to G. The moment about G must be zero.</p>
+$$\sum M_G = \left(-\tfrac L2\sin\theta\right)O_y - \left(\tfrac L2\cos\theta\right)O_x = 0$$
+</details>
+<details class="step"><summary>Step 3 · Write the kinematics equation</summary>
+<p>The bar translates with the collar, so $\alpha = 0$ and every point has acceleration $a$ to the left.</p>
+</details>
+<details class="step"><summary>Step 4 · Solve</summary>
+<p>Substituting $O_x = -ma$ and $O_y = mg$ into the moment equation gives $-mg\sin\theta + ma\cos\theta = 0$, so</p>
+$$a = g\tan\theta = 9.81\tan 25° = 4.57\ \text{m/s}^2$$
+<p class="small">The result does not depend on $m$ or $L$. The same answer follows from noticing that the pin force must point along the bar when there is no rotation, because otherwise it would have a moment about G.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>$a = g\tan 25° \approx 0.466\,g \approx 4.57$ m/s² to the left.</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Set $a = 0$ and start the bar at 25°. Describe its motion.</li><li>Start the bar hanging straight down with $a = g\tan 25°$. About which angle does it swing?</li><li>Why does the steady angle not depend on the length of the bar?</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 5, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-5-a-5.html"><small>← Previous</small>Example 5.A.5</a><a class="next" href="ex-5-a-7.html"><small>Next →</small>Example 5.A.7</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/ch5.js"></script>
+<script src="../assets/ch5-exA1.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch5-3dA1.js"></script>
+</body>
+</html>

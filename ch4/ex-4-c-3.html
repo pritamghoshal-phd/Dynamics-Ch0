@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 4.C.3 · Chapter 4 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 4</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="newton.html">A · Newton's laws</a>
+    <a href="energy.html">B · Work–energy</a>
+    <a href="impulse.html">C · Linear impulse–momentum</a>
+    <a href="angular.html">D · Angular impulse–momentum</a>
+    <a href="examples.html" class=active>Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Linear impulse and momentum examples"><a href="examples.html#group-C">All Linear impulse and momentum examples</a><a href="ex-4-c-1.html">4.C.1</a><a href="ex-4-c-2.html">4.C.2</a><a href="ex-4-c-3.html" class=active>4.C.3</a><a href="ex-4-c-4.html">4.C.4</a><a href="ex-4-c-5.html">4.C.5</a><a href="ex-4-c-6.html">4.C.6</a><a href="ex-4-c-7.html">4.C.7</a><a href="ex-4-c-8.html">4.C.8</a><a href="ex-4-c-9.html">4.C.9</a><a href="ex-4-c-10.html">4.C.10</a><a href="ex-4-c-11.html">4.C.11</a><a href="ex-4-c-12.html">4.C.12</a><a href="ex-4-c-13.html">4.C.13</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-C">Linear impulse and momentum</a> › Example 4.C.3</p>
+<h2><span class="num">Example 4.C.3</span>Tug hauling in a barge with its winch</h2>
+<div class="tags"><span>conservation of momentum</span><span>relative velocity</span><span>average force</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>A tug A of mass $m$ tows a coal barge B of mass $M$ at a speed $v_{A1}$. During a short time interval $\Delta t$ the engines of the tug are turned off, and the stern winch of the tug takes in the towing cable at a rate $v_{B/A}$, so the barge closes on the tug at that relative speed. Ignore the water resistance on the tug and the barge, and assume that the cable stays taut.</p>
+<p><b>Find</b> (a) the speed of the tug during this period and (b) the average tension in the towing cable during the time $\Delta t$.</p>
+<p class="small">The book solves this problem with symbols. The animation uses the sample values $m = 40$ t, $M = 400$ t, $v_{A1} = 3$ m/s, $v_{B/A} = 1$ m/s and $\Delta t = 5$ s, which you can change.</p>
+</div>
+<div class="demo" id="x4c-3">
+  <div class="demo-title"><span class="tag">Interactive</span><span>Tug and barge seen from the side</span></div>
+  <canvas id="x4c-3-anim" class="anim" style="height:240px"></canvas><div class="grid2"><canvas id="x4c-3-plot" class="plot" style="height:210px"></canvas><canvas id="x4c-3-plot2" class="plot" style="height:210px"></canvas></div>
+  <div class="controls" id="x4c-3-ctl"></div>
+  <div class="bar" id="x4c-3-btn"></div>
+  <div class="stats" id="x4c-3-stats"></div>
+  <p class="small concept-note">The view follows the mass center G of the tug and barge. G keeps moving at $v_{A1}$, because no horizontal force acts on the system from outside. The winch speeds the barge up and slows the tug down.</p>
+</div>
+<div class="demo v3d" data-clip="x4c-3"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Every solution follows the four-step method: free-body diagrams, kinetics equations, kinematics, solve. Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Draw the free-body diagrams</summary>
+<p>First take the tug and the barge together. The weights and the buoyancy forces are vertical, and water resistance is neglected. The cable tension is internal to this system, so no horizontal force acts on it from outside. Then take the tug alone. The cable pulls it backward with the tension $T$.</p>
+<div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 400 240" role="img" aria-label="Tug A and barge B together" style="max-width:400px"><polygon points="20.0,110.0 120.0,110.0 110.0,140.0 32.0,140.0" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2" stroke-linejoin="round"/><polygon points="38.0,110.0 46.0,82.0 66.0,82.0 72.0,110.0" fill="#efe6cc" stroke="#8a6a12" stroke-width="2" stroke-linejoin="round"/><polygon points="180.0,114.0 380.0,114.0 370.0,140.0 192.0,140.0" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2" stroke-linejoin="round"/><line x1="120.0" y1="106.0" x2="180.0" y2="110.0" stroke="#1c1d21" stroke-width="2"/><circle cx="85.0" cy="122.0" r="4" fill="#1c1d21"/><line x1="85.0" y1="122.0" x2="85.0" y2="175.0" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="85.0,186.0 79.5,175.0 90.5,175.0" fill="#c2410c"/><line x1="50.0" y1="196.0" x2="50.0" y2="151.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="50.0,140.0 55.5,151.0 44.5,151.0" fill="#17915a"/><circle cx="300.0" cy="124.0" r="4" fill="#1c1d21"/><line x1="300.0" y1="124.0" x2="300.0" y2="177.0" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="300.0,188.0 294.5,177.0 305.5,177.0" fill="#c2410c"/><line x1="250.0" y1="196.0" x2="250.0" y2="151.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="250.0,140.0 255.5,151.0 244.5,151.0" fill="#17915a"/><line x1="90.0" y1="30.0" x2="41.0" y2="30.0" stroke="#7b808c" stroke-width="2.6" stroke-linecap="round"/><polygon points="30.0,30.0 41.0,24.5 41.0,35.5" fill="#7b808c"/><line x1="380.0" y1="222.0" x2="357.0" y2="222.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="346.0,222.0 357.0,216.5 357.0,227.5" fill="#7b808c"/><line x1="380.0" y1="222.0" x2="380.0" y2="199.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="380.0,188.0 385.5,199.0 374.5,199.0" fill="#7b808c"/><text x="65.0" y="64.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>A</tspan></text><text x="280.0" y="92.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>B</tspan></text><text x="103.0" y="184.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>mg</tspan></text><text x="30.0" y="218.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>B</tspan><tspan dy="4.8" style="font-size:10.8px">A</tspan></text><text x="320.0" y="186.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>Mg</tspan></text><text x="230.0" y="218.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>B</tspan><tspan dy="4.8" style="font-size:10.8px">B</tspan></text><text x="14.0" y="30.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#7b808c"><tspan>v</tspan><tspan dy="4.8" style="font-size:10.8px">A</tspan></text><text x="336.0" y="222.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>x</tspan></text><text x="380.0" y="178.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>y</tspan></text></svg><figcaption>Tug A and barge B together</figcaption></figure><figure><svg class="fbd" viewBox="0 0 260 240" role="img" aria-label="Tug A alone" style="max-width:260px"><polygon points="30.0,110.0 130.0,110.0 120.0,140.0 42.0,140.0" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2" stroke-linejoin="round"/><polygon points="48.0,110.0 56.0,82.0 76.0,82.0 82.0,110.0" fill="#efe6cc" stroke="#8a6a12" stroke-width="2" stroke-linejoin="round"/><line x1="130.0" y1="106.0" x2="183.0" y2="106.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="194.0,106.0 183.0,111.5 183.0,100.5" fill="#2457d6"/><circle cx="95.0" cy="122.0" r="4" fill="#1c1d21"/><line x1="95.0" y1="122.0" x2="95.0" y2="175.0" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="95.0,186.0 89.5,175.0 100.5,175.0" fill="#c2410c"/><line x1="60.0" y1="196.0" x2="60.0" y2="151.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="60.0,140.0 65.5,151.0 54.5,151.0" fill="#17915a"/><text x="75.0" y="64.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>A</tspan></text><text x="198.0" y="92.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>T</tspan></text><text x="113.0" y="184.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>mg</tspan></text><text x="40.0" y="218.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>B</tspan><tspan dy="4.8" style="font-size:10.8px">A</tspan></text></svg><figcaption>Tug A alone</figcaption></figure><figure><svg class="fbd" viewBox="0 0 300 240" role="img" aria-label="Barge B alone" style="max-width:300px"><polygon points="80.0,114.0 280.0,114.0 270.0,140.0 92.0,140.0" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2" stroke-linejoin="round"/><line x1="80.0" y1="110.0" x2="31.0" y2="110.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="20.0,110.0 31.0,104.5 31.0,115.5" fill="#2457d6"/><circle cx="200.0" cy="124.0" r="4" fill="#1c1d21"/><line x1="200.0" y1="124.0" x2="200.0" y2="177.0" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="200.0,188.0 194.5,177.0 205.5,177.0" fill="#c2410c"/><line x1="150.0" y1="196.0" x2="150.0" y2="151.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="150.0,140.0 155.5,151.0 144.5,151.0" fill="#17915a"/><text x="180.0" y="92.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>B</tspan></text><text x="16.0" y="96.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>T</tspan></text><text x="220.0" y="186.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>Mg</tspan></text><text x="130.0" y="218.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>B</tspan><tspan dy="4.8" style="font-size:10.8px">B</tspan></text></svg><figcaption>Barge B alone</figcaption></figure></div><p class="small fbdnote">The weights and the buoyancy forces are vertical, and water resistance is neglected, so nothing pushes the tug and barge together horizontally from outside. For the system the cable tension $T$ is internal. Taken alone, the tug is pulled backward by $T$ and the barge is pulled forward by $T$. Positive $x$ points to the left, in the direction of travel.</p>
+</details>
+<details class="step"><summary>Step 2 · Write the kinetics equations (impulse and momentum)</summary>
+<p>Take the direction of travel (to the left) as positive. For the tug and barge together there is no horizontal impulse, so the linear momentum of the system is conserved between state 1 (towing) and state 2 (cable coming in):</p>
+$$(m + M)\,v_{A1} = m\,v_{A2} + M\,v_{B2}$$
+<p>For the tug alone, the cable tension acts backward during the time $\Delta t$:</p>
+$$m\,v_{A2} = m\,v_{A1} - T_{avg}\,\Delta t$$
+</details>
+<details class="step"><summary>Step 3 · Write the kinematics equation</summary>
+<p>The winch takes in the cable at the rate $v_{B/A}$, so the barge moves toward the tug with that relative speed:</p>
+$$v_{B2} = v_{A2} + v_{B/A}$$
+</details>
+<details class="step"><summary>Step 4 · Solve</summary>
+<p>Substituting the kinematics into the momentum equation gives $(m + M)v_{A1} = (m + M)v_{A2} + M v_{B/A}$, so</p>
+$$v_{A2} = v_{A1} - \frac{M}{m + M}\,v_{B/A}$$
+<p>The tug equation then gives the average tension</p>
+$$T_{avg} = \frac{m\left(v_{A1} - v_{A2}\right)}{\Delta t} = \frac{m M\,v_{B/A}}{(m + M)\,\Delta t}$$
+<p class="small">With the sample values, $v_{A2} = 3 - (400/440)(1) = 2.09$ m/s, the barge moves at $3.09$ m/s and $T_{avg} = (40\,000)(0.909)/5 = 7.27$ kN. The heavier the barge compared with the tug, the more of the relative speed comes from slowing the tug.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>(a) $v_{A2} = v_{A1} - \dfrac{M}{m + M}\,v_{B/A}$. (b) $T_{avg} = \dfrac{m M\,v_{B/A}}{(m + M)\,\Delta t}$.</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Make the barge much heavier than the tug. What happens to the speed of the barge, and why?</li><li>Watch the mass center G. Why does it stay in the middle of the view the whole time?</li><li>Halve $\Delta t$. Which answer changes, and which one does not?</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 4, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-4-c-2.html"><small>← Previous</small>Example 4.C.2</a><a class="next" href="ex-4-c-4.html"><small>Next →</small>Example 4.C.4</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/kit.js"></script>
+<script src="../assets/ch4-exC1.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch4-3dC1.js"></script>
+</body>
+</html>

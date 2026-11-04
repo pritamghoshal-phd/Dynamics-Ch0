@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Linear impulse and momentum · Chapter 4 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 4</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="newton.html">A · Newton's laws</a>
+    <a href="energy.html">B · Work–energy</a>
+    <a href="impulse.html" class=active>C · Linear impulse–momentum</a>
+    <a href="angular.html">D · Angular impulse–momentum</a>
+    <a href="examples.html">Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<section>
+<h2><span class="num">C</span>Linear impulse and momentum</h2>
+<p>Integrate Newton's law over <em>time</em> instead of distance:</p>
+$$m\mathbf v_1 + \int_{t_1}^{t_2}\sum\mathbf F\,dt = m\mathbf v_2$$
+<p>$m\mathbf v$ is the <b>linear momentum</b> and $\int\mathbf F\,dt$ is the <b>impulse</b> of the forces. This is a vector equation (two scalar equations in the plane). It is the natural tool when the question is about velocities at two <em>times</em>, or when forces act over a short time that you do not know in detail, as in a collision.</p>
+<p>The impulse is the area under the force–time curve. The same change in momentum can come from a large force over a short time or a small force over a long time, which is the whole idea behind airbags, helmets and bent knees.</p>
+<div class="demo concept" id="c-impulse">
+  <div class="demo-title"><span class="tag concept-tag">Concept</span><span>Same impulse, very different forces</span></div>
+  <canvas id="c-impulse-anim" class="anim" style="height:300px"></canvas><canvas id="c-impulse-plot" class="plot" style="height:230px"></canvas><div class="legendrow"><span><span class="sw" style="background:#a61e4d"></span>hard floor (stops in 5 ms)</span><span><span class="sw" style="background:var(--c3)"></span>cushion</span></div>
+  <div class="controls" id="c-impulse-ctl"></div>
+  <div class="bar" id="c-impulse-btn"></div>
+  <div class="stats" id="c-impulse-stats"></div>
+  <p class="small concept-note">Both eggs hit at the same speed and must lose the same momentum m v, so the areas under the two force curves are equal. The cushion stretches the stop over a longer time, so its peak force is far smaller.</p>
+</div>
+
+<h3>Conservation of momentum</h3>
+<p>For a system of particles, the internal forces cancel in pairs, so</p>
+$$\sum m_j\mathbf v_{j1} + \int\sum\mathbf F_{\text{ext}}\,dt = \sum m_j\mathbf v_{j2}$$
+<p>If the external impulse is zero in some direction (for example, a smooth floor during a short collision), the total momentum in that direction is <b>conserved</b>. Forces like gravity and spring forces are finite, so over a very short impact their impulse is negligible: during a collision, only the large impact forces matter.</p>
+
+<h3>Central impact and the coefficient of restitution</h3>
+<p>When two particles collide along the line joining their centers (the <b>line of impact</b>), momentum conservation gives one equation for two unknown final velocities. The second comes from how bouncy the collision is, measured by the <b>coefficient of restitution</b>:</p>
+$$e = \frac{v_{B2} - v_{A2}}{v_{A1} - v_{B1}} \qquad (0 \le e \le 1)$$
+<p>the speed of separation over the speed of approach. $e = 1$ is perfectly elastic (kinetic energy is kept); $e = 0$ is perfectly plastic (the particles stick together). Kinetic energy is <em>not</em> conserved in general, so do not use work–energy across an impact.</p>
+<div class="demo concept" id="c-impact">
+  <div class="demo-title"><span class="tag concept-tag">Concept</span><span>Collisions on a smooth track</span></div>
+  <canvas id="c-impact-anim" class="anim" style="height:220px"></canvas>
+  <div class="controls" id="c-impact-ctl"></div>
+  <div class="bar" id="c-impact-pre"><span class="lbl">Try:</span></div>
+  <div class="bar" id="c-impact-btn"></div>
+  <div class="stats" id="c-impact-stats"></div>
+  <p class="small concept-note">Momentum before and after is always the same. Kinetic energy is the same only when e = 1. With equal masses and e = 1, the blocks swap velocities, like Newton's cradle.</p>
+</div>
+
+<h3>Oblique impact</h3>
+<p>If the velocities are not along the line of impact, split them into a <b>normal</b> component (along the line of impact) and a <b>tangential</b> component (in the plane of contact). For smooth surfaces there is no tangential impact force, so each particle keeps its own tangential velocity. Along the normal, use momentum conservation and the restitution equation as above.</p>
+<div class="demo concept" id="c-oblique">
+  <div class="demo-title"><span class="tag concept-tag">Concept</span><span>A puck bounces off a smooth wall</span></div>
+  <canvas id="c-oblique-anim" class="anim" style="height:280px"></canvas>
+  <div class="controls" id="c-oblique-ctl"></div>
+  <div class="bar" id="c-oblique-btn"></div>
+  <div class="stats" id="c-oblique-stats"></div>
+  <p class="small concept-note">The component along the wall is untouched; the normal component reverses and shrinks by the factor e. So the puck always leaves at a flatter angle than it arrived unless e = 1.</p>
+</div>
+<div class="try"><h4>Try this</h4><ul><li>In the egg demo, how long must the cushion take to keep the peak force below the egg's weight times 10?</li><li>In the collision demo, try e = 0 with equal masses. What fraction of the kinetic energy is lost?</li><li>Light hits heavy and heavy hits light: in which case does the struck block move faster afterward?</li><li>In the wall demo, at what angle does the puck slide along the wall after impact? Why?</li></ul></div>
+<div class="wild"><span class="wi" aria-hidden="true">🎱</span><div><b class="wh">Momentum in the wild</b><p>A good pool player uses central impact constantly. A head-on hit with the cue ball (nearly equal masses, e close to 1) stops the cue ball dead and sends the object ball off at its speed. Hit off-center and the oblique-impact rule takes over: the object ball leaves along the line joining the centers, and the cue ball keeps its tangential velocity, so the two leave at roughly 90° to each other.</p></div></div>
+</section>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="energy.html"><small>← Previous</small>B · Work and energy</a><a class="next" href="angular.html"><small>Next →</small>D · Angular impulse and momentum</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/labels.js"></script>
+<script src="../assets/ch4.js"></script>
+</body>
+</html>

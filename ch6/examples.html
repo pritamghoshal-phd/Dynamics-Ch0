@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Worked examples · Chapter 6 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 6</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="eom.html">A · Equations of motion</a>
+    <a href="free.html">B · Free vibration</a>
+    <a href="damped.html">B · Damped vibration</a>
+    <a href="forced.html">C · Forced vibration</a>
+    <a href="base.html">C · Base excitation</a>
+    <a href="summary.html">Summary</a>
+    <a href="examples.html" class=active>Examples</a>
+    <a href="badges.html">🏅 Badges</a>
+  </div>
+</nav>
+<main class="wrap">
+<h2>Worked examples</h2>
+<p>This page collects every example from Chapter 6 of the book, each with a complete step-by-step solution. The examples are grouped by section. Each one has an animation of the system that you can explore, a 3D view of the same motion, and a solution that you can open one step at a time. Try each problem on paper before you open the solution.</p>
+
+<nav class="sub" aria-label="Groups"><a href="#group-A">A · Equations of motion</a><a href="#group-B">B · Free response</a><a href="#group-C">C · Forced response</a></nav>
+<h3 id="group-A" style="margin-top:1.6rem">A · Equations of motion <span class="small" style="font-weight:400">(3 examples)</span></h3><p>Deriving the equation of motion of a vibrating system from free-body diagrams.</p>
+<div class="cards cards-3"><a class="cardlink" href="ex-6-a-1.html"><span class="k">Example 6.A.1</span><h3>Particle on a spring and a dashpot</h3><p>A particle hangs from a spring and a dashpot and is pushed up by a force f(t). Derive its equation of motion.</p><div class="tags"><span>equation of motion</span><span>spring</span><span>dashpot</span><span>gravity</span></div></a>
+<a class="cardlink" href="ex-6-a-2.html"><span class="k">Example 6.A.2</span><h3>Disk rolling between two springs</h3><p>A disk rolls without slipping while springs of stiffness k and 2k pull on its center. Derive the equation of motion.</p><div class="tags"><span>equation of motion</span><span>rolling without slipping</span><span>rigid body</span></div></a>
+<a class="cardlink" href="ex-6-a-3.html"><span class="k">Example 6.A.3</span><h3>Disk under a board that rests on a smooth post</h3><p>A board rides on top of a rolling disk and on a smooth post. The board moves twice as far as the disk center. Derive the equation of motion.</p><div class="tags"><span>equation of motion</span><span>rolling without slipping</span><span>two bodies</span></div></a></div>
+<h3 id="group-B" style="margin-top:1.6rem">B · Free response <span class="small" style="font-weight:400">(15 examples)</span></h3><p>Natural frequency, damping ratio and the free response of undamped and damped systems.</p>
+<div class="cards cards-3"><a class="cardlink" href="ex-6-b-1.html"><span class="k">Example 6.B.1</span><h3>Block on an incline pulled through a movable pulley</h3><p>Block A on a smooth incline is held by a spring and by a cable that runs over a pulley to a movable pulley carrying block B. Find the EOM and the natural frequency.</p><div class="tags"><span>equation of motion</span><span>natural frequency</span><span>pulleys</span><span>constraint</span></div></a>
+<a class="cardlink" href="ex-6-b-2.html"><span class="k">Example 6.B.2</span><h3>Blocks on a ledge and a movable pulley with two springs</h3><p>Block A on a smooth ledge is connected by a cable and a movable pulley to block B (mass 3m). Springs 3k and k hold the two blocks. Find the EOM and the natural frequency.</p><div class="tags"><span>equation of motion</span><span>natural frequency</span><span>pulleys</span><span>static equilibrium</span></div></a>
+<a class="cardlink" href="ex-6-b-3.html"><span class="k">Example 6.B.3</span><h3>Largest acceleration of a block on three springs</h3><p>A block held by two springs above and one below passes through equilibrium with a known speed. Find its largest acceleration.</p><div class="tags"><span>free vibration</span><span>springs in parallel</span><span>amplitude</span></div></a>
+<a class="cardlink" href="ex-6-b-4.html"><span class="k">Example 6.B.4</span><h3>Two carts linked to a light inverted bar</h3><p>Two carts on springs are linked to a light bar that pivots at its lower end. Find the EOM for small motions and the natural frequency.</p><div class="tags"><span>equation of motion</span><span>natural frequency</span><span>small angles</span><span>massless bar</span></div></a>
+<a class="cardlink" href="ex-6-b-5.html"><span class="k">Example 6.B.5</span><h3>Stepped pulley with a hanging block and two springs</h3><p>A pulley carries a hanging block and is held by two springs at different radii. Find the equation of motion and the natural frequency.</p><div class="tags"><span>equation of motion</span><span>rotation</span><span>natural frequency</span></div></a>
+<a class="cardlink" href="ex-6-b-6.html"><span class="k">Example 6.B.6</span><h3>Hanging block with a spring and a dashpot</h3><p>A block hangs from a spring and is connected to the floor by a dashpot. Find the static deformation, the natural frequency and the damping ratio.</p><div class="tags"><span>static deflection</span><span>natural frequency</span><span>damping ratio</span></div></a>
+<a class="cardlink" href="ex-6-b-7.html"><span class="k">Example 6.B.7</span><h3>Damping for 50 percent of critical</h3><p>A block is held by a spring above and by a spring and a dashpot below. Find the damping constant that gives 50 percent of critical damping.</p><div class="tags"><span>equivalent stiffness</span><span>critical damping</span><span>damping ratio</span></div></a>
+<a class="cardlink" href="ex-6-b-8.html"><span class="k">Example 6.B.8</span><h3>Block on a smooth incline with two springs and a dashpot</h3><p>A block on a smooth 30° incline is held by springs 4k and k and a dashpot. Find c for 50 percent of critical damping.</p><div class="tags"><span>incline</span><span>equivalent stiffness</span><span>critical damping</span></div></a>
+<a class="cardlink" href="ex-6-b-9.html"><span class="k">Example 6.B.9</span><h3>Free response of an underdamped system</h3><p>A block attached to a wall by a spring and a dashpot is released from rest 6 mm from equilibrium. Find x(t).</p><div class="tags"><span>free response</span><span>underdamped</span><span>initial conditions</span></div></a>
+<a class="cardlink" href="ex-6-b-10.html"><span class="k">Example 6.B.10</span><h3>Damping that lengthens the period by 25 percent</h3><p>Adding damping increases the period of free vibration by 25 percent. Find the damping ratio.</p><div class="tags"><span>damped period</span><span>damping ratio</span></div></a>
+<a class="cardlink" href="ex-6-b-11.html"><span class="k">Example 6.B.11</span><h3>Damping coefficient from a free-response plot</h3><p>The free response of a damped system with M = 2 kg is given as a plot. Read the period and the decay from it to find C.</p><div class="tags"><span>logarithmic decrement</span><span>damping ratio</span><span>system identification</span></div></a>
+<a class="cardlink" href="ex-6-b-12.html"><span class="k">Example 6.B.12</span><h3>Overshoot past static equilibrium</h3><p>A block hanging from a spring and a dashpot is released from rest under gravity. Find how far it overshoots the static equilibrium position.</p><div class="tags"><span>damped free response</span><span>static equilibrium</span><span>overshoot</span></div></a>
+<a class="cardlink" href="ex-6-b-13.html"><span class="k">Example 6.B.13</span><h3>A block sticks to a damped carriage</h3><p>Block A slides into a carriage B held by a spring and a dashpot and sticks to it. Find the motion x(t) after the impact.</p><div class="tags"><span>impact</span><span>damped free response</span><span>initial conditions</span></div></a>
+<a class="cardlink" href="ex-6-b-14.html"><span class="k">Example 6.B.14</span><h3>Critical damping of a pinned bar</h3><p>A bar pinned at O moves in a horizontal plane, restrained by a spring at a and a dashpot at its end. Find the damping for critical damping.</p><div class="tags"><span>rotational EOM</span><span>critical damping</span><span>small angles</span></div></a>
+<a class="cardlink" href="ex-6-b-15.html"><span class="k">Example 6.B.15</span><h3>Center of percussion of a baseball bat</h3><p>A bat hanging from a pin at its knob swings freely. Use its period to locate the center of percussion.</p><div class="tags"><span>physical pendulum</span><span>linearization</span><span>center of percussion</span><span>experiment</span></div></a></div>
+<h3 id="group-C" style="margin-top:1.6rem">C · Forced response <span class="small" style="font-weight:400">(12 examples)</span></h3><p>Steady-state response to harmonic forcing and base excitation, resonance and isolation.</p>
+<div class="cards cards-3"><a class="cardlink" href="ex-6-c-1.html"><span class="k">Example 6.C.1</span><h3>Rolling disk driven by a harmonic force</h3><p>A disk that rolls without slipping is tied to a wall by a spring and pushed at its center by F₀ sin ωt. Find the steady-state amplitude at ω = 15 rad/s.</p><div class="tags"><span>forced vibration</span><span>rolling without slipping</span><span>phase</span></div></a>
+<a class="cardlink" href="ex-6-c-2.html"><span class="k">Example 6.C.2</span><h3>Damped system driven by a harmonic force</h3><p>A mass on a spring and damper is driven at 40 rad/s. Find the steady-state response and the largest force transmitted to the base.</p><div class="tags"><span>forced vibration</span><span>damping</span><span>transmitted force</span></div></a>
+<a class="cardlink" href="ex-6-c-3.html"><span class="k">Example 6.C.3</span><h3>Damping ratio from two measured amplitudes</h3><p>Doubling the excitation frequency cuts the steady-state amplitude by a factor of four. What is the damping ratio?</p><div class="tags"><span>frequency response</span><span>damping ratio</span><span>measurement</span></div></a>
+<a class="cardlink" href="ex-6-c-4.html"><span class="k">Example 6.C.4</span><h3>Rolling disk driven through a spring by a moving base</h3><p>A disk tied to a wall by k and to a moving base by 4k. Find the steady-state amplitude at ω = 15 rad/s and its phase.</p><div class="tags"><span>base excitation</span><span>rolling without slipping</span><span>phase</span></div></a>
+<a class="cardlink" href="ex-6-c-5.html"><span class="k">Example 6.C.5</span><h3>Block in a shaken box</h3><p>A box is shaken with x_B = b sin ωt. At which two frequencies is the block inside moving twice as far as the box?</p><div class="tags"><span>base excitation</span><span>frequency response</span><span>phase</span></div></a>
+<a class="cardlink" href="ex-6-c-6.html"><span class="k">Example 6.C.6</span><h3>Trailer on a wavy road</h3><p>A trailer whose suspension sags 3 mm under 75 kg is towed over a sinusoidal road at 25 km/h. Find its amplitude and the critical speed.</p><div class="tags"><span>base excitation</span><span>resonance</span><span>critical speed</span></div></a>
+<a class="cardlink" href="ex-6-c-7.html"><span class="k">Example 6.C.7</span><h3>Keeping a base-excited block below 1.5 times the base motion</h3><p>A block between two springs is driven through one of them by a moving base. Find the frequencies that keep its amplitude below 1.5 y₀.</p><div class="tags"><span>base excitation</span><span>frequency band</span><span>resonance</span></div></a>
+<a class="cardlink" href="ex-6-c-8.html"><span class="k">Example 6.C.8</span><h3>Particular solution for a block driven through a spring</h3><p>A block is connected to a moving base B by a spring k and to a wall by a spring 4k. Find the equation of motion and its particular solution.</p><div class="tags"><span>base excitation</span><span>particular solution</span><span>equation of motion</span></div></a>
+<a class="cardlink" href="ex-6-c-9.html"><span class="k">Example 6.C.9</span><h3>Machine on four springs on a vibrating floor</h3><p>A 50 kg mass sits on four springs on a base that moves as 0.002 sin 50t. Find the equation of motion and the steady-state amplitude.</p><div class="tags"><span>base excitation</span><span>isolation</span><span>parallel springs</span></div></a>
+<a class="cardlink" href="ex-6-c-10.html"><span class="k">Example 6.C.10</span><h3>Mass hung from a pulley and driven through a cable</h3><p>A moving base pulls on a spring that is tied to a cable around two pulleys. Find the equation of motion and the resonant frequency.</p><div class="tags"><span>base excitation</span><span>pulleys</span><span>resonance</span></div></a>
+<a class="cardlink" href="ex-6-c-11.html"><span class="k">Example 6.C.11</span><h3>Bar in a horizontal plane driven through a spring</h3><p>A bar pinned at one end moves in a horizontal plane. A spring at its tip is attached to a moving base. Find the equation of motion for small angles.</p><div class="tags"><span>base excitation</span><span>rigid body</span><span>small angles</span></div></a>
+<a class="cardlink" href="ex-6-c-12.html"><span class="k">Example 6.C.12</span><h3>Frame with a rotating imbalance</h3><p>A rotor with an eccentric mass spins inside a frame held by two springs. Find the equation of motion and the steady-state amplitude.</p><div class="tags"><span>rotating imbalance</span><span>steady state</span><span>amplitude</span></div></a></div>
+<p class="credit">Problems adapted from <em>Dynamics: A Lecturebook</em>, Chapter 6, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). The solutions and animations are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="forced.html"><small>← Previous</small>C · Forced vibration</a><a class="next" href="ex-6-a-1.html"><small>Next →</small>Example 6.A.1</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/kit.js"></script>
+</body>
+</html>

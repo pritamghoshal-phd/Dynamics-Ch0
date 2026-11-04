@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 4.A.2 · Chapter 4 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 4</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="newton.html">A · Newton's laws</a>
+    <a href="energy.html">B · Work–energy</a>
+    <a href="impulse.html">C · Linear impulse–momentum</a>
+    <a href="angular.html">D · Angular impulse–momentum</a>
+    <a href="examples.html" class=active>Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Newton's second law examples"><a href="examples.html#group-A">All Newton's second law examples</a><a href="ex-4-a-1.html">4.A.1</a><a href="ex-4-a-2.html" class=active>4.A.2</a><a href="ex-4-a-3.html">4.A.3</a><a href="ex-4-a-4.html">4.A.4</a><a href="ex-4-a-5.html">4.A.5</a><a href="ex-4-a-6.html">4.A.6</a><a href="ex-4-a-7.html">4.A.7</a><a href="ex-4-a-8.html">4.A.8</a><a href="ex-4-a-9.html">4.A.9</a><a href="ex-4-a-10.html">4.A.10</a><a href="ex-4-a-11.html">4.A.11</a><a href="ex-4-a-12.html">4.A.12</a><a href="ex-4-a-13.html">4.A.13</a><a href="ex-4-a-14.html">4.A.14</a><a href="ex-4-a-15.html">4.A.15</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-A">Newton's second law</a> › Example 4.A.2</p>
+<h2><span class="num">Example 4.A.2</span>A rope sliding off a rough table</h2>
+<div class="tags"><span>Newton's law</span><span>variable force</span><span>a = v dv/dx</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>A rope of length $L$ and mass per unit length $\rho$ is initially at rest on a rough horizontal surface, with coefficient of kinetic friction $\mu_k$. A part of length $d$ hangs over a light pulley C at the right end of the surface. The rope remains taut.</p>
+<p>Use $d = 0.2L$.</p>
+<p><b>Find</b> the speed of the rope when its left end reaches the pulley.</p>
+</div>
+<div class="demo" id="x4a-2">
+  <div class="demo-title"><span class="tag">Interactive</span><span>The rope slides over the pulley</span></div>
+  <canvas id="x4a-2-anim" class="anim" style="height:420px"></canvas><canvas id="x4a-2-plot" class="plot" style="height:240px"></canvas>
+  <div class="controls" id="x4a-2-ctl"></div>
+  <div class="bar" id="x4a-2-pre"><span class="lbl">Try:</span></div>
+  <div class="bar" id="x4a-2-btn"></div>
+  <div class="stats" id="x4a-2-stats"></div>
+  <p class="small concept-note">The animation uses $L = 2$ m. The light dots are painted on the rope, so you can see the rope itself move. The graph shows the speed against the hanging length $x$, from the formula derived in the solution.</p>
+</div>
+<div class="demo v3d" data-clip="x4a-2"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Every solution follows the four-step method: free-body diagrams, kinetics equations, kinematics, solve. Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Draw the free-body diagrams</summary>
+<p>Let $x$ be the length of rope hanging below the pulley at time $t$. We cut the rope at the pulley and draw two free-body diagrams. The part on the table, of length $L - x$, has weight $\rho(L - x)g$, a normal force $N$, a friction force $\mu_k N$ opposite to the sliding, and the tension $T$ at the pulley. The hanging part, of length $x$, has weight $\rho x g$ and the tension $T$. The pulley is light and turns freely, so the tension is the same on both sides.</p>
+<div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 340 200" role="img" aria-label="Part of the rope on the table" style="max-width:340px"><rect x="-110.0" y="-6.0" width="220.0" height="12.0" rx="3" transform="translate(150.0,100.0) rotate(0.0)" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><line x1="260.0" y1="100.0" x2="309.0" y2="100.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="320.0,100.0 309.0,105.5 309.0,94.5" fill="#2457d6"/><line x1="160.0" y1="100.0" x2="160.0" y2="149.0" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="160.0,160.0 154.5,149.0 165.5,149.0" fill="#c2410c"/><line x1="110.0" y1="161.0" x2="110.0" y2="117.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="110.0,106.0 115.5,117.0 104.5,117.0" fill="#17915a"/><line x1="40.0" y1="106.0" x2="21.0" y2="106.0" stroke="#b42346" stroke-width="2.6" stroke-linecap="round"/><polygon points="10.0,106.0 21.0,100.5 21.0,111.5" fill="#b42346"/><line x1="270.0" y1="178.0" x2="293.0" y2="178.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="304.0,178.0 293.0,183.5 293.0,172.5" fill="#7b808c"/><line x1="270.0" y1="178.0" x2="270.0" y2="155.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="270.0,144.0 275.5,155.0 264.5,155.0" fill="#7b808c"/><text x="332.0" y="100.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>T</tspan></text><text x="160.0" y="184.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>ρ(L - x)g</tspan></text><text x="96.0" y="173.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>N</tspan></text><text x="16.0" y="120.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#b42346"><tspan>μ</tspan><tspan dy="4.8" style="font-size:10.8px">k</tspan><tspan dy="-4.8"> N</tspan></text><text x="314.0" y="178.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>x</tspan></text><text x="270.0" y="134.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>y</tspan></text></svg><figcaption>Part of the rope on the table</figcaption></figure><figure><svg class="fbd" viewBox="0 0 170 300" role="img" aria-label="Hanging part" style="max-width:170px"><rect x="-6.0" y="-75.0" width="12.0" height="150.0" rx="3" transform="translate(85.0,150.0) rotate(0.0)" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><line x1="85.0" y1="75.0" x2="85.0" y2="41.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="85.0,30.0 90.5,41.0 79.5,41.0" fill="#2457d6"/><line x1="85.0" y1="225.0" x2="85.0" y2="259.0" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="85.0,270.0 79.5,259.0 90.5,259.0" fill="#c2410c"/><text x="99.0" y="28.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>T</tspan></text><text x="111.0" y="270.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>ρ x g</tspan></text></svg><figcaption>Hanging part</figcaption></figure></div><p class="small fbdnote">$x$ is the length of rope hanging below the pulley. The pulley is light and ideal, so it passes the same tension $T$ from one part to the other. Friction acts to the left, opposite to the sliding.</p>
+</details>
+<details class="step"><summary>Step 2 · Write the kinetics equations</summary>
+<p>Every point of a taut rope moves with the same speed $v$ and the same rate of change of speed $a$. For the part on the table (horizontal, positive toward the pulley) and the hanging part (vertical, positive downward),</p>
+$$\rho(L - x)\,a = T - \mu_k N, \qquad N = \rho (L - x) g$$
+$$\rho x\,a = \rho x g - T$$
+<p>Adding the first and the last equations eliminates the tension.</p>
+$$\rho L\,a = \rho g x - \mu_k \rho g (L - x)$$
+$$a = \frac{g}{L}\left[(1 + \mu_k)x - \mu_k L\right]$$
+</details>
+<details class="step"><summary>Step 3 · Write the kinematics equations</summary>
+<p>The acceleration depends on the position $x$, not on time. The chain rule gives $a = \dfrac{dv}{dt} = v\,\dfrac{dv}{dx}$, so we can separate the variables.</p>
+$$v\,dv = a(x)\,dx, \qquad \int_0^{v} v\,dv = \int_d^{L} a(x)\,dx$$
+</details>
+<details class="step"><summary>Step 4 · Solve</summary>
+$$\frac{v^2}{2} = \frac{g}{L}\left[\frac{(1 + \mu_k)(L^2 - d^2)}{2} - \mu_k L (L - d)\right]$$
+<p>With $d = 0.2L$ the bracket becomes</p>
+$$L^2\left[0.48(1 + \mu_k) - 0.8\mu_k\right] = L^2(0.48 - 0.32\mu_k)$$
+<p>so the speed is</p>
+$$v = \sqrt{gL\,(0.96 - 0.64\,\mu_k)}$$
+<p class="small">The rope starts to move only if $a > 0$ at $x = d$, which requires $\mu_k < d/(L - d) = 0.25$. For example, with $L = 2$ m and $\mu_k = 0.2$ the speed is $v = 4.04$ m/s.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>$v = \sqrt{gL\,(0.96 - 0.64\,\mu_k)}$ when the left end of the rope reaches the pulley.</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Set $\mu_k = 0$. Check that the speed is $\sqrt{0.96\,gL}$ and that the curve on the graph becomes $v^2 = g(x^2 - d^2)/L$.</li><li>Increase $\mu_k$ toward 0.25. Why does the rope barely start, and what happens above 0.25?</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 4, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-4-a-1.html"><small>← Previous</small>Example 4.A.1</a><a class="next" href="ex-4-a-3.html"><small>Next →</small>Example 4.A.3</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/kit.js"></script>
+<script src="../assets/ch4-exA1.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch4-3dA1.js"></script>
+</body>
+</html>

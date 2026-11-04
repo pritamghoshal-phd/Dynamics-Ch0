@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 1.D.2 · Chapter 1 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 1</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="planar.html">A · Planar descriptions</a>
+    <a href="threed.html">B · 3D descriptions</a>
+    <a href="joint.html">C · Joint description</a>
+    <a href="relative.html">D · Relative & constrained</a>
+    <a href="examples.html" class=active>Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Relative and constrained motion examples"><a href="examples.html#group-D">All Relative and constrained motion examples</a><a href="ex-1-d-1.html">1.D.1</a><a href="ex-1-d-2.html" class=active>1.D.2</a><a href="ex-1-d-3.html">1.D.3</a><a href="ex-1-d-4.html">1.D.4</a><a href="ex-1-d-5.html">1.D.5</a><a href="ex-1-d-6.html">1.D.6</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-D">Relative and constrained motion</a> › Example 1.D.2</p>
+<h2><span class="num">Example 1.D.2</span>A jet that appears to fly sideways</h2>
+<div class="tags"><span>relative velocity</span><span>vector triangle</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>Jet B travels due north with a speed of $v_B = 600$ km/h. Passengers on jet B observe jet A to be flying sideways and moving due east. The velocity of A makes an angle of 30° with the east direction, as shown in the figure.</p>
+<p><b>Find</b> (a) the speed of A and (b) the speed of A as observed by the passengers on jet B.</p>
+</div>
+<div class="demo" id="x1d-2">
+  <div class="demo-title"><span class="tag">Interactive</span><span>Jet A seen from the ground and from jet B</span></div>
+  <canvas id="x1d-2-anim" class="anim" style="height:400px"></canvas>
+  <div class="controls" id="x1d-2-ctl"></div>
+  <div class="bar" id="x1d-2-btn"></div>
+  <div class="stats" id="x1d-2-stats"></div>
+  <p class="small concept-note">Both views show the same few seconds of flight. On the right the ground grid slides south because the observer moves north with jet B. The triangle in the left panel is the vector equation of the solution.</p>
+</div>
+<div class="demo v3d" data-clip="x1d-2"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Write the relative-velocity equation</summary>
+<p>The passengers on B translate with B, so</p>
+$$\mathbf v_A = \mathbf v_B + \mathbf v_{A/B}$$
+<p>Take $\hat{\mathbf i}$ east and $\hat{\mathbf j}$ north. We know $\mathbf v_B = 600\,\hat{\mathbf j}$ km/h. The relative velocity points due east with an unknown magnitude, $\mathbf v_{A/B} = v_{A/B}\,\hat{\mathbf i}$. The velocity of A has a known direction and an unknown magnitude, $\mathbf v_A = v_A\left(\cos 30°\,\hat{\mathbf i} + \sin 30°\,\hat{\mathbf j}\right)$. There are two unknowns and two scalar equations.</p>
+</details>
+<details class="step"><summary>Step 2 · Draw the vector triangle</summary>
+<div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 300 230" role="img" aria-label="Velocity triangle" style="max-width:300px"><line x1="60.0" y1="200.0" x2="60.0" y2="91.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="60.0,80.0 65.5,91.0 54.5,91.0" fill="#17915a"/><line x1="60.0" y1="80.0" x2="256.8" y2="80.0" stroke="#8a3fd1" stroke-width="2.6" stroke-linecap="round"/><polygon points="267.8,80.0 256.8,85.5 256.8,74.5" fill="#8a3fd1"/><line x1="60.0" y1="200.0" x2="258.3" y2="85.5" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="267.8,80.0 261.1,90.3 255.6,80.7" fill="#2457d6"/><path d="M106.0,200.0 A46,46 0 0 0 99.8,177.0" fill="none" stroke="#7b808c" stroke-width="1.2"/><line x1="60.0" y1="200.0" x2="290.0" y2="200.0" stroke="#7b808c" stroke-width="1" stroke-dasharray="5 4"/><text x="44.0" y="140.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>v</tspan><tspan dy="4.8" style="font-size:10.8px">B</tspan></text><text x="163.9" y="94.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#8a3fd1"><tspan>v</tspan><tspan dy="4.8" style="font-size:10.8px">A/B</tspan></text><text x="155.9" y="126.1" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>v</tspan><tspan dy="4.8" style="font-size:10.8px">A</tspan></text><text x="115.1" y="185.2" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>30°</tspan></text><text x="282.0" y="212.0" text-anchor="middle" dominant-baseline="middle" style="font-family:system-ui,sans-serif;font-size:11px;fill:#7b808c">east</text><text x="46.0" y="74.0" text-anchor="end" dominant-baseline="middle" style="font-family:system-ui,sans-serif;font-size:11px;fill:#7b808c">north</text></svg><figcaption>Velocity triangle</figcaption></figure></div><p class="small fbdnote">$\mathbf v_A = \mathbf v_B + \mathbf v_{A/B}$. The vector $\mathbf v_B$ points north, $\mathbf v_{A/B}$ points east, and $\mathbf v_A$ closes the triangle at 30° north of east.</p>
+</details>
+<details class="step"><summary>Step 3 · Match the north components</summary>
+<p>The relative velocity has no north component, so the north part of $\mathbf v_A$ must equal $v_B$.</p>
+$$v_A \sin 30° = 600 \qquad\Longrightarrow\qquad v_A = \frac{600}{0.5} = 1200\ \text{km/h}$$
+</details>
+<details class="step"><summary>Step 4 · Match the east components</summary>
+<p>Jet B has no east component, so the east part of $\mathbf v_A$ is the whole relative velocity.</p>
+$$v_{A/B} = v_A \cos 30° = 1200(0.8660) = 1039\ \text{km/h}$$
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>(a) $v_A = 1200$ km/h. (b) The passengers on B see A move due east at $v_{A/B} = 1039$ km/h.</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Move the angle slider toward 90°. Why does $v_{A/B}$ go to zero, and what does the right panel show then?</li><li>Which side of the vector triangle is the hypotenuse? Explain why $v_A$ must always be larger than $v_B$ here.</li><li>Describe what the passengers on A see jet B doing.</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 1, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-1-d-1.html"><small>← Previous</small>Example 1.D.1</a><a class="next" href="ex-1-d-3.html"><small>Next →</small>Example 1.D.3</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/kit.js"></script>
+<script src="../assets/ch1-exD.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch1-3dD.js"></script>
+</body>
+</html>

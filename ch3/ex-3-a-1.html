@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 3.A.1 · Chapter 3 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 3</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="frames-2d.html">A · 2D rotating frames</a>
+    <a href="frames-3d.html">B · 3D rotating frames</a>
+    <a href="coriolis.html">C · Coriolis in real life</a>
+    <a href="examples.html" class=active>Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="2D rotating frames examples"><a href="examples.html#group-A">All 2D rotating frames examples</a><a href="ex-3-a-1.html" class=active>3.A.1</a><a href="ex-3-a-2.html">3.A.2</a><a href="ex-3-a-3.html">3.A.3</a><a href="ex-3-a-4.html">3.A.4</a><a href="ex-3-a-5.html">3.A.5</a><a href="ex-3-a-6.html">3.A.6</a><a href="ex-3-a-7.html">3.A.7</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-A">2D rotating frames</a> › Example 3.A.1</p>
+<h2><span class="num">Example 3.A.1</span>Particle sliding in a slot of a rolling disk</h2>
+<div class="tags"><span>rolling disk</span><span>Coriolis</span><span>moving frame</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>A disk of radius $r$ rolls without slipping on a horizontal surface. At the instant shown, its center O moves to the right at $v_O = 5$ m/s, and this speed is decreasing at 2 m/s². A particle P slides in a straight slot of the disk. The slot is parallel to the disk's $x$ axis, at a height $h$ above O. At this instant P is at $x_P = 0.2$ m and moves along the slot at the constant rate $\dot x_P = 2$ m/s. Here $x_P$ is measured in the $xyz$ frame attached to the disk, whose axes are horizontal and vertical at this instant.</p>
+<p>The data are $h = 0.2$ m and $r = 0.6$ m.</p>
+<p><b>Find</b> (a) the velocity of P and (b) the acceleration of P.</p>
+</div>
+<div class="demo" id="x3a-1">
+  <div class="demo-title"><span class="tag">Interactive</span><span>The rolling disk and the particle in its slot</span></div>
+  <canvas id="x3a-1-anim" class="anim" style="height:420px"></canvas><canvas id="x3a-1-plot" class="plot" style="height:220px"></canvas><div class="legendrow"><span><span class="sw" style="background:var(--c5)"></span>v<sub>O</sub>, a<sub>O</sub></span><span><span class="sw" style="background:var(--c4)"></span>α × r</span><span><span class="sw" style="background:var(--c3)"></span>ω × r, −ω²r</span><span><span class="sw" style="background:#a61e4d"></span>2ω × v<sub>rel</sub> (Coriolis)</span><span><span class="sw" style="background:var(--c2)"></span>v<sub>rel</sub>, a<sub>rel</sub></span><span><span class="sw" style="background:var(--c1)"></span>total</span></div>
+  <div class="bar" id="x3a-1-pre"><span class="lbl">Try:</span></div>
+  <div class="bar" id="x3a-1-btn"></div>
+  <div class="stats" id="x3a-1-stats"></div>
+  <p class="small concept-note">The view follows the center O, and the ticks on the ground mark every 0.25 m. The disk slows down, so the plot changes with time. Use the chips to switch between the velocity terms and the acceleration terms, or to freeze the picture at the instant in the problem. The purple axes are the moving frame. They turn with the body they are attached to.</p>
+</div>
+<div class="demo v3d" data-clip="x3a-1"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Choose the moving frame and describe its motion</summary>
+<p>Attach the $xyz$ frame to the disk with its origin at the center O. The frame then turns with the disk, so its angular velocity is the angular velocity of the disk.</p>
+<p>The disk rolls without slipping, so $v_O = r\omega$. It rolls to the right, which means it turns clockwise. Differentiating the rolling condition gives $\dot v_O = r\alpha$. Because the disk is slowing down, its angular acceleration is counterclockwise.</p>
+<div class="formula">$$\vec\omega = -\frac{v_O}{r}\,\hat k = -\frac{5}{0.6}\,\hat k = -8.333\,\hat k\ \text{rad/s}, \qquad \vec\alpha = -\frac{\dot v_O}{r}\,\hat k = -\frac{-2}{0.6}\,\hat k = 3.333\,\hat k\ \text{rad/s}^2$$</div>
+<p>The center O moves on a straight line, so $\vec v_O = 5\,\hat\imath$ m/s and $\vec a_O = -2\,\hat\imath$ m/s².</p>
+</details>
+<details class="step"><summary>Step 2 · Describe the motion of P relative to the frame</summary>
+<p>An observer riding on the disk sees P move along the straight slot at a constant rate. In the moving frame,</p>
+<div class="formula">$$\vec r_{P/O} = x_P\,\hat\imath + h\,\hat\jmath = 0.2\,\hat\imath + 0.2\,\hat\jmath\ \text{m}, \qquad \vec v_{rel} = \dot x_P\,\hat\imath = 2\,\hat\imath\ \text{m/s}, \qquad \vec a_{rel} = \ddot x_P\,\hat\imath = \vec 0$$</div>
+<div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 320 300" role="img" aria-label="The disk, the frame xyz attached to it, and P" style="max-width:320px"><line x1="30.0" y1="256.0" x2="290.0" y2="256.0" stroke="#7d776b" stroke-width="2"/><line x1="34.0" y1="256.0" x2="28.0" y2="263.0" stroke="#7d776b" stroke-width="1"/><line x1="43.0" y1="256.0" x2="37.0" y2="263.0" stroke="#7d776b" stroke-width="1"/><line x1="52.0" y1="256.0" x2="46.0" y2="263.0" stroke="#7d776b" stroke-width="1"/><line x1="61.0" y1="256.0" x2="55.0" y2="263.0" stroke="#7d776b" stroke-width="1"/><line x1="70.0" y1="256.0" x2="64.0" y2="263.0" stroke="#7d776b" stroke-width="1"/><line x1="79.0" y1="256.0" x2="73.0" y2="263.0" stroke="#7d776b" stroke-width="1"/><line x1="88.0" y1="256.0" x2="82.0" y2="263.0" stroke="#7d776b" stroke-width="1"/><line x1="97.0" y1="256.0" x2="91.0" y2="263.0" stroke="#7d776b" stroke-width="1"/><line x1="106.0" y1="256.0" x2="100.0" y2="263.0" stroke="#7d776b" stroke-width="1"/><line x1="115.0" y1="256.0" x2="109.0" y2="263.0" stroke="#7d776b" stroke-width="1"/><line x1="124.0" y1="256.0" x2="118.0" y2="263.0" stroke="#7d776b" stroke-width="1"/><line x1="133.0" y1="256.0" x2="127.0" y2="263.0" stroke="#7d776b" stroke-width="1"/><line x1="142.0" y1="256.0" x2="136.0" y2="263.0" stroke="#7d776b" stroke-width="1"/><line x1="151.0" y1="256.0" x2="145.0" y2="263.0" stroke="#7d776b" stroke-width="1"/><line x1="160.0" y1="256.0" x2="154.0" y2="263.0" stroke="#7d776b" stroke-width="1"/><line x1="169.0" y1="256.0" x2="163.0" y2="263.0" stroke="#7d776b" stroke-width="1"/><line x1="178.0" y1="256.0" x2="172.0" y2="263.0" stroke="#7d776b" stroke-width="1"/><line x1="187.0" y1="256.0" x2="181.0" y2="263.0" stroke="#7d776b" stroke-width="1"/><line x1="196.0" y1="256.0" x2="190.0" y2="263.0" stroke="#7d776b" stroke-width="1"/><line x1="205.0" y1="256.0" x2="199.0" y2="263.0" stroke="#7d776b" stroke-width="1"/><line x1="214.0" y1="256.0" x2="208.0" y2="263.0" stroke="#7d776b" stroke-width="1"/><line x1="223.0" y1="256.0" x2="217.0" y2="263.0" stroke="#7d776b" stroke-width="1"/><line x1="232.0" y1="256.0" x2="226.0" y2="263.0" stroke="#7d776b" stroke-width="1"/><line x1="241.0" y1="256.0" x2="235.0" y2="263.0" stroke="#7d776b" stroke-width="1"/><line x1="250.0" y1="256.0" x2="244.0" y2="263.0" stroke="#7d776b" stroke-width="1"/><line x1="259.0" y1="256.0" x2="253.0" y2="263.0" stroke="#7d776b" stroke-width="1"/><line x1="268.0" y1="256.0" x2="262.0" y2="263.0" stroke="#7d776b" stroke-width="1"/><line x1="277.0" y1="256.0" x2="271.0" y2="263.0" stroke="#7d776b" stroke-width="1"/><line x1="286.0" y1="256.0" x2="280.0" y2="263.0" stroke="#7d776b" stroke-width="1"/><circle cx="150.0" cy="160.0" r="96.0" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><rect x="60.4" y="121.0" width="179.2" height="14" fill="#fff" stroke="#1b1a17" stroke-width="1.4"/><line x1="150.0" y1="160.0" x2="182.0" y2="128.0" stroke="#625c50" stroke-width="1.4" stroke-dasharray="5 4"/><line x1="150.0" y1="160.0" x2="181.0" y2="160.0" stroke="#7b3f8c" stroke-width="1.6" stroke-linecap="round"/><polygon points="192.0,160.0 181.0,165.5 181.0,154.5" fill="#7b3f8c"/><line x1="150.0" y1="160.0" x2="150.0" y2="129.0" stroke="#7b3f8c" stroke-width="1.6" stroke-linecap="round"/><polygon points="150.0,118.0 155.5,129.0 144.5,129.0" fill="#7b3f8c"/><circle cx="182.0" cy="128.0" r="5" fill="#1c1d21"/><line x1="182.0" y1="128.0" x2="231.0" y2="128.0" stroke="#c2571a" stroke-width="2.6" stroke-linecap="round"/><polygon points="242.0,128.0 231.0,133.5 231.0,122.5" fill="#c2571a"/><line x1="150.0" y1="190.0" x2="229.0" y2="190.0" stroke="#8b8678" stroke-width="2.6" stroke-linecap="round"/><polygon points="240.0,190.0 229.0,195.5 229.0,184.5" fill="#8b8678"/><path d="M139.7,188.2 L138.5,187.7 L137.3,187.2 L136.1,186.6 L135.0,186.0 L133.9,185.3 L132.8,184.6 L131.7,183.8 L130.7,183.0 L129.7,182.1 L128.8,181.2 L127.9,180.3 L127.0,179.3 L126.2,178.3 L125.4,177.2 L124.7,176.1 L124.0,175.0 L123.4,173.9 L122.8,172.7 L122.3,171.5 L121.8,170.3 L121.4,169.0 L121.0,167.8 L120.7,166.5 L120.5,165.2 L120.3,163.9 L120.1,162.6 L120.0,161.3 L120.0,160.0 L120.0,158.7 L120.1,157.4 L120.3,156.1 L120.5,154.8 L120.7,153.5 L121.0,152.2 L121.4,151.0 L121.8,149.7 L122.3,148.5 L122.8,147.3 L123.4,146.1 L124.0,145.0" fill="none" stroke="#2a7f62" stroke-width="2.2"/><polygon points="125.9,141.5 125.7,152.6 116.8,148.0" fill="#2a7f62"/><circle cx="150.0" cy="160.0" r="3" fill="#1c1d21"/><text x="202.0" y="160.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b3f8c"><tspan>x</tspan></text><text x="150.0" y="108.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b3f8c"><tspan>y</tspan></text><text x="178.0" y="112.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>P</tspan></text><text x="264.0" y="128.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2571a"><tspan>v</tspan><tspan dy="4.8" style="font-size:10.8px">rel</tspan></text><text x="256.0" y="190.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#8b8678"><tspan>v</tspan><tspan dy="4.8" style="font-size:10.8px">O</tspan></text><text x="109.6" y="174.7" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2a7f62"><tspan>ω</tspan></text><text x="164.0" y="176.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:14px;font-style:italic;fill:#1c1d21"><tspan>O</tspan></text><text x="80.0" y="274.0" text-anchor="middle" dominant-baseline="middle" style="font-family:system-ui,sans-serif;font-size:11px;fill:#7b808c">no slip</text></svg><figcaption>The disk, the frame xyz attached to it, and P</figcaption></figure></div><p class="small fbdnote">At this instant the moving axes are horizontal and vertical, so the frame components are also the fixed components.</p><p>The moving-frame equations are</p><div class="formula">$$\vec v_P = \vec v_O + \vec\omega\times\vec r_{P/O} + \vec v_{rel}$$</div>
+<div class="formula">$$\vec a_P = \vec a_O + \vec\alpha\times\vec r_{P/O} + \vec\omega\times\left(\vec\omega\times\vec r_{P/O}\right) + 2\,\vec\omega\times\vec v_{rel} + \vec a_{rel}$$</div>
+</details>
+<details class="step"><summary>Step 3 · Find the velocity of P</summary>
+<p>The term from the rotation of the frame is</p>
+<div class="formula">$$\vec\omega\times\vec r_{P/O} = (-8.333\,\hat k)\times(0.2\,\hat\imath + 0.2\,\hat\jmath) = 1.667\,\hat\imath - 1.667\,\hat\jmath\ \text{m/s}$$</div>
+<p>Adding the three terms gives</p>
+<div class="formula">$$\vec v_P = 5\,\hat\imath + (1.667\,\hat\imath - 1.667\,\hat\jmath) + 2\,\hat\imath = 8.67\,\hat\imath - 1.67\,\hat\jmath\ \text{m/s}$$</div>
+</details>
+<details class="step"><summary>Step 4 · Find the acceleration of P</summary>
+<p>Each term of the acceleration equation is computed separately.</p>
+<div class="formula">$$\vec a_O = -2\,\hat\imath, \qquad \vec\alpha\times\vec r_{P/O} = (3.333\,\hat k)\times(0.2\,\hat\imath + 0.2\,\hat\jmath) = -0.667\,\hat\imath + 0.667\,\hat\jmath$$</div>
+<div class="formula">$$\vec\omega\times(\vec\omega\times\vec r_{P/O}) = -\omega^2\,\vec r_{P/O} = -69.44\,(0.2\,\hat\imath + 0.2\,\hat\jmath) = -13.89\,\hat\imath - 13.89\,\hat\jmath$$</div>
+<div class="formula">$$2\,\vec\omega\times\vec v_{rel} = 2\,(-8.333\,\hat k)\times(2\,\hat\imath) = -33.33\,\hat\jmath, \qquad \vec a_{rel} = \vec 0$$</div>
+<p>All values are in m/s². Their sum is</p>
+<div class="formula">$$\vec a_P = -16.56\,\hat\imath - 46.56\,\hat\jmath\ \text{m/s}^2$$</div>
+<div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 300 300" role="img" aria-label="The acceleration terms at P, drawn to scale" style="max-width:300px"><circle cx="190.0" cy="40.0" r="4" fill="#1c1d21"/><line x1="190.0" y1="40.0" x2="190.6" y2="40.0" stroke="#8b8678" stroke-width="2.6" stroke-linecap="round"/><polygon points="179.6,40.0 190.6,34.5 190.6,45.5" fill="#8b8678"/><line x1="179.6" y1="40.0" x2="183.9" y2="44.3" stroke="#7b3f8c" stroke-width="2.6" stroke-linecap="round"/><polygon points="176.1,36.5 187.8,40.4 180.0,48.2" fill="#7b3f8c"/><line x1="176.1" y1="36.5" x2="111.7" y2="101.0" stroke="#2a7f62" stroke-width="2.6" stroke-linecap="round"/><polygon points="103.9,108.8 107.8,97.1 115.6,104.9" fill="#2a7f62"/><line x1="103.9" y1="108.8" x2="103.9" y2="271.1" stroke="#a61e4d" stroke-width="2.6" stroke-linecap="round"/><polygon points="103.9,282.1 98.4,271.1 109.4,271.1" fill="#a61e4d"/><line x1="190.0" y1="40.0" x2="107.6" y2="271.7" stroke="#1f3a5f" stroke-width="3.4" stroke-linecap="round"/><polygon points="103.9,282.1 102.4,269.9 112.8,273.6" fill="#1f3a5f"/><text x="200.0" y="30.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>P</tspan></text><text x="120.2" y="52.8" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2a7f62"><tspan>−ω</tspan><tspan dy="-5.7" style="font-size:10.8px">2</tspan><tspan dy="5.7">r</tspan></text><text x="65.9" y="195.4" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#a61e4d"><tspan>2ω×v</tspan><tspan dy="4.8" style="font-size:10.8px">rel</tspan></text><text x="133.8" y="156.3" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1f3a5f"><tspan>a</tspan><tspan dy="4.8" style="font-size:10.8px">P</tspan></text></svg><figcaption>The acceleration terms at P, drawn to scale</figcaption></figure></div><p class="small fbdnote">The Coriolis term is the largest one. It comes from P moving along the slot while the slot turns.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>(a) $\vec v_P = 8.67\,\hat\imath - 1.67\,\hat\jmath$ m/s, with magnitude 8.83 m/s. (b) $\vec a_P = -16.6\,\hat\imath - 46.6\,\hat\jmath$ m/s², with magnitude 49.4 m/s².</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Freeze the animation at the instant and show the acceleration terms. Which term would change sign if P moved to the left along the slot?</li><li>Watch the plot. Why does the vertical component of $\vec a_P$ change even though P moves at a constant rate relative to the disk?</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 3, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="examples.html"><small>← Previous</small>All examples</a><a class="next" href="ex-3-a-2.html"><small>Next →</small>Example 3.A.2</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/kit.js"></script>
+<script src="../assets/ch3-exA.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch3-3dA.js"></script>
+</body>
+</html>

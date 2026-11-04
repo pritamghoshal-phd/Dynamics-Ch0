@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Angular impulse and momentum · Chapter 4 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 4</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="newton.html">A · Newton's laws</a>
+    <a href="energy.html">B · Work–energy</a>
+    <a href="impulse.html">C · Linear impulse–momentum</a>
+    <a href="angular.html" class=active>D · Angular impulse–momentum</a>
+    <a href="examples.html">Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<section>
+<h2><span class="num">D</span>Angular impulse and momentum</h2>
+<p>The <b>angular momentum</b> of a particle about a fixed point O is the moment of its linear momentum:</p>
+$$\mathbf H_O = \mathbf r_{P/O}\times m\mathbf v$$
+<p>Taking the moment of Newton's law about O and noting that $\dot{\mathbf r}\times m\mathbf v = \mathbf v\times m\mathbf v = \mathbf 0$ gives</p>
+$$\sum\mathbf M_O = \dot{\mathbf H}_O \qquad\Longrightarrow\qquad \mathbf H_{O1} + \int_{t_1}^{t_2}\sum\mathbf M_O\,dt = \mathbf H_{O2}$$
+<p>In plane motion, $\mathbf H_O$ points out of the plane. In polar coordinates centered at O, only the transverse velocity contributes: $H_O = m\,r\,v_\theta = m r^2\dot\theta$. The radial velocity is parallel to $\mathbf r$, so its cross product with $\mathbf r$ is zero.</p>
+
+<h3>Central forces: angular momentum is conserved</h3>
+<p>If the resultant force on a particle always points through a fixed point O (a cord through a hole, a planet's gravity, a spring anchored at O), it has no moment about O. Then $\mathbf H_O$ is constant:</p>
+$$r_1\,v_{\theta 1} = r_2\,v_{\theta 2}$$
+<p>Pull the particle in and it must speed up. Note that energy is <em>not</em> conserved here in general: the pull on the cord does work.</p>
+<div class="demo concept" id="c-hole">
+  <div class="demo-title"><span class="tag concept-tag">Concept</span><span>Pull a cord through a hole</span></div>
+  <canvas id="c-hole-anim" class="anim" style="height:330px"></canvas>
+  <div class="controls" id="c-hole-ctl"></div>
+  <div class="bar" id="c-hole-btn"></div>
+  <div class="stats" id="c-hole-stats"></div>
+  <p class="small concept-note">A puck on a smooth table is tied to a cord through a hole at O. As you draw the cord in, r shrinks and the transverse speed grows so that m r v_θ stays fixed. The cord force points through O, so it can change the speed but not H_O.</p>
+</div>
+
+<h3>Equal areas in equal times</h3>
+<p>For any central force, the area swept by the radius line per unit time is $\tfrac12 r^2\dot\theta = H_O/2m$, a constant. This is Kepler's second law of planetary motion, and it holds for every central force, not only gravity.</p>
+<div class="demo concept" id="c-orbit">
+  <div class="demo-title"><span class="tag concept-tag">Concept</span><span>Equal areas in equal times</span></div>
+  <canvas id="c-orbit-anim" class="anim" style="height:360px"></canvas>
+  <div class="controls" id="c-orbit-ctl"></div>
+  <div class="bar" id="c-orbit-pre"><span class="lbl">Try:</span></div>
+  <div class="bar" id="c-orbit-btn"></div>
+  <div class="stats" id="c-orbit-stats"></div>
+  <p class="small concept-note">Each shaded wedge is swept in the same time interval. Near O the particle moves fast and the wedges are short and wide; far away it moves slowly and they are long and thin. All have the same area.</p>
+</div>
+
+<h3>Systems of particles</h3>
+<p>For a system, internal forces come in equal, opposite and collinear pairs, so their moments about any point cancel. The total angular momentum about a fixed point changes only through the moments of the external forces:</p>
+$$\sum_j \mathbf H_{O,j\,1} + \int\sum\mathbf M_{O,\text{ext}}\,dt = \sum_j\mathbf H_{O,j\,2}$$
+<p>When a system spins freely about a fixed axis with no external moment about it (a skater, a rotating arm with sliding beads), its total angular momentum about that axis is conserved, even while parts move in or out.</p>
+<div class="try"><h4>Try this</h4><ul><li>In the cord demo, halve r. By what factor does v_θ grow? The tension?</li><li>Does kinetic energy stay constant as the cord is pulled? Where does the extra energy come from?</li><li>In the orbit demo, choose "Very eccentric". Where is the particle fastest? Check that r × v stays fixed.</li></ul></div>
+<div class="wild"><span class="wi" aria-hidden="true">⛸️</span><div><b class="wh">Angular momentum in the wild</b><p>A figure skater spinning with arms out pulls them in and spins much faster. No external moment acts about the vertical axis (the ice is nearly frictionless), so the total angular momentum stays fixed, and bringing mass closer to the axis forces the rotation rate up, exactly like the puck on the cord.</p></div></div>
+</section>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="impulse.html"><small>← Previous</small>C · Linear impulse and momentum</a><a class="next" href="examples.html"><small>Next →</small>Worked examples</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/labels.js"></script>
+<script src="../assets/ch4.js"></script>
+</body>
+</html>

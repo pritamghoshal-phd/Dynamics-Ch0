@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Overview · Chapter 2 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 2</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html" class=active>Overview</a>
+    <a href="rigid.html">A · Rigid body equations</a>
+    <a href="instant.html">B · Instant centers</a>
+    <a href="mechanisms.html">C · Mechanisms</a>
+    <a href="examples.html">Examples</a>
+  </div>
+</nav>
+<header class="hero">
+  <div class="wrap">
+    <h1>Chapter 2 · Planar Rigid Body Kinematics</h1>
+    <p>A particle is a point; a rigid body is a whole object that can translate <em>and</em> rotate. This chapter answers one question: if you know how one point of a body moves and how fast the body turns, how does every other point move? Each idea comes with an animation you can drive yourself.</p>
+    <p class="small" style="margin-top:.8rem">Every slider has a box next to it. Type any number into the box and press Enter to go beyond the slider range.</p>
+  </div>
+</header>
+<main class="wrap">
+<h2>Contents</h2>
+<div class="cards">
+<a class="cardlink" href="rigid.html"><span class="k">Section A</span><h3>Rigid body equations</h3><p>Angular velocity and acceleration, the relative velocity and acceleration equations, and rolling without slipping.</p></a>
+<a class="cardlink" href="instant.html"><span class="k">Section B</span><h3>Instant centers</h3><p>The point a body is rotating about right now, how to find it, and why it only works for velocities.</p></a>
+<a class="cardlink" href="mechanisms.html"><span class="k">Section C</span><h3>Planar mechanisms</h3><p>A step-by-step recipe for velocity and acceleration analysis of linkages: slider–cranks and four-bars.</p></a>
+<a class="cardlink" href="examples.html"><span class="k">Practice</span><h3>Worked examples</h3><p>Six problems, two from each section, each with an animation and a step-by-step solution.</p></a>
+</div>
+<h2>The big idea</h2>
+<p>For any two points A and B on the same rigid body moving in a plane,</p>
+<div class="formula">$$\mathbf v_B = \mathbf v_A + \boldsymbol\omega\times\mathbf r_{B/A}, \qquad \mathbf a_B = \mathbf a_A + \boldsymbol\alpha\times\mathbf r_{B/A} - \omega^2\,\mathbf r_{B/A}$$</div>
+<p>These two equations, plus a careful drawing, are all you need for the whole chapter. The body has <b>one</b> angular velocity $\boldsymbol\omega$ and <b>one</b> angular acceleration $\boldsymbol\alpha$, no matter which pair of points you use. Sections B and C are two ways of using these equations efficiently.</p>
+<nav class="pager" aria-label="Page navigation"><a class="next" href="rigid.html"><small>Next →</small>A · Rigid body equations</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/labels.js"></script>
+<script src="../assets/ch2.js"></script>
+</body>
+</html>

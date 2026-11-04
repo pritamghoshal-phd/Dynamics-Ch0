@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 4.B.4 · Chapter 4 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 4</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="newton.html">A · Newton's laws</a>
+    <a href="energy.html">B · Work–energy</a>
+    <a href="impulse.html">C · Linear impulse–momentum</a>
+    <a href="angular.html">D · Angular impulse–momentum</a>
+    <a href="examples.html" class=active>Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Work and energy examples"><a href="examples.html#group-B">All Work and energy examples</a><a href="ex-4-b-1.html">4.B.1</a><a href="ex-4-b-2.html">4.B.2</a><a href="ex-4-b-3.html">4.B.3</a><a href="ex-4-b-4.html" class=active>4.B.4</a><a href="ex-4-b-5.html">4.B.5</a><a href="ex-4-b-6.html">4.B.6</a><a href="ex-4-b-7.html">4.B.7</a><a href="ex-4-b-8.html">4.B.8</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-B">Work and energy</a> › Example 4.B.4</p>
+<h2><span class="num">Example 4.B.4</span>Choosing the stiffness of a bumper spring</h2>
+<div class="tags"><span>work–energy</span><span>springs</span><span>design</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>Block C, of weight $mg = 3200$ lb, is moving with a speed $v_0 = 10$ ft/s toward a fixed wall. A spring of stiffness $k$ is attached to the front of the block. The spring contacts the wall, and the block comes to a stop when the spring compression reaches $\Delta_{max} = 6$ in.</p>
+<p><b>Find</b> the stiffness $k$ of the spring.</p>
+</div>
+<div class="demo" id="x4b-4">
+  <div class="demo-title"><span class="tag">Interactive</span><span>The bumper spring stops the block and pushes it back</span></div>
+  <canvas id="x4b-4-anim" class="anim" style="height:300px"></canvas>
+  <div class="controls" id="x4b-4-ctl"></div>
+  <div class="bar" id="x4b-4-pre"><span class="lbl">Try:</span></div>
+  <div class="bar" id="x4b-4-btn"></div>
+  <div class="stats" id="x4b-4-stats"></div>
+  <p class="small concept-note">The kinetic energy drains into the spring and comes back as the block rebounds. A stiffer spring stops the block in a shorter distance but with a larger peak force.</p>
+</div>
+<div class="demo v3d" data-clip="x4b-4"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Every solution follows the four-step method: free-body diagrams, kinetics equations, kinematics, solve. Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Draw the free-body diagram</summary>
+<p>We isolate the block together with its spring. The horizontal force on this system is the push of the wall on the end of the spring. The weight and the floor forces are vertical.</p><div class="fbdrow"><figure style="width:min(400px,100%)"><svg class="fbd" viewBox="0 0 400 240" role="img" aria-label="Car C with its spring, during the compression" style="max-width:400px"><rect x="-80.0" y="-35.0" width="160.0" height="70.0" rx="4" transform="translate(140.0,100.0) rotate(0.0)" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><circle cx="95.0" cy="147.0" r="11.0" fill="#3a3d44" stroke="#8a6a12" stroke-width="2"/><circle cx="185.0" cy="147.0" r="11.0" fill="#3a3d44" stroke="#8a6a12" stroke-width="2"/><polyline points="220.0,100.0 232.3,92.0 240.9,108.0 249.6,92.0 258.2,108.0 266.8,92.0 275.4,108.0 284.1,92.0 292.7,108.0 305.0,100.0" fill="none" stroke="#8a6a12" stroke-width="2"/><line x1="305" y1="84" x2="305" y2="116" stroke="#1c1d21" stroke-width="2.5"/><line x1="367.0" y1="100.0" x2="316.0" y2="100.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="305.0,100.0 316.0,94.5 316.0,105.5" fill="#2457d6"/><circle cx="140.0" cy="100.0" r="4" fill="#1c1d21"/><line x1="140.0" y1="100.0" x2="140.0" y2="139.0" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="140.0,150.0 134.5,139.0 145.5,139.0" fill="#c2410c"/><line x1="95.0" y1="204.0" x2="95.0" y2="169.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="95.0,158.0 100.5,169.0 89.5,169.0" fill="#17915a"/><line x1="185.0" y1="204.0" x2="185.0" y2="169.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="185.0,158.0 190.5,169.0 179.5,169.0" fill="#17915a"/><line x1="350.0" y1="220.0" x2="363.0" y2="220.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="374.0,220.0 363.0,225.5 363.0,214.5" fill="#7b808c"/><line x1="350.0" y1="220.0" x2="350.0" y2="207.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="350.0,196.0 355.5,207.0 344.5,207.0" fill="#7b808c"/><text x="82.0" y="80.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:16px;font-style:italic;fill:#1c1d21"><tspan>C</tspan></text><text x="383.0" y="100.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>kδ</tspan></text><text x="154.0" y="88.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>G</tspan></text><text x="158.0" y="154.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>mg</tspan></text><text x="77.0" y="216.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>N</tspan><tspan dy="4.8" style="font-size:10.8px">1</tspan></text><text x="203.0" y="216.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>N</tspan><tspan dy="4.8" style="font-size:10.8px">2</tspan></text><text x="362.0" y="72.0" text-anchor="middle" dominant-baseline="middle" style="font-family:system-ui,sans-serif;font-size:11px;fill:#7b808c">wall</text><text x="384.0" y="220.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>x</tspan></text><text x="350.0" y="186.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>y</tspan></text></svg><figcaption>Car C with its spring, during the compression</figcaption></figure></div><p class="small fbdnote">The weight and the wheel forces $N_1$ and $N_2$ are vertical while the car moves horizontally, so they do no work. The wall pushes on the end plate of the spring with the force $k\delta$, and this force removes the kinetic energy. We neglect rolling resistance.</p>
+</details>
+<details class="step"><summary>Step 2 · Write the work–energy equation</summary>
+<p>Let state 1 be the instant the spring touches the wall and state 2 the instant of maximum compression, when the block is momentarily at rest. The spring force is conservative, so</p>
+$$T_1 + V_1 = T_2 + V_2 \quad\Longrightarrow\quad \tfrac12 m v_0^2 + 0 = 0 + \tfrac12 k\Delta_{max}^2$$
+</details>
+<details class="step"><summary>Step 3 · Convert the units</summary>
+<p>In U.S. customary units the mass is $m = (3200\ \text{lb})/(32.2\ \text{ft/s}^2) = 99.38$ slug, and the compression is $\Delta_{max} = 6\ \text{in} = 0.5$ ft.</p>
+</details>
+<details class="step"><summary>Step 4 · Solve</summary>
+$$k = \frac{m v_0^2}{\Delta_{max}^2} = \frac{99.38(10)^2}{(0.5)^2} = 39{,}750\ \text{lb/ft}$$
+<p>This is about $3{,}310$ lb/in. The largest force on the wall is $k\Delta_{max} = 19{,}900$ lb, which is a little more than six times the weight of the block.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>$k = 3.98 \times 10^4$ lb/ft, which is about $3{,}310$ lb/in.</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Double the speed $v_0$. By what factor must $k$ increase to keep the compression at 6 in?</li><li>Read the peak spring force in the animation and compare it with the weight of the block.</li><li>Explain why the weight of the block does not appear in the energy equation.</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 4, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-4-b-3.html"><small>← Previous</small>Example 4.B.3</a><a class="next" href="ex-4-b-5.html"><small>Next →</small>Example 4.B.5</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/kit.js"></script>
+<script src="../assets/ch4-exB.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch4-3dB.js"></script>
+</body>
+</html>

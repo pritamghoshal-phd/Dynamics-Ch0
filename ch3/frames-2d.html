@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2D rotating frames · Chapter 3 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 3</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="frames-2d.html" class=active>A · 2D rotating frames</a>
+    <a href="frames-3d.html">B · 3D rotating frames</a>
+    <a href="coriolis.html">C · Coriolis in real life</a>
+    <a href="examples.html">Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<section>
+<h2><span class="num">A</span>2D rotating reference frames</h2>
+<p>Place an observer at point A on a moving body and give the observer a set of axes $xyz$ that translate and rotate with the body. The fixed axes are $XYZ$. The observer describes the position of a point B as</p>
+<div class="formula">$$\vec r_{B/A} = x\,\hat\imath + y\,\hat\jmath$$</div>
+<p>The catch is that $\hat\imath$ and $\hat\jmath$ are <b>not constant vectors</b>. Their length is always one, but their direction turns with the observer. Before we can differentiate $\vec r_{B/A}$ we need to know how fast these unit vectors change.</p>
+
+<h3>The derivative of a rotating unit vector</h3>
+<p>Let the observer's axes be turned by an angle $\theta(t)$ from the fixed axes. The angular velocity of the observer is $\vec\omega = \dot\theta\,\hat k$. Writing the rotating unit vectors in fixed components,</p>
+<div class="formula">$$\hat\imath = \cos\theta\,\hat I + \sin\theta\,\hat J, \qquad \hat\jmath = -\sin\theta\,\hat I + \cos\theta\,\hat J$$</div>
+<p>and differentiating with the chain rule gives $d\hat\imath/dt = \dot\theta\,\hat\jmath$ and $d\hat\jmath/dt = -\dot\theta\,\hat\imath$. Both are captured by one compact rule:</p>
+<div class="formula">$$\frac{d\hat\imath}{dt} = \vec\omega\times\hat\imath, \qquad \frac{d\hat\jmath}{dt} = \vec\omega\times\hat\jmath$$</div>
+<p>The tip of a unit vector moves on a circle of radius one, so its velocity is perpendicular to the vector itself and has size $|\dot\theta|$.</p>
+<div class="demo concept" id="c-unit">
+  <div class="demo-title"><span class="tag concept-tag">Concept</span><span>A rotating unit vector and its rate of change</span></div>
+  <canvas id="c-unit-anim" class="anim" style="height:330px"></canvas>
+  <div class="controls" id="c-unit-ctl"></div>
+  <div class="bar" id="c-unit-btn"></div>
+  <div class="stats" id="c-unit-stats"></div>
+  <p class="small concept-note">The orange arrow at the tip of î is dî/dt, drawn to the same scale as the unit vectors. It always points along ĵ (rotated 90° ahead), and its length equals the rotation rate.</p>
+</div>
+
+<h3>The velocity equation</h3>
+<p>Start from $\vec r_B = \vec r_A + x\hat\imath + y\hat\jmath$ and differentiate, using the product rule on each term:</p>
+<div class="formula">$$\vec v_B = \vec v_A + \underbrace{\dot x\,\hat\imath + \dot y\,\hat\jmath}_{(\vec v_{B/A})_{rel}} + \underbrace{x\,\vec\omega\times\hat\imath + y\,\vec\omega\times\hat\jmath}_{\vec\omega\times\vec r_{B/A}}$$</div>
+<p>The first group is what the observer measures: the rate of change of B's coordinates in the observer's own axes, called the <b>relative velocity</b>. The second group is the extra velocity B gets simply because the observer's axes are swinging it around. Even a point that sits still in the observer's frame moves in the fixed frame.</p>
+<div class="demo concept" id="c-views">
+  <div class="demo-title"><span class="tag concept-tag">Concept</span><span>One motion, two observers: a bead sliding on a rotating rod</span></div>
+  <canvas id="c-views-anim" class="anim" style="height:360px"></canvas>
+  <div class="controls" id="c-views-ctl"></div>
+  <div class="bar" id="c-views-btn"></div>
+  <div class="stats" id="c-views-stats"></div>
+  <p class="small concept-note">The rider on the rod sees the bead slide straight out with velocity (v)rel. The fixed observer sees a spiral. Head-to-tail, (v)rel plus ω × r gives the fixed-frame velocity v, and the last statistic checks it against the slope of the spiral path.</p>
+</div>
+
+<h3>The acceleration equation</h3>
+<p>Differentiating the velocity equation once more, and again remembering that $\hat\imath$ and $\hat\jmath$ turn, gives five terms:</p>
+<div class="formula">$$\vec a_B = \vec a_A + (\vec a_{B/A})_{rel} + \vec\alpha\times\vec r_{B/A} + 2\vec\omega\times(\vec v_{B/A})_{rel} + \vec\omega\times(\vec\omega\times\vec r_{B/A})$$</div>
+<div class="tblwrap"><table class="tbl"><tr><th>Term</th><th>What it is</th></tr>
+<tr><td>$\vec a_A$</td><td>acceleration of the observer's origin A (fixed-frame)</td></tr>
+<tr><td>$(\vec a_{B/A})_{rel} = \ddot x\,\hat\imath + \ddot y\,\hat\jmath$</td><td>acceleration of B as measured by the moving observer</td></tr>
+<tr><td>$\vec\alpha\times\vec r_{B/A}$</td><td>because the observer's spin is speeding up or slowing down ($\vec\alpha = \dot\omega\,\hat k$)</td></tr>
+<tr><td>$2\vec\omega\times(\vec v_{B/A})_{rel}$</td><td>the <b>Coriolis</b> term: appears only when B moves relative to a <em>rotating</em> observer</td></tr>
+<tr><td>$\vec\omega\times(\vec\omega\times\vec r_{B/A})$</td><td>centripetal term, magnitude $\omega^2 r$, pointing from B toward A</td></tr>
+</table></div>
+<p>Where does the factor of 2 in the Coriolis term come from? Half of it comes from the relative velocity changing direction as the axes turn ($\dot x\, d\hat\imath/dt$ terms); the other half comes from $\vec\omega\times\vec r$ growing because $\vec r$ changes length ($\vec\omega\times(\vec v)_{rel}$). Two separate effects, both of size $\omega\,v_{rel}$, in the same direction.</p>
+<div class="demo concept" id="c-acc">
+  <div class="demo-title"><span class="tag concept-tag">Concept</span><span>Adding up the five acceleration terms</span></div>
+  <canvas id="c-acc-anim" class="anim" style="height:380px"></canvas><div class="legendrow"><span><span class="sw" style="background:var(--c4)"></span>(a)rel</span><span><span class="sw" style="background:var(--c5)"></span>α × r</span><span><span class="sw" style="background:#a61e4d"></span>Coriolis 2ω × (v)rel</span><span><span class="sw" style="background:var(--c2)"></span>centripetal ω × (ω × r)</span><span><span class="sw" style="background:var(--c3)"></span>total a</span></div>
+  <div class="controls" id="c-acc-ctl"></div>
+  <div class="bar" id="c-acc-pre"><span class="lbl">Try:</span></div>
+  <div class="bar" id="c-acc-btn"></div>
+  <div class="stats" id="c-acc-stats"></div>
+  <p class="small concept-note">The terms are drawn head-to-tail starting at the bead, and the green arrow is their sum (the origin is fixed, so a<sub>A</sub> = 0). Freeze the bead on the rod and the Coriolis arrow disappears; only the centripetal term is left.</p>
+</div>
+<div class="demo v3d" data-clip="c-acc"><div class="demo-title"><span class="tag">3D</span><span>The bead and its acceleration terms in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+
+<h3>Coriolis, felt from the inside</h3>
+<p>The same equation read backwards tells a rotating observer what they will <em>see</em>. Solve for the relative acceleration:</p>
+<div class="formula">$$(\vec a_{B/A})_{rel} = \vec a_B - \vec a_A - \vec\alpha\times\vec r_{B/A} - 2\vec\omega\times(\vec v_{B/A})_{rel} - \vec\omega\times(\vec\omega\times\vec r_{B/A})$$</div>
+<p>A puck sliding without friction has $\vec a_B = 0$, yet a rider on a turning platform sees it curve. The last two terms are the "Coriolis" and "centrifugal" effects the rider would describe as mysterious sideways and outward pushes. There is no extra force: the rider's axes are turning underneath the puck.</p>
+<div class="demo concept" id="c-merry">
+  <div class="demo-title"><span class="tag concept-tag">Concept</span><span>A straight path seen from a merry-go-round</span></div>
+  <canvas id="c-merry-anim" class="anim" style="height:360px"></canvas>
+  <div class="controls" id="c-merry-ctl"></div>
+  <div class="bar" id="c-merry-btn"></div>
+  <div class="stats" id="c-merry-stats"></div>
+  <p class="small concept-note">Left: from the ground the puck travels in a straight line at constant speed. Right: the rider sees it curve away, against the direction of rotation, exactly as −2ω × (v)rel − ω × (ω × r) predicts.</p>
+</div>
+
+<h3>When the point is on the same body</h3>
+<p>If B is fixed in the observer's body, the observer sees no motion: $(\vec v_{B/A})_{rel} = (\vec a_{B/A})_{rel} = \vec 0$. The equations collapse to the rigid-body equations of Chapter 2. Conversely, if the observer only translates ($\vec\omega = \vec\alpha = \vec 0$), relative and absolute differences are the same thing. All the new content of this chapter lives in the rotation of the observer.</p>
+
+<div class="card method"><h3 style="margin-top:.2rem">How to use the moving-frame equations</h3>
+<ol><li><b>Choose the observer</b> and the body it rides on. Point A, its origin, must be a point on that body (often a fixed pivot).</li>
+<li><b>Draw the $xyz$ axes</b> attached to that body, and the fixed $XYZ$ axes.</li>
+<li><b>Find $\vec\omega$ and $\vec\alpha$ of the observer.</b> This is the motion of the observer, not what the observer sees.</li>
+<li><b>Imagine you are the observer.</b> How does B move as you see it? Write $\vec r_{B/A}$, $(\vec v_{B/A})_{rel}$ and $(\vec a_{B/A})_{rel}$ in your own axes. For a pin in a straight slot, this motion is along the slot.</li>
+<li><b>Substitute</b> into the velocity and acceleration equations. In mechanisms, also write an ordinary rigid-body equation for the other link that carries B, and equate the two expressions to solve for the unknowns.</li></ol></div>
+<div class="try"><h4>Try this</h4><ul><li>In the bead demo, set the bead speed to 0. Which arrow disappears? What path does the bead trace in the fixed frame?</li><li>Make ω negative. Which way does the Coriolis arrow point now?</li><li>On the merry-go-round, double the platform rate. Does the curved path in the rider’s view bend more or less?</li><li>Compare $(\vec v_{B/A})_{rel}$ with $\vec v_{B/A} = \vec v_B - \vec v_A$. When are they equal? (Hint: the observer must not rotate.)</li></ul></div>
+<div class="wild"><span class="wi" aria-hidden="true">🌀</span><div><b class="wh">Coriolis in the wild</b><p>Earth is a rotating reference frame. Air flowing toward a low-pressure region is deflected sideways by the Coriolis effect, which is why hurricanes spin counterclockwise in the northern hemisphere and clockwise in the southern. Long-range artillery tables include a Coriolis correction for the same reason. Section C shows these effects, and several others, in animations.</p></div></div>
+</section>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="index.html"><small>← Previous</small>Overview</a><a class="next" href="frames-3d.html"><small>Next →</small>B · 3D rotating frames</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/labels.js"></script>
+<script src="../assets/ch3.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch3-3dT.js"></script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 4.C.5 · Chapter 4 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 4</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="newton.html">A · Newton's laws</a>
+    <a href="energy.html">B · Work–energy</a>
+    <a href="impulse.html">C · Linear impulse–momentum</a>
+    <a href="angular.html">D · Angular impulse–momentum</a>
+    <a href="examples.html" class=active>Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Linear impulse and momentum examples"><a href="examples.html#group-C">All Linear impulse and momentum examples</a><a href="ex-4-c-1.html">4.C.1</a><a href="ex-4-c-2.html">4.C.2</a><a href="ex-4-c-3.html">4.C.3</a><a href="ex-4-c-4.html">4.C.4</a><a href="ex-4-c-5.html" class=active>4.C.5</a><a href="ex-4-c-6.html">4.C.6</a><a href="ex-4-c-7.html">4.C.7</a><a href="ex-4-c-8.html">4.C.8</a><a href="ex-4-c-9.html">4.C.9</a><a href="ex-4-c-10.html">4.C.10</a><a href="ex-4-c-11.html">4.C.11</a><a href="ex-4-c-12.html">4.C.12</a><a href="ex-4-c-13.html">4.C.13</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-C">Linear impulse and momentum</a> › Example 4.C.5</p>
+<h2><span class="num">Example 4.C.5</span>Average force on a bouncing basketball</h2>
+<div class="tags"><span>linear impulse</span><span>average force</span><span>vector momentum</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>A basketball of weight $W$ strikes the floor with a speed $v_1$. The impact lasts a time $\Delta t$. Immediately after the impact the ball has a speed $v_2$, and the angle between its line of travel before the impact and its line of travel after the impact is $\theta$, as shown in the figure. Treat the ball as a particle.</p>
+<p>The data are $W = 1.3$ lb, $v_1 = 20$ ft/s, $v_2 = 17$ ft/s, $\theta = 20°$ and $\Delta t = 0.01$ s.</p>
+<p><b>Find</b> the average force vector that the floor exerts on the ball during the impact, and compare its magnitude with the weight of the ball.</p>
+<p class="small">As in the figure, we take the two lines of travel to be symmetric about the vertical, so each makes the angle $\theta/2 = 10°$ with the vertical.</p>
+</div>
+<div class="demo" id="x4c-5">
+  <div class="demo-title"><span class="tag">Interactive</span><span>The bounce, with the impact shown in slow motion</span></div>
+  <div class="grid2"><canvas id="x4c-5-anim" class="anim" style="height:300px"></canvas><div><canvas id="x4c-5-plot" class="plot" style="height:200px"></canvas></div></div>
+  <div class="controls" id="x4c-5-ctl"></div>
+  <div class="bar" id="x4c-5-btn"></div>
+  <div class="stats" id="x4c-5-stats"></div>
+  <p class="small concept-note">The diagram on the right adds the impulse of the net force to the momentum before the impact to give the momentum after it. The plot compares the average normal force (solid) with a smooth force pulse that has the same impulse (dashed).</p>
+</div>
+<div class="demo v3d" data-clip="x4c-5"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Every solution follows the four-step method: free-body diagrams, kinetics equations, kinematics, solve. Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Draw the free-body diagram</summary>
+<p>During the impact three forces act on the ball. The floor pushes up with the normal force $F_y$ and along the floor with a friction force $F_x$, and the weight $W$ acts downward. We draw $F_x$ in the positive $x$ direction and let its sign come out of the solution. Take $x$ to the right along the floor and $y$ upward.</p>
+<div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 300 250" role="img" aria-label="Basketball during the impact" style="max-width:300px"><circle cx="150.0" cy="110.0" r="44.0" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><circle cx="136.0" cy="104.0" r="4" fill="#1c1d21"/><line x1="136.0" y1="104.0" x2="136.0" y2="127.0" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="136.0,138.0 130.5,127.0 141.5,127.0" fill="#c2410c"/><line x1="40.0" y1="154.0" x2="260.0" y2="154.0" stroke="#7b808c" stroke-width="1.2" stroke-dasharray="5 4"/><line x1="150.0" y1="216.0" x2="150.0" y2="165.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="150.0,154.0 155.5,165.0 144.5,165.0" fill="#17915a"/><line x1="150.0" y1="154.0" x2="203.0" y2="154.0" stroke="#b42346" stroke-width="2.6" stroke-linecap="round"/><polygon points="214.0,154.0 203.0,159.5 203.0,148.5" fill="#b42346"/><line x1="30.0" y1="236.0" x2="53.0" y2="236.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="64.0,236.0 53.0,241.5 53.0,230.5" fill="#7b808c"/><line x1="30.0" y1="236.0" x2="30.0" y2="213.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="30.0,202.0 35.5,213.0 24.5,213.0" fill="#7b808c"/><text x="120.0" y="128.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>W</tspan></text><text x="132.0" y="228.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>F</tspan><tspan dy="4.8" style="font-size:10.8px">y</tspan></text><text x="226.0" y="166.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#b42346"><tspan>F</tspan><tspan dy="4.8" style="font-size:10.8px">x</tspan></text><text x="74.0" y="236.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>x</tspan></text><text x="30.0" y="192.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>y</tspan></text></svg><figcaption>Basketball during the impact</figcaption></figure><figure><svg class="fbd" viewBox="0 0 300 250" role="img" aria-label="Impulse–momentum diagram" style="max-width:300px"><line x1="110.0" y1="128.0" x2="123.4" y2="203.8" stroke="#7b808c" stroke-width="2.6" stroke-linecap="round"/><polygon points="125.3,214.7 118.0,204.8 128.8,202.9" fill="#7b808c"/><line x1="110.0" y1="128.0" x2="121.1" y2="65.2" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="123.0,54.3 126.5,66.1 115.7,64.2" fill="#2457d6"/><line x1="125.3" y1="214.7" x2="123.1" y2="65.3" stroke="#b42346" stroke-width="2.6" stroke-linecap="round"/><polygon points="123.0,54.3 128.6,65.3 117.6,65.4" fill="#b42346"/><text x="94.0" y="175.5" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#7b808c"><tspan>m v</tspan><tspan dy="4.8" style="font-size:10.8px">1</tspan></text><text x="92.9" y="87.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>m v</tspan><tspan dy="4.8" style="font-size:10.8px">2</tspan></text><text x="174.1" y="133.8" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#b42346"><tspan>(F − W)Δt</tspan></text><text x="150.0" y="238.0" text-anchor="middle" dominant-baseline="middle" style="font-family:system-ui,sans-serif;font-size:12px;fill:#7b808c">m v₁ + (F − W)Δt = m v₂ (vectors)</text></svg><figcaption>Impulse–momentum diagram</figcaption></figure></div><p class="small fbdnote">Left: during the impact the floor pushes on the ball with a normal force $F_y$ and a friction force $F_x$ (drawn in the positive direction). The weight $W$ also acts. Right: the impulse of the net force joins the momentum before the impact to the momentum after it.</p>
+</details>
+<details class="step"><summary>Step 2 · Write the kinetics equation (impulse and momentum)</summary>
+<p>Linear impulse and momentum for the ball during the impact, written with average forces, is the vector equation</p>
+$$m\,\mathbf v_1 + \left(\mathbf F_{avg} - W\,\hat{\mathbf j}\right)\Delta t = m\,\mathbf v_2$$
+<p>so</p>
+$$\mathbf F_{avg} = \frac{m\left(\mathbf v_2 - \mathbf v_1\right)}{\Delta t} + W\,\hat{\mathbf j}$$
+</details>
+<details class="step"><summary>Step 3 · Write the kinematics</summary>
+<p>The ball comes down at $10°$ to the left of the vertical and leaves at $10°$ to the right of it:</p>
+$$\mathbf v_1 = 20\left(\sin 10°\,\hat{\mathbf i} - \cos 10°\,\hat{\mathbf j}\right) = 3.473\,\hat{\mathbf i} - 19.696\,\hat{\mathbf j}\ \text{ft/s}$$
+$$\mathbf v_2 = 17\left(\sin 10°\,\hat{\mathbf i} + \cos 10°\,\hat{\mathbf j}\right) = 2.952\,\hat{\mathbf i} + 16.742\,\hat{\mathbf j}\ \text{ft/s}$$
+</details>
+<details class="step"><summary>Step 4 · Solve</summary>
+<p>The mass is $m = 1.3/32.2 = 0.04037$ slug, and $\mathbf v_2 - \mathbf v_1 = -0.521\,\hat{\mathbf i} + 36.438\,\hat{\mathbf j}$ ft/s. Therefore</p>
+$$\mathbf F_{avg} = \frac{0.04037}{0.01}\left(-0.521\,\hat{\mathbf i} + 36.438\,\hat{\mathbf j}\right) + 1.3\,\hat{\mathbf j} = -2.10\,\hat{\mathbf i} + 148.4\,\hat{\mathbf j}\ \text{lb}$$
+$$\left|\mathbf F_{avg}\right| = 148.4\ \text{lb} \approx 114\,W$$
+<p class="small">The average force is more than one hundred times the weight. This is why the weight is usually neglected during an impact: here it changes the answer by less than 1 %. The small negative $F_x$ is friction, which slows the motion of the ball along the floor.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>$\mathbf F_{avg} = -2.10\,\hat{\mathbf i} + 148.4\,\hat{\mathbf j}$ lb, with magnitude 148.4 lb, about 114 times the weight of the ball.</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Make the impact time ten times longer. How does the average force change?</li><li>Set $v_2 = v_1$. Is the horizontal force zero now? What does that say about friction?</li><li>Increase $\theta$. Why does the average force get smaller even though the speeds stay the same?</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 4, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-4-c-4.html"><small>← Previous</small>Example 4.C.4</a><a class="next" href="ex-4-c-6.html"><small>Next →</small>Example 4.C.6</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/kit.js"></script>
+<script src="../assets/ch4-exC1.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch4-3dC1.js"></script>
+</body>
+</html>

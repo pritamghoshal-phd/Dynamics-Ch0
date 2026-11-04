@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Planar kinematics · Chapter 1 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 1</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="planar.html" class=active>A · Planar descriptions</a>
+    <a href="threed.html">B · 3D descriptions</a>
+    <a href="joint.html">C · Joint description</a>
+    <a href="relative.html">D · Relative & constrained</a>
+    <a href="examples.html">Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<section>
+<h2><span class="num">A</span>Planar kinematics: Cartesian, path and polar</h2>
+<p>A particle P moves in a plane. Its <b>position vector</b> $\mathbf r$ points from a fixed origin O to P. Its velocity and acceleration are the time derivatives of that vector:</p>
+$$\mathbf v = \frac{d\mathbf r}{dt}, \qquad \mathbf a = \frac{d\mathbf v}{dt}$$
+<p>The velocity is always <b>tangent to the path</b>. The acceleration generally is not: it points partly along the path (changing the speed) and partly toward the inside of the curve (changing the direction).</p>
+
+<h3>1. Cartesian description</h3>
+<p>Write $\mathbf r = x\,\hat{\mathbf i} + y\,\hat{\mathbf j}$. Because $\hat{\mathbf i}$ and $\hat{\mathbf j}$ are fixed in direction, differentiating only touches the components:</p>
+$$\mathbf v = \dot x\,\hat{\mathbf i} + \dot y\,\hat{\mathbf j}, \qquad \mathbf a = \ddot x\,\hat{\mathbf i} + \ddot y\,\hat{\mathbf j}$$
+<p>The two directions are completely independent: the $x$ motion knows nothing about the $y$ motion. Projectile motion is the classic case, with $\ddot x = 0$ and $\ddot y = -g$.</p>
+<div class="demo concept" id="c-cart">
+  <div class="demo-title"><span class="tag concept-tag">Concept</span><span>Cartesian components move independently</span></div>
+  <canvas id="c-cart-anim" class="anim" style="height:330px"></canvas>
+  <div class="bar" id="c-cart-pre"><span class="lbl">Motion:</span></div>
+  <div class="bar" id="c-cart-btn"></div>
+  <div class="stats" id="c-cart-stats"></div>
+  <p class="small concept-note">The dashed arrows are the components ẋ, ẏ (orange) and ẍ, ÿ (red). For the projectile, ẍ = 0 and ÿ = −g at every instant, so the red arrow never changes, even though the velocity keeps turning.</p>
+</div>
+
+<h3>2. Path description (tangential and normal)</h3>
+<p>Here the unit vectors ride along with the particle. $\hat{\mathbf e}_t$ is tangent to the path in the direction of motion, and $\hat{\mathbf e}_n$ is perpendicular to it, pointing toward the center of curvature (the inside of the bend). The velocity is simply</p>
+$$\mathbf v = v\,\hat{\mathbf e}_t$$
+<p>where $v$ is the speed. Differentiating, the speed can change and the direction $\hat{\mathbf e}_t$ can turn. A turning unit vector has derivative $\dot{\hat{\mathbf e}}_t = (v/\rho)\,\hat{\mathbf e}_n$, where $\rho$ is the <b>radius of curvature</b> of the path at that point. So</p>
+$$\mathbf a = \dot v\,\hat{\mathbf e}_t + \frac{v^2}{\rho}\,\hat{\mathbf e}_n$$
+<ul>
+<li><b>Tangential part</b> $a_t = \dot v$: changes the speed. Zero for constant speed.</li>
+<li><b>Normal part</b> $a_n = v^2/\rho$: changes the direction. Zero on a straight path ($\rho\to\infty$). It always points to the inside of the curve, never outward.</li>
+</ul>
+<div class="demo concept" id="c-path">
+  <div class="demo-title"><span class="tag concept-tag">Concept</span><span>A car on a winding road: v̇ and v²/ρ</span></div>
+  <canvas id="c-path-anim" class="anim" style="height:330px"></canvas>
+  <div class="bar" id="c-path-pre"><span class="lbl">Speed profile:</span></div>
+  <div class="bar" id="c-path-btn"></div>
+  <div class="stats" id="c-path-stats"></div>
+  <p class="small concept-note">The purple dotted circle is the circle that best fits the road at the car (the osculating circle); its radius is ρ. Where the road is straight for an instant (inflection points), ρ becomes infinite and the normal acceleration vanishes. At constant speed the acceleration is purely normal.</p>
+</div>
+
+<h3>3. Polar description</h3>
+<p>Locate P by its distance $r$ from O and the angle $\theta$ of the line OP. The unit vector $\hat{\mathbf e}_r$ points from O to P and $\hat{\mathbf e}_\theta$ is perpendicular to it, in the direction of increasing $\theta$. Both turn with the line OP at rate $\dot\theta$:</p>
+$$\dot{\hat{\mathbf e}}_r = \dot\theta\,\hat{\mathbf e}_\theta, \qquad \dot{\hat{\mathbf e}}_\theta = -\dot\theta\,\hat{\mathbf e}_r$$
+<p>Starting from $\mathbf r = r\,\hat{\mathbf e}_r$ and differentiating twice gives</p>
+$$\mathbf v = \dot r\,\hat{\mathbf e}_r + r\dot\theta\,\hat{\mathbf e}_\theta$$
+$$\mathbf a = \left(\ddot r - r\dot\theta^2\right)\hat{\mathbf e}_r + \left(r\ddot\theta + 2\dot r\dot\theta\right)\hat{\mathbf e}_\theta$$
+<p>Two terms deserve names. $-r\dot\theta^2$ is the <b>centripetal</b> term: anything that goes around O must be pulled toward O. $2\dot r\dot\theta$ is the <b>Coriolis</b> term: if P moves outward along a turning line, the line must also push it sideways, because points farther out move faster.</p>
+<div class="demo concept" id="c-polar">
+  <div class="demo-title"><span class="tag concept-tag">Concept</span><span>A bead sliding along a rotating rod</span></div>
+  <canvas id="c-polar-anim" class="anim" style="height:360px"></canvas>
+  <div class="controls" id="c-polar-ctl"></div>
+  <div class="bar" id="c-polar-pre"><span class="lbl">Try:</span></div>
+  <div class="bar" id="c-polar-btn"></div>
+  <div class="stats" id="c-polar-stats"></div>
+  <p class="small concept-note">With ṙ = 0 the bead goes in a circle and only the inward −rθ̇² term remains. With θ̇ = 0 the rod stands still and the bead just slides: no acceleration at all. With both, the sideways 2ṙθ̇ term appears: the rod has to push the bead to keep up.</p>
+</div>
+<div class="try"><h4>Try this</h4><ul><li>In the Cartesian demo, pick the ellipse. Where is the speed largest? Where is the acceleration largest? Are they at the same place?</li><li>On the road, choose "Braking". On a bend, the acceleration arrow leans backward. Which component makes it lean?</li><li>On the rod, make ṙ negative (bead sliding inward). Which way does the Coriolis arrow point now?</li></ul></div>
+<div class="wild"><span class="wi" aria-hidden="true">🎢</span><div><b class="wh">Kinematics in the wild</b><p>Roller-coaster loops are not circles: they are tighter at the top than at the bottom (a "clothoid" shape). Because the normal acceleration is v²/ρ, a smaller ρ at the top, where the car is slowest, keeps riders pressed into their seats without crushing them at the bottom, where the car is fastest.</p></div></div>
+</section>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="index.html"><small>← Previous</small>Overview</a><a class="next" href="threed.html"><small>Next →</small>B · 3D descriptions</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/labels.js"></script>
+<script src="../assets/ch1.js"></script>
+</body>
+</html>

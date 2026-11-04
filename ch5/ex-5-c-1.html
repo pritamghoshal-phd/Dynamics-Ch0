@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 5.C.1 · Chapter 5 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 5</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="newton-euler.html">A · Newton–Euler</a>
+    <a href="work-energy.html">B · Work–energy</a>
+    <a href="impulse-momentum.html">C · Impulse–momentum</a>
+    <a href="examples.html" class=active>Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Impulse and momentum examples"><a href="examples.html#group-C">All impulse–momentum examples</a><a href="ex-5-c-1.html" class=active>5.C.1</a><a href="ex-5-c-2.html">5.C.2</a><a href="ex-5-c-3.html">5.C.3</a><a href="ex-5-c-4.html">5.C.4</a><a href="ex-5-c-5.html">5.C.5</a><a href="ex-5-c-6.html">5.C.6</a><a href="ex-5-c-7.html">5.C.7</a><a href="ex-5-c-8.html">5.C.8</a><a href="ex-5-c-9.html">5.C.9</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-C">Impulse and momentum</a> › Example 5.C.1</p>
+<h2><span class="num">Example 5.C.1</span>Drum hoisted by two cable forces</h2>
+<div class="tags"><span>linear impulse</span><span>angular impulse</span><span>constant forces</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>A drum of mass $m$ and radius $r$ has a radius of gyration $k_O$ about its center O. A body of mass $M$ hangs from the axle of the drum at O. A cable passes over the top of the drum, and constant forces $F$ and $2F$ pull its left and right ends vertically upward. At time $t = 0$ the center O moves downward at 4 m/s and the drum turns counterclockwise at $\omega_1$.</p>
+<p>The data are $\omega_1 = 2$ rad/s, $r = 0.4$ m, $k_O = 0.4$ m, $m = 20$ kg, $M = 30$ kg and $F = 100$ N.</p>
+<p><b>Find</b> (a) the velocity of O and (b) the angular velocity of the drum after 10 s.</p>
+</div>
+<div class="demo" id="xi-1">
+  <div class="demo-title"><span class="tag">Interactive</span><span>The drum and the hanging body during the first 10 s</span></div>
+  <canvas id="xi-1-anim" class="anim" style="height:380px"></canvas><div class="grid2"><canvas id="xi-1-plot" class="plot" style="height:220px"></canvas><canvas id="xi-1-plot2" class="plot" style="height:220px"></canvas></div>
+  <div class="controls" id="xi-1-ctl"></div>
+  <div class="bar" id="xi-1-btn"></div>
+  <div class="stats" id="xi-1-stats"></div>
+  <p class="small concept-note">The view follows the center O, and the scale on the left marks every metre of height. All the forces are constant, so the velocity of O and the angular velocity change linearly with time.</p>
+</div>
+<div class="demo v3d" data-clip="xi-1"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Every solution follows the four-step method. Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Draw the free-body diagrams</summary>
+<p>For the translation we take the drum and the hanging body together. The external forces are the two cable forces $F$ and $2F$, both upward, and the total weight $(m + M)g$, downward. The pin force between the drum and the hanging body is internal.</p>
+<p>For the rotation we take the drum alone. The cable forces act at the left and right sides of the drum, a distance $r$ from O. The weight of the drum and the force from the hanging body both act at O, so they have no moment about O.</p>
+<div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 300 300" role="img" aria-label="Drum and hanging body together" style="max-width:300px"><polygon points="128.0,130.0 172.0,130.0 190.0,240.0 110.0,240.0" fill="#e4dfd2" stroke="#8a6a12" stroke-width="2" stroke-linejoin="round"/><circle cx="150.0" cy="120.0" r="50.0" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><circle cx="150.0" cy="120.0" r="4.5" fill="#fff" stroke="#1c1d21" stroke-width="2"/><line x1="100.0" y1="120.0" x2="100.0" y2="56.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="100.0,45.0 105.5,56.0 94.5,56.0" fill="#2457d6"/><line x1="200.0" y1="120.0" x2="200.0" y2="36.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="200.0,25.0 205.5,36.0 194.5,36.0" fill="#2457d6"/><circle cx="150.0" cy="192.0" r="4" fill="#1c1d21"/><line x1="150.0" y1="192.0" x2="150.0" y2="243.0" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="150.0,254.0 144.5,243.0 155.5,243.0" fill="#c2410c"/><line x1="30.0" y1="280.0" x2="53.0" y2="280.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="64.0,280.0 53.0,285.5 53.0,274.5" fill="#7b808c"/><line x1="30.0" y1="280.0" x2="30.0" y2="257.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="30.0,246.0 35.5,257.0 24.5,257.0" fill="#7b808c"/><text x="136.0" y="108.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>O</tspan></text><text x="100.0" y="33.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>F</tspan></text><text x="200.0" y="13.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>2F</tspan></text><text x="134.0" y="192.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>G</tspan></text><text x="150.0" y="268.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>(m + M)g</tspan></text><text x="74.0" y="280.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>x</tspan></text><text x="30.0" y="236.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>y</tspan></text></svg><figcaption>Drum and hanging body together</figcaption></figure><figure><svg class="fbd" viewBox="0 0 280 300" role="img" aria-label="Drum alone" style="max-width:280px"><circle cx="140.0" cy="135.0" r="50.0" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><line x1="90.0" y1="135.0" x2="90.0" y2="71.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="90.0,60.0 95.5,71.0 84.5,71.0" fill="#2457d6"/><line x1="190.0" y1="135.0" x2="190.0" y2="51.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="190.0,40.0 195.5,51.0 184.5,51.0" fill="#2457d6"/><line x1="147.0" y1="135.0" x2="147.0" y2="179.0" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="147.0,190.0 141.5,179.0 152.5,179.0" fill="#c2410c"/><line x1="133.0" y1="135.0" x2="133.0" y2="219.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="133.0,230.0 127.5,219.0 138.5,219.0" fill="#17915a"/><circle cx="140.0" cy="135.0" r="4.5" fill="#fff" stroke="#1c1d21" stroke-width="2"/><line x1="140.0" y1="133.0" x2="190.0" y2="133.0" stroke="#7b808c" stroke-width="1.2"/><line x1="140.0" y1="128.0" x2="140.0" y2="138.0" stroke="#7b808c" stroke-width="1.2"/><line x1="190.0" y1="128.0" x2="190.0" y2="138.0" stroke="#7b808c" stroke-width="1.2"/><text x="90.0" y="48.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>F</tspan></text><text x="190.0" y="28.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>2F</tspan></text><text x="163.0" y="196.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>mg</tspan></text><text x="119.0" y="236.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>P</tspan></text><text x="126.0" y="121.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>O</tspan></text><text x="165.0" y="115.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>r</tspan></text></svg><figcaption>Drum alone</figcaption></figure></div><p class="small fbdnote">Left: the pin force between the drum and the hanging body is internal, so only $F$, $2F$ and the total weight $(m + M)g$, acting at the mass center G of the system, act. Right: the force $P$ from the hanging body and the weight $mg$ act at O and have no moment about O. Counterclockwise is positive.</p>
+</details>
+<details class="step"><summary>Step 2 · Write the kinetics equations (impulse and momentum)</summary>
+<p>Take upward as positive for the velocity of O and counterclockwise as positive for the rotation. Because the forces are constant, each impulse is a force multiplied by the time interval $\Delta t = 10$ s. Linear impulse and momentum for the whole system gives</p>
+$$(m + M)\left(v_{O2} - v_{O1}\right) = \left[3F - (m + M)g\right]\Delta t$$
+<p>The force $F$ on the left side turns the drum clockwise and the force $2F$ on the right side turns it counterclockwise, so the net moment about O is $2Fr - Fr = Fr$. Angular impulse and momentum about the mass center O of the drum gives</p>
+$$m k_O^2\left(\omega_2 - \omega_1\right) = F r\,\Delta t$$
+</details>
+<details class="step"><summary>Step 3 · Write the kinematics equations</summary>
+<p>No kinematic constraint is needed. Both ends of the cable are pulled by known forces, so the rotation of the drum is not tied to the motion of O.</p>
+</details>
+<details class="step"><summary>Step 4 · Solve</summary>
+$$v_{O2} = -4 + \frac{3(100) - 50(9.81)}{50}\,(10) = -4 - 38.1 = -42.1\ \text{m/s}$$
+$$\omega_2 = 2 + \frac{(100)(0.4)(10)}{20(0.4)^2} = 2 + 125 = 127\ \text{rad/s}$$
+<p class="small">The upward pull $3F = 300$ N is smaller than the total weight of 490.5 N, so O keeps speeding up downward. The rotation depends only on the difference between the two cable forces.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>(a) $v_O = 42.1$ m/s downward. (b) $\omega = 127$ rad/s counterclockwise.</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Find the value of $F$ for which O moves at a constant velocity. Does the drum still speed up?</li><li>Set $\omega_1$ to a negative value. How long does it take for the drum to reverse its direction of rotation?</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 5, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-5-b-10.html"><small>← Previous</small>Example 5.B.10</a><a class="next" href="ex-5-c-2.html"><small>Next →</small>Example 5.C.2</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/ch5.js"></script>
+<script src="../assets/ch5-exC.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch5-3dC.js"></script>
+</body>
+</html>

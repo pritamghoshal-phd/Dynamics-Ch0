@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 4.C.7 · Chapter 4 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 4</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="newton.html">A · Newton's laws</a>
+    <a href="energy.html">B · Work–energy</a>
+    <a href="impulse.html">C · Linear impulse–momentum</a>
+    <a href="angular.html">D · Angular impulse–momentum</a>
+    <a href="examples.html" class=active>Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Linear impulse and momentum examples"><a href="examples.html#group-C">All Linear impulse and momentum examples</a><a href="ex-4-c-1.html">4.C.1</a><a href="ex-4-c-2.html">4.C.2</a><a href="ex-4-c-3.html">4.C.3</a><a href="ex-4-c-4.html">4.C.4</a><a href="ex-4-c-5.html">4.C.5</a><a href="ex-4-c-6.html">4.C.6</a><a href="ex-4-c-7.html" class=active>4.C.7</a><a href="ex-4-c-8.html">4.C.8</a><a href="ex-4-c-9.html">4.C.9</a><a href="ex-4-c-10.html">4.C.10</a><a href="ex-4-c-11.html">4.C.11</a><a href="ex-4-c-12.html">4.C.12</a><a href="ex-4-c-13.html">4.C.13</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-C">Linear impulse and momentum</a> › Example 4.C.7</p>
+<h2><span class="num">Example 4.C.7</span>Two cars collide at an intersection</h2>
+<div class="tags"><span>conservation of momentum</span><span>2D impact</span><span>plastic impact</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>Cars A and B, weighing $W_A$ and $W_B$, collide at an intersection. Car A travels north (the $+y$ direction) with speed $v_{A1}$, and car B travels west (the $-x$ direction) with speed $v_{B1}$. After a short collision the cars stick together.</p>
+<p>The data are $W_A = 3000$ lb, $W_B = 4000$ lb, $v_{A1} = 40$ mph and $v_{B1} = 25$ mph.</p>
+<p><b>Find</b> the $x$ and $y$ components of the velocity of the cars just after the collision.</p>
+</div>
+<div class="demo" id="x4c-7">
+  <div class="demo-title"><span class="tag">Interactive</span><span>The collision seen from above, with the momentum diagram</span></div>
+  <canvas id="x4c-7-anim" class="anim" style="height:340px"></canvas>
+  <div class="controls" id="x4c-7-ctl"></div>
+  <div class="bar" id="x4c-7-btn"></div>
+  <div class="stats" id="x4c-7-stats"></div>
+  <p class="small concept-note">The momentum diagram adds the momentum of A (north) to the momentum of B (west). The sum is the momentum of the wreck, so the wreck moves along that direction.</p>
+</div>
+<div class="demo v3d" data-clip="x4c-7"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Every solution follows the four-step method: free-body diagrams, kinetics equations, kinematics, solve. Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Draw the free-body diagram</summary>
+<p>Take cars A and B together as the system and look at it from above. During the crash the contact forces between the cars are very large, but they are equal and opposite, so they cancel for the system. Road friction is finite and acts only for a very short time, so its impulse is neglected. No horizontal impulse acts on the system from outside.</p>
+<div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 340 290" role="img" aria-label="A and B pulled apart to show the contact forces (top view)" style="max-width:340px"><rect x="-20.0" y="-50.0" width="40.0" height="100.0" rx="4" transform="translate(120.0,205.0) rotate(0.0)" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><rect x="-55.0" y="-20.0" width="110.0" height="40.0" rx="4" transform="translate(200.0,75.0) rotate(0.0)" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><line x1="120.0" y1="105.0" x2="120.0" y2="144.0" stroke="#b42346" stroke-width="2.6" stroke-linecap="round"/><polygon points="120.0,155.0 114.5,144.0 125.5,144.0" fill="#b42346"/><line x1="200.0" y1="145.0" x2="200.0" y2="106.0" stroke="#b42346" stroke-width="2.6" stroke-linecap="round"/><polygon points="200.0,95.0 205.5,106.0 194.5,106.0" fill="#b42346"/><line x1="70.0" y1="250.0" x2="70.0" y2="211.0" stroke="#7b808c" stroke-width="2.6" stroke-linecap="round"/><polygon points="70.0,200.0 75.5,211.0 64.5,211.0" fill="#7b808c"/><line x1="300.0" y1="130.0" x2="261.0" y2="130.0" stroke="#7b808c" stroke-width="2.6" stroke-linecap="round"/><polygon points="250.0,130.0 261.0,124.5 261.0,135.5" fill="#7b808c"/><line x1="270.0" y1="270.0" x2="293.0" y2="270.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="304.0,270.0 293.0,275.5 293.0,264.5" fill="#7b808c"/><line x1="270.0" y1="270.0" x2="270.0" y2="247.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="270.0,236.0 275.5,247.0 264.5,247.0" fill="#7b808c"/><text x="120.0" y="205.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:16px;font-style:italic;fill:#1c1d21"><tspan>A</tspan></text><text x="200.0" y="75.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:16px;font-style:italic;fill:#1c1d21"><tspan>B</tspan></text><text x="104.0" y="101.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#b42346"><tspan>P</tspan></text><text x="216.0" y="149.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#b42346"><tspan>P</tspan></text><text x="70.0" y="188.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#7b808c"><tspan>v</tspan><tspan dy="4.8" style="font-size:10.8px">A1</tspan></text><text x="228.0" y="130.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#7b808c"><tspan>v</tspan><tspan dy="4.8" style="font-size:10.8px">B1</tspan></text><text x="314.0" y="270.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>x</tspan></text><text x="270.0" y="226.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>y</tspan></text></svg><figcaption>A and B pulled apart to show the contact forces (top view)</figcaption></figure></div><p class="small fbdnote">Seen from above, the only large horizontal forces during the crash are the contact forces $P$ between the cars. They are equal and opposite, so they cancel for the system A + B. Road friction is finite and acts for a very short time, so its impulse is neglected.</p>
+</details>
+<details class="step"><summary>Step 2 · Write the kinetics equations (impulse and momentum)</summary>
+<p>Linear momentum is conserved in both horizontal directions. Because every term contains $1/g$, we may use weights in place of masses:</p>
+$$x:\quad W_A(0) + W_B\left(-v_{B1}\right) = \left(W_A + W_B\right)v_x$$
+$$y:\quad W_A\,v_{A1} + W_B(0) = \left(W_A + W_B\right)v_y$$
+</details>
+<details class="step"><summary>Step 3 · Write the kinematics</summary>
+<p>The cars stick together, so after the crash they share one velocity $v_x\,\hat{\mathbf i} + v_y\,\hat{\mathbf j}$.</p>
+</details>
+<details class="step"><summary>Step 4 · Solve</summary>
+$$v_x = -\frac{(4000)(25)}{7000} = -14.29\ \text{mph} = -20.95\ \text{ft/s}$$
+$$v_y = \frac{(3000)(40)}{7000} = 17.14\ \text{mph} = 25.14\ \text{ft/s}$$
+<p class="small">The wreck moves at 22.3 mph, at $50.2°$ north of west. About 52 % of the kinetic energy is lost in the crash.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>$v_x = -14.29$ mph $= -20.95$ ft/s and $v_y = 17.14$ mph $= 25.14$ ft/s.</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Make the two momenta equal. In which direction does the wreck move?</li><li>Accident investigators measure the direction of the skid marks after a crash. If they also know the weights, which speeds can they work out?</li><li>Change the speeds and watch the energy lost. When is the loss smallest?</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 4, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-4-c-6.html"><small>← Previous</small>Example 4.C.6</a><a class="next" href="ex-4-c-8.html"><small>Next →</small>Example 4.C.8</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/kit.js"></script>
+<script src="../assets/ch4-exC1.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch4-3dC1.js"></script>
+</body>
+</html>

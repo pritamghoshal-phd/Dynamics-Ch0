@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 2.C.1 · Chapter 2 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 2</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="rigid.html">A · Rigid body equations</a>
+    <a href="instant.html">B · Instant centers</a>
+    <a href="mechanisms.html">C · Mechanisms</a>
+    <a href="examples.html" class=active>Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Mechanisms examples"><a href="examples.html#group-C">All Mechanisms examples</a><a href="ex-2-c-1.html" class=active>2.C.1</a><a href="ex-2-c-2.html">2.C.2</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-C">Mechanisms</a> › Example 2.C.1</p>
+<h2><span class="num">Example 2.C.1</span>Rolling wheel driven by a rod and a slider</h2>
+<div class="tags"><span>mechanism</span><span>rolling without slipping</span><span>acceleration equation</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>A wheel of radius $r$ rolls without slipping on a horizontal surface. Point A on its rim is pinned to rod AB of length $L$, and end B of the rod is pinned to a slider. The slider moves to the left with a constant speed $v_B = 5$ ft/s, and pin B stays level with the contact point of the wheel. The angle $\theta$ locates A and is measured counterclockwise from the horizontal line through the center O, on the side of the slider.</p>
+<p>The data are $L = 2$ ft and $r = 0.5$ ft.</p>
+<p><b>Find</b>, when $\theta = 0$, (a) the angular velocity of the wheel and (b) the angular acceleration of the wheel.</p>
+</div>
+<div class="demo" id="x2c-1">
+  <div class="demo-title"><span class="tag">Interactive</span><span>The wheel follows the slider (slow motion)</span></div>
+  <canvas id="x2c-1-anim" class="anim" style="height:320px"></canvas><div class="grid2"><canvas id="x2c-1-plot" class="plot" style="height:210px"></canvas><canvas id="x2c-1-plot2" class="plot" style="height:210px"></canvas></div>
+  <div class="controls" id="x2c-1-ctl"></div>
+  <div class="bar" id="x2c-1-pre"><span class="lbl">View:</span></div>
+  <div class="bar" id="x2c-1-btn"></div>
+  <div class="stats" id="x2c-1-stats"></div>
+  <p class="small concept-note">The animation moves B to the left at exactly v<sub>B</sub> and solves the geometry of the mechanism at every step. The statistics and the plots come from differentiating that motion numerically, which is an independent check of the vector solution.</p>
+</div>
+<div class="demo v3d" data-clip="x2c-1"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Draw a kinematics diagram</summary>
+<p>Put the origin at the contact point C, with $\hat{\mathbf i}$ to the right, $\hat{\mathbf j}$ upward and $\hat{\mathbf k}$ out of the page. When $\theta = 0$, the center is at $O = (0, 0.5)$ ft and A is level with O at $(0.5, 0.5)$ ft. Pin B is on the line of the contact point and 2 ft from A, so it is at $\left(0.5 + \sqrt{2^2 - 0.5^2},\ 0\right) = (2.436, 0)$ ft. The relative positions are</p>
+$$\mathbf r_{A/O} = 0.5\,\hat{\mathbf i}, \qquad \mathbf r_{B/A} = 1.936\,\hat{\mathbf i} - 0.5\,\hat{\mathbf j}\ \text{ft}$$
+<p>The wheel rolls without slipping, so $\mathbf v_O = -r\omega\,\hat{\mathbf i}$ and $\mathbf a_O = -r\alpha\,\hat{\mathbf i}$, where $\omega$ and $\alpha$ are the counterclockwise angular velocity and acceleration of the wheel. The slider gives $\mathbf v_B = -5\,\hat{\mathbf i}$ ft/s and $\mathbf a_B = \mathbf 0$.</p>
+<div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 340 250" role="img" aria-label="Kinematics diagram of the wheel, rod and slider" style="max-width:340px"><line x1="10.0" y1="190.0" x2="140.0" y2="190.0" stroke="#8b8f98" stroke-width="2"/><line x1="140.0" y1="190.0" x2="140.0" y2="212.0" stroke="#8b8f98" stroke-width="2"/><line x1="140.0" y1="212.0" x2="330.0" y2="212.0" stroke="#8b8f98" stroke-width="2"/><circle cx="70.0" cy="150.0" r="40.0" fill="#e4dfd2" stroke="#8a6a12" stroke-width="2"/><rect x="-20.0" y="-20.0" width="40.0" height="40.0" rx="4" transform="translate(265.0,190.0) rotate(0.0)" fill="#dfe3ec" stroke="#8a6a12" stroke-width="2"/><line x1="70.0" y1="150.0" x2="110.0" y2="150.0" stroke="#8a6a12" stroke-width="3"/><line x1="110.0" y1="150.0" x2="265.0" y2="190.0" stroke="#8a6a12" stroke-width="11" stroke-linecap="round"/><line x1="110.0" y1="150.0" x2="265.0" y2="190.0" stroke="#f1e6c8" stroke-width="7" stroke-linecap="round"/><circle cx="70.0" cy="150.0" r="4.5" fill="#fff" stroke="#1c1d21" stroke-width="2"/><circle cx="110.0" cy="150.0" r="4.5" fill="#fff" stroke="#1c1d21" stroke-width="2"/><circle cx="265.0" cy="190.0" r="4.5" fill="#fff" stroke="#1c1d21" stroke-width="2"/><circle cx="70.0" cy="190.0" r="3" fill="#1c1d21"/><line x1="275.0" y1="154.0" x2="236.0" y2="154.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="225.0,154.0 236.0,148.5 236.0,159.5" fill="#2457d6"/><line x1="70.0" y1="98.0" x2="41.0" y2="98.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="30.0,98.0 41.0,92.5 41.0,103.5" fill="#2457d6"/><path d="M53.5,121.4 L52.1,122.2 L50.8,123.1 L49.6,124.1 L48.4,125.1 L47.2,126.2 L46.1,127.3 L45.0,128.5 L44.0,129.7 L43.1,131.0 L42.2,132.3 L41.3,133.6 L40.6,135.0 L39.9,136.4 L39.3,137.9 L38.8,139.4 L38.3,140.9 L37.9,142.4 L37.6,144.0 L37.3,145.5 L37.1,147.1 L37.0,148.7 L37.0,150.3 L37.1,151.9 L37.2,153.4 L37.4,155.0 L37.7,156.6 L38.0,158.1 L38.4,159.6 L38.9,161.2 L39.5,162.6 L40.2,164.1 L40.9,165.5 L41.6,166.9 L42.5,168.2 L43.4,169.5 L44.4,170.8 L45.4,172.0 L46.5,173.1 L47.6,174.2 L48.8,175.3" fill="none" stroke="#8a3fd1" stroke-width="2.2"/><polygon points="51.7,178.0 41.0,174.9 47.8,167.5" fill="#8a3fd1"/><path d="M166.0,138.4 L167.0,137.7 L168.0,137.0 L168.8,136.1 L169.6,135.2 L170.3,134.2 L170.8,133.2 L171.3,132.1 L171.6,130.9 L171.9,129.7 L172.0,128.5 L172.0,127.3 L171.9,126.1 L171.6,124.9 L171.2,123.8 L170.8,122.7 L170.2,121.6 L169.5,120.7 L168.7,119.7 L167.8,118.9 L166.9,118.2 L165.9,117.5 L164.8,117.0 L163.7,116.6 L162.5,116.3 L161.3,116.1 L160.1,116.0 L158.9,116.1 L157.7,116.2 L156.5,116.5 L155.4,116.9 L154.3,117.4 L153.3,118.1 L152.3,118.8 L151.4,119.6 L150.6,120.5 L149.9,121.5 L149.3,122.5 L148.8,123.6 L148.5,124.7 L148.2,125.9" fill="none" stroke="#8a3fd1" stroke-width="2.2"/><polygon points="147.1,129.8 145.0,118.8 154.6,121.5" fill="#8a3fd1"/><line x1="284.0" y1="60.0" x2="307.0" y2="60.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="318.0,60.0 307.0,65.5 307.0,54.5" fill="#7b808c"/><line x1="284.0" y1="60.0" x2="284.0" y2="37.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="284.0,26.0 289.5,37.0 278.5,37.0" fill="#7b808c"/><text x="68.0" y="133.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>O</tspan></text><text x="114.0" y="134.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>A</tspan></text><text x="291.0" y="172.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>B</tspan></text><text x="56.0" y="202.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>C</tspan></text><text x="209.0" y="154.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>v</tspan><tspan dy="4.8" style="font-size:10.8px">B</tspan></text><text x="14.0" y="86.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>v</tspan><tspan dy="4.8" style="font-size:10.8px">O</tspan></text><text x="24.2" y="146.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#8a3fd1"><tspan>ω</tspan></text><text x="174.3" y="107.5" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#8a3fd1"><tspan>ω</tspan><tspan dy="4.8" style="font-size:10.8px">AB</tspan></text><text x="328.0" y="60.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>x</tspan></text><text x="284.0" y="16.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>y</tspan></text></svg><figcaption>Kinematics diagram of the wheel, rod and slider</figcaption></figure></div><p class="small fbdnote">The contact point C is the instant center of the wheel. The rotations $\omega$ and $\omega_{AB}$ are drawn counterclockwise (positive), and $\mathbf v_O = -r\omega\,\hat{\mathbf i}$ follows from rolling without slipping. The slider moves at constant velocity, so $\mathbf a_B = \mathbf 0$.</p>
+</details>
+<details class="step"><summary>Step 2 · Find the velocity of A</summary>
+$$\mathbf v_A = \mathbf v_O + \omega\,\hat{\mathbf k}\times\mathbf r_{A/O} = -0.5\,\omega\,\hat{\mathbf i} + 0.5\,\omega\,\hat{\mathbf j}$$
+</details>
+<details class="step"><summary>Step 3 · Find the angular velocities</summary>
+<p>Write the velocity of B from rod AB.</p>
+$$-5\,\hat{\mathbf i} = \mathbf v_A + \omega_{AB}\,\hat{\mathbf k}\times(1.936\,\hat{\mathbf i} - 0.5\,\hat{\mathbf j}) = (-0.5\,\omega + 0.5\,\omega_{AB})\,\hat{\mathbf i} + (0.5\,\omega + 1.936\,\omega_{AB})\,\hat{\mathbf j}$$
+<p>The $\hat{\mathbf j}$ components give $\omega_{AB} = -0.2582\,\omega$. Substituting into the $\hat{\mathbf i}$ components gives $-5 = -0.5\,\omega - 0.1291\,\omega$, so</p>
+$$\omega = 7.95\ \text{rad/s}, \qquad \omega_{AB} = -2.05\ \text{rad/s}$$
+<p class="small">The wheel turns counterclockwise, which means it rolls to the left and follows the slider.</p>
+</details>
+<details class="step"><summary>Step 4 · Find the acceleration of A</summary>
+$$\mathbf a_A = \mathbf a_O + \alpha\,\hat{\mathbf k}\times\mathbf r_{A/O} - \omega^2\,\mathbf r_{A/O} = -0.5\,\alpha\,\hat{\mathbf i} + 0.5\,\alpha\,\hat{\mathbf j} - (7.95)^2(0.5)\,\hat{\mathbf i}$$
+$$\mathbf a_A = (-0.5\,\alpha - 31.58)\,\hat{\mathbf i} + 0.5\,\alpha\,\hat{\mathbf j}$$
+</details>
+<details class="step"><summary>Step 5 · Find the angular accelerations</summary>
+<p>Write the acceleration of B from rod AB, with $\mathbf a_B = \mathbf 0$ and $\omega_{AB}^2 = 4.211$ rad²/s².</p>
+$$\mathbf 0 = \mathbf a_A + \alpha_{AB}\,\hat{\mathbf k}\times(1.936\,\hat{\mathbf i} - 0.5\,\hat{\mathbf j}) - 4.211\,(1.936\,\hat{\mathbf i} - 0.5\,\hat{\mathbf j})$$
+<p>The two components give</p>
+$$0 = -0.5\,\alpha - 31.58 + 0.5\,\alpha_{AB} - 8.15, \qquad 0 = 0.5\,\alpha + 1.936\,\alpha_{AB} + 2.11$$
+<p>Solving these two equations together gives $\alpha = -64.0$ rad/s² and $\alpha_{AB} = 15.4$ rad/s².</p>
+<p class="small">The wheel turns counterclockwise but is slowing down, so its angular acceleration is clockwise. The plots in the animation show $\omega$ falling as A rises above the level of O.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>(a) $\boldsymbol\omega = 7.95\,\hat{\mathbf k}$ rad/s (counterclockwise). (b) $\boldsymbol\alpha = -64.0\,\hat{\mathbf k}$ rad/s² (clockwise).</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Freeze the animation at $\theta = 0$ and compare the statistics with the answers.</li><li>Locate the instant center of rod AB at $\theta = 0$ and use it to check $\omega_{AB} = -2.05$ rad/s.</li><li>Double $v_B$. By what factors do $\omega$ and $\alpha$ change? Explain why.</li><li>The animation starts at $x_B = 2.62$ ft. Slightly farther to the right, at $x_B \approx 2.79$ ft, the mechanism reaches a dead point where $x_B$ stops increasing as the wheel rolls. Why would the wheel need an unbounded angular velocity there?</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 2, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-2-b-8.html"><small>← Previous</small>Example 2.B.8</a><a class="next" href="ex-2-c-2.html"><small>Next →</small>Example 2.C.2</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/kit.js"></script>
+<script src="../assets/ch2-exC.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch2-3dC.js"></script>
+</body>
+</html>

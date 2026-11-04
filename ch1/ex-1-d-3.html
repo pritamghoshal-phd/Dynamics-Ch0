@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 1.D.3 · Chapter 1 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 1</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="planar.html">A · Planar descriptions</a>
+    <a href="threed.html">B · 3D descriptions</a>
+    <a href="joint.html">C · Joint description</a>
+    <a href="relative.html">D · Relative & constrained</a>
+    <a href="examples.html" class=active>Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Relative and constrained motion examples"><a href="examples.html#group-D">All Relative and constrained motion examples</a><a href="ex-1-d-1.html">1.D.1</a><a href="ex-1-d-2.html">1.D.2</a><a href="ex-1-d-3.html" class=active>1.D.3</a><a href="ex-1-d-4.html">1.D.4</a><a href="ex-1-d-5.html">1.D.5</a><a href="ex-1-d-6.html">1.D.6</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-D">Relative and constrained motion</a> › Example 1.D.3</p>
+<h2><span class="num">Example 1.D.3</span>Block pulled by a cable wound between two blocks</h2>
+<div class="tags"><span>constrained motion</span><span>cables and pulleys</span><span>differentiation</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>Block B has a constant acceleration of $a_B = 3$ m/s² to the right. At the instant shown, B has a velocity of 2 m/s to the right. A single inextensible cable is attached to B, wraps around a pulley on A, a pulley on B and a second pulley on A, and ends at a post fixed to the floor between the blocks. The cable segments are horizontal.</p>
+<p><b>Find</b> (a) the velocity of block A and (b) the acceleration of block A.</p>
+</div>
+<div class="demo" id="x1d-3">
+  <div class="demo-title"><span class="tag">Interactive</span><span>B pulls the cable and A follows at three quarters of its speed</span></div>
+  <canvas id="x1d-3-anim" class="anim" style="height:250px"></canvas><canvas id="x1d-3-plot" class="plot" style="height:220px"></canvas><div class="legendrow"><span><span class="sw" style="background:var(--c3)"></span>v<sub>B</sub></span><span><span class="sw" style="background:var(--c1)"></span>v<sub>A</sub></span></div>
+  <div class="controls" id="x1d-3-ctl"></div>
+  <div class="bar" id="x1d-3-btn"></div>
+  <div class="stats" id="x1d-3-stats"></div>
+  <p class="small concept-note">The orange marks show how each pulley turns. The numbers label the four horizontal segments of the cable. The animation stops before the pulleys on A reach the post.</p>
+</div>
+<div class="demo v3d" data-clip="x1d-3"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Choose coordinates from a fixed line</summary>
+<p>Measure the positions $x_A$ and $x_B$ of the two blocks to the right from the same fixed line. Every length we write must be a difference between positions measured from fixed points, so that the constant parts drop out when we differentiate.</p>
+</details>
+<details class="step"><summary>Step 2 · Draw the cable diagram</summary>
+<div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 420 205" role="img" aria-label="Coordinates and cable segments" style="max-width:420px"><line x1="20.0" y1="40.0" x2="20.0" y2="172.0" stroke="#1c1d21" stroke-width="1.8"/><line x1="20.0" y1="44.0" x2="14.0" y2="49.0" stroke="#8b8f98" stroke-width="1"/><line x1="20.0" y1="53.0" x2="14.0" y2="58.0" stroke="#8b8f98" stroke-width="1"/><line x1="20.0" y1="62.0" x2="14.0" y2="67.0" stroke="#8b8f98" stroke-width="1"/><line x1="20.0" y1="71.0" x2="14.0" y2="76.0" stroke="#8b8f98" stroke-width="1"/><line x1="20.0" y1="80.0" x2="14.0" y2="85.0" stroke="#8b8f98" stroke-width="1"/><line x1="20.0" y1="89.0" x2="14.0" y2="94.0" stroke="#8b8f98" stroke-width="1"/><line x1="20.0" y1="98.0" x2="14.0" y2="103.0" stroke="#8b8f98" stroke-width="1"/><line x1="20.0" y1="107.0" x2="14.0" y2="112.0" stroke="#8b8f98" stroke-width="1"/><line x1="20.0" y1="116.0" x2="14.0" y2="121.0" stroke="#8b8f98" stroke-width="1"/><line x1="20.0" y1="125.0" x2="14.0" y2="130.0" stroke="#8b8f98" stroke-width="1"/><line x1="20.0" y1="134.0" x2="14.0" y2="139.0" stroke="#8b8f98" stroke-width="1"/><line x1="20.0" y1="143.0" x2="14.0" y2="148.0" stroke="#8b8f98" stroke-width="1"/><line x1="20.0" y1="152.0" x2="14.0" y2="157.0" stroke="#8b8f98" stroke-width="1"/><line x1="20.0" y1="161.0" x2="14.0" y2="166.0" stroke="#8b8f98" stroke-width="1"/><line x1="20.0" y1="170.0" x2="14.0" y2="175.0" stroke="#8b8f98" stroke-width="1"/><line x1="20.0" y1="172.0" x2="410.0" y2="172.0" stroke="#1c1d21" stroke-width="1.8"/><line x1="24.0" y1="172.0" x2="19.0" y2="178.0" stroke="#8b8f98" stroke-width="1"/><line x1="33.0" y1="172.0" x2="28.0" y2="178.0" stroke="#8b8f98" stroke-width="1"/><line x1="42.0" y1="172.0" x2="37.0" y2="178.0" stroke="#8b8f98" stroke-width="1"/><line x1="51.0" y1="172.0" x2="46.0" y2="178.0" stroke="#8b8f98" stroke-width="1"/><line x1="60.0" y1="172.0" x2="55.0" y2="178.0" stroke="#8b8f98" stroke-width="1"/><line x1="69.0" y1="172.0" x2="64.0" y2="178.0" stroke="#8b8f98" stroke-width="1"/><line x1="78.0" y1="172.0" x2="73.0" y2="178.0" stroke="#8b8f98" stroke-width="1"/><line x1="87.0" y1="172.0" x2="82.0" y2="178.0" stroke="#8b8f98" stroke-width="1"/><line x1="96.0" y1="172.0" x2="91.0" y2="178.0" stroke="#8b8f98" stroke-width="1"/><line x1="105.0" y1="172.0" x2="100.0" y2="178.0" stroke="#8b8f98" stroke-width="1"/><line x1="114.0" y1="172.0" x2="109.0" y2="178.0" stroke="#8b8f98" stroke-width="1"/><line x1="123.0" y1="172.0" x2="118.0" y2="178.0" stroke="#8b8f98" stroke-width="1"/><line x1="132.0" y1="172.0" x2="127.0" y2="178.0" stroke="#8b8f98" stroke-width="1"/><line x1="141.0" y1="172.0" x2="136.0" y2="178.0" stroke="#8b8f98" stroke-width="1"/><line x1="150.0" y1="172.0" x2="145.0" y2="178.0" stroke="#8b8f98" stroke-width="1"/><line x1="159.0" y1="172.0" x2="154.0" y2="178.0" stroke="#8b8f98" stroke-width="1"/><line x1="168.0" y1="172.0" x2="163.0" y2="178.0" stroke="#8b8f98" stroke-width="1"/><line x1="177.0" y1="172.0" x2="172.0" y2="178.0" stroke="#8b8f98" stroke-width="1"/><line x1="186.0" y1="172.0" x2="181.0" y2="178.0" stroke="#8b8f98" stroke-width="1"/><line x1="195.0" y1="172.0" x2="190.0" y2="178.0" stroke="#8b8f98" stroke-width="1"/><line x1="204.0" y1="172.0" x2="199.0" y2="178.0" stroke="#8b8f98" stroke-width="1"/><line x1="213.0" y1="172.0" x2="208.0" y2="178.0" stroke="#8b8f98" stroke-width="1"/><line x1="222.0" y1="172.0" x2="217.0" y2="178.0" stroke="#8b8f98" stroke-width="1"/><line x1="231.0" y1="172.0" x2="226.0" y2="178.0" stroke="#8b8f98" stroke-width="1"/><line x1="240.0" y1="172.0" x2="235.0" y2="178.0" stroke="#8b8f98" stroke-width="1"/><line x1="249.0" y1="172.0" x2="244.0" y2="178.0" stroke="#8b8f98" stroke-width="1"/><line x1="258.0" y1="172.0" x2="253.0" y2="178.0" stroke="#8b8f98" stroke-width="1"/><line x1="267.0" y1="172.0" x2="262.0" y2="178.0" stroke="#8b8f98" stroke-width="1"/><line x1="276.0" y1="172.0" x2="271.0" y2="178.0" stroke="#8b8f98" stroke-width="1"/><line x1="285.0" y1="172.0" x2="280.0" y2="178.0" stroke="#8b8f98" stroke-width="1"/><line x1="294.0" y1="172.0" x2="289.0" y2="178.0" stroke="#8b8f98" stroke-width="1"/><line x1="303.0" y1="172.0" x2="298.0" y2="178.0" stroke="#8b8f98" stroke-width="1"/><line x1="312.0" y1="172.0" x2="307.0" y2="178.0" stroke="#8b8f98" stroke-width="1"/><line x1="321.0" y1="172.0" x2="316.0" y2="178.0" stroke="#8b8f98" stroke-width="1"/><line x1="330.0" y1="172.0" x2="325.0" y2="178.0" stroke="#8b8f98" stroke-width="1"/><line x1="339.0" y1="172.0" x2="334.0" y2="178.0" stroke="#8b8f98" stroke-width="1"/><line x1="348.0" y1="172.0" x2="343.0" y2="178.0" stroke="#8b8f98" stroke-width="1"/><line x1="357.0" y1="172.0" x2="352.0" y2="178.0" stroke="#8b8f98" stroke-width="1"/><line x1="366.0" y1="172.0" x2="361.0" y2="178.0" stroke="#8b8f98" stroke-width="1"/><line x1="375.0" y1="172.0" x2="370.0" y2="178.0" stroke="#8b8f98" stroke-width="1"/><line x1="384.0" y1="172.0" x2="379.0" y2="178.0" stroke="#8b8f98" stroke-width="1"/><line x1="393.0" y1="172.0" x2="388.0" y2="178.0" stroke="#8b8f98" stroke-width="1"/><line x1="402.0" y1="172.0" x2="397.0" y2="178.0" stroke="#8b8f98" stroke-width="1"/><rect x="-35.0" y="-45.0" width="70.0" height="90.0" rx="4" transform="translate(75.0,127.0) rotate(0.0)" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><rect x="-30.0" y="-45.0" width="60.0" height="90.0" rx="4" transform="translate(360.0,127.0) rotate(0.0)" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><line x1="110.0" y1="100.0" x2="132.0" y2="100.0" stroke="#2b2f38" stroke-width="2"/><line x1="110.0" y1="136.0" x2="132.0" y2="136.0" stroke="#2b2f38" stroke-width="2"/><line x1="300.0" y1="118.0" x2="330.0" y2="118.0" stroke="#2b2f38" stroke-width="2"/><rect x="-4.0" y="-12.0" width="8.0" height="24.0" rx="1" transform="translate(242.0,160.0) rotate(0.0)" fill="#e4dfd2" stroke="#8a6a12" stroke-width="2"/><path d="M330,91 L132,91 A9,9 0 0 0 132,109 L300,109 A9,9 0 0 1 300,127 L132,127 A9,9 0 0 0 132,145 L242,145" fill="none" stroke="#1c1d21" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="132.0" cy="100.0" r="9.0" fill="#fff" stroke="#2b2f38" stroke-width="1.8"/><circle cx="132.0" cy="100.0" r="2.2" fill="#2b2f38"/><circle cx="132.0" cy="136.0" r="9.0" fill="#fff" stroke="#2b2f38" stroke-width="1.8"/><circle cx="132.0" cy="136.0" r="2.2" fill="#2b2f38"/><circle cx="300.0" cy="118.0" r="9.0" fill="#fff" stroke="#2b2f38" stroke-width="1.8"/><circle cx="300.0" cy="118.0" r="2.2" fill="#2b2f38"/><line x1="20.0" y1="32.0" x2="121.0" y2="32.0" stroke="#7b808c" stroke-width="2.6" stroke-linecap="round"/><polygon points="132.0,32.0 121.0,37.5 121.0,26.5" fill="#7b808c"/><line x1="20.0" y1="16.0" x2="289.0" y2="16.0" stroke="#7b808c" stroke-width="2.6" stroke-linecap="round"/><polygon points="300.0,16.0 289.0,21.5 289.0,10.5" fill="#7b808c"/><text x="75.0" y="127.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:16px;font-style:italic;fill:#1c1d21"><tspan>A</tspan></text><text x="360.0" y="127.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:16px;font-style:italic;fill:#1c1d21"><tspan>B</tspan></text><text x="220.0" y="84.0" text-anchor="middle" dominant-baseline="middle" style="font-family:system-ui,sans-serif;font-size:11px;fill:#7b808c">1</text><text x="220.0" y="102.0" text-anchor="middle" dominant-baseline="middle" style="font-family:system-ui,sans-serif;font-size:11px;fill:#7b808c">2</text><text x="220.0" y="120.0" text-anchor="middle" dominant-baseline="middle" style="font-family:system-ui,sans-serif;font-size:11px;fill:#7b808c">3</text><text x="190.0" y="138.0" text-anchor="middle" dominant-baseline="middle" style="font-family:system-ui,sans-serif;font-size:11px;fill:#7b808c">4</text><text x="144.0" y="32.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#7b808c"><tspan>x</tspan><tspan dy="4.8" style="font-size:10.8px">A</tspan></text><text x="312.0" y="16.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#7b808c"><tspan>x</tspan><tspan dy="4.8" style="font-size:10.8px">B</tspan></text><text x="246.0" y="188.0" text-anchor="middle" dominant-baseline="middle" style="font-family:system-ui,sans-serif;font-size:11px;fill:#7b808c">post</text></svg><figcaption>Coordinates and cable segments</figcaption></figure></div><p class="small fbdnote">Measure $x_A$ and $x_B$ from the same fixed line to the pulleys on A and B. Segments 1, 2 and 3 each have length $x_B - x_A$ plus a constant, and segment 4 has length $x_{\text{post}} - x_A$ plus a constant.</p>
+</details>
+<details class="step"><summary>Step 3 · Write the length of the cable</summary>
+<p>Segments 1, 2 and 3 run between a point on B and a pulley on A, so each has length $x_B - x_A$ plus a constant. Segment 4 runs from a pulley on A to the fixed post, so its length is $x_{\text{post}} - x_A$ plus a constant. The parts wrapped around the pulleys have constant lengths. Therefore</p>
+$$L = 3\left(x_B - x_A\right) + \left(x_{\text{post}} - x_A\right) + \text{constant} = 3x_B - 4x_A + \text{constant}$$
+</details>
+<details class="step"><summary>Step 4 · Differentiate</summary>
+<p>The cable is inextensible, so $\dot L = 0$ and $\ddot L = 0$.</p>
+$$0 = 3\dot x_B - 4\dot x_A \quad\Longrightarrow\quad \dot x_A = \tfrac34\,\dot x_B, \qquad \ddot x_A = \tfrac34\,\ddot x_B$$
+</details>
+<details class="step"><summary>Step 5 · Solve</summary>
+$$v_A = \tfrac34(2) = 1.5\ \text{m/s}, \qquad a_A = \tfrac34(3) = 2.25\ \text{m/s}^2$$
+<p>Both results are positive, so A moves and accelerates to the right, in the same direction as B. As a check, the cable speed in segment 4 is $4v_A - 3v_B = 0$, as it must be for a segment that ends at a fixed post.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>(a) $\mathbf v_A = 1.5$ m/s to the right. (b) $\mathbf a_A = 2.25$ m/s² to the right.</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Watch the orange marks. Which pulley turns fastest, and why does the pulley on B turn the opposite way from the pulleys on A?</li><li>If segment 4 were attached to block B instead of the post, what would the relation between $v_A$ and $v_B$ become?</li><li>Set $a_B = 0$. Does the ratio $v_A/v_B$ change?</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 1, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-1-d-2.html"><small>← Previous</small>Example 1.D.2</a><a class="next" href="ex-1-d-4.html"><small>Next →</small>Example 1.D.4</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/kit.js"></script>
+<script src="../assets/ch1-exD.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch1-3dD.js"></script>
+</body>
+</html>
