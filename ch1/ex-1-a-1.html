@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 1.A.1 · Chapter 1 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 1</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="planar.html">A · Planar descriptions</a>
+    <a href="threed.html">B · 3D descriptions</a>
+    <a href="joint.html">C · Joint description</a>
+    <a href="relative.html">D · Relative & constrained</a>
+    <a href="examples.html" class=active>Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Planar descriptions examples"><a href="examples.html#group-A">All Planar descriptions examples</a><a href="ex-1-a-1.html" class=active>1.A.1</a><a href="ex-1-a-2.html">1.A.2</a><a href="ex-1-a-3.html">1.A.3</a><a href="ex-1-a-4.html">1.A.4</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-A">Planar descriptions</a> › Example 1.A.1</p>
+<h2><span class="num">Example 1.A.1</span>Pin in a fixed ring and a moving slot</h2>
+<div class="tags"><span>Cartesian</span><span>constraint</span><span>chain rule</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>Pin P is constrained to move along a fixed elliptical ring whose shape is given by $x^2/a^2 + y^2/b^2 = 1$, where $x$ and $y$ are in millimetres. The pin is also constrained to move within a horizontal slot that moves upward at a constant speed $v$. The pin is on the left half of the ring, as in the figure.</p>
+<p>The data are $a = 5$ mm, $b = 10$ mm and $v = 30$ mm/s.</p>
+<p><b>Find</b> (a) the velocity and (b) the acceleration of pin P at the position where $y = 6$ mm.</p>
+</div>
+<div class="demo" id="x1a-1">
+  <div class="demo-title"><span class="tag">Interactive</span><span>The ring, the slot and the pin</span></div>
+  <canvas id="x1a-1-anim" class="anim" style="height:400px"></canvas>
+  <div class="controls" id="x1a-1-ctl"></div>
+  <div class="bar" id="x1a-1-pre"><span class="lbl">Try:</span></div>
+  <div class="bar" id="x1a-1-btn"></div>
+  <div class="stats" id="x1a-1-stats"></div>
+  <p class="small concept-note">The animation runs in slow motion. Click "Stop at y = 6 mm" to freeze the instant in the problem. Near the top and the bottom of the ring the pin has to move sideways very quickly to stay on the ring.</p>
+</div>
+<div class="demo v3d" data-clip="x1a-1"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Choose a description and draw the kinematics diagram</summary>
+<p>The slot sets the vertical position of the pin, and the ring relates $x$ to $y$. Both constraints are written most simply in Cartesian coordinates, so we use them. The slot moves upward at constant speed, so $\dot y = v = 30$ mm/s and $\ddot y = 0$.</p>
+<div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 330 290" role="img" aria-label="The pin at y = 6 mm" style="max-width:330px"><polyline points="230.0,145.0 229.7,133.5 228.8,122.1 227.3,111.0 225.2,100.3 222.6,90.0 219.5,80.3 215.9,71.4 211.8,63.3 207.3,56.0 202.5,49.7 197.4,44.5 192.0,40.4 186.4,37.4 180.7,35.6 175.0,35.0 169.3,35.6 163.6,37.4 158.0,40.4 152.6,44.5 147.5,49.7 142.7,56.0 138.2,63.3 134.1,71.4 130.5,80.3 127.4,90.0 124.8,100.3 122.7,111.0 121.2,122.1 120.3,133.5 120.0,145.0 120.3,156.5 121.2,167.9 122.7,179.0 124.8,189.7 127.4,200.0 130.5,209.7 134.1,218.6 138.2,226.7 142.7,234.0 147.5,240.3 152.6,245.5 158.0,249.6 163.6,252.6 169.3,254.4 175.0,255.0 180.7,254.4 186.4,252.6 192.0,249.6 197.4,245.5 202.5,240.3 207.3,234.0 211.8,226.7 215.9,218.6 219.5,209.7 222.6,200.0 225.2,189.7 227.3,179.0 228.8,167.9 229.7,156.5 230.0,145.0" fill="none" stroke="#1c1d21" stroke-width="3"/><line x1="85.0" y1="145.0" x2="270.0" y2="145.0" stroke="#7b808c" stroke-width="1.4" stroke-dasharray="5 4"/><line x1="175.0" y1="270.0" x2="175.0" y2="17.0" stroke="#7b808c" stroke-width="1.4" stroke-dasharray="5 4"/><line x1="65.0" y1="79.0" x2="245.0" y2="79.0" stroke="#7b808c" stroke-width="1.2" stroke-dasharray="5 4"/><circle cx="131.0" cy="79.0" r="4" fill="#1c1d21"/><line x1="131.0" y1="79.0" x2="148.9" y2="31.2" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="152.8,20.9 154.1,33.2 143.8,29.3" fill="#2457d6"/><line x1="81.0" y1="105.0" x2="81.0" y2="76.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="81.0,65.0 86.5,76.0 75.5,76.0" fill="#17915a"/><line x1="131.0" y1="79.0" x2="190.0" y2="79.0" stroke="#b42346" stroke-width="2.6" stroke-linecap="round"/><polygon points="201.0,79.0 190.0,84.5 190.0,73.5" fill="#b42346"/><line x1="131.0" y1="167.0" x2="175.0" y2="167.0" stroke="#7b808c" stroke-width="1.2"/><line x1="131.0" y1="162.0" x2="131.0" y2="172.0" stroke="#7b808c" stroke-width="1.2"/><line x1="175.0" y1="162.0" x2="175.0" y2="172.0" stroke="#7b808c" stroke-width="1.2"/><line x1="247.0" y1="145.0" x2="247.0" y2="79.0" stroke="#7b808c" stroke-width="1.2"/><line x1="242.0" y1="145.0" x2="252.0" y2="145.0" stroke="#7b808c" stroke-width="1.2"/><line x1="242.0" y1="79.0" x2="252.0" y2="79.0" stroke="#7b808c" stroke-width="1.2"/><text x="279.0" y="145.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>x</tspan></text><text x="185.0" y="13.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>y</tspan></text><text x="267.0" y="70.0" text-anchor="middle" dominant-baseline="middle" style="font-family:system-ui,sans-serif;font-size:11px;fill:#7b808c">slot</text><text x="117.0" y="93.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>P</tspan></text><text x="157.0" y="9.7" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>v</tspan><tspan dy="4.8" style="font-size:10.8px">P</tspan></text><text x="81.0" y="117.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>v</tspan></text><text x="201.0" y="95.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#b42346"><tspan>a</tspan><tspan dy="4.8" style="font-size:10.8px">P</tspan></text><text x="153.0" y="181.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>x = −4</tspan></text><text x="265.0" y="112.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>y = 6</tspan></text></svg><figcaption>The pin at y = 6 mm</figcaption></figure></div><p class="small fbdnote">The slot gives $y$ and $\dot y$ directly. The ring then fixes $x$, $\dot x$ and $\ddot x$. The acceleration of P is horizontal because the slot does not accelerate.</p>
+</details>
+<details class="step"><summary>Step 2 · Find the position</summary>
+<p>At $y = 6$ mm the ring equation gives</p>
+$$x = -a\sqrt{1 - \frac{y^2}{b^2}} = -5\sqrt{1 - 0.36} = -4\ \text{mm}$$
+<p>The negative root is taken because the pin is on the left half of the ring.</p>
+</details>
+<details class="step"><summary>Step 3 · Differentiate the ring equation once to find the velocity</summary>
+<p>The pin stays on the ring at every instant, so the time derivative of the ring equation is also zero.</p>
+$$\frac{2x\dot x}{a^2} + \frac{2y\dot y}{b^2} = 0 \qquad\Longrightarrow\qquad \dot x = -\frac{a^2}{b^2}\,\frac{y\,\dot y}{x} = -\frac{25}{100}\cdot\frac{(6)(30)}{-4} = 11.25\ \text{mm/s}$$
+</details>
+<details class="step"><summary>Step 4 · Differentiate again to find the acceleration</summary>
+<p>Differentiating $x\dot x/a^2 + y\dot y/b^2 = 0$ once more with the product rule gives</p>
+$$\frac{\dot x^2 + x\ddot x}{a^2} + \frac{\dot y^2 + y\ddot y}{b^2} = 0 \qquad\Longrightarrow\qquad \ddot x = -\frac{1}{x}\left(\dot x^2 + \frac{a^2}{b^2}\left(\dot y^2 + y\ddot y\right)\right)$$
+<p>With $\ddot y = 0$,</p>
+$$\ddot x = -\frac{1}{-4}\left(11.25^2 + 0.25\,(30)^2\right) = \frac{126.6 + 225}{4} = 87.89\ \text{mm/s}^2$$
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>(a) $\mathbf v_P = 11.25\,\hat{\mathbf i} + 30\,\hat{\mathbf j}$ mm/s, with magnitude 32.0 mm/s.</p>
+<p>(b) $\mathbf a_P = 87.89\,\hat{\mathbf i}$ mm/s². The acceleration is horizontal because the slot does not accelerate.</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Change the slot speed $v$. Both $\dot x$ and $\ddot x$ change, but $\ddot x$ grows with $v^2$. Explain why from the equations.</li><li>Watch $\dot x$ as $y$ approaches $b$. Why does it grow without bound at the top of the ring?</li><li>Put the pin on the right half of the ring instead. Which signs in the answer change?</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 1, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="examples.html"><small>← Previous</small>All examples</a><a class="next" href="ex-1-a-2.html"><small>Next →</small>Example 1.A.2</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/kit.js"></script>
+<script src="../assets/ch1-exA.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch1-3dA.js"></script>
+</body>
+</html>

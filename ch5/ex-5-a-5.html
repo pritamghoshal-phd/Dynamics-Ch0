@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 5.A.5 · Chapter 5 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 5</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="newton-euler.html">A · Newton–Euler</a>
+    <a href="work-energy.html">B · Work–energy</a>
+    <a href="impulse-momentum.html">C · Impulse–momentum</a>
+    <a href="examples.html" class=active>Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Newton–Euler equations examples"><a href="examples.html#group-A">All Newton–Euler examples</a><a href="ex-5-a-1.html">5.A.1</a><a href="ex-5-a-2.html">5.A.2</a><a href="ex-5-a-3.html">5.A.3</a><a href="ex-5-a-4.html">5.A.4</a><a href="ex-5-a-5.html" class=active>5.A.5</a><a href="ex-5-a-6.html">5.A.6</a><a href="ex-5-a-7.html">5.A.7</a><a href="ex-5-a-8.html">5.A.8</a><a href="ex-5-a-9.html">5.A.9</a><a href="ex-5-a-10.html">5.A.10</a><a href="ex-5-a-11.html">5.A.11</a><a href="ex-5-a-12.html">5.A.12</a><a href="ex-5-a-13.html">5.A.13</a><a href="ex-5-a-14.html">5.A.14</a><a href="ex-5-a-15.html">5.A.15</a><a href="ex-5-a-16.html">5.A.16</a><a href="ex-5-a-17.html">5.A.17</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-A">Newton–Euler equations</a> › Example 5.A.5</p>
+<h2><span class="num">Example 5.A.5</span>A platform raised by two parallel links</h2>
+<div class="tags"><span>Newton–Euler</span><span>curvilinear translation</span><span>two-force member</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>A uniform platform AB of mass $m = 400$ kg is supported by two parallel links OA and BC, each of length $L = 2$ m, whose masses are small compared with that of the platform. A constant moment $M = 4000$ N·m is applied to link OA. At the position where $\theta = 53.13°$, both links are rotating clockwise at $\omega = 3$ rad/s.</p>
+<p><b>Find</b> the magnitude of the force carried by pin A at this position.</p>
+</div>
+<div class="demo" id="xa-5">
+  <div class="demo-title"><span class="tag">Interactive</span><span>The platform as the links turn</span></div>
+  <canvas id="xa-5-anim" class="anim" style="height:330px"></canvas><canvas id="xa-5-plot" class="plot" style="height:260px"></canvas>
+  <div class="bar" id="xa-5-btn"></div>
+  <div class="stats" id="xa-5-stats"></div>
+  <p class="small concept-note">The animation integrates the equation of motion from just before the given instant, so it passes through $\theta = 53.13°$ with $\omega = 3$ rad/s. The red arrow is the force that pin A exerts on the platform, drawn to scale. We take the mass center of the platform to lie on the line through the two pins.</p>
+</div>
+<div class="demo v3d" data-clip="xa-5"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Every solution follows the four-step method. Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Draw the free-body diagrams</summary>
+<p><b>Link BC</b> is light and is pinned at both ends with no moment applied to it, so it is a two-force member. The force it exerts on the platform acts along BC.</p>
+<p><b>Link OA</b> is light, so the moments acting on it must add to zero. These are the applied moment $M$ and the moment of the force that the platform exerts on it at A. The pin reaction at O passes through O.</p>
+<p><b>The platform</b> is acted on by its weight $mg$ at G, by the force $\mathbf F_A = A_x\hat{\mathbf i} + A_y\hat{\mathbf j}$ from pin A, and by the force $F_B$ along BC from pin B.</p><div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 360 250" role="img" aria-label="Platform AB" style="max-width:360px"><rect x="-118.0" y="-11.0" width="236.0" height="22.0" rx="4" transform="translate(185.0,110.0) rotate(0.0)" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><circle cx="80.0" cy="110.0" r="4.5" fill="#fff" stroke="#1c1d21" stroke-width="2"/><circle cx="290.0" cy="110.0" r="4.5" fill="#fff" stroke="#1c1d21" stroke-width="2"/><circle cx="185.0" cy="110.0" r="4" fill="#1c1d21"/><line x1="24.0" y1="110.0" x2="69.0" y2="110.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="80.0,110.0 69.0,115.5 69.0,104.5" fill="#17915a"/><line x1="80.0" y1="172.0" x2="80.0" y2="121.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="80.0,110.0 85.5,121.0 74.5,121.0" fill="#17915a"/><line x1="290.0" y1="110.0" x2="325.4" y2="157.2" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="332.0,166.0 321.0,160.5 329.8,153.9" fill="#2457d6"/><line x1="185.0" y1="110.0" x2="185.0" y2="159.0" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="185.0,170.0 179.5,159.0 190.5,159.0" fill="#c2410c"/><line x1="26.0" y1="232.0" x2="49.0" y2="232.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="60.0,232.0 49.0,237.5 49.0,226.5" fill="#7b808c"/><line x1="26.0" y1="232.0" x2="26.0" y2="209.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="26.0,198.0 31.5,209.0 20.5,209.0" fill="#7b808c"/><text x="76.0" y="88.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>A</tspan></text><text x="294.0" y="88.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>B</tspan></text><text x="185.0" y="88.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>G</tspan></text><text x="10.0" y="110.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>A</tspan><tspan dy="4.8" style="font-size:10.8px">x</tspan></text><text x="80.0" y="184.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>A</tspan><tspan dy="4.8" style="font-size:10.8px">y</tspan></text><text x="340.4" y="177.2" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>F</tspan><tspan dy="4.8" style="font-size:10.8px">B</tspan></text><text x="185.0" y="182.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>mg</tspan></text><text x="70.0" y="232.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>x</tspan></text><text x="26.0" y="188.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>y</tspan></text></svg><figcaption>Platform AB</figcaption></figure><figure><svg class="fbd" viewBox="0 0 220 262" role="img" aria-label="Link OA (light)" style="max-width:220px"><line x1="150.0" y1="180.0" x2="75.0" y2="80.0" stroke="#8a6a12" stroke-width="12" stroke-linecap="round"/><line x1="150.0" y1="180.0" x2="75.0" y2="80.0" stroke="#f1e6c8" stroke-width="8" stroke-linecap="round"/><circle cx="150.0" cy="180.0" r="4.5" fill="#fff" stroke="#1c1d21" stroke-width="2"/><circle cx="75.0" cy="80.0" r="4.5" fill="#fff" stroke="#1c1d21" stroke-width="2"/><line x1="75.0" y1="80.0" x2="34.0" y2="80.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="23.0,80.0 34.0,74.5 34.0,85.5" fill="#17915a"/><line x1="75.0" y1="80.0" x2="75.0" y2="119.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="75.0,130.0 69.5,119.0 80.5,119.0" fill="#17915a"/><line x1="98.0" y1="180.0" x2="139.0" y2="180.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="150.0,180.0 139.0,185.5 139.0,174.5" fill="#17915a"/><line x1="150.0" y1="230.0" x2="150.0" y2="191.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="150.0,180.0 155.5,191.0 144.5,191.0" fill="#17915a"/><path d="M93.4,119.0 L94.6,117.1 L96.0,115.4 L97.6,113.8 L99.3,112.4 L101.1,111.2 L103.0,110.1 L105.1,109.3 L107.2,108.7 L109.3,108.2 L111.5,108.0 L113.7,108.0 L115.9,108.3 L118.1,108.7 L120.2,109.4 L122.2,110.3 L124.2,111.3 L126.0,112.6 L127.6,114.0 L129.2,115.6 L130.5,117.4 L131.7,119.3 L132.7,121.2 L133.5,123.3 L134.0,125.4 L134.4,127.6 L134.5,129.8 L134.4,132.0 L134.1,134.2 L133.6,136.3 L132.8,138.4 L131.9,140.4 L130.7,142.3 L129.4,144.1 L127.9,145.7 L126.3,147.2 L124.5,148.5 L122.6,149.6 L120.6,150.5 L118.5,151.2 L116.3,151.7" fill="none" stroke="#8a3fd1" stroke-width="2.2"/><polygon points="112.5,152.8 120.7,145.2 123.5,154.8" fill="#8a3fd1"/><text x="168.0" y="188.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>O</tspan></text><text x="89.0" y="70.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>A</tspan></text><text x="9.0" y="80.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>A</tspan><tspan dy="4.8" style="font-size:10.8px">x</tspan></text><text x="59.0" y="142.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>A</tspan><tspan dy="4.8" style="font-size:10.8px">y</tspan></text><text x="84.0" y="180.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>O</tspan><tspan dy="4.8" style="font-size:10.8px">x</tspan></text><text x="150.0" y="242.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>O</tspan><tspan dy="4.8" style="font-size:10.8px">y</tspan></text><text x="141.2" y="109.9" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#8a3fd1"><tspan>M</tspan></text></svg><figcaption>Link OA (light)</figcaption></figure><figure><svg class="fbd" viewBox="0 0 180 262" role="img" aria-label="Link BC (two-force member)" style="max-width:180px"><line x1="60.0" y1="78.0" x2="120.0" y2="158.0" stroke="#8a6a12" stroke-width="12" stroke-linecap="round"/><line x1="60.0" y1="78.0" x2="120.0" y2="158.0" stroke="#f1e6c8" stroke-width="8" stroke-linecap="round"/><circle cx="60.0" cy="78.0" r="4.5" fill="#fff" stroke="#1c1d21" stroke-width="2"/><circle cx="120.0" cy="158.0" r="4.5" fill="#fff" stroke="#1c1d21" stroke-width="2"/><line x1="60.0" y1="78.0" x2="39.0" y2="50.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="32.4,41.2 43.4,46.7 34.6,53.3" fill="#2457d6"/><line x1="120.0" y1="158.0" x2="141.0" y2="186.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="147.6,194.8 136.6,189.3 145.4,182.7" fill="#2457d6"/><line x1="120.0" y1="158.0" x2="60.0" y2="158.0" stroke="#7b808c" stroke-width="1.4" stroke-dasharray="5 4"/><path d="M103.2,135.6 A28,28 0 0 0 92.0,158.0" fill="none" stroke="#7b808c" stroke-width="1.2"/><text x="44.0" y="86.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>B</tspan></text><text x="136.0" y="168.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>C</tspan></text><text x="25.2" y="31.6" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>F</tspan><tspan dy="4.8" style="font-size:10.8px">B</tspan></text><text x="154.8" y="204.4" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>F</tspan><tspan dy="4.8" style="font-size:10.8px">B</tspan></text><text x="85.1" y="140.6" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>θ</tspan></text></svg><figcaption>Link BC (two-force member)</figcaption></figure></div><p class="small fbdnote">By Newton's third law the platform pushes on link OA at A with $-A_x$ and $-A_y$. Link BC carries only the force $F_B$ along its length, which is a tension here.</p>
+</details>
+<details class="step"><summary>Step 2 · Write the kinetics equations</summary>
+<p>For the platform, Newton's equation and the moment equation about G are</p>
+$$m\,\mathbf a_G = \mathbf F_A + F_B\,\hat{\mathbf e}_{BC} - mg\,\hat{\mathbf j}, \qquad \sum M_G = 0$$
+<p>The moment equation is zero because the platform translates. For link OA, with $\mathbf r_{A/O}$ the vector from O to A,</p>
+$$-M\,\hat{\mathbf k} + \mathbf r_{A/O}\times(-\mathbf F_A) = \mathbf 0$$
+</details>
+<details class="step"><summary>Step 3 · Write the kinematics equations</summary>
+<p>OABC is a parallelogram, so the platform translates along a curved path. Every point of the platform has the same acceleration as point A, which moves on a circle of radius $L$ about O.</p>
+$$\mathbf a_G = \mathbf a_A = \boldsymbol\alpha\times\mathbf r_{A/O} - \omega^2\,\mathbf r_{A/O}, \qquad \mathbf r_{A/O} = L(-\cos\theta\,\hat{\mathbf i} + \sin\theta\,\hat{\mathbf j})$$
+<p>The angular acceleration of the links is the fourth unknown. An energy argument confirms it quickly. The power of $M$ equals the rate of change of $T + V$, so</p>
+$$M\omega = m L^2\omega\,\dot\omega + m g L\cos\theta\,\omega \quad\Longrightarrow\quad \dot\omega = \frac{M}{mL^2} - \frac{g}{L}\cos\theta = 2.500 - 2.943 = -0.443\ \text{rad/s}^2$$
+<p>The clockwise rotation is therefore slowing down at this instant.</p>
+</details>
+<details class="step"><summary>Step 4 · Solve</summary>
+<p>There are four scalar unknowns, $A_x$, $A_y$, $F_B$ and $\alpha$, and four equations. With $\theta = 53.13°$ ($\cos\theta = 0.6$, $\sin\theta = 0.8$) and $\omega = 3$ rad/s, the acceleration of the platform is</p>
+$$\mathbf a_G = (10.09\,\hat{\mathbf i} - 14.93\,\hat{\mathbf j})\ \text{m/s}^2$$
+<p>Solving the equations gives</p>
+$$A_x = 3268\ \text{N}, \qquad A_y = -1024\ \text{N}, \qquad F_B = 1280\ \text{N (tension in BC)}$$
+$$|\mathbf F_A| = \sqrt{3268^2 + 1024^2} = 3425\ \text{N}$$
+<p class="small">This result does not depend on the length of the platform, provided its mass center lies on the line through the two pins. The force at A is smaller than the weight, 3924 N, because the platform is accelerating strongly toward the pins at this instant.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>The pin at A carries a force of magnitude $|\mathbf F_A| \approx 3.43$ kN. On the platform it acts with components $A_x = 3268$ N to the right and $A_y = 1024$ N downward.</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Watch the plot. At which link angle is the force at pin A largest?</li><li>Why is the platform said to translate even though it moves along a curved path?</li><li>Use the energy equation to find the angle at which the links stop speeding up or slowing down.</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 5, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-5-a-4.html"><small>← Previous</small>Example 5.A.4</a><a class="next" href="ex-5-a-6.html"><small>Next →</small>Example 5.A.6</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/ch5.js"></script>
+<script src="../assets/ch5-exA1.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch5-3dA1.js"></script>
+</body>
+</html>

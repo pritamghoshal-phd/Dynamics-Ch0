@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 6.B.12 · Chapter 6 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 6</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="eom.html">A · Equations of motion</a>
+    <a href="free.html">B · Free vibration</a>
+    <a href="damped.html">B · Damped vibration</a>
+    <a href="forced.html">C · Forced vibration</a>
+    <a href="base.html">C · Base excitation</a>
+    <a href="summary.html">Summary</a>
+    <a href="examples.html" class=active>Examples</a>
+    <a href="badges.html">🏅 Badges</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Free response examples"><a href="examples.html#group-B">All Free response examples</a><a href="ex-6-b-1.html">6.B.1</a><a href="ex-6-b-2.html">6.B.2</a><a href="ex-6-b-3.html">6.B.3</a><a href="ex-6-b-4.html">6.B.4</a><a href="ex-6-b-5.html">6.B.5</a><a href="ex-6-b-6.html">6.B.6</a><a href="ex-6-b-7.html">6.B.7</a><a href="ex-6-b-8.html">6.B.8</a><a href="ex-6-b-9.html">6.B.9</a><a href="ex-6-b-10.html">6.B.10</a><a href="ex-6-b-11.html">6.B.11</a><a href="ex-6-b-12.html" class=active>6.B.12</a><a href="ex-6-b-13.html">6.B.13</a><a href="ex-6-b-14.html">6.B.14</a><a href="ex-6-b-15.html">6.B.15</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-B">Free response</a> › Example 6.B.12</p>
+<h2><span class="num">Example 6.B.12</span>Overshoot past static equilibrium</h2>
+<div class="tags"><span>damped free response</span><span>static equilibrium</span><span>overshoot</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>A block of mass $m$ hangs from the ceiling by a spring of stiffness $k$ and a dashpot with constant $c$, side by side. The block is released from rest under the action of gravity. We take the release position to be the one where the spring is unstretched, which is what “released under the action of gravity” describes. The coordinate $x$ is measured downward.</p>
+<p><b>Find</b> the initial overshoot past the static equilibrium state of the system.</p>
+<p>Use $m = 5$ kg, $c = 6$ N·s/m and $k = 180$ N/m.</p>
+</div>
+<div class="demo" id="x6b-12">
+  <div class="demo-title"><span class="tag">Interactive</span><span>Release from the unstretched position</span></div>
+  <canvas id="x6b-12-anim" class="anim" style="height:360px"></canvas><canvas id="x6b-12-plot" class="plot" style="height:240px"></canvas>
+  <div class="controls" id="x6b-12-ctl"></div>
+  <div class="bar" id="x6b-12-pre"><span class="lbl">Try:</span></div>
+  <div class="bar" id="x6b-12-btn"></div>
+  <div class="stats" id="x6b-12-stats"></div>
+  <p class="small concept-note">The block is held for a moment at the unstretched position and then released. It is drawn at true scale. The plot shows $x$ measured from static equilibrium, so the release point is at $-\delta_{st}$ and the first peak is the overshoot.</p>
+</div>
+<div class="demo v3d" data-clip="x6b-12"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Every solution starts from free-body diagrams in a displaced position, then writes the equation of motion and reads off the vibration properties. Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Draw the free-body diagram in a displaced position</summary>
+<div class="fbdrow"><figure style="width:300px;max-width:100%"><svg class="fbd" viewBox="0 0 300 250" role="img" aria-label="Block, x below static equilibrium, moving down" style="max-width:300px"><rect x="-50.0" y="-32.0" width="100.0" height="64.0" rx="4" transform="translate(150.0,135.0) rotate(0.0)" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><line x1="178.0" y1="103.0" x2="178.0" y2="44.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="178.0,33.0 183.5,44.0 172.5,44.0" fill="#2457d6"/><line x1="122.0" y1="103.0" x2="122.0" y2="44.0" stroke="#b42346" stroke-width="2.6" stroke-linecap="round"/><polygon points="122.0,33.0 127.5,44.0 116.5,44.0" fill="#b42346"/><line x1="150.0" y1="167.0" x2="150.0" y2="208.0" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="150.0,219.0 144.5,208.0 155.5,208.0" fill="#c2410c"/><line x1="250.0" y1="112.0" x2="250.0" y2="139.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="250.0,150.0 244.5,139.0 255.5,139.0" fill="#7b808c"/><text x="150.0" y="135.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:16px;font-style:italic;fill:#1c1d21"><tspan>m</tspan></text><text x="178.0" y="21.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>k(δ</tspan><tspan dy="4.8" style="font-size:10.8px">st</tspan><tspan dy="-4.8">+x)</tspan></text><text x="122.0" y="21.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#b42346"><tspan>c ẋ</tspan></text><text x="172.0" y="217.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>mg</tspan></text><text x="262.0" y="132.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#7b808c"><tspan>x</tspan></text></svg><figcaption>Block, x below static equilibrium, moving down</figcaption></figure></div><p class="small fbdnote">The spring is stretched by δ<sub>st</sub> + x and pulls up. The dashpot resists the downward velocity, so it also pulls up.</p><p>Measure $x$ downward from the static equilibrium position, where the spring is already stretched by $\delta_{st}$. At a general position the stretch is $\delta_{st} + x$.</p>
+</details>
+<details class="step"><summary>Step 2 · Write the equation of motion</summary>
+<p>Newton’s second law in the downward direction gives</p>
+$$m\ddot x = mg - k(\delta_{st} + x) - c\dot x$$
+<p>At static equilibrium $k\delta_{st} = mg$, so the weight and the static spring force cancel. What remains is</p>
+$$m\ddot x + c\dot x + kx = 0, \qquad \delta_{st} = \frac{mg}{k} = \frac{(5)(9.81)}{180} = 0.2725\ \text{m}$$
+</details>
+<details class="step"><summary>Step 3 · Find the vibration properties</summary>
+$$\omega_n = \sqrt{\frac{k}{m}} = \sqrt{\frac{180}{5}} = 6.00\ \text{rad/s}, \qquad \zeta = \frac{c}{2\sqrt{km}} = \frac{6}{2\sqrt{900}} = 0.100$$
+$$\omega_d = \omega_n\sqrt{1-\zeta^2} = 5.970\ \text{rad/s}$$
+<p>The system is underdamped, so it will overshoot.</p>
+</details>
+<details class="step"><summary>Step 4 · Apply the initial conditions</summary>
+<p>The block starts from rest where the spring is unstretched, which is $\delta_{st}$ above equilibrium. So $x(0) = -\delta_{st}$ and $\dot x(0) = 0$. The underdamped response with these initial conditions is</p>
+$$x(t) = -\delta_{st}\,e^{-\zeta\omega_n t}\left(\cos\omega_d t + \frac{\zeta\omega_n}{\omega_d}\sin\omega_d t\right)$$
+<p>Differentiating gives $\dot x = \delta_{st}\,(\omega_n^2/\omega_d)\,e^{-\zeta\omega_n t}\sin\omega_d t$. The velocity is first zero again at $t_p = \pi/\omega_d$, which is the lowest point of the first swing.</p>
+</details>
+<details class="step"><summary>Step 5 · Evaluate the overshoot</summary>
+<p>At $t_p = \pi/\omega_d = 0.526$ s we have $\cos\omega_d t_p = -1$ and $\sin\omega_d t_p = 0$, so</p>
+$$x(t_p) = \delta_{st}\,e^{-\zeta\pi/\sqrt{1-\zeta^2}} = (0.2725)\,e^{-0.3157} = (0.2725)(0.7292) = 0.199\ \text{m}$$
+<p class="small">The total stretch of the spring at that moment is $0.2725 + 0.199 = 0.471$ m. Without damping the overshoot would equal $\delta_{st}$, so the block would drop to twice the static stretch.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>The block overshoots static equilibrium by $0.199$ m (about 73% of $\delta_{st} = 0.2725$ m), at $t = 0.526$ s after release.</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Use the “No damping” preset. Check that the block now drops exactly $2\delta_{st}$ below the release point.</li><li>Find the value of $c$ that removes the overshoot completely. How does it compare with $2\sqrt{km}$?</li><li>Double the mass. Both $\delta_{st}$ and $\zeta$ change. Does the overshoot ratio $x(t_p)/\delta_{st}$ go up or down?</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 6, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-6-b-11.html"><small>← Previous</small>Example 6.B.11</a><a class="next" href="ex-6-b-13.html"><small>Next →</small>Example 6.B.13</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/kit.js"></script>
+<script src="../assets/ch6-exB3.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch6-3dB3.js"></script>
+</body>
+</html>

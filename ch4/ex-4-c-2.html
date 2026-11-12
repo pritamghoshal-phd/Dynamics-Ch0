@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 4.C.2 · Chapter 4 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 4</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="newton.html">A · Newton's laws</a>
+    <a href="energy.html">B · Work–energy</a>
+    <a href="impulse.html">C · Linear impulse–momentum</a>
+    <a href="angular.html">D · Angular impulse–momentum</a>
+    <a href="examples.html" class=active>Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Linear impulse and momentum examples"><a href="examples.html#group-C">All Linear impulse and momentum examples</a><a href="ex-4-c-1.html">4.C.1</a><a href="ex-4-c-2.html" class=active>4.C.2</a><a href="ex-4-c-3.html">4.C.3</a><a href="ex-4-c-4.html">4.C.4</a><a href="ex-4-c-5.html">4.C.5</a><a href="ex-4-c-6.html">4.C.6</a><a href="ex-4-c-7.html">4.C.7</a><a href="ex-4-c-8.html">4.C.8</a><a href="ex-4-c-9.html">4.C.9</a><a href="ex-4-c-10.html">4.C.10</a><a href="ex-4-c-11.html">4.C.11</a><a href="ex-4-c-12.html">4.C.12</a><a href="ex-4-c-13.html">4.C.13</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-C">Linear impulse and momentum</a> › Example 4.C.2</p>
+<h2><span class="num">Example 4.C.2</span>Block that must first overcome static friction</h2>
+<div class="tags"><span>linear impulse</span><span>static friction</span><span>variable force</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>Block P weighs 100 lb and is initially at rest on a horizontal surface. At $t = 0$ a horizontal force $F(t)$ begins to act on it. The force grows linearly from zero to 200 lb at $t = 10$ s. The coefficients of static and kinetic friction between the block and the surface are $\mu_s = 0.5$ and $\mu_k = 0.2$.</p>
+<p><b>Find</b> the speed of P at $t = 10$ s.</p>
+</div>
+<div class="demo" id="x4c-2">
+  <div class="demo-title"><span class="tag">Interactive</span><span>The block stays at rest until the push overcomes static friction</span></div>
+  <canvas id="x4c-2-anim" class="anim" style="height:240px"></canvas><div class="grid2"><canvas id="x4c-2-plot" class="plot" style="height:210px"></canvas><canvas id="x4c-2-plot2" class="plot" style="height:210px"></canvas></div>
+  <div class="controls" id="x4c-2-ctl"></div>
+  <div class="bar" id="x4c-2-btn"></div>
+  <div class="stats" id="x4c-2-stats"></div>
+  <p class="small concept-note">Before $t_1$ the friction force (dashed) equals the push, so the net force is zero and the block stays at rest. After $t_1$ the friction force drops to $\mu_k W$. The view follows the block, and the ticks on the floor mark every 10 ft.</p>
+</div>
+<div class="demo v3d" data-clip="x4c-2"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Every solution follows the four-step method: free-body diagrams, kinetics equations, kinematics, solve. Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Draw the free-body diagrams</summary>
+<p>The block is the system. The weight $W$ acts downward, the normal force $N$ acts upward and the push $F(t) = 20t$ lb acts to the right. Before the block slips, friction is a static force $F_s$ of unknown size, limited to $\mu_s N$. After the block starts to slide, friction is $\mu_k N$ and points to the left.</p>
+<div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 300 230" role="img" aria-label="Before P slips (t &lt; t&lt;sub&gt;1&lt;/sub&gt;)" style="max-width:300px"><rect x="-42.0" y="-30.0" width="84.0" height="60.0" rx="4" transform="translate(150.0,110.0) rotate(0.0)" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><line x1="44.0" y1="110.0" x2="97.0" y2="110.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="108.0,110.0 97.0,115.5 97.0,104.5" fill="#2457d6"/><circle cx="166.0" cy="118.0" r="4" fill="#1c1d21"/><line x1="166.0" y1="118.0" x2="166.0" y2="171.0" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="166.0,182.0 160.5,171.0 171.5,171.0" fill="#c2410c"/><line x1="134.0" y1="190.0" x2="134.0" y2="151.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="134.0,140.0 139.5,151.0 128.5,151.0" fill="#17915a"/><line x1="158.0" y1="140.0" x2="103.0" y2="140.0" stroke="#b42346" stroke-width="2.6" stroke-linecap="round"/><polygon points="92.0,140.0 103.0,134.5 103.0,145.5" fill="#b42346"/><line x1="26.0" y1="215.0" x2="49.0" y2="215.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="60.0,215.0 49.0,220.5 49.0,209.5" fill="#7b808c"/><line x1="26.0" y1="215.0" x2="26.0" y2="192.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="26.0,181.0 31.5,192.0 20.5,192.0" fill="#7b808c"/><text x="150.0" y="110.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:16px;font-style:italic;fill:#1c1d21"><tspan>P</tspan></text><text x="38.0" y="96.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>F(t)</tspan></text><text x="182.0" y="184.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>W</tspan></text><text x="120.0" y="202.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>N</tspan></text><text x="80.0" y="154.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#b42346"><tspan>F</tspan><tspan dy="4.8" style="font-size:10.8px">s</tspan></text><text x="70.0" y="215.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>x</tspan></text><text x="26.0" y="171.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>y</tspan></text></svg><figcaption>Before P slips (t < t<sub>1</sub>)</figcaption></figure><figure><svg class="fbd" viewBox="0 0 300 230" role="img" aria-label="While P slides (t &gt; t&lt;sub&gt;1&lt;/sub&gt;)" style="max-width:300px"><rect x="-42.0" y="-30.0" width="84.0" height="60.0" rx="4" transform="translate(150.0,110.0) rotate(0.0)" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><line x1="44.0" y1="110.0" x2="97.0" y2="110.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="108.0,110.0 97.0,115.5 97.0,104.5" fill="#2457d6"/><circle cx="166.0" cy="118.0" r="4" fill="#1c1d21"/><line x1="166.0" y1="118.0" x2="166.0" y2="171.0" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="166.0,182.0 160.5,171.0 171.5,171.0" fill="#c2410c"/><line x1="134.0" y1="190.0" x2="134.0" y2="151.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="134.0,140.0 139.5,151.0 128.5,151.0" fill="#17915a"/><line x1="158.0" y1="140.0" x2="103.0" y2="140.0" stroke="#b42346" stroke-width="2.6" stroke-linecap="round"/><polygon points="92.0,140.0 103.0,134.5 103.0,145.5" fill="#b42346"/><line x1="26.0" y1="215.0" x2="49.0" y2="215.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="60.0,215.0 49.0,220.5 49.0,209.5" fill="#7b808c"/><line x1="26.0" y1="215.0" x2="26.0" y2="192.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="26.0,181.0 31.5,192.0 20.5,192.0" fill="#7b808c"/><text x="150.0" y="110.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:16px;font-style:italic;fill:#1c1d21"><tspan>P</tspan></text><text x="38.0" y="96.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>F(t)</tspan></text><text x="182.0" y="184.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>W</tspan></text><text x="120.0" y="202.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>N</tspan></text><text x="80.0" y="154.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#b42346"><tspan>μ</tspan><tspan dy="4.8" style="font-size:10.8px">k</tspan><tspan dy="-4.8"> N</tspan></text><text x="70.0" y="215.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>x</tspan></text><text x="26.0" y="171.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>y</tspan></text></svg><figcaption>While P slides (t > t<sub>1</sub>)</figcaption></figure></div><p class="small fbdnote">Left: P is at rest, so the static friction force $F_s$ simply balances $F$, up to its limit $\mu_s N$. Right: once P slides, the friction force is $\mu_k N$, opposite to the motion.</p>
+</details>
+<details class="step"><summary>Step 2 · Find when the block starts to slide</summary>
+<p>Vertical equilibrium gives $N = W = 100$ lb. The block stays at rest as long as the push can be balanced by static friction, that is, as long as $F(t) \le \mu_s N = 50$ lb. The block therefore starts to move at</p>
+$$20\,t_1 = 50 \quad\Longrightarrow\quad t_1 = 2.5\ \text{s}$$
+<p>A common mistake is to integrate the force from $t = 0$. Before $t_1$ the friction force cancels the push exactly, so that part of the impulse produces no motion.</p>
+</details>
+<details class="step"><summary>Step 3 · Write the kinetics equation (impulse and momentum)</summary>
+<p>From $t_1 = 2.5$ s, when the speed is zero, to $t_2 = 10$ s, the horizontal impulse–momentum equation is</p>
+$$\frac{W}{g}\,v_2 = 0 + \int_{t_1}^{t_2} 20\,t\,dt - \mu_k W\,(t_2 - t_1)$$
+</details>
+<details class="step"><summary>Step 4 · Solve</summary>
+<p>The impulse of the push is</p>
+$$\int_{2.5}^{10} 20\,t\,dt = 10\left(10^2 - 2.5^2\right) = 937.5\ \text{lb·s}$$
+<p>The impulse of friction is $\mu_k W (t_2 - t_1) = (0.2)(100)(7.5) = 150$ lb·s. The mass is $W/g = 100/32.2 = 3.106$ slug. Therefore</p>
+$$v_2 = \frac{937.5 - 150}{3.106} = 253.6\ \text{ft/s}$$
+<p class="small">After $t_1$ the push (at least 50 lb) is always larger than kinetic friction (20 lb), so the block keeps speeding up and never stops again.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>$v = 253.6$ ft/s at $t = 10$ s. The block starts to slide at $t_1 = 2.5$ s.</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Raise $\mu_s$ to 1. When does the block start to move now, and how fast is it at 10 s?</li><li>Set $\mu_k = \mu_s$. Why does the speed curve now start with zero slope?</li><li>What would you get if you integrated the push from $t = 0$ and ignored the static phase? Why is that wrong?</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 4, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-4-c-1.html"><small>← Previous</small>Example 4.C.1</a><a class="next" href="ex-4-c-3.html"><small>Next →</small>Example 4.C.3</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/kit.js"></script>
+<script src="../assets/ch4-exC1.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch4-3dC1.js"></script>
+</body>
+</html>

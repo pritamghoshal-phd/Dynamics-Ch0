@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 5.C.5 · Chapter 5 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 5</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="newton-euler.html">A · Newton–Euler</a>
+    <a href="work-energy.html">B · Work–energy</a>
+    <a href="impulse-momentum.html">C · Impulse–momentum</a>
+    <a href="examples.html" class=active>Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Impulse and momentum examples"><a href="examples.html#group-C">All impulse–momentum examples</a><a href="ex-5-c-1.html">5.C.1</a><a href="ex-5-c-2.html">5.C.2</a><a href="ex-5-c-3.html">5.C.3</a><a href="ex-5-c-4.html">5.C.4</a><a href="ex-5-c-5.html" class=active>5.C.5</a><a href="ex-5-c-6.html">5.C.6</a><a href="ex-5-c-7.html">5.C.7</a><a href="ex-5-c-8.html">5.C.8</a><a href="ex-5-c-9.html">5.C.9</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-C">Impulse and momentum</a> › Example 5.C.5</p>
+<h2><span class="num">Example 5.C.5</span>Bullet fired into a pendulum</h2>
+<div class="tags"><span>impulse–momentum</span><span>impact</span><span>angular momentum</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>A bullet of mass $m$ travels horizontally with speed $v_{b1}$. It strikes a stationary pendulum at a distance $h$ below the pivot O and becomes embedded at point A. The pendulum has mass $M$ and radius of gyration $k_O$ about O, and its mass center G lies a distance $L$ below O.</p>
+<p>The data are $v_{b1} = 1500$ ft/s, $m = 0.1$ slug, $M = 2$ slugs, $h = 4$ ft, $k_O = 3$ ft and $L = 3$ ft.</p>
+<p><b>Find</b> the angular speed of the pendulum immediately after the impact.</p>
+</div>
+<div class="demo" id="e-c5">
+  <div class="demo-title"><span class="tag">Interactive</span><span>The impact and the swing that follows</span></div>
+  <canvas id="e-c5-anim" class="anim" style="height:420px"></canvas>
+  <div class="controls" id="e-c5-ctl"></div>
+  <div class="bar" id="e-c5-btn"></div>
+  <div class="stats" id="e-c5-stats"></div>
+  <p class="small concept-note">The animation runs in slow motion. With the values from the book, the pendulum has so much energy after the impact that it swings over the top. Lower the bullet speed to see an ordinary swing.</p>
+</div>
+<div class="demo v3d" data-clip="e-c5"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Every solution follows the four-step method. Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Draw the free-body diagram during the impact</summary>
+<p>We take the system consisting of the bullet and the pendulum. During the very short impact, the large forces are the contact force between the bullet and the pendulum, which is internal, and the pin reaction at O, which is external and may also be large. The weights are ordinary forces and produce a negligible impulse during the impact.</p>
+<div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 330 370" role="img" aria-label="Bullet and pendulum during the impact" style="max-width:330px"><polygon points="162.0,80.0 178.0,80.0 188.0,320.0 152.0,320.0" fill="#e4dfd2" stroke="#8a6a12" stroke-width="2" stroke-linejoin="round"/><circle cx="170.0" cy="80.0" r="4.5" fill="#fff" stroke="#1c1d21" stroke-width="2"/><line x1="230.0" y1="80.0" x2="181.0" y2="80.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="170.0,80.0 181.0,74.5 181.0,85.5" fill="#17915a"/><line x1="170.0" y1="35.0" x2="170.0" y2="69.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="170.0,80.0 164.5,69.0 175.5,69.0" fill="#17915a"/><circle cx="170.0" cy="230.0" r="4" fill="#1c1d21"/><rect x="-9.0" y="-4.0" width="18.0" height="8.0" rx="4" transform="translate(196.0,280.0) rotate(0.0)" fill="#555" stroke="#8a6a12" stroke-width="2"/><line x1="270.0" y1="280.0" x2="226.0" y2="280.0" stroke="#7b808c" stroke-width="2.6" stroke-linecap="round"/><polygon points="215.0,280.0 226.0,274.5 226.0,285.5" fill="#7b808c"/><line x1="120.0" y1="80.0" x2="120.0" y2="280.0" stroke="#7b808c" stroke-width="1.2"/><line x1="125.0" y1="80.0" x2="115.0" y2="80.0" stroke="#7b808c" stroke-width="1.2"/><line x1="125.0" y1="280.0" x2="115.0" y2="280.0" stroke="#7b808c" stroke-width="1.2"/><line x1="80.0" y1="80.0" x2="80.0" y2="230.0" stroke="#7b808c" stroke-width="1.2"/><line x1="85.0" y1="80.0" x2="75.0" y2="80.0" stroke="#7b808c" stroke-width="1.2"/><line x1="85.0" y1="230.0" x2="75.0" y2="230.0" stroke="#7b808c" stroke-width="1.2"/><line x1="30.0" y1="350.0" x2="53.0" y2="350.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="64.0,350.0 53.0,355.5 53.0,344.5" fill="#7b808c"/><line x1="30.0" y1="350.0" x2="30.0" y2="327.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="30.0,316.0 35.5,327.0 24.5,327.0" fill="#7b808c"/><text x="154.0" y="70.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>O</tspan></text><text x="242.0" y="80.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>Ô</tspan><tspan dy="4.8" style="font-size:10.8px">x</tspan></text><text x="184.0" y="21.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>Ô</tspan><tspan dy="4.8" style="font-size:10.8px">y</tspan></text><text x="196.0" y="230.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>G</tspan></text><text x="144.0" y="280.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:14px;font-style:italic;fill:#1c1d21"><tspan>A</tspan></text><text x="290.0" y="280.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#7b808c"><tspan>v</tspan><tspan dy="4.8" style="font-size:10.8px">b1</tspan></text><text x="112.0" y="180.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>h</tspan></text><text x="72.0" y="155.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>L</tspan></text><text x="74.0" y="350.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>x</tspan></text><text x="30.0" y="306.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>y</tspan></text></svg><figcaption>Bullet and pendulum during the impact</figcaption></figure></div><p class="small fbdnote">During the impact the only large external force is the pin reaction at O, drawn as its impulse components $\hat O_x$ and $\hat O_y$. They pass through O, so they have no moment about O. The weights give a negligible impulse in the short impact time and are left out. The grey arrow is the velocity of the bullet before impact, not a force; its line of action is the distance $h$ below O.</p>
+</details>
+<details class="step"><summary>Step 2 · Write the kinetics equation (angular impulse and momentum about O)</summary>
+<p>The pin force passes through O, so it has no moment about O. The angular momentum about O is therefore conserved during the impact.</p>
+$$H_{O1} = H_{O2} \quad\Longrightarrow\quad m\,v_{b1}\,h = \left(M k_O^2 + m h^2\right)\omega_2$$
+<p class="small">Linear momentum is not conserved, because the pin pushes on the pendulum during the impact.</p>
+</details>
+<details class="step"><summary>Step 3 · Write the kinematics equations</summary>
+<p>Before the impact the pendulum is at rest, and the momentum of the bullet, $m v_{b1}$, acts along a line a distance $h$ below O. After the impact the bullet moves with point A, so $v_A = h\,\omega_2$ and its contribution to $H_{O2}$ is $m h^2\omega_2$.</p>
+</details>
+<details class="step"><summary>Step 4 · Solve</summary>
+$$\omega_2 = \frac{m\,v_{b1}\,h}{M k_O^2 + m h^2} = \frac{0.1(1500)(4)}{2(3)^2 + 0.1(4)^2} = \frac{600}{19.6} = 30.6\ \text{rad/s}$$
+<p class="small">About 92% of the kinetic energy of the bullet is lost in the impact. The distance $L$ is not needed to find $\omega_2$. It matters only for the swing after the impact.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>Immediately after the impact, $\omega_2 = 30.6$ rad/s.</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Find the bullet speed for which the pendulum just reaches the horizontal position.</li><li>Move the impact point upward toward O. Explain why $\omega_2$ decreases.</li><li>Use the idea of the center of percussion. Where should the bullet strike so that the pin receives no horizontal impulse?</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 5, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-5-c-4.html"><small>← Previous</small>Example 5.C.4</a><a class="next" href="ex-5-c-6.html"><small>Next →</small>Example 5.C.6</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/ch5.js"></script>
+<script src="../assets/ch5-exC.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch5-3dC.js"></script>
+</body>
+</html>

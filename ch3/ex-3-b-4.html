@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 3.B.4 · Chapter 3 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 3</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="frames-2d.html">A · 2D rotating frames</a>
+    <a href="frames-3d.html">B · 3D rotating frames</a>
+    <a href="coriolis.html">C · Coriolis in real life</a>
+    <a href="examples.html" class=active>Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="3D rotating frames examples"><a href="examples.html#group-B">All 3D rotating frames examples</a><a href="ex-3-b-1.html">3.B.1</a><a href="ex-3-b-2.html">3.B.2</a><a href="ex-3-b-3.html">3.B.3</a><a href="ex-3-b-4.html" class=active>3.B.4</a><a href="ex-3-b-5.html">3.B.5</a><a href="ex-3-b-6.html">3.B.6</a><a href="ex-3-b-7.html">3.B.7</a><a href="ex-3-b-8.html">3.B.8</a><a href="ex-3-b-9.html">3.B.9</a><a href="ex-3-b-10.html">3.B.10</a><a href="ex-3-b-11.html">3.B.11</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-B">3D rotating frames</a> › Example 3.B.4</p>
+<h2><span class="num">Example 3.B.4</span>Shell leaving a tank barrel</h2>
+<div class="tags"><span>3D frames</span><span>Coriolis</span><span>moving origin</span><span>acceleration</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>The turret of a tank rotates about a fixed vertical axis at a constant rate $\Omega = 0.4$ rad/s. The barrel, pinned to the turret at C, is being raised at a constant rate $\dot\theta = 0.4$ rad/s. A shell is fired with a constant muzzle speed $v_{rel} = 200$ ft/s relative to the barrel. The observer and the $xyz$ axes are attached to the barrel, while the $XYZ$ axes are fixed. The pin C is a distance $r = 3$ ft from the vertical axis, and the barrel has length $L = 15$ ft from C to the muzzle P.</p>
+<p><b>Find</b> (a) the angular velocity of the barrel, (b) the angular acceleration of the barrel, and (c) the acceleration of the shell as it leaves the barrel at P, at the instant shown. The figure shows the barrel at an elevation of about $\theta = 30^\circ$, and we use that value for the numbers.</p>
+</div>
+<div class="demo" id="x3b-4">
+  <div class="demo-title"><span class="tag">Interactive</span><span>The turret turns, the barrel rises and a shell leaves the muzzle</span></div>
+  <canvas id="x3b-4-anim" class="anim" style="height:420px"></canvas><canvas id="x3b-4-plot" class="plot" style="height:230px"></canvas><div class="legendrow"><span><span class="sw" style="background:#17915a"></span>|a<sub>P</sub>|</span><span><span class="sw" style="background:#b42346"></span>Coriolis term |2ω × v<sub>rel</sub>|</span><span><span class="sw" style="background:var(--c1)"></span>all other terms together</span></div>
+  <div class="controls" id="x3b-4-ctl"></div>
+  <div class="bar" id="x3b-4-pre"><span class="lbl">Try:</span></div>
+  <div class="bar" id="x3b-4-btn"></div>
+  <div class="stats" id="x3b-4-stats"></div>
+  <p class="small concept-note">The orange dot is a shell travelling along the barrel in very slow motion (the real trip takes 0.075 s). The arrows at P are the acceleration of the shell (green) and its Coriolis part (red), both at 0.03 ft of drawing per ft/s². The graph shows how the sizes of the terms change with the barrel angle.</p>
+</div>
+<div class="demo v3d" data-clip="x3b-4"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Choose the observer and the axes</summary>
+<p>The observer rides on the barrel with its origin at the pin C. The $x$ axis points along the barrel toward P, the $y$ axis is perpendicular to the barrel in the vertical plane, and the $z$ axis is along the pin at C. At the instant shown $\hat k = \hat K$, and</p>
+<div class="formula">$$\hat J = \sin\theta\,\hat\imath + \cos\theta\,\hat\jmath,\qquad \hat I = \cos\theta\,\hat\imath - \sin\theta\,\hat\jmath$$</div>
+<div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 340 260" role="img" aria-label="Observer on the barrel, origin at the pin C" style="max-width:340px"><line x1="80.0" y1="30.0" x2="80.0" y2="230.0" stroke="#7b808c" stroke-width="1.4" stroke-dasharray="5 4"/><path d="M57.4,67.1 L57.0,67.6 L56.7,68.0 L56.4,68.5 L56.2,68.9 L56.1,69.4 L56.0,69.9 L56.0,70.4 L56.1,70.8 L56.3,71.3 L56.5,71.7 L56.8,72.2 L57.2,72.7 L57.7,73.1 L58.2,73.5 L58.8,73.9 L59.5,74.4 L60.2,74.7 L61.0,75.1 L61.8,75.5 L62.7,75.8 L63.7,76.2 L64.7,76.5 L65.8,76.8 L66.9,77.0 L68.0,77.3 L69.2,77.5 L70.4,77.7 L71.6,77.9 L72.9,78.0 L74.2,78.2 L75.5,78.3 L76.8,78.3 L78.2,78.4 L79.5,78.4 L80.8,78.4 L82.2,78.4 L83.5,78.3 L84.8,78.2 L86.1,78.1 L87.4,78.0 L88.7,77.8 L89.9,77.6 L91.1,77.4 L92.3,77.2 L93.4,77.0 L94.5,76.7 L95.6,76.4 L96.6,76.1 L97.5,75.8 L98.4,75.4 L99.2,75.0 L100.0,74.6 L100.7,74.3 L101.3,73.8 L101.9,73.4 L102.4,73.0 L102.9,72.5 L103.2,72.1 L103.5,71.6 L103.8,71.2 L103.9,70.7 L104.0,70.2 L104.0,69.8 L103.9,69.3 L103.8,68.8 L103.5,68.4 L103.2,67.9 L102.9,67.5 L102.4,67.0 L101.9,66.6 L101.3,66.2 L100.7,65.7 L100.0,65.4 L99.2,65.0 L98.4,64.6 L97.5,64.2 L96.6,63.9 L95.6,63.6 L94.5,63.3 L93.4,63.0 L92.3,62.8 L91.1,62.6 L89.9,62.4 L88.7,62.2 L87.4,62.0 L86.1,61.9 L84.8,61.8 L83.5,61.7 L82.2,61.6 L80.8,61.6 L79.5,61.6 L78.2,61.6 L76.8,61.7 L75.5,61.7 L74.2,61.8 L72.9,62.0 L71.6,62.1 L70.4,62.3 L69.2,62.5 L68.0,62.7" fill="none" stroke="#8a3fd1" stroke-width="2"/><polygon points="63.1,63.5 72.1,57.0 73.7,66.8" fill="#8a3fd1"/><line x1="80.0" y1="214.0" x2="130.0" y2="214.0" stroke="#7b808c" stroke-width="1.2"/><line x1="80.0" y1="209.0" x2="80.0" y2="219.0" stroke="#7b808c" stroke-width="1.2"/><line x1="130.0" y1="209.0" x2="130.0" y2="219.0" stroke="#7b808c" stroke-width="1.2"/><line x1="130.0" y1="180.0" x2="294.5" y2="85.0" stroke="#8a6a12" stroke-width="12" stroke-linecap="round"/><line x1="130.0" y1="180.0" x2="294.5" y2="85.0" stroke="#f1e6c8" stroke-width="8" stroke-linecap="round"/><circle cx="130.0" cy="180.0" r="4.5" fill="#fff" stroke="#1c1d21" stroke-width="2"/><circle cx="80.0" cy="180.0" r="4" fill="#1c1d21"/><circle cx="294.5" cy="85.0" r="4" fill="#1c1d21"/><line x1="130.0" y1="180.0" x2="330.0" y2="180.0" stroke="#7b808c" stroke-width="1.4" stroke-dasharray="5 4"/><path d="M190.0,180.0 A60,60 0 0 0 182.0,150.0" fill="none" stroke="#7b808c" stroke-width="1.2"/><circle cx="250.0" cy="225.0" r="8" fill="#fff" stroke="#8a3fd1" stroke-width="2"/><circle cx="250.0" cy="225.0" r="2.6" fill="#8a3fd1"/><circle cx="269.0" cy="203.0" r="1.6" fill="#8a3fd1"/><line x1="119.0" y1="160.9" x2="283.5" y2="65.9" stroke="#7b808c" stroke-width="1.2"/><line x1="116.5" y1="156.6" x2="121.5" y2="165.3" stroke="#7b808c" stroke-width="1.2"/><line x1="281.0" y1="61.6" x2="286.0" y2="70.3" stroke="#7b808c" stroke-width="1.2"/><text x="80.0" y="20.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:11px;fill:#7b808c"><tspan>Y (axis of the turret)</tspan></text><text x="116.0" y="70.0" text-anchor="start" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#8a3fd1"><tspan>Ω</tspan></text><text x="105.0" y="228.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>r = 3 ft</tspan></text><text x="136.0" y="198.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>C</tspan></text><text x="66.0" y="192.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>O</tspan></text><text x="308.5" y="93.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>P</tspan></text><text x="198.6" y="161.6" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>θ</tspan></text><text x="264.0" y="215.0" text-anchor="start" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#8a3fd1"><tspan>θ k̂</tspan></text><text x="192.3" y="97.9" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>L = 15 ft</tspan></text></svg><figcaption>Observer on the barrel, origin at the pin C</figcaption></figure></div>
+</details>
+<details class="step"><summary>Step 2 · Find the angular velocity and the angular acceleration</summary>
+<p>The barrel turns with the turret about the vertical axis and about the pin at C:</p>
+<div class="formula">$$\vec\omega = \Omega\,\hat J + \dot\theta\,\hat k = 0.4\,\hat J + 0.4\,\hat K\ \text{rad/s}$$</div>
+<p>Both rates are constant, and the pin axis $\hat k$ is carried around by the turret, so</p>
+<div class="formula">$$\vec\alpha = \dot\theta\left(\Omega\hat J\times\hat k\right) = (0.4)(0.4)\,\hat I = 0.16\,\hat I\ \text{rad/s}^2$$</div>
+<p>At $\theta = 30^\circ$ these become</p>
+<div class="formula">$$\vec\omega = 0.2\,\hat\imath + 0.346\,\hat\jmath + 0.4\,\hat k\ \text{rad/s},\qquad \vec\alpha = 0.139\,\hat\imath - 0.08\,\hat\jmath\ \text{rad/s}^2$$</div>
+</details>
+<details class="step"><summary>Step 3 · Find the motion of the origin C</summary>
+<p>The pin C is on the turret, at a distance $r$ from the vertical axis. It moves on a horizontal circle at the constant rate $\Omega$, so its acceleration points toward the axis:</p>
+<div class="formula">$$\vec a_C = -\Omega^2 r\,\hat I = -(0.4)^2(3)\,\hat I = -0.48\,\hat I = -0.416\,\hat\imath + 0.24\,\hat\jmath\ \text{ft/s}^2$$</div>
+</details>
+<details class="step"><summary>Step 4 · Describe what the observer sees</summary>
+<p>The observer sees the shell move straight along the barrel at constant speed. At the muzzle,</p>
+<div class="formula">$$\vec r_{P/C} = L\,\hat\imath = 15\,\hat\imath\ \text{ft},\qquad \left(\vec v_{P/C}\right)_{rel} = 200\,\hat\imath\ \text{ft/s},\qquad \left(\vec a_{P/C}\right)_{rel} = \vec 0$$</div>
+</details>
+<details class="step"><summary>Step 5 · Apply the moving-frame acceleration equation</summary>
+<div class="formula">$$\vec a_P = \vec a_C + \left(\vec a_{P/C}\right)_{rel} + \vec\alpha\times\vec r_{P/C} + 2\vec\omega\times\left(\vec v_{P/C}\right)_{rel} + \vec\omega\times\left(\vec\omega\times\vec r_{P/C}\right)$$</div>
+<div class="tblwrap"><table class="tbl"><tr><th>Term</th><th>Value at $\theta = 30^\circ$ (ft/s²)</th></tr>
+<tr><td>$\vec a_C$</td><td>$-0.416\,\hat\imath + 0.24\,\hat\jmath$</td></tr>
+<tr><td>$\left(\vec a_{P/C}\right)_{rel}$</td><td>$\vec 0$</td></tr>
+<tr><td>$\vec\alpha\times\vec r_{P/C}$</td><td>$1.2\,\hat k$</td></tr>
+<tr><td>$2\vec\omega\times\left(\vec v_{P/C}\right)_{rel}$</td><td>$160\,\hat\jmath - 138.6\,\hat k$</td></tr>
+<tr><td>$\vec\omega\times\left(\vec\omega\times\vec r_{P/C}\right)$</td><td>$-4.2\,\hat\imath + 1.04\,\hat\jmath + 1.2\,\hat k$</td></tr>
+</table></div>
+<div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 360 290" role="img" aria-label="The Coriolis term at the muzzle P (θ = 30°)" style="max-width:360px"><line x1="40.0" y1="250.0" x2="239.2" y2="135.0" stroke="#8a6a12" stroke-width="12" stroke-linecap="round"/><line x1="40.0" y1="250.0" x2="239.2" y2="135.0" stroke="#f1e6c8" stroke-width="8" stroke-linecap="round"/><circle cx="40.0" cy="250.0" r="4.5" fill="#fff" stroke="#1c1d21" stroke-width="2"/><circle cx="239.2" cy="135.0" r="4" fill="#1c1d21"/><line x1="152.9" y1="205.6" x2="195.4" y2="181.1" stroke="#3a3d44" stroke-width="2.2" stroke-linecap="round"/><polygon points="204.9,175.6 198.1,185.9 192.6,176.3" fill="#3a3d44"/><line x1="239.2" y1="135.0" x2="194.7" y2="57.9" stroke="#b42346" stroke-width="2.6" stroke-linecap="round"/><polygon points="189.2,48.4 199.4,55.2 189.9,60.7" fill="#b42346"/><circle cx="130.0" cy="90.0" r="8" fill="#fff" stroke="#b42346" stroke-width="2"/><path d="M125.0,85.0 L135.0,95.0 M135.0,85.0 L125.0,95.0" stroke="#b42346" stroke-width="2"/><line x1="300.0" y1="270.0" x2="319.9" y2="258.5" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="329.4,253.0 322.7,263.3 317.2,253.7" fill="#7b808c"/><line x1="300.0" y1="270.0" x2="288.5" y2="250.1" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="283.0,240.6 293.3,247.3 283.7,252.8" fill="#7b808c"/><text x="36.0" y="232.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>C</tspan></text><text x="253.2" y="145.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>P</tspan></text><text x="195.6" y="203.6" text-anchor="start" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#3a3d44"><tspan>v</tspan><tspan dy="4.8" style="font-size:10.8px">rel</tspan></text><text x="181.2" y="34.4" text-anchor="end" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#b42346"><tspan>160 ĵ</tspan></text><text x="130.0" y="118.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#b42346"><tspan>−138.6 k̂</tspan></text><text x="130.0" y="134.0" text-anchor="middle" dominant-baseline="middle" style="font-family:system-ui,sans-serif;font-size:11px;fill:#b42346">(into the page)</text><text x="338.1" y="248.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>x</tspan></text><text x="278.0" y="231.9" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>y</tspan></text></svg><figcaption>The Coriolis term at the muzzle P (θ = 30°)</figcaption></figure></div><p class="small fbdnote">The Coriolis term dominates. Its ĵ part comes from raising the barrel and its k̂ part comes from turning the turret.</p>
+<p>Adding the terms gives</p>
+<div class="formula">$$\vec a_P = -4.62\,\hat\imath + 161.3\,\hat\jmath - 136.2\,\hat k\ \text{ft/s}^2,\qquad |\vec a_P| = 211\ \text{ft/s}^2$$</div>
+<p class="small">For a general angle the same steps give</p>
+<div class="formula">$$\vec a_P = -\left(2.4 + 0.48\cos\theta + 2.4\cos^2\theta\right)\hat\imath + \left(160 + 0.48\sin\theta + 1.2\sin 2\theta\right)\hat\jmath + \left(4.8\sin\theta - 160\cos\theta\right)\hat k\ \text{ft/s}^2$$</div>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>(a) $\vec\omega = 0.4\,\hat J + 0.4\,\hat K = 0.2\,\hat\imath + 0.346\,\hat\jmath + 0.4\,\hat k$ rad/s. (b) $\vec\alpha = 0.16\,\hat I = 0.139\,\hat\imath - 0.08\,\hat\jmath$ rad/s².</p>
+<p>(c) At $\theta = 30^\circ$, $\vec a_P = -4.62\,\hat\imath + 161.3\,\hat\jmath - 136.2\,\hat k$ ft/s² $= -84.6\,\hat I + 137.4\,\hat J - 136.2\,\hat K$ ft/s², with $|\vec a_P| = 211$ ft/s².</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Set the turret rate $\Omega$ to zero. Which components of $\vec a_P$ survive, and how does the problem become a plane problem?</li><li>Set $v_{rel} = 0$. How large is the acceleration of the muzzle itself?</li><li>Use the graph to estimate the error if you kept only the Coriolis term.</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 3, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-3-b-3.html"><small>← Previous</small>Example 3.B.3</a><a class="next" href="ex-3-b-5.html"><small>Next →</small>Example 3.B.5</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/kit.js"></script>
+<script src="../assets/ch3-exB1.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch3-3dB1.js"></script>
+</body>
+</html>

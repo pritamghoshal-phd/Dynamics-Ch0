@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 2.B.3 · Chapter 2 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 2</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="rigid.html">A · Rigid body equations</a>
+    <a href="instant.html">B · Instant centers</a>
+    <a href="mechanisms.html">C · Mechanisms</a>
+    <a href="examples.html" class=active>Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Instant centers examples"><a href="examples.html#group-B">All Instant centers examples</a><a href="ex-2-b-1.html">2.B.1</a><a href="ex-2-b-2.html">2.B.2</a><a href="ex-2-b-3.html" class=active>2.B.3</a><a href="ex-2-b-4.html">2.B.4</a><a href="ex-2-b-5.html">2.B.5</a><a href="ex-2-b-6.html">2.B.6</a><a href="ex-2-b-7.html">2.B.7</a><a href="ex-2-b-8.html">2.B.8</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-B">Instant centers</a> › Example 2.B.3</p>
+<h2><span class="num">Example 2.B.3</span>Spool pulled by a cable from its hub</h2>
+<div class="tags"><span>instant centers</span><span>rolling without slipping</span><span>spool</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>A cable is wrapped around the inner radius $r$ of a spool. End A of the cable moves to the right with speed $v_A$, and the cable leaves the bottom of the hub horizontally. The outer radius $R$ of the spool rolls without slipping on a rough horizontal surface.</p>
+<p>The data are $v_A = 0.8$ m/s, $r = 0.3$ m and $R = 0.9$ m.</p>
+<p><b>Find</b>, using the method of instant centers, (a) the velocity of the center O of the spool and (b) the angular velocity of the spool.</p>
+</div>
+<div class="demo" id="x2b-3">
+  <div class="demo-title"><span class="tag">Interactive</span><span>The spool rolling as the cable is pulled</span></div>
+  <canvas id="x2b-3-anim" class="anim" style="height:360px"></canvas>
+  <div class="controls" id="x2b-3-ctl"></div>
+  <div class="bar" id="x2b-3-pre"><span class="lbl">Cable:</span></div>
+  <div class="bar" id="x2b-3-btn"></div>
+  <div class="stats" id="x2b-3-stats"></div>
+  <p class="small concept-note">The arrows on the vertical line through C grow linearly with height, which shows that every point turns about C. Try the second option to see what happens when the cable leaves the top of the hub instead.</p>
+</div>
+<div class="demo v3d" data-clip="x2b-3"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">The method of instant centers has four steps. Find the direction of the velocity of two points of the body, locate the instant center where the perpendiculars to those velocities meet, find ω from one known speed, and then find any other velocity from its distance to the instant center.</p>
+<details class="step"><summary>Step 1 · Draw the kinematics diagram</summary>
+<p>Call P the point of the hub where the cable leaves it. P is at the bottom of the hub, a height $R - r$ above the contact point C. Because the cable does not slip on the hub, P moves with the cable, $v_P = v_A$ to the right.</p>
+<div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 350 250" role="img" aria-label="Spool, the cable point P and the contact point C" style="max-width:350px"><line x1="6" y1="200" x2="320" y2="200" stroke="#8b8f98" stroke-width="1.8"/><line x1="10" y1="200" x2="5" y2="207" stroke="#8b8f98" stroke-width="1"/><line x1="19" y1="200" x2="14" y2="207" stroke="#8b8f98" stroke-width="1"/><line x1="28" y1="200" x2="23" y2="207" stroke="#8b8f98" stroke-width="1"/><line x1="37" y1="200" x2="32" y2="207" stroke="#8b8f98" stroke-width="1"/><line x1="46" y1="200" x2="41" y2="207" stroke="#8b8f98" stroke-width="1"/><line x1="55" y1="200" x2="50" y2="207" stroke="#8b8f98" stroke-width="1"/><line x1="64" y1="200" x2="59" y2="207" stroke="#8b8f98" stroke-width="1"/><line x1="73" y1="200" x2="68" y2="207" stroke="#8b8f98" stroke-width="1"/><line x1="82" y1="200" x2="77" y2="207" stroke="#8b8f98" stroke-width="1"/><line x1="91" y1="200" x2="86" y2="207" stroke="#8b8f98" stroke-width="1"/><line x1="100" y1="200" x2="95" y2="207" stroke="#8b8f98" stroke-width="1"/><line x1="109" y1="200" x2="104" y2="207" stroke="#8b8f98" stroke-width="1"/><line x1="118" y1="200" x2="113" y2="207" stroke="#8b8f98" stroke-width="1"/><line x1="127" y1="200" x2="122" y2="207" stroke="#8b8f98" stroke-width="1"/><line x1="136" y1="200" x2="131" y2="207" stroke="#8b8f98" stroke-width="1"/><line x1="145" y1="200" x2="140" y2="207" stroke="#8b8f98" stroke-width="1"/><line x1="154" y1="200" x2="149" y2="207" stroke="#8b8f98" stroke-width="1"/><line x1="163" y1="200" x2="158" y2="207" stroke="#8b8f98" stroke-width="1"/><line x1="172" y1="200" x2="167" y2="207" stroke="#8b8f98" stroke-width="1"/><line x1="181" y1="200" x2="176" y2="207" stroke="#8b8f98" stroke-width="1"/><line x1="190" y1="200" x2="185" y2="207" stroke="#8b8f98" stroke-width="1"/><line x1="199" y1="200" x2="194" y2="207" stroke="#8b8f98" stroke-width="1"/><line x1="208" y1="200" x2="203" y2="207" stroke="#8b8f98" stroke-width="1"/><line x1="217" y1="200" x2="212" y2="207" stroke="#8b8f98" stroke-width="1"/><line x1="226" y1="200" x2="221" y2="207" stroke="#8b8f98" stroke-width="1"/><line x1="235" y1="200" x2="230" y2="207" stroke="#8b8f98" stroke-width="1"/><line x1="244" y1="200" x2="239" y2="207" stroke="#8b8f98" stroke-width="1"/><line x1="253" y1="200" x2="248" y2="207" stroke="#8b8f98" stroke-width="1"/><line x1="262" y1="200" x2="257" y2="207" stroke="#8b8f98" stroke-width="1"/><line x1="271" y1="200" x2="266" y2="207" stroke="#8b8f98" stroke-width="1"/><line x1="280" y1="200" x2="275" y2="207" stroke="#8b8f98" stroke-width="1"/><line x1="289" y1="200" x2="284" y2="207" stroke="#8b8f98" stroke-width="1"/><line x1="298" y1="200" x2="293" y2="207" stroke="#8b8f98" stroke-width="1"/><line x1="307" y1="200" x2="302" y2="207" stroke="#8b8f98" stroke-width="1"/><line x1="316" y1="200" x2="311" y2="207" stroke="#8b8f98" stroke-width="1"/><circle cx="140.0" cy="110.0" r="90.0" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><circle cx="140.0" cy="110.0" r="30.0" fill="#f6f0dc" stroke="#8a6a12" stroke-width="2"/><line x1="140.0" y1="140.0" x2="300.0" y2="140.0" stroke="#1c1d21" stroke-width="2.2"/><circle cx="140.0" cy="110.0" r="4.5" fill="#fff" stroke="#1c1d21" stroke-width="2"/><circle cx="140.0" cy="140.0" r="4" fill="#1c1d21"/><circle cx="140.0" cy="200.0" r="10" fill="#8a3fd1" fill-opacity=".15"/><circle cx="140.0" cy="200.0" r="6" fill="none" stroke="#8a3fd1" stroke-width="2"/><circle cx="140.0" cy="200.0" r="2.4" fill="#8a3fd1"/><line x1="140.0" y1="140.0" x2="179.0" y2="140.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="190.0,140.0 179.0,145.5 179.0,134.5" fill="#2457d6"/><line x1="140.0" y1="110.0" x2="204.0" y2="110.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="215.0,110.0 204.0,115.5 204.0,104.5" fill="#17915a"/><line x1="140.0" y1="200.0" x2="290.0" y2="20.0" stroke="#8a3fd1" stroke-width="1.3" stroke-dasharray="5 4"/><line x1="36.0" y1="140.0" x2="36.0" y2="200.0" stroke="#7b808c" stroke-width="1.2"/><line x1="41.0" y1="140.0" x2="31.0" y2="140.0" stroke="#7b808c" stroke-width="1.2"/><line x1="41.0" y1="200.0" x2="31.0" y2="200.0" stroke="#7b808c" stroke-width="1.2"/><line x1="318.0" y1="110.0" x2="318.0" y2="200.0" stroke="#7b808c" stroke-width="1.2"/><line x1="323.0" y1="110.0" x2="313.0" y2="110.0" stroke="#7b808c" stroke-width="1.2"/><line x1="323.0" y1="200.0" x2="313.0" y2="200.0" stroke="#7b808c" stroke-width="1.2"/><path d="M95.0,84.0 L97.4,80.2 L100.2,76.6 L103.2,73.2 L106.6,70.2 L110.2,67.4 L114.0,65.0 L118.0,62.9 L122.2,61.1 L126.5,59.8 L131.0,58.8 L135.5,58.2 L140.0,58.0 L144.5,58.2 L149.0,58.8 L153.5,59.8 L157.8,61.1 L162.0,62.9 L166.0,65.0 L169.8,67.4 L173.4,70.2 L176.8,73.2 L179.8,76.6 L182.6,80.2 L185.0,84.0 L187.1,88.0 L188.9,92.2 L190.2,96.5 L191.2,101.0 L191.8,105.5 L192.0,110.0 L191.8,114.5 L191.2,119.0 L190.2,123.5 L188.9,127.8 L187.1,132.0 L185.0,136.0 L182.6,139.8 L179.8,143.4 L176.8,146.8 L173.4,149.8" fill="none" stroke="#8a3fd1" stroke-width="2.2"/><polygon points="170.6,152.7 174.1,142.1 181.2,149.1" fill="#8a3fd1"/><text x="126.0" y="98.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>O</tspan></text><text x="128.0" y="130.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>P</tspan></text><text x="128.0" y="218.0" text-anchor="end" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:14px;font-style:italic;fill:#8a3fd1"><tspan>C = IC</tspan></text><text x="246.0" y="162.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>v</tspan><tspan dy="4.8" style="font-size:10.8px">P</tspan><tspan dy="-4.8"> = v</tspan><tspan dy="4.8" style="font-size:10.8px">A</tspan></text><text x="257.0" y="124.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>v</tspan><tspan dy="4.8" style="font-size:10.8px">O</tspan></text><text x="18.0" y="170.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>R − r</tspan></text><text x="334.0" y="155.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>R</tspan></text><text x="181.8" y="60.2" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#8a3fd1"><tspan>ω</tspan></text></svg><figcaption>Spool, the cable point P and the contact point C</figcaption></figure></div><p class="small fbdnote">The velocities along the vertical line through C grow linearly with the height above C (dashed line), because every point turns about C at the same rate ω.</p>
+</details>
+<details class="step"><summary>Step 2 · Locate the instant center</summary>
+<p>The spool rolls without slipping on the fixed ground, so the contact point C has zero velocity. C is the instant center of the spool.</p>
+</details>
+<details class="step"><summary>Step 3 · Find the angular velocity</summary>
+<p>P is directly above C at a distance $R - r = 0.6$ m, so</p>
+$$\omega = \frac{v_P}{R - r} = \frac{0.8}{0.6} = 1.33\ \text{rad/s}$$
+<p>P is above C and moves to the right, so the spool turns <b>clockwise</b>.</p>
+</details>
+<details class="step"><summary>Step 4 · Find the velocity of the center</summary>
+<p>O is a distance $R$ above C, so</p>
+$$v_O = \omega R = 1.33(0.9) = 1.20\ \text{m/s, to the right}$$
+<p class="small">The center moves faster than the cable end, 1.2 m/s compared with 0.8 m/s. The horizontal length of cable between the spool and A therefore shrinks, which means the cable winds onto the hub as the spool rolls toward A.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>(a) $v_O = 1.20$ m/s to the right. (b) $\omega = 1.33$ rad/s clockwise.</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Choose the option in which the cable leaves the top of the hub. Show that $v_O = v_A R/(R + r) = 0.6$ m/s and that the cable now unwinds.</li><li>For the book arrangement, what happens to $v_O$ as $r$ approaches $R$?</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 2, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-2-b-2.html"><small>← Previous</small>Example 2.B.2</a><a class="next" href="ex-2-b-4.html"><small>Next →</small>Example 2.B.4</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/kit.js"></script>
+<script src="../assets/ch2-exB.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch2-3dB.js"></script>
+</body>
+</html>

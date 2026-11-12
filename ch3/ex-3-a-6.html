@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 3.A.6 · Chapter 3 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 3</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="frames-2d.html">A · 2D rotating frames</a>
+    <a href="frames-3d.html">B · 3D rotating frames</a>
+    <a href="coriolis.html">C · Coriolis in real life</a>
+    <a href="examples.html" class=active>Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="2D rotating frames examples"><a href="examples.html#group-A">All 2D rotating frames examples</a><a href="ex-3-a-1.html">3.A.1</a><a href="ex-3-a-2.html">3.A.2</a><a href="ex-3-a-3.html">3.A.3</a><a href="ex-3-a-4.html">3.A.4</a><a href="ex-3-a-5.html">3.A.5</a><a href="ex-3-a-6.html" class=active>3.A.6</a><a href="ex-3-a-7.html">3.A.7</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-A">2D rotating frames</a> › Example 3.A.6</p>
+<h2><span class="num">Example 3.A.6</span>Slotted link driving a pin on a second link</h2>
+<div class="tags"><span>mechanism</span><span>slot</span><span>Coriolis</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>Link OD is pinned to the wall at O and turns clockwise at the constant rate $\dot\theta = 2$ rad/s, where $\theta$ is measured from the downward vertical. Pin A slides in a slot of link OD and is the end of link CA, which is pinned to the wall at C. Point C is a distance $h$ below O and a horizontal distance $b$ to the left of O. When $\theta = 45°$, link CA is horizontal.</p>
+<p>The data are $L = 0.225$ m (the length of CA), $h = 0.225$ m and $b = 0.45$ m.</p>
+<p><b>Find</b> (a) the velocity of A when $\theta = 45°$ and (b) the acceleration of A at the same position.</p>
+</div>
+<div class="demo" id="x3a-6">
+  <div class="demo-title"><span class="tag">Interactive</span><span>Link OD turns clockwise and moves pin A</span></div>
+  <canvas id="x3a-6-anim" class="anim" style="height:460px"></canvas><div class="grid2"><canvas id="x3a-6-plot" class="plot" style="height:200px"></canvas><canvas id="x3a-6-plot2" class="plot" style="height:200px"></canvas></div><div class="legendrow"><span><span class="sw" style="background:var(--c5)"></span>v<sub>O</sub>, a<sub>O</sub></span><span><span class="sw" style="background:var(--c4)"></span>α × r</span><span><span class="sw" style="background:var(--c3)"></span>ω × r, −ω²r</span><span><span class="sw" style="background:#a61e4d"></span>2ω × v<sub>rel</sub> (Coriolis)</span><span><span class="sw" style="background:var(--c2)"></span>v<sub>rel</sub>, a<sub>rel</sub></span><span><span class="sw" style="background:var(--c1)"></span>total</span></div>
+  <div class="bar" id="x3a-6-pre"><span class="lbl">Try:</span></div>
+  <div class="bar" id="x3a-6-btn"></div>
+  <div class="stats" id="x3a-6-stats"></div>
+  <p class="small concept-note">The mechanism can only move between about θ = 37° and θ = 91°, where link CA lines up with the slot, so the animation runs from 41° to 87° and starts again. Use the chips to switch between the velocity terms and the acceleration terms, or to freeze the picture at the instant in the problem. The purple axes are the moving frame. They turn with the body they are attached to.</p>
+</div>
+<div class="demo v3d" data-clip="x3a-6"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Choose the moving frame and find the geometry</summary>
+<p>Attach the $xyz$ frame to link OD with its origin at the fixed pin O. Then $\vec v_O = \vec a_O = \vec 0$, $\vec\omega = -2\,\hat k$ rad/s and $\vec\alpha = \vec 0$.</p>
+<p>Put the origin of the fixed $XY$ axes at O. Then C is at $(-0.45,\ -0.225)$ m. Link CA is horizontal and 0.225 m long, so A is at $(-0.225,\ -0.225)$ m. This point is indeed on the line of the slot at $\theta = 45°$. We write all vectors in fixed $\hat I$, $\hat J$ components.</p>
+<div class="formula">$$\vec r_{A/O} = -0.225\,\hat I - 0.225\,\hat J\ \text{m}, \qquad \hat e = -\tfrac{1}{\sqrt 2}\left(\hat I + \hat J\right)$$</div>
+<p>Here $\hat e$ points along the slot from O toward D, and $d$ is the distance OA. Relative to link OD, A slides along the slot, so $\vec v_{rel} = \dot d\,\hat e$ and $\vec a_{rel} = \ddot d\,\hat e$.</p>
+<div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 330 280" role="img" aria-label="The links, the frame attached to OD, and A" style="max-width:330px"><line x1="280.0" y1="60.0" x2="124.9" y2="215.1" stroke="#8a6a12" stroke-width="21" stroke-linecap="round"/><line x1="280.0" y1="60.0" x2="124.9" y2="215.1" stroke="#f1e6c8" stroke-width="17" stroke-linecap="round"/><line x1="260.0" y1="80.0" x2="128.9" y2="211.1" stroke="#fff" stroke-width="6" stroke-linecap="round"/><line x1="68.5" y1="165.8" x2="174.2" y2="165.8" stroke="#1b1a17" stroke-width="3"/><circle cx="280.0" cy="60.0" r="4.5" fill="#fff" stroke="#1c1d21" stroke-width="2"/><circle cx="68.5" cy="165.8" r="4.5" fill="#fff" stroke="#1c1d21" stroke-width="2"/><circle cx="174.2" cy="165.8" r="5" fill="#1c1d21"/><line x1="280.0" y1="60.0" x2="297.7" y2="42.3" stroke="#7b3f8c" stroke-width="1.6" stroke-linecap="round"/><polygon points="305.5,34.5 301.6,46.2 293.8,38.4" fill="#7b3f8c"/><line x1="280.0" y1="60.0" x2="262.3" y2="42.3" stroke="#7b3f8c" stroke-width="1.6" stroke-linecap="round"/><polygon points="254.5,34.5 266.2,38.4 258.4,46.2" fill="#7b3f8c"/><path d="M301.7,56.2 L301.8,56.9 L301.9,57.7 L301.9,58.5 L302.0,59.2 L302.0,60.0 L302.0,60.8 L301.9,61.5 L301.9,62.3 L301.8,63.1 L301.7,63.8 L301.5,64.6 L301.3,65.3 L301.1,66.1 L300.9,66.8 L300.7,67.5 L300.4,68.2 L300.1,68.9 L299.8,69.6 L299.4,70.3 L299.1,71.0 L298.7,71.7 L298.2,72.3 L297.8,72.9 L297.3,73.5 L296.9,74.1 L296.3,74.7 L295.8,75.3 L295.3,75.8 L294.7,76.3 L294.1,76.9 L293.5,77.3 L292.9,77.8 L292.3,78.2 L291.7,78.7 L291.0,79.1 L290.3,79.4 L289.6,79.8 L288.9,80.1 L288.2,80.4 L287.5,80.7" fill="none" stroke="#2a7f62" stroke-width="2.2"/><polygon points="283.8,82.2 291.2,73.8 295.0,83.1" fill="#2a7f62"/><line x1="280.0" y1="60.0" x2="280.0" y2="170.0" stroke="#7b808c" stroke-width="1" stroke-dasharray="5 4"/><path d="M280.0,124.0 A64,64 0 0 1 234.7,105.3" fill="none" stroke="#7b808c" stroke-width="1.2"/><line x1="46.5" y1="60.0" x2="46.5" y2="165.8" stroke="#7b808c" stroke-width="1.2"/><line x1="51.5" y1="60.0" x2="41.5" y2="60.0" stroke="#7b808c" stroke-width="1.2"/><line x1="51.5" y1="165.8" x2="41.5" y2="165.8" stroke="#7b808c" stroke-width="1.2"/><line x1="68.5" y1="235.8" x2="280.0" y2="235.8" stroke="#7b808c" stroke-width="1.2"/><line x1="68.5" y1="230.8" x2="68.5" y2="240.8" stroke="#7b808c" stroke-width="1.2"/><line x1="280.0" y1="230.8" x2="280.0" y2="240.8" stroke="#7b808c" stroke-width="1.2"/><line x1="46.5" y1="60.0" x2="280.0" y2="60.0" stroke="#7b808c" stroke-width="0.8" stroke-dasharray="5 4"/><text x="280.0" y="38.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>O</tspan></text><text x="62.5" y="149.8" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>C</tspan></text><text x="178.2" y="183.8" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>A</tspan></text><text x="114.9" y="229.1" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:14px;font-style:italic;fill:#1c1d21"><tspan>D</tspan></text><text x="312.5" y="27.5" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b3f8c"><tspan>x</tspan></text><text x="247.5" y="27.5" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b3f8c"><tspan>y</tspan></text><text x="310.3" y="77.5" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2a7f62"><tspan>θ̇</tspan></text><text x="251.3" y="129.3" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>θ</tspan></text><text x="34.5" y="112.9" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>h</tspan></text><text x="174.2" y="243.8" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>b</tspan></text></svg><figcaption>The links, the frame attached to OD, and A</figcaption></figure></div>
+</details>
+<details class="step"><summary>Step 2 · Describe A a second way, as a point of link CA</summary>
+<p>Link CA turns about the fixed pin C, and $\vec r_{A/C} = L\,\hat I = 0.225\,\hat I$ m.</p>
+<div class="formula">$$\vec v_A = \omega_{CA}\hat k\times L\,\hat I = L\,\omega_{CA}\,\hat J, \qquad \vec a_A = \alpha_{CA}\hat k\times L\,\hat I - \omega_{CA}^2\,L\,\hat I = -L\,\omega_{CA}^2\,\hat I + L\,\alpha_{CA}\,\hat J$$</div>
+</details>
+<details class="step"><summary>Step 3 · Find the velocity of A</summary>
+<div class="formula">$$\vec\omega\times\vec r_{A/O} = (-2\,\hat k)\times(-0.225\,\hat I - 0.225\,\hat J) = -0.45\,\hat I + 0.45\,\hat J\ \text{m/s}$$</div>
+<div class="formula">$$\vec v_A = -0.45\,\hat I + 0.45\,\hat J - 0.7071\,\dot d\,(\hat I + \hat J) = L\,\omega_{CA}\,\hat J$$</div>
+<div class="formula">$$\hat I:\ \ -0.45 - 0.7071\,\dot d = 0 \ \Rightarrow\ \dot d = -0.636\ \text{m/s}, \qquad \hat J:\ \ 0.45 + 0.45 = 0.225\,\omega_{CA} \ \Rightarrow\ \omega_{CA} = 4\ \text{rad/s}$$</div>
+<p>So A slides toward O along the slot, and $\vec v_A = 0.9\,\hat J$ m/s.</p>
+<div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 240 200" role="img" aria-label="The velocity terms at A, drawn to scale" style="max-width:240px"><circle cx="120.0" cy="170.0" r="4" fill="#1c1d21"/><line x1="120.0" y1="170.0" x2="64.8" y2="114.8" stroke="#2a7f62" stroke-width="2.6" stroke-linecap="round"/><polygon points="57.0,107.0 68.7,110.9 60.9,118.7" fill="#2a7f62"/><line x1="57.0" y1="107.0" x2="112.2" y2="51.8" stroke="#c2571a" stroke-width="2.6" stroke-linecap="round"/><polygon points="120.0,44.0 116.1,55.7 108.3,47.9" fill="#c2571a"/><line x1="120.0" y1="170.0" x2="120.0" y2="55.0" stroke="#1f3a5f" stroke-width="3.4" stroke-linecap="round"/><polygon points="120.0,44.0 125.5,55.0 114.5,55.0" fill="#1f3a5f"/><text x="132.0" y="180.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>A</tspan></text><text x="102.6" y="124.4" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2a7f62"><tspan>ω×r</tspan></text><text x="68.7" y="55.7" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2571a"><tspan>v</tspan><tspan dy="4.8" style="font-size:10.8px">rel</tspan></text><text x="134.0" y="107.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1f3a5f"><tspan>v</tspan><tspan dy="4.8" style="font-size:10.8px">A</tspan></text></svg><figcaption>The velocity terms at A, drawn to scale</figcaption></figure></div>
+</details>
+<details class="step"><summary>Step 4 · Find the acceleration of A</summary>
+<p>With $\vec v_{rel} = \dot d\,\hat e = 0.45\,\hat I + 0.45\,\hat J$ m/s, the terms of the moving-frame equation are</p>
+<div class="formula">$$-\omega^2\,\vec r_{A/O} = -4\,(-0.225\,\hat I - 0.225\,\hat J) = 0.9\,\hat I + 0.9\,\hat J$$</div>
+<div class="formula">$$2\,\vec\omega\times\vec v_{rel} = 2\,(-2\,\hat k)\times(0.45\,\hat I + 0.45\,\hat J) = 1.8\,\hat I - 1.8\,\hat J, \qquad \vec a_{rel} = -0.7071\,\ddot d\,(\hat I + \hat J)$$</div>
+<p>Setting the sum equal to the expression from link CA, with $L\,\omega_{CA}^2 = 0.225(16) = 3.6$ m/s²,</p>
+<div class="formula">$$\hat I:\ \ 0.9 + 1.8 - 0.7071\,\ddot d = -3.6 \ \Rightarrow\ \ddot d = 8.91\ \text{m/s}^2$$</div>
+<div class="formula">$$\hat J:\ \ 0.9 - 1.8 - 6.3 = 0.225\,\alpha_{CA} \ \Rightarrow\ \alpha_{CA} = -32\ \text{rad/s}^2$$</div>
+<div class="formula">$$\vec a_A = -3.6\,\hat I - 7.2\,\hat J\ \text{m/s}^2$$</div>
+<div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 290 300" role="img" aria-label="The acceleration terms at A, drawn to scale" style="max-width:290px"><circle cx="150.0" cy="80.0" r="4" fill="#1c1d21"/><line x1="150.0" y1="80.0" x2="160.2" y2="69.8" stroke="#2a7f62" stroke-width="2.6" stroke-linecap="round"/><polygon points="168.0,62.0 164.1,73.7 156.3,65.9" fill="#2a7f62"/><line x1="168.0" y1="62.0" x2="196.2" y2="90.2" stroke="#a61e4d" stroke-width="2.6" stroke-linecap="round"/><polygon points="204.0,98.0 192.3,94.1 200.1,86.3" fill="#a61e4d"/><line x1="204.0" y1="98.0" x2="85.8" y2="216.2" stroke="#c2571a" stroke-width="2.6" stroke-linecap="round"/><polygon points="78.0,224.0 81.9,212.3 89.7,220.1" fill="#c2571a"/><line x1="150.0" y1="80.0" x2="82.9" y2="214.2" stroke="#1f3a5f" stroke-width="3.4" stroke-linecap="round"/><polygon points="78.0,224.0 78.0,211.7 87.8,216.6" fill="#1f3a5f"/><text x="136.0" y="74.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>A</tspan></text><text x="139.2" y="51.2" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2a7f62"><tspan>−ω</tspan><tspan dy="-5.7" style="font-size:10.8px">2</tspan><tspan dy="5.7">r</tspan></text><text x="212.9" y="53.1" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#a61e4d"><tspan>2ω×v</tspan><tspan dy="4.8" style="font-size:10.8px">rel</tspan></text><text x="160.8" y="180.8" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2571a"><tspan>a</tspan><tspan dy="4.8" style="font-size:10.8px">rel</tspan></text><text x="101.5" y="145.7" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1f3a5f"><tspan>a</tspan><tspan dy="4.8" style="font-size:10.8px">A</tspan></text></svg><figcaption>The acceleration terms at A, drawn to scale</figcaption></figure></div>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>(a) $\vec v_A = 0.9\,\hat J$ m/s, straight up. (b) $\vec a_A = -3.6\,\hat I - 7.2\,\hat J$ m/s², with magnitude 8.05 m/s². Link CA turns at 4 rad/s counterclockwise with an angular acceleration of 32 rad/s² clockwise.</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Watch the plots near the ends of the motion. What happens to $\omega_{CA}$ when link CA lines up with the slot?</li><li>Freeze at the instant and show the velocity terms. Why is the horizontal component of $\vec v_A$ zero?</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 3, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-3-a-5.html"><small>← Previous</small>Example 3.A.5</a><a class="next" href="ex-3-a-7.html"><small>Next →</small>Example 3.A.7</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/kit.js"></script>
+<script src="../assets/ch3-exA.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch3-3dA.js"></script>
+</body>
+</html>

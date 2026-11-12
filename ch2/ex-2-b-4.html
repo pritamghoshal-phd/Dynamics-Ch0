@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 2.B.4 · Chapter 2 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 2</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="rigid.html">A · Rigid body equations</a>
+    <a href="instant.html">B · Instant centers</a>
+    <a href="mechanisms.html">C · Mechanisms</a>
+    <a href="examples.html" class=active>Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Instant centers examples"><a href="examples.html#group-B">All Instant centers examples</a><a href="ex-2-b-1.html">2.B.1</a><a href="ex-2-b-2.html">2.B.2</a><a href="ex-2-b-3.html">2.B.3</a><a href="ex-2-b-4.html" class=active>2.B.4</a><a href="ex-2-b-5.html">2.B.5</a><a href="ex-2-b-6.html">2.B.6</a><a href="ex-2-b-7.html">2.B.7</a><a href="ex-2-b-8.html">2.B.8</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-B">Instant centers</a> › Example 2.B.4</p>
+<h2><span class="num">Example 2.B.4</span>Link sliding on a wall and a floor</h2>
+<div class="tags"><span>instant centers</span><span>sliding link</span><span>angular velocity</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>End A of link AB slides along a vertical wall, and end B slides along the horizontal floor. End B moves to the right with speed $v_B$.</p>
+<p>The data are $v_B = 3$ m/s, $L = 0.5$ m and $\theta = 36.87°$, where $\theta$ is the angle between the link and the floor.</p>
+<p><b>Find</b>, using the method of instant centers, the angular velocity of AB.</p>
+</div>
+<div class="demo" id="x2b-4">
+  <div class="demo-title"><span class="tag">Interactive</span><span>The link sliding down the wall (slow motion)</span></div>
+  <div class="grid2"><canvas id="x2b-4-anim" class="anim" style="height:330px"></canvas><div><canvas id="x2b-4-plot" class="plot" style="height:300px"></canvas></div></div>
+  <div class="bar" id="x2b-4-pre"><span class="lbl">View:</span></div>
+  <div class="bar" id="x2b-4-btn"></div>
+  <div class="stats" id="x2b-4-stats"></div>
+  <p class="small concept-note">The instant center is the corner of the rectangle formed by A, B and the corner of the wall. It moves along the dashed quarter circle of radius $L$. The graph shows how quickly $\omega$ grows as the link approaches the floor.</p>
+</div>
+<div class="demo v3d" data-clip="x2b-4"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">The method of instant centers has four steps. Find the direction of the velocity of two points of the body, locate the instant center where the perpendiculars to those velocities meet, find ω from one known speed, and then find any other velocity from its distance to the instant center. The problem text in the book mentions $\theta = 30°$, while the parameter list gives $\theta = 36.87°$. We use $\theta = 36.87°$. The animation passes through every angle, so you can also read the result for 30° from the graph.</p>
+<details class="step"><summary>Step 1 · Find the directions of the velocities of A and B</summary>
+<p>End A slides along the wall, so $\mathbf v_A$ is vertical. End B slides along the floor, so $\mathbf v_B$ is horizontal.</p>
+<div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 320 250" role="img" aria-label="Link AB with the instant center" style="max-width:320px"><line x1="40" y1="30" x2="40" y2="210" stroke="#8b8f98" stroke-width="1.8"/><line x1="40" y1="34" x2="33" y2="29" stroke="#8b8f98" stroke-width="1"/><line x1="40" y1="43" x2="33" y2="38" stroke="#8b8f98" stroke-width="1"/><line x1="40" y1="52" x2="33" y2="47" stroke="#8b8f98" stroke-width="1"/><line x1="40" y1="61" x2="33" y2="56" stroke="#8b8f98" stroke-width="1"/><line x1="40" y1="70" x2="33" y2="65" stroke="#8b8f98" stroke-width="1"/><line x1="40" y1="79" x2="33" y2="74" stroke="#8b8f98" stroke-width="1"/><line x1="40" y1="88" x2="33" y2="83" stroke="#8b8f98" stroke-width="1"/><line x1="40" y1="97" x2="33" y2="92" stroke="#8b8f98" stroke-width="1"/><line x1="40" y1="106" x2="33" y2="101" stroke="#8b8f98" stroke-width="1"/><line x1="40" y1="115" x2="33" y2="110" stroke="#8b8f98" stroke-width="1"/><line x1="40" y1="124" x2="33" y2="119" stroke="#8b8f98" stroke-width="1"/><line x1="40" y1="133" x2="33" y2="128" stroke="#8b8f98" stroke-width="1"/><line x1="40" y1="142" x2="33" y2="137" stroke="#8b8f98" stroke-width="1"/><line x1="40" y1="151" x2="33" y2="146" stroke="#8b8f98" stroke-width="1"/><line x1="40" y1="160" x2="33" y2="155" stroke="#8b8f98" stroke-width="1"/><line x1="40" y1="169" x2="33" y2="164" stroke="#8b8f98" stroke-width="1"/><line x1="40" y1="178" x2="33" y2="173" stroke="#8b8f98" stroke-width="1"/><line x1="40" y1="187" x2="33" y2="182" stroke="#8b8f98" stroke-width="1"/><line x1="40" y1="196" x2="33" y2="191" stroke="#8b8f98" stroke-width="1"/><line x1="40" y1="205" x2="33" y2="200" stroke="#8b8f98" stroke-width="1"/><line x1="40" y1="210" x2="280" y2="210" stroke="#8b8f98" stroke-width="1.8"/><line x1="44" y1="210" x2="39" y2="217" stroke="#8b8f98" stroke-width="1"/><line x1="53" y1="210" x2="48" y2="217" stroke="#8b8f98" stroke-width="1"/><line x1="62" y1="210" x2="57" y2="217" stroke="#8b8f98" stroke-width="1"/><line x1="71" y1="210" x2="66" y2="217" stroke="#8b8f98" stroke-width="1"/><line x1="80" y1="210" x2="75" y2="217" stroke="#8b8f98" stroke-width="1"/><line x1="89" y1="210" x2="84" y2="217" stroke="#8b8f98" stroke-width="1"/><line x1="98" y1="210" x2="93" y2="217" stroke="#8b8f98" stroke-width="1"/><line x1="107" y1="210" x2="102" y2="217" stroke="#8b8f98" stroke-width="1"/><line x1="116" y1="210" x2="111" y2="217" stroke="#8b8f98" stroke-width="1"/><line x1="125" y1="210" x2="120" y2="217" stroke="#8b8f98" stroke-width="1"/><line x1="134" y1="210" x2="129" y2="217" stroke="#8b8f98" stroke-width="1"/><line x1="143" y1="210" x2="138" y2="217" stroke="#8b8f98" stroke-width="1"/><line x1="152" y1="210" x2="147" y2="217" stroke="#8b8f98" stroke-width="1"/><line x1="161" y1="210" x2="156" y2="217" stroke="#8b8f98" stroke-width="1"/><line x1="170" y1="210" x2="165" y2="217" stroke="#8b8f98" stroke-width="1"/><line x1="179" y1="210" x2="174" y2="217" stroke="#8b8f98" stroke-width="1"/><line x1="188" y1="210" x2="183" y2="217" stroke="#8b8f98" stroke-width="1"/><line x1="197" y1="210" x2="192" y2="217" stroke="#8b8f98" stroke-width="1"/><line x1="206" y1="210" x2="201" y2="217" stroke="#8b8f98" stroke-width="1"/><line x1="215" y1="210" x2="210" y2="217" stroke="#8b8f98" stroke-width="1"/><line x1="224" y1="210" x2="219" y2="217" stroke="#8b8f98" stroke-width="1"/><line x1="233" y1="210" x2="228" y2="217" stroke="#8b8f98" stroke-width="1"/><line x1="242" y1="210" x2="237" y2="217" stroke="#8b8f98" stroke-width="1"/><line x1="251" y1="210" x2="246" y2="217" stroke="#8b8f98" stroke-width="1"/><line x1="260" y1="210" x2="255" y2="217" stroke="#8b8f98" stroke-width="1"/><line x1="269" y1="210" x2="264" y2="217" stroke="#8b8f98" stroke-width="1"/><line x1="278" y1="210" x2="273" y2="217" stroke="#8b8f98" stroke-width="1"/><line x1="52.0" y1="120.0" x2="172.0" y2="210.0" stroke="#8a6a12" stroke-width="15" stroke-linecap="round"/><line x1="52.0" y1="120.0" x2="172.0" y2="210.0" stroke="#f1e6c8" stroke-width="11" stroke-linecap="round"/><circle cx="52.0" cy="120.0" r="4.5" fill="#fff" stroke="#1c1d21" stroke-width="2"/><circle cx="172.0" cy="210.0" r="4.5" fill="#fff" stroke="#1c1d21" stroke-width="2"/><circle cx="172.0" cy="120.0" r="10" fill="#8a3fd1" fill-opacity=".15"/><circle cx="172.0" cy="120.0" r="6" fill="none" stroke="#8a3fd1" stroke-width="2"/><circle cx="172.0" cy="120.0" r="2.4" fill="#8a3fd1"/><line x1="172.0" y1="120.0" x2="52.0" y2="120.0" stroke="#8a3fd1" stroke-width="1.3" stroke-dasharray="5 4"/><polyline points="60.0,120.0 60.0,128.0 52.0,128.0" fill="none" stroke="#8a3fd1" stroke-width="1.2"/><line x1="172.0" y1="120.0" x2="172.0" y2="210.0" stroke="#8a3fd1" stroke-width="1.3" stroke-dasharray="5 4"/><polyline points="172.0,202.0 180.0,202.0 180.0,210.0" fill="none" stroke="#8a3fd1" stroke-width="1.2"/><line x1="52.0" y1="120.0" x2="52.0" y2="157.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="52.0,168.0 46.5,157.0 57.5,157.0" fill="#17915a"/><line x1="172.0" y1="210.0" x2="213.0" y2="210.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="224.0,210.0 213.0,215.5 213.0,204.5" fill="#2457d6"/><path d="M140.0,210.0 A32,32 0 0 1 146.4,190.8" fill="none" stroke="#7b808c" stroke-width="1.2"/><line x1="262.0" y1="120.0" x2="262.0" y2="210.0" stroke="#7b808c" stroke-width="1.2"/><line x1="267.0" y1="120.0" x2="257.0" y2="120.0" stroke="#7b808c" stroke-width="1.2"/><line x1="267.0" y1="210.0" x2="257.0" y2="210.0" stroke="#7b808c" stroke-width="1.2"/><line x1="52.0" y1="86.0" x2="172.0" y2="86.0" stroke="#7b808c" stroke-width="1.2"/><line x1="52.0" y1="81.0" x2="52.0" y2="91.0" stroke="#7b808c" stroke-width="1.2"/><line x1="172.0" y1="81.0" x2="172.0" y2="91.0" stroke="#7b808c" stroke-width="1.2"/><text x="66.0" y="104.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>A</tspan></text><text x="186.0" y="198.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>B</tspan></text><text x="184.0" y="106.0" text-anchor="start" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:14px;font-style:italic;fill:#8a3fd1"><tspan>IC</tspan><tspan dy="4.5" style="font-size:10.1px">AB</tspan></text><text x="68.0" y="180.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>v</tspan><tspan dy="4.8" style="font-size:10.8px">A</tspan></text><text x="236.0" y="198.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>v</tspan><tspan dy="4.8" style="font-size:10.8px">B</tspan></text><text x="131.2" y="196.4" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>θ</tspan></text><text x="296.0" y="165.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>L sin θ</tspan></text><text x="112.0" y="68.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>L cos θ</tspan></text></svg><figcaption>Link AB with the instant center</figcaption></figure></div>
+</details>
+<details class="step"><summary>Step 2 · Locate the instant center</summary>
+<p>The perpendicular to $\mathbf v_A$ at A is the horizontal line through A. The perpendicular to $\mathbf v_B$ at B is the vertical line through B. They meet at the point directly above B and level with A. Its distances from the two ends are</p>
+$$r_{B/IC} = L\sin\theta = 0.5(0.6) = 0.3\ \text{m}, \qquad r_{A/IC} = L\cos\theta = 0.5(0.8) = 0.4\ \text{m}$$
+</details>
+<details class="step"><summary>Step 3 · Find the angular velocity</summary>
+<p>B moves to the right at 3 m/s and lies 0.3 m below the instant center, so</p>
+$$\omega_{AB} = \frac{v_B}{r_{B/IC}} = \frac{3}{0.3} = 10.0\ \text{rad/s}$$
+<p>A point below the instant center that moves to the right turns <b>counterclockwise</b> about it.</p>
+</details>
+<details class="step"><summary>Step 4 · Check with the velocity of A</summary>
+<p>End A should move down the wall with speed</p>
+$$v_A = \omega_{AB}\, r_{A/IC} = 10(0.4) = 4.00\ \text{m/s}$$
+<p class="small">The same result follows from the length constraint $x_B^2 + y_A^2 = L^2$. Differentiating gives $x_B v_B = -y_A \dot y_A$, so $\dot y_A = -0.4(3)/0.3 = -4$ m/s.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>$\omega_{AB} = 10.0$ rad/s counterclockwise. End A then slides down the wall at 4.00 m/s. At $\theta = 30°$ the same method gives $\omega_{AB} = v_B/(L\sin 30°) = 12.0$ rad/s.</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Find the angle at which $\omega_{AB} = v_B/L$. Where is the instant center then?</li><li>Why must the instant center always stay a distance $L$ from the corner of the wall and the floor?</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 2, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-2-b-3.html"><small>← Previous</small>Example 2.B.3</a><a class="next" href="ex-2-b-5.html"><small>Next →</small>Example 2.B.5</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/kit.js"></script>
+<script src="../assets/ch2-exB.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch2-3dB.js"></script>
+</body>
+</html>

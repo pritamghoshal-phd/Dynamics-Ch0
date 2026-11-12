@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 4.C.11 · Chapter 4 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 4</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="newton.html">A · Newton's laws</a>
+    <a href="energy.html">B · Work–energy</a>
+    <a href="impulse.html">C · Linear impulse–momentum</a>
+    <a href="angular.html">D · Angular impulse–momentum</a>
+    <a href="examples.html" class=active>Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Linear impulse and momentum examples"><a href="examples.html#group-C">All Linear impulse and momentum examples</a><a href="ex-4-c-1.html">4.C.1</a><a href="ex-4-c-2.html">4.C.2</a><a href="ex-4-c-3.html">4.C.3</a><a href="ex-4-c-4.html">4.C.4</a><a href="ex-4-c-5.html">4.C.5</a><a href="ex-4-c-6.html">4.C.6</a><a href="ex-4-c-7.html">4.C.7</a><a href="ex-4-c-8.html">4.C.8</a><a href="ex-4-c-9.html">4.C.9</a><a href="ex-4-c-10.html">4.C.10</a><a href="ex-4-c-11.html" class=active>4.C.11</a><a href="ex-4-c-12.html">4.C.12</a><a href="ex-4-c-13.html">4.C.13</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-C">Linear impulse and momentum</a> › Example 4.C.11</p>
+<h2><span class="num">Example 4.C.11</span>Oblique impact of two spheres</h2>
+<div class="tags"><span>oblique impact</span><span>restitution</span><span>line of impact</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>Sphere A has a mass of 20 kg and a radius of 75 mm. Sphere B has a mass of 5 kg and a radius of 48 mm. The spheres move in a horizontal plane on parallel lines, A to the right at $v_{A1} = 5$ m/s and B to the left at $v_{B1} = 15$ m/s. The line along which the center of B moves is tangent to the bottom of A, as the animation shows, so the spheres strike each other off-center. The coefficient of restitution is $e = 0.6$.</p>
+<p><b>Find</b> the velocities of the spheres immediately after the impact.</p>
+</div>
+<div class="demo" id="x4c-11">
+  <div class="demo-title"><span class="tag">Interactive</span><span>Top view of the impact, with the line of impact n and the tangent direction t</span></div>
+  <canvas id="x4c-11-anim" class="anim" style="height:370px"></canvas>
+  <div class="controls" id="x4c-11-ctl"></div>
+  <div class="bar" id="x4c-11-btn"></div>
+  <div class="stats" id="x4c-11-stats"></div>
+  <p class="small concept-note">The impact is slowed down a hundred times. The dashed red line through the contact point is the line of impact. Along it the velocities change, and along t they do not.</p>
+</div>
+<div class="demo v3d" data-clip="x4c-11"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Every solution follows the four-step method: free-body diagrams, kinetics equations, kinematics, solve. Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Draw the free-body diagrams</summary>
+<p>We draw each sphere seen from above. The only impulsive force on each one is the contact force $F$, which acts along the line of impact $n$ through the two centers. Its size is the same on both spheres and its directions are opposite. The weights and the normal forces from the plane are vertical and do not enter the in-plane equations.</p>
+<div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 270 250" role="img" aria-label="Sphere A during the impact (top view)" style="max-width:270px"><circle cx="120.0" cy="120.0" r="50.0" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><line x1="215.1" y1="193.2" x2="168.3" y2="157.2" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="159.6,150.5 171.7,152.8 165.0,161.6" fill="#17915a"/><circle cx="159.6" cy="150.5" r="4" fill="#1c1d21"/><line x1="210.0" y1="60.0" x2="226.6" y2="72.8" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="235.4,79.5 223.3,77.2 230.0,68.4" fill="#7b808c"/><line x1="210.0" y1="60.0" x2="222.8" y2="43.4" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="229.5,34.6 227.2,46.7 218.4,40.0" fill="#7b808c"/><text x="120.0" y="120.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:16px;font-style:italic;fill:#1c1d21"><tspan>A</tspan></text><text x="226.2" y="201.7" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>F</tspan></text><text x="243.3" y="85.6" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>n</tspan></text><text x="235.6" y="26.7" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>t</tspan></text></svg><figcaption>Sphere A during the impact (top view)</figcaption></figure><figure><svg class="fbd" viewBox="0 0 260 250" role="img" aria-label="Sphere B during the impact (top view)" style="max-width:260px"><circle cx="130.0" cy="130.0" r="32.0" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><line x1="49.2" y1="67.8" x2="95.9" y2="103.8" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="104.6,110.5 92.6,108.1 99.3,99.4" fill="#17915a"/><circle cx="104.6" cy="110.5" r="4" fill="#1c1d21"/><line x1="50.0" y1="215.0" x2="66.6" y2="227.8" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="75.4,234.5 63.3,232.2 70.0,223.4" fill="#7b808c"/><line x1="50.0" y1="215.0" x2="62.8" y2="198.4" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="69.5,189.6 67.2,201.7 58.4,195.0" fill="#7b808c"/><text x="130.0" y="130.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:16px;font-style:italic;fill:#1c1d21"><tspan>B</tspan></text><text x="38.1" y="59.3" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>F</tspan></text><text x="83.3" y="240.6" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>n</tspan></text><text x="75.6" y="181.7" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>t</tspan></text></svg><figcaption>Sphere B during the impact (top view)</figcaption></figure></div><p class="small fbdnote">Seen from above, the only impulsive force on each sphere is the contact force $F$. It acts along the line of impact $n$, which joins the two centers at the moment of contact, with equal size and opposite directions on A and B. The weights and the normal forces from the table are perpendicular to the plane, and friction is neglected, so nothing acts along $t$.</p>
+</details>
+<details class="step"><summary>Step 2 · Find the line of impact</summary>
+<p>At contact the centers are $r_A + r_B = 123$ mm apart. The paths of the centers are $r_A = 75$ mm apart, so the line joining the centers makes the angle $\phi$ with the direction of motion, where</p>
+$$\sin\phi = \frac{75}{123}, \qquad \phi = 37.6°$$
+<p>With $x$ to the right and $y$ up in the top view, B is below and to the right of A. The unit vectors along the line of impact and the tangent are</p>
+$$\hat n = \cos\phi\,\hat\imath - \sin\phi\,\hat\jmath = 0.7926\,\hat\imath - 0.6098\,\hat\jmath, \qquad \hat t = \sin\phi\,\hat\imath + \cos\phi\,\hat\jmath$$
+</details>
+<details class="step"><summary>Step 3 · Write the kinetics equations</summary>
+<p>Resolve the velocities before the impact into $n$ and $t$ components.</p>
+$$v_{A1n} = 5\cos\phi = 3.963, \quad v_{A1t} = 5\sin\phi = 3.049, \quad v_{B1n} = -15\cos\phi = -11.889, \quad v_{B1t} = -15\sin\phi = -9.146\ \text{m/s}$$
+<p>No impulse acts along $t$ on either sphere, so the $t$ component of each velocity is unchanged. Along $n$, momentum of the pair is conserved and the coefficient of restitution applies.</p>
+$$m_A v_{A1n} + m_B v_{B1n} = m_A v_{A2n} + m_B v_{B2n}$$
+$$v_{B2n} - v_{A2n} = -e\left(v_{B1n} - v_{A1n}\right)$$
+</details>
+<details class="step"><summary>Step 4 · Solve</summary>
+<p>The momentum equation gives $20\,v_{A2n} + 5\,v_{B2n} = 19.81$ and the restitution equation gives $v_{B2n} - v_{A2n} = 9.511$. Solving these two equations together,</p>
+$$v_{A2n} = -1.110\ \text{m/s}, \qquad v_{B2n} = 8.401\ \text{m/s}$$
+<p>Combining the new $n$ components with the unchanged $t$ components,</p>
+$$\mathbf v_{A2} = -1.110\,\hat n + 3.049\,\hat t = 0.980\,\hat\imath + 3.093\,\hat\jmath\ \text{m/s}$$
+$$\mathbf v_{B2} = 8.401\,\hat n - 9.146\,\hat t = 1.082\,\hat\imath - 12.372\,\hat\jmath\ \text{m/s}$$
+<p class="small">A leaves at 3.24 m/s, 72.4° above the $x$ axis, and B leaves at 12.42 m/s, 85.0° below the $x$ axis. The kinetic energy drops from 812.5 J to 490.9 J.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>$\mathbf v_{A2} = 0.980\,\hat\imath + 3.09\,\hat\jmath$ m/s (3.24 m/s) and $\mathbf v_{B2} = 1.08\,\hat\imath - 12.37\,\hat\jmath$ m/s (12.42 m/s), with $x$ along the original motion of A and $y$ toward A's side of the paths.</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Set $e = 0$. The $n$ components become equal after the impact. Do the spheres move together afterward? Why not?</li><li>Set $v_{B1} = 0$. In which direction does B leave, and why is that direction the line of impact?</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 4, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-4-c-10.html"><small>← Previous</small>Example 4.C.10</a><a class="next" href="ex-4-c-12.html"><small>Next →</small>Example 4.C.12</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/kit.js"></script>
+<script src="../assets/ch4-exC2.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch4-3dC2.js"></script>
+</body>
+</html>

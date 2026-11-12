@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 4.D.4 · Chapter 4 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 4</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="newton.html">A · Newton's laws</a>
+    <a href="energy.html">B · Work–energy</a>
+    <a href="impulse.html">C · Linear impulse–momentum</a>
+    <a href="angular.html">D · Angular impulse–momentum</a>
+    <a href="examples.html" class=active>Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Angular impulse and momentum examples"><a href="examples.html#group-D">All Angular impulse and momentum examples</a><a href="ex-4-d-1.html">4.D.1</a><a href="ex-4-d-2.html">4.D.2</a><a href="ex-4-d-3.html">4.D.3</a><a href="ex-4-d-4.html" class=active>4.D.4</a><a href="ex-4-d-5.html">4.D.5</a><a href="ex-4-d-6.html">4.D.6</a><a href="ex-4-d-7.html">4.D.7</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-D">Angular impulse and momentum</a> › Example 4.D.4</p>
+<h2><span class="num">Example 4.D.4</span>Spinning arm with a sliding particle and a rising particle</h2>
+<div class="tags"><span>angular momentum</span><span>work–energy</span><span>systems</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>Arm OC turns about a vertical shaft. Particle A slides on the smooth horizontal arm, and particle B slides on the smooth vertical shaft. A cord attached to A runs over a small pulley at O and down to B. The masses of A and B are 0.5 kg each. The masses of the guides and the pulley are negligible, and friction is negligible everywhere. At the position $R = 0.8$ m, A is not sliding over its guide, and the arm turns at $\omega = 6$ rad/s.</p>
+<p><b>Find</b>, for the position where $R = 1.2$ m, (a) the angular speed of arm OC and (b) the speed of particle B.</p>
+</div>
+<div class="demo" id="x4d-4">
+  <div class="demo-title"><span class="tag">Interactive</span><span>Side view and top view of the spinning arm</span></div>
+  <canvas id="x4d-4-anim" class="anim" style="height:380px"></canvas><canvas id="x4d-4-plot" class="plot" style="height:200px"></canvas>
+  <div class="controls" id="x4d-4-ctl"></div>
+  <div class="bar" id="x4d-4-btn"></div>
+  <div class="stats" id="x4d-4-stats"></div>
+  <p class="small concept-note">The animation integrates the equations of motion of the system. A slides outward, B rises, and the arm slows down. The green point on the plot marks the moment when $R = 1.2$ m.</p>
+</div>
+<div class="demo v3d" data-clip="x4d-4"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Every solution follows the four-step method: free-body diagrams, kinetics equations, kinematics, solve. Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Draw the free-body diagrams</summary>
+<p>For the whole system (arm, pulley, cord, A and B), the external forces are the two weights and the bearing forces on the shaft. The bearing forces act on the axis, and the weights are parallel to it, so none of these forces has a moment about the axis.</p>
+<p>In the top view, the only horizontal force on A is the cord tension $T$, which points at O. The smooth arm cannot push A along the arm, and because the arm is massless and turns freely it cannot push A across the arm either. Particle B is pulled up by $T$, pulled down by its weight, and pushed sideways by the smooth shaft.</p>
+<div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 300 350" role="img" aria-label="Whole system (side view)" style="max-width:300px"><line x1="80.0" y1="40.0" x2="80.0" y2="300.0" stroke="#8a6a12" stroke-width="15" stroke-linecap="round"/><line x1="80.0" y1="40.0" x2="80.0" y2="300.0" stroke="#f1e6c8" stroke-width="11" stroke-linecap="round"/><line x1="80.0" y1="80.0" x2="280.0" y2="80.0" stroke="#8a6a12" stroke-width="12" stroke-linecap="round"/><line x1="80.0" y1="80.0" x2="280.0" y2="80.0" stroke="#f1e6c8" stroke-width="8" stroke-linecap="round"/><circle cx="80.0" cy="80.0" r="9.0" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><rect x="-15.0" y="-12.0" width="30.0" height="24.0" rx="4" transform="translate(200.0,72.0) rotate(0.0)" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><rect x="-15.0" y="-15.0" width="30.0" height="30.0" rx="4" transform="translate(80.0,210.0) rotate(0.0)" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><line x1="200.0" y1="84.0" x2="200.0" y2="123.0" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="200.0,134.0 194.5,123.0 205.5,123.0" fill="#c2410c"/><line x1="95.0" y1="222.0" x2="95.0" y2="261.0" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="95.0,272.0 89.5,261.0 100.5,261.0" fill="#c2410c"/><line x1="28.0" y1="50.0" x2="63.0" y2="50.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="74.0,50.0 63.0,55.5 63.0,44.5" fill="#17915a"/><line x1="28.0" y1="285.0" x2="63.0" y2="285.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="74.0,285.0 63.0,290.5 63.0,279.5" fill="#17915a"/><line x1="80.0" y1="326.0" x2="80.0" y2="311.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="80.0,300.0 85.5,311.0 74.5,311.0" fill="#17915a"/><line x1="80.0" y1="20.0" x2="80.0" y2="340.0" stroke="#7b808c" stroke-width="1.4" stroke-dasharray="5 4"/><text x="200.0" y="72.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:16px;font-style:italic;fill:#1c1d21"><tspan>A</tspan></text><text x="50.0" y="210.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>B</tspan></text><text x="226.0" y="138.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>m</tspan><tspan dy="4.8" style="font-size:10.8px">A</tspan><tspan dy="-4.8"> g</tspan></text><text x="123.0" y="274.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>m</tspan><tspan dy="4.8" style="font-size:10.8px">B</tspan><tspan dy="-4.8"> g</tspan></text><text x="16.0" y="38.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>C</tspan><tspan dy="4.8" style="font-size:10.8px">x</tspan></text><text x="16.0" y="273.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>D</tspan><tspan dy="4.8" style="font-size:10.8px">x</tspan></text><text x="98.0" y="338.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>D</tspan><tspan dy="4.8" style="font-size:10.8px">z</tspan></text></svg><figcaption>Whole system (side view)</figcaption></figure><figure><svg class="fbd" viewBox="0 0 220 330" role="img" aria-label="A (top view)" style="max-width:220px"><line x1="20.0" y1="165.0" x2="113.0" y2="165.0" stroke="#7b808c" stroke-width="1.4" stroke-dasharray="5 4"/><line x1="147.0" y1="165.0" x2="200.0" y2="165.0" stroke="#7b808c" stroke-width="1.4" stroke-dasharray="5 4"/><circle cx="30.0" cy="165.0" r="4" fill="#1c1d21"/><rect x="-17.0" y="-13.0" width="34.0" height="26.0" rx="4" transform="translate(130.0,165.0) rotate(0.0)" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><line x1="113.0" y1="165.0" x2="64.0" y2="165.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="53.0,165.0 64.0,159.5 64.0,170.5" fill="#2457d6"/><text x="30.0" y="181.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>O</tspan></text><text x="130.0" y="165.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:16px;font-style:italic;fill:#1c1d21"><tspan>A</tspan></text><text x="83.0" y="151.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>T</tspan></text><text x="110.0" y="300.0" text-anchor="middle" dominant-baseline="middle" style="font-family:system-ui,sans-serif;font-size:11px;fill:#7b808c">smooth arm, lightweight</text><text x="110.0" y="316.0" text-anchor="middle" dominant-baseline="middle" style="font-family:system-ui,sans-serif;font-size:11px;fill:#7b808c">so no force across the arm</text></svg><figcaption>A (top view)</figcaption></figure><figure><svg class="fbd" viewBox="0 0 170 330" role="img" aria-label="B (side view)" style="max-width:170px"><rect x="-20.0" y="-20.0" width="40.0" height="40.0" rx="4" transform="translate(85.0,170.0) rotate(0.0)" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><line x1="85.0" y1="150.0" x2="85.0" y2="91.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="85.0,80.0 90.5,91.0 79.5,91.0" fill="#2457d6"/><line x1="85.0" y1="190.0" x2="85.0" y2="239.0" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="85.0,250.0 79.5,239.0 90.5,239.0" fill="#c2410c"/><line x1="25.0" y1="170.0" x2="54.0" y2="170.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="65.0,170.0 54.0,175.5 54.0,164.5" fill="#17915a"/><text x="85.0" y="170.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:16px;font-style:italic;fill:#1c1d21"><tspan>B</tspan></text><text x="99.0" y="68.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>T</tspan></text><text x="111.0" y="252.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>m</tspan><tspan dy="4.8" style="font-size:10.8px">B</tspan><tspan dy="-4.8"> g</tspan></text><text x="13.0" y="156.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>N</tspan><tspan dy="4.8" style="font-size:10.8px">B</tspan></text></svg><figcaption>B (side view)</figcaption></figure></div><p class="small fbdnote">For the whole system the bearing forces act on the shaft axis and the weights are parallel to it, so they have no moment about the axis. On A the only horizontal force is the cord tension $T$, which points at O (the vertical weight and normal force are not shown in the top view). On B the cord pulls up and the smooth shaft pushes sideways.</p>
+</details>
+<details class="step"><summary>Step 2 · Write the kinetics equations</summary>
+<p><b>Angular momentum.</b> The angular momentum of the system about the shaft is conserved. Particle B is on the axis, so it has no angular momentum about it. A contributes $m R\,v_{\theta}$.</p>
+$$m R_1 v_{\theta 1} = m R_2 v_{\theta 2}$$
+<p><b>Work and energy.</b> All surfaces are smooth, the cord is inextensible and the pulley is massless, so only gravity does work on the system.</p>
+$$T_1 + V_1 = T_2 + V_2$$
+</details>
+<details class="step"><summary>Step 3 · Write the kinematics equations</summary>
+<p>A has a transverse component $v_\theta = R\omega$ and a radial component $\dot R$. The cord is inextensible, so B rises exactly as fast as A moves outward, $v_B = \dot R$, and B rises by $R_2 - R_1 = 0.4$ m. The kinetic energy of the system is therefore</p>
+$$T = \tfrac12 m\left(\dot R^2 + R^2\omega^2\right) + \tfrac12 m v_B^2 = \tfrac12 m R^2\omega^2 + m v_B^2$$
+<p>In position 1, A is not sliding, so $\dot R = 0$ and $v_B = 0$.</p>
+</details>
+<details class="step"><summary>Step 4 · Solve</summary>
+$$\omega_2 = \omega_1\left(\frac{R_1}{R_2}\right)^2 = 6\left(\frac{0.8}{1.2}\right)^2 = 2.67\ \text{rad/s}$$
+<p>For the energy equation, $R_1\omega_1 = 4.80$ m/s and $R_2\omega_2 = 3.20$ m/s.</p>
+$$\tfrac12(0.5)(4.80)^2 = \tfrac12(0.5)(3.20)^2 + 0.5\,v_B^2 + 0.5(9.81)(0.4)$$
+$$5.76 = 2.56 + 0.5\,v_B^2 + 1.962 \quad\Longrightarrow\quad v_B = 1.57\ \text{m/s}$$
+<p class="small">The animation integrates the equation of motion $2m\ddot R = mR\omega^2 - mg$ with $\omega = R_1^2\omega_1/R^2$, and it gives the same speed of B at $R = 1.2$ m. A starts to slide because $mR_1\omega_1^2 = 14.4$ N is larger than the weight of B, 4.91 N.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>(a) $\omega_2 = 2.67$ rad/s. (b) $v_B = 1.57$ m/s, upward.</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>At what starting rate $\omega_1$ would A stay at $R = 0.8$ m? (The cord tension must equal both $mg$ and $mR\omega^2$.)</li><li>Lower the starting rate below that value. Which way does A slide now?</li><li>Why is the angular momentum about the shaft conserved even though the cord pulls on A?</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 4, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-4-d-3.html"><small>← Previous</small>Example 4.D.3</a><a class="next" href="ex-4-d-5.html"><small>Next →</small>Example 4.D.5</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/kit.js"></script>
+<script src="../assets/ch4-exD.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch4-3dD.js"></script>
+</body>
+</html>

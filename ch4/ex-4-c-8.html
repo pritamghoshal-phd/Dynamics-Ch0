@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 4.C.8 · Chapter 4 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 4</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="newton.html">A · Newton's laws</a>
+    <a href="energy.html">B · Work–energy</a>
+    <a href="impulse.html">C · Linear impulse–momentum</a>
+    <a href="angular.html">D · Angular impulse–momentum</a>
+    <a href="examples.html" class=active>Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Linear impulse and momentum examples"><a href="examples.html#group-C">All Linear impulse and momentum examples</a><a href="ex-4-c-1.html">4.C.1</a><a href="ex-4-c-2.html">4.C.2</a><a href="ex-4-c-3.html">4.C.3</a><a href="ex-4-c-4.html">4.C.4</a><a href="ex-4-c-5.html">4.C.5</a><a href="ex-4-c-6.html">4.C.6</a><a href="ex-4-c-7.html">4.C.7</a><a href="ex-4-c-8.html" class=active>4.C.8</a><a href="ex-4-c-9.html">4.C.9</a><a href="ex-4-c-10.html">4.C.10</a><a href="ex-4-c-11.html">4.C.11</a><a href="ex-4-c-12.html">4.C.12</a><a href="ex-4-c-13.html">4.C.13</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-C">Linear impulse and momentum</a> › Example 4.C.8</p>
+<h2><span class="num">Example 4.C.8</span>Bullet fired into a hanging block</h2>
+<div class="tags"><span>plastic impact</span><span>ballistic pendulum</span><span>work–energy</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>Block A, of weight $W$, hangs at rest from a cord of length $L$ attached to the fixed point O. Bullet B, of weight $w$, strikes the block horizontally with speed $v_{B1}$ and stays embedded in it.</p>
+<p>The data are $w = 0.2$ lb, $W = 75$ lb, $L = 5$ ft and $v_{B1} = 1800$ ft/s.</p>
+<p><b>Find</b> (a) the largest angle $\theta$ that the cord makes with the vertical after the impact and (b) the energy lost during the impact.</p>
+</div>
+<div class="demo" id="x4c-8">
+  <div class="demo-title"><span class="tag">Interactive</span><span>The bullet embeds in the block, which then swings up to θ<sub>max</sub></span></div>
+  <canvas id="x4c-8-anim" class="anim" style="height:360px"></canvas><canvas id="x4c-8-plot" class="plot" style="height:220px"></canvas>
+  <div class="controls" id="x4c-8-ctl"></div>
+  <div class="bar" id="x4c-8-btn"></div>
+  <div class="stats" id="x4c-8-stats"></div>
+  <p class="small concept-note">The approach of the bullet is shown in slow motion. From the instant of impact the animation runs in real time and the block swings as a pendulum. The dashed outline marks the highest position predicted by the solution.</p>
+</div>
+<div class="demo v3d" data-clip="x4c-8"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Every solution follows the four-step method: free-body diagrams, kinetics equations, kinematics, solve. Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Draw the free-body diagrams</summary>
+<p>The motion has two stages, and each stage needs its own diagram. During the impact we take A and B together as the system. The contact force between the bullet and the block is then internal. The external forces are the cord tension and the two weights, and all of them are vertical while the cord hangs straight down.</p>
+<p>After the impact, A and B move together as one particle on a circle of radius $L$. The forces on it are the tension $T$ along the cord and the total weight $W + w$.</p>
+<div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 260 270" role="img" aria-label="A and B together during the impact" style="max-width:260px"><rect x="-35.0" y="-35.0" width="70.0" height="70.0" rx="4" transform="translate(130.0,150.0) rotate(0.0)" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><rect x="-9.0" y="-3.5" width="18.0" height="7.0" rx="3" transform="translate(160.0,152.0) rotate(0.0)" fill="#cdbb86" stroke="#8a6a12" stroke-width="2"/><line x1="130.0" y1="115.0" x2="130.0" y2="51.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="130.0,40.0 135.5,51.0 124.5,51.0" fill="#2457d6"/><line x1="130.0" y1="185.0" x2="130.0" y2="234.0" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="130.0,245.0 124.5,234.0 135.5,234.0" fill="#c2410c"/><line x1="30.0" y1="250.0" x2="53.0" y2="250.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="64.0,250.0 53.0,255.5 53.0,244.5" fill="#7b808c"/><line x1="30.0" y1="250.0" x2="30.0" y2="227.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="30.0,216.0 35.5,227.0 24.5,227.0" fill="#7b808c"/><text x="130.0" y="150.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:16px;font-style:italic;fill:#1c1d21"><tspan>A</tspan></text><text x="182.0" y="172.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#1c1d21"><tspan>B</tspan></text><text x="130.0" y="28.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>T</tspan></text><text x="160.0" y="249.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>W + w</tspan></text><text x="74.0" y="250.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>x</tspan></text><text x="30.0" y="206.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>y</tspan></text></svg><figcaption>A and B together during the impact</figcaption></figure><figure><svg class="fbd" viewBox="0 0 300 270" role="img" aria-label="A and B together while swinging" style="max-width:300px"><line x1="162.0" y1="110.3" x2="162.0" y2="30.3" stroke="#7b808c" stroke-width="1.2" stroke-dasharray="5 4"/><rect x="-32.0" y="-32.0" width="64.0" height="64.0" rx="4" transform="translate(150.0,140.0) rotate(22.0)" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><line x1="162.0" y1="110.3" x2="184.8" y2="53.8" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="189.0,43.6 189.9,55.8 179.7,51.7" fill="#2457d6"/><path d="M162.0,64.3 A46,46 0 0 1 179.2,67.7" fill="none" stroke="#7b808c" stroke-width="1.2"/><line x1="150.0" y1="176.0" x2="150.0" y2="225.0" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="150.0,236.0 144.5,225.0 155.5,225.0" fill="#c2410c"/><line x1="114.0" y1="164.0" x2="76.0" y2="148.6" stroke="#7b808c" stroke-width="2.6" stroke-linecap="round"/><polygon points="65.8,144.5 78.0,143.5 73.9,153.7" fill="#7b808c"/><text x="150.0" y="140.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:16px;font-style:italic;fill:#1c1d21"><tspan>A</tspan></text><text x="205.5" y="32.4" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>T</tspan></text><text x="172.9" y="54.4" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>θ</tspan></text><text x="180.0" y="242.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>W + w</tspan></text><text x="54.7" y="136.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#7b808c"><tspan>v</tspan></text></svg><figcaption>A and B together while swinging</figcaption></figure></div><p class="small fbdnote">Left: during the very short impact the only forces are the cord tension $T$ and the weights, and all of them are vertical. No horizontal impulse acts on the system of A and B, so its horizontal momentum is conserved. Right: after the impact the tension is always perpendicular to the path, so it does no work, and only gravity does work on A and B.</p>
+</details>
+<details class="step"><summary>Step 2 · Write the kinetics equations</summary>
+<p><b>Impact.</b> No horizontal force acts on the system of A and B, so its horizontal momentum is conserved from just before to just after the impact. The bullet stays in the block, so both move with the same speed $v_2$ afterward.</p>
+$$m_B\,v_{B1} = \left(m_A + m_B\right) v_2$$
+<p><b>Swing.</b> Use the work–energy principle from just after the impact (position 2) to the highest position (position 3), where the speed is zero. The tension is perpendicular to the path and does no work, so only gravity does work.</p>
+$$\tfrac12\left(m_A + m_B\right) v_2^2 = \left(W + w\right) h, \qquad h = L\left(1 - \cos\theta_{max}\right)$$
+</details>
+<details class="step"><summary>Step 3 · Write the kinematics equations</summary>
+<p>A and B move together after the impact, so they share the speed $v_2$. The rise of the block is related to the cord angle by $h = L(1 - \cos\theta)$, because the block stays a distance $L$ from O.</p>
+</details>
+<details class="step"><summary>Step 4 · Solve</summary>
+<p>With $m = W/g$, the masses are $m_B = 0.2/32.2 = 0.006211$ slug and $m_A = 75/32.2 = 2.329$ slug. The speed just after the impact is</p>
+$$v_2 = \frac{w}{w + W}\,v_{B1} = \frac{0.2}{75.2}\,(1800) = 4.787\ \text{ft/s}$$
+<p>The height and the angle follow from the work–energy equation.</p>
+$$h = \frac{v_2^2}{2g} = \frac{(4.787)^2}{2(32.2)} = 0.3559\ \text{ft}, \qquad \cos\theta_{max} = 1 - \frac{0.3559}{5} = 0.9288, \qquad \theta_{max} = 21.7°$$
+<p>The kinetic energy just before the impact belongs to the bullet alone, and just after the impact it belongs to A and B together.</p>
+$$T_1 = \tfrac12\,(0.006211)(1800)^2 = 10\,062\ \text{ft·lb}, \qquad T_2 = \tfrac12\,(2.335)(4.787)^2 = 26.8\ \text{ft·lb}$$
+$$\Delta E = T_1 - T_2 = 10\,035\ \text{ft·lb}$$
+<p class="small">Only $T_2/T_1 = w/(w + W) = 0.27\%$ of the bullet's energy survives the impact. The rest goes into deforming the block and the bullet and into heat. This is why energy cannot be used across the impact, while momentum can.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>(a) $\theta_{max} = 21.7°$. (b) About 10 040 ft·lb of kinetic energy, 99.7% of the bullet's energy, is lost in the impact.</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Double the bullet weight. Does the angle double? Explain the result using $h = v_2^2/(2g)$.</li><li>This setup, called a ballistic pendulum, was once used to measure bullet speeds. Measure $\theta_{max}$ in the animation and work backward to $v_{B1}$.</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 4, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-4-c-7.html"><small>← Previous</small>Example 4.C.7</a><a class="next" href="ex-4-c-9.html"><small>Next →</small>Example 4.C.9</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/kit.js"></script>
+<script src="../assets/ch4-exC2.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch4-3dC2.js"></script>
+</body>
+</html>

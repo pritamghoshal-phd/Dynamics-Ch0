@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 5.C.6 · Chapter 5 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 5</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="newton-euler.html">A · Newton–Euler</a>
+    <a href="work-energy.html">B · Work–energy</a>
+    <a href="impulse-momentum.html">C · Impulse–momentum</a>
+    <a href="examples.html" class=active>Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Impulse and momentum examples"><a href="examples.html#group-C">All impulse–momentum examples</a><a href="ex-5-c-1.html">5.C.1</a><a href="ex-5-c-2.html">5.C.2</a><a href="ex-5-c-3.html">5.C.3</a><a href="ex-5-c-4.html">5.C.4</a><a href="ex-5-c-5.html">5.C.5</a><a href="ex-5-c-6.html" class=active>5.C.6</a><a href="ex-5-c-7.html">5.C.7</a><a href="ex-5-c-8.html">5.C.8</a><a href="ex-5-c-9.html">5.C.9</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-C">Impulse and momentum</a> › Example 5.C.6</p>
+<h2><span class="num">Example 5.C.6</span>Block tipping over a step</h2>
+<div class="tags"><span>impact</span><span>angular momentum</span><span>work–energy</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>A square block of side $a$ and mass $m$ slides to the left on a smooth floor with speed $v$. Its leading bottom corner strikes a small step at O and sticks there, so the block begins to rotate about O.</p>
+<p><b>Find</b> the speed $v$ for which the block just reaches the balanced position on its corner, with G directly above O and zero velocity.</p>
+</div>
+<div class="demo" id="e-c6">
+  <div class="demo-title"><span class="tag">Interactive</span><span>The impact on the step and the tipping motion</span></div>
+  <canvas id="e-c6-anim" class="anim" style="height:320px"></canvas>
+  <div class="controls" id="e-c6-ctl"></div>
+  <div class="bar" id="e-c6-pre"><span class="lbl">Try:</span></div>
+  <div class="bar" id="e-c6-btn"></div>
+  <div class="stats" id="e-c6-stats"></div>
+  <p class="small concept-note">Try the preset speeds. Just below $v_{crit}$, the block rises and falls back. Just above $v_{crit}$, the block tips over onto its other side.</p>
+</div>
+<div class="demo v3d" data-clip="e-c6"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Every solution follows the four-step method. Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Draw the free-body diagrams for the two phases</summary>
+<p>During the impact, a large impulsive force acts at the corner O. The weight and the floor reaction are ordinary forces, so their impulses are negligible. After the impact, the block rotates about O under its weight $mg$ and the reaction at O. The floor no longer touches the block.</p>
+<div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 260 260" role="img" aria-label="Block during the impact" style="max-width:260px"><rect x="-45.0" y="-45.0" width="90.0" height="90.0" rx="4" transform="translate(115.0,135.0) rotate(0.0)" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><circle cx="115.0" cy="135.0" r="4" fill="#1c1d21"/><circle cx="70.0" cy="180.0" r="4.5" fill="#fff" stroke="#1c1d21" stroke-width="2"/><line x1="20.0" y1="180.0" x2="59.0" y2="180.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="70.0,180.0 59.0,185.5 59.0,174.5" fill="#17915a"/><line x1="70.0" y1="225.0" x2="70.0" y2="191.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="70.0,180.0 75.5,191.0 64.5,191.0" fill="#17915a"/><line x1="115.0" y1="75.0" x2="76.0" y2="75.0" stroke="#7b808c" stroke-width="2.6" stroke-linecap="round"/><polygon points="65.0,75.0 76.0,69.5 76.0,80.5" fill="#7b808c"/><line x1="178.0" y1="180.0" x2="178.0" y2="135.0" stroke="#7b808c" stroke-width="1.2"/><line x1="173.0" y1="180.0" x2="183.0" y2="180.0" stroke="#7b808c" stroke-width="1.2"/><line x1="173.0" y1="135.0" x2="183.0" y2="135.0" stroke="#7b808c" stroke-width="1.2"/><line x1="205.0" y1="70.0" x2="228.0" y2="70.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="239.0,70.0 228.0,75.5 228.0,64.5" fill="#7b808c"/><line x1="205.0" y1="70.0" x2="205.0" y2="47.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="205.0,36.0 210.5,47.0 199.5,47.0" fill="#7b808c"/><text x="129.0" y="125.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>G</tspan></text><text x="56.0" y="194.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>O</tspan></text><text x="8.0" y="168.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>Ô</tspan><tspan dy="4.8" style="font-size:10.8px">x</tspan></text><text x="54.0" y="245.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>Ô</tspan><tspan dy="4.8" style="font-size:10.8px">y</tspan></text><text x="55.0" y="75.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#7b808c"><tspan>v</tspan></text><text x="196.0" y="157.5" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>a/2</tspan></text><text x="249.0" y="70.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>x</tspan></text><text x="205.0" y="26.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>y</tspan></text></svg><figcaption>Block during the impact</figcaption></figure><figure><svg class="fbd" viewBox="0 0 270 290" role="img" aria-label="Block rotating about O after the impact" style="max-width:270px"><rect x="-45.0" y="-45.0" width="90.0" height="90.0" rx="4" transform="translate(114.9,141.4) rotate(-22.0)" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><circle cx="114.9" cy="141.4" r="4" fill="#1c1d21"/><circle cx="90.0" cy="200.0" r="4.5" fill="#fff" stroke="#1c1d21" stroke-width="2"/><line x1="118.9" y1="141.4" x2="118.9" y2="190.4" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="118.9,201.4 113.4,190.4 124.4,190.4" fill="#c2410c"/><line x1="35.0" y1="200.0" x2="79.0" y2="200.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="90.0,200.0 79.0,205.5 79.0,194.5" fill="#17915a"/><line x1="90.0" y1="245.0" x2="90.0" y2="211.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="90.0,200.0 95.5,211.0 84.5,211.0" fill="#17915a"/><path d="M87.7,174.1 L86.9,174.2 L86.2,174.3 L85.4,174.4 L84.6,174.6 L83.8,174.7 L83.1,174.9 L82.3,175.2 L81.5,175.4 L80.8,175.7 L80.1,176.0 L79.3,176.3 L78.6,176.6 L77.9,177.0 L77.2,177.4 L76.5,177.8 L75.8,178.2 L75.2,178.6 L74.5,179.1 L73.9,179.6 L73.3,180.1 L72.7,180.6 L72.1,181.1 L71.5,181.7 L71.0,182.3 L70.5,182.9 L69.9,183.5 L69.4,184.1 L69.0,184.7 L68.5,185.4 L68.1,186.0 L67.7,186.7 L67.3,187.4 L66.9,188.1 L66.5,188.8 L66.2,189.5 L65.9,190.3 L65.6,191.0 L65.3,191.8 L65.1,192.5 L64.9,193.3" fill="none" stroke="#8a3fd1" stroke-width="2.2"/><polygon points="63.7,197.1 61.8,186.1 71.4,189.0" fill="#8a3fd1"/><text x="128.9" y="129.4" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>G</tspan></text><text x="104.0" y="214.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>O</tspan></text><text x="134.9" y="205.4" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>mg</tspan></text><text x="23.0" y="188.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>O</tspan><tspan dy="4.8" style="font-size:10.8px">x</tspan></text><text x="74.0" y="265.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>O</tspan><tspan dy="4.8" style="font-size:10.8px">y</tspan></text><text x="64.9" y="170.1" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#8a3fd1"><tspan>ω</tspan></text></svg><figcaption>Block rotating about O after the impact</figcaption></figure></div><p class="small fbdnote">During the impact (left), only the large impulsive force at the corner O matters, drawn as its components $\hat O_x$ and $\hat O_y$. The weight and the floor reaction give negligible impulses. After the impact (right), the block turns counterclockwise about O under its weight and the reaction at O. The floor no longer touches it.</p>
+</details>
+<details class="step"><summary>Step 2 · Write the kinetics equations</summary>
+<p>For the impact we use angular momentum about O. The impulsive force passes through O, so $H_O$ is conserved. Before the impact the block translates, and G is a height $a/2$ above O while moving to the left with speed $v$. Its angular momentum is therefore $H_{O1} = m v\,(a/2)$, directed counterclockwise. After the impact, $H_{O2} = I_O\,\omega_2$.</p>
+$$m v\,\tfrac a2 = I_O\,\omega_2, \qquad I_O = \tfrac16 ma^2 + m\left(\tfrac{a}{\sqrt2}\right)^2 = \tfrac23 ma^2$$
+<p>For the rotation after the impact we use the work–energy principle. Only gravity does work, because O does not move. If the block just reaches the top with zero speed, then</p>
+$$\tfrac12 I_O\,\omega_2^2 = m g\,\Delta h_G$$
+</details>
+<details class="step"><summary>Step 3 · Write the kinematics equation</summary>
+<p>G is a distance $a/\sqrt2$ from O. It starts at a height $a/2$ above O and ends at a height $a/\sqrt2$ above O, so it rises by</p>
+$$\Delta h_G = \frac{a}{\sqrt2} - \frac a2 = \frac{(\sqrt2 - 1)\,a}{2}$$
+</details>
+<details class="step"><summary>Step 4 · Solve</summary>
+<p>The impact equation gives $\omega_2 = \dfrac{3v}{4a}$. Substituting this into the energy equation gives</p>
+$$\tfrac12\cdot\tfrac23 ma^2\cdot\frac{9v^2}{16a^2} = \tfrac{3}{16}mv^2 = mg\,\frac{(\sqrt2 - 1)a}{2}$$
+$$v = \sqrt{\tfrac83(\sqrt2 - 1)\,g a} \approx 1.05\sqrt{ga}$$
+<p class="small">The impact always removes $1 - \tfrac{3/16}{1/2} = 62.5\%$ of the kinetic energy, whatever the speed.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>$v = \sqrt{\tfrac83(\sqrt2-1)\,ga} \approx 1.05\sqrt{ga}$. For $a = 0.5$ m this is about 2.33 m/s.</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Explain why the work–energy principle cannot be applied directly from the sliding block to the balanced position.</li><li>Double $a$. By what factor does the critical speed change? Check your answer with the statistic.</li><li>Explain why linear momentum is not conserved during the impact.</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 5, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-5-c-5.html"><small>← Previous</small>Example 5.C.5</a><a class="next" href="ex-5-c-7.html"><small>Next →</small>Example 5.C.7</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/ch5.js"></script>
+<script src="../assets/ch5-exC.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch5-3dC.js"></script>
+</body>
+</html>

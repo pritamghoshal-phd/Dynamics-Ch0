@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 6.A.2 · Chapter 6 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 6</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="eom.html">A · Equations of motion</a>
+    <a href="free.html">B · Free vibration</a>
+    <a href="damped.html">B · Damped vibration</a>
+    <a href="forced.html">C · Forced vibration</a>
+    <a href="base.html">C · Base excitation</a>
+    <a href="summary.html">Summary</a>
+    <a href="examples.html" class=active>Examples</a>
+    <a href="badges.html">🏅 Badges</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Equations of motion examples"><a href="examples.html#group-A">All Equations of motion examples</a><a href="ex-6-a-1.html">6.A.1</a><a href="ex-6-a-2.html" class=active>6.A.2</a><a href="ex-6-a-3.html">6.A.3</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-A">Equations of motion</a> › Example 6.A.2</p>
+<h2><span class="num">Example 6.A.2</span>Disk rolling between two springs</h2>
+<div class="tags"><span>equation of motion</span><span>rolling without slipping</span><span>rigid body</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>A homogeneous disk of mass $m$ and radius $r$ rolls without slipping on a rough horizontal surface. Two springs, having stiffnesses of $k$ and $2k$, are attached between the disk center O and the ground, as shown. Let $x$ describe the position of O, where the springs are unstretched when $x = 0$.</p>
+<p><b>Find</b> the equation of motion for the disk in terms of the coordinate $x$.</p>
+<p class="small">The animation uses $m = 2$ kg, $r = 0.16$ m and $k = 50$ N/m, with the disk released from rest at $x_0 = 0.12$ m.</p>
+</div>
+<div class="demo" id="x6a-2">
+  <div class="demo-title"><span class="tag">Interactive</span><span>The disk rolls back and forth</span></div>
+  <div class="grid2"><canvas id="x6a-2-anim" class="anim" style="height:280px"></canvas><div><canvas id="x6a-2-plot" class="plot" style="height:280px"></canvas></div></div>
+  <div class="controls" id="x6a-2-ctl"></div>
+  <div class="bar" id="x6a-2-pre"><span class="lbl">Try:</span></div>
+  <div class="bar" id="x6a-2-btn"></div>
+  <div class="stats" id="x6a-2-stats"></div>
+  <p class="small concept-note">The red radius shows the rotation of the disk. Because the disk rolls without slipping, it turns through the angle $x/r$ while its center moves a distance $x$.</p>
+</div>
+<div class="demo v3d" data-clip="x6a-2"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Every solution starts from free-body diagrams in a displaced position, then writes the equation of motion and reads off the vibration properties. Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Draw the free-body diagram</summary>
+<div class="fbdrow"><figure style="width:min(380px,100%)"><svg class="fbd" viewBox="0 0 380 270" role="img" aria-label="The disk, with O displaced a distance x to the right" style="max-width:380px"><circle cx="190.0" cy="120.0" r="70.0" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><circle cx="190.0" cy="120.0" r="4" fill="#1c1d21"/><line x1="190.0" y1="120.0" x2="123.0" y2="120.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="112.0,120.0 123.0,114.5 123.0,125.5" fill="#2457d6"/><line x1="272.0" y1="120.0" x2="201.0" y2="120.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="190.0,120.0 201.0,114.5 201.0,125.5" fill="#2457d6"/><line x1="190.0" y1="126.0" x2="190.0" y2="165.0" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="190.0,176.0 184.5,165.0 195.5,165.0" fill="#c2410c"/><line x1="200.0" y1="240.0" x2="200.0" y2="201.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="200.0,190.0 205.5,201.0 194.5,201.0" fill="#17915a"/><line x1="124.0" y1="191.0" x2="175.0" y2="191.0" stroke="#b42346" stroke-width="2.6" stroke-linecap="round"/><polygon points="186.0,191.0 175.0,196.5 175.0,185.5" fill="#b42346"/><circle cx="190.0" cy="190.0" r="3" fill="#1c1d21"/><line x1="300.0" y1="238.0" x2="341.0" y2="238.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="352.0,238.0 341.0,243.5 341.0,232.5" fill="#7b808c"/><text x="202.0" y="104.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:16px;font-style:italic;fill:#1c1d21"><tspan>O</tspan></text><text x="94.0" y="106.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>kx</tspan></text><text x="288.0" y="106.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>2kx</tspan></text><text x="208.0" y="164.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>mg</tspan></text><text x="214.0" y="252.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>N</tspan></text><text x="110.0" y="181.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#b42346"><tspan>F</tspan></text><text x="168.0" y="210.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>C</tspan></text><text x="364.0" y="238.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:14px;font-style:italic;fill:#7b808c"><tspan>x</tspan></text></svg><figcaption>The disk, with O displaced a distance x to the right</figcaption></figure></div><p class="small fbdnote">Both springs act at O. The left spring is stretched by $x$ and pulls left with $kx$. The right spring is compressed by $x$ and pushes left with $2kx$. The ground exerts a normal force $N$ and a friction force $F$ at the contact point C.</p><p>We draw the disk with its center displaced a distance $x$ to the right. Both spring forces point to the left, toward the position $x = 0$. The ground pushes up with the normal force $N$ and exerts a friction force $F$, which we draw to the right. Its true direction will come out of the solution.</p>
+</details>
+<details class="step"><summary>Step 2 · Write the Newton–Euler equations</summary>
+<p>The center of mass G is at O. Taking $x$ to the right as positive and clockwise rotation as positive (the direction the disk turns when it rolls to the right), the force and moment equations are</p>
+$$\sum F_x = m\ddot x: \qquad -kx - 2kx + F = m\ddot x$$
+$$\sum M_O = I_O\,\alpha: \qquad -Fr = \tfrac12 m r^2\,\alpha$$
+<p>The friction force acts at the bottom of the disk, a distance $r$ below O. A friction force to the right turns the disk counterclockwise, which is why it enters the moment equation with a minus sign.</p>
+</details>
+<details class="step"><summary>Step 3 · Add the rolling kinematics</summary>
+<p>Rolling without slipping links the rotation to the motion of the center.</p>
+$$\alpha = \frac{\ddot x}{r} \qquad\Longrightarrow\qquad F = -\tfrac12 m\ddot x$$
+</details>
+<details class="step"><summary>Step 4 · Write the equation of motion</summary>
+<p>Substituting the friction force into the force equation gives</p>
+$$-3kx - \tfrac12 m\ddot x = m\ddot x \qquad\Longrightarrow\qquad \tfrac32 m\ddot x + 3kx = 0$$
+<p>Dividing by $\tfrac32 m$ gives $\ddot x + (2k/m)\,x = 0$, so the natural frequency is $\omega_n = \sqrt{2k/m}$. For the values in the animation, $\omega_n = \sqrt{2(50)/2} = 7.07$ rad/s.</p>
+<p class="small">The same result follows from energy. The kinetic energy is $T = \tfrac12 m\dot x^2 + \tfrac12(\tfrac12 m r^2)(\dot x/r)^2 = \tfrac12(\tfrac32 m)\dot x^2$ and the potential energy is $V = \tfrac12(3k)x^2$. The rolling disk behaves like a mass $\tfrac32 m$ on a spring $3k$.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>$$\tfrac32 m\ddot x + 3kx = 0, \qquad \omega_n = \sqrt{\frac{2k}{m}}$$ The radius $r$ does not appear.</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Make the disk heavier. The period grows as $\sqrt{m}$, which the plot shows directly.</li><li>Why does the radius $r$ drop out of the equation of motion? Look at how $I_O$ and the rolling condition both contain $r$.</li><li>Watch the friction force: from the moment equation, $F = -\tfrac12 m\ddot x$. When is it largest, and which way does it point then?</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 6, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-6-a-1.html"><small>← Previous</small>Example 6.A.1</a><a class="next" href="ex-6-a-3.html"><small>Next →</small>Example 6.A.3</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/kit.js"></script>
+<script src="../assets/ch6-exA.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch6-3dA.js"></script>
+</body>
+</html>

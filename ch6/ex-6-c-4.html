@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 6.C.4 · Chapter 6 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 6</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="eom.html">A · Equations of motion</a>
+    <a href="free.html">B · Free vibration</a>
+    <a href="damped.html">B · Damped vibration</a>
+    <a href="forced.html">C · Forced vibration</a>
+    <a href="base.html">C · Base excitation</a>
+    <a href="summary.html">Summary</a>
+    <a href="examples.html" class=active>Examples</a>
+    <a href="badges.html">🏅 Badges</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Forced response examples"><a href="examples.html#group-C">All Forced response examples</a><a href="ex-6-c-1.html">6.C.1</a><a href="ex-6-c-2.html">6.C.2</a><a href="ex-6-c-3.html">6.C.3</a><a href="ex-6-c-4.html" class=active>6.C.4</a><a href="ex-6-c-5.html">6.C.5</a><a href="ex-6-c-6.html">6.C.6</a><a href="ex-6-c-7.html">6.C.7</a><a href="ex-6-c-8.html">6.C.8</a><a href="ex-6-c-9.html">6.C.9</a><a href="ex-6-c-10.html">6.C.10</a><a href="ex-6-c-11.html">6.C.11</a><a href="ex-6-c-12.html">6.C.12</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-C">Forced response</a> › Example 6.C.4</p>
+<h2><span class="num">Example 6.C.4</span>Rolling disk driven through a spring by a moving base</h2>
+<div class="tags"><span>base excitation</span><span>rolling without slipping</span><span>phase</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>A homogeneous disk of mass $m$ and radius $R$ rolls without slipping. Its center O is connected to the wall by a spring of stiffness $k$ and to a massless moving base B by a spring of stiffness $4k$. The base is given the motion $x_B(t) = b\sin\omega t$. The coordinate $x$ gives the position of O, and both springs are unstretched when $x = x_B = 0$.</p>
+<p><b>Find</b> (a) the equation of motion of the disk in terms of $x$, (b) the particular solution of the equation of motion, and (c) the amplitude of the response for $\omega = 15$ rad/s. Is the response in phase or out of phase with the forcing?</p>
+<p>Use $m = 4$ kg, $k = 800$ N/m and $b = 20$ mm.</p>
+</div>
+<div class="demo" id="x6c-4">
+  <div class="demo-title"><span class="tag">Interactive</span><span>The base B shakes the disk through the stiff spring</span></div>
+  <canvas id="x6c-4-anim" class="anim" style="height:300px"></canvas><div class="grid2"><canvas id="x6c-4-t" class="plot" style="height:220px"></canvas><canvas id="x6c-4-f" class="plot" style="height:220px"></canvas></div><div class="legendrow"><span><span class="sw" style="background:var(--c1)"></span>x(t)</span><span><span class="sw" style="background:var(--c2)"></span>x_B(t) (dashed)</span></div>
+  <div class="controls" id="x6c-4-ctl"></div>
+  <div class="bar" id="x6c-4-pre"><span class="lbl">Try:</span></div>
+  <div class="bar" id="x6c-4-btn"></div>
+  <div class="stats" id="x6c-4-stats"></div>
+  <p class="small concept-note">The dashed curve in the time plot is the base motion $x_B(t)$. Below the natural frequency the disk follows the base in phase, but with a smaller amplitude than $b$ here because the wall spring holds it back. The chips switch between the full response, which starts from rest, and the steady-state (particular) solution alone. Without damping the free vibration started at $t = 0$ never dies out, so the full response keeps the beat between the two frequencies.</p>
+</div>
+<div class="demo v3d" data-clip="x6c-4"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Every solution starts from free-body diagrams in a displaced position, then writes the equation of motion and reads off the vibration properties. Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Draw the free-body diagram</summary>
+<p>We isolate the disk at a position $x$ while the base is at $x_B$.</p><div class="fbdrow"><figure style="width:min(400px,100%)"><svg class="fbd" viewBox="0 0 400 280" role="img" aria-label="Disk and base both displaced from the unstretched position" style="max-width:400px"><circle cx="200.0" cy="135.0" r="62.0" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><circle cx="200.0" cy="135.0" r="4" fill="#1c1d21"/><line x1="200.0" y1="135.0" x2="119.0" y2="135.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="108.0,135.0 119.0,129.5 119.0,140.5" fill="#2457d6"/><line x1="200.0" y1="135.0" x2="299.0" y2="135.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="310.0,135.0 299.0,140.5 299.0,129.5" fill="#2457d6"/><line x1="222.0" y1="135.0" x2="222.0" y2="194.0" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="222.0,205.0 216.5,194.0 227.5,194.0" fill="#c2410c"/><line x1="200.0" y1="253.0" x2="200.0" y2="208.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="200.0,197.0 205.5,208.0 194.5,208.0" fill="#17915a"/><line x1="200.0" y1="197.0" x2="247.0" y2="197.0" stroke="#b42346" stroke-width="2.6" stroke-linecap="round"/><polygon points="258.0,197.0 247.0,202.5 247.0,191.5" fill="#b42346"/><line x1="40.0" y1="255.0" x2="57.0" y2="255.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="68.0,255.0 57.0,260.5 57.0,249.5" fill="#7b808c"/><line x1="40.0" y1="255.0" x2="40.0" y2="238.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="40.0,227.0 45.5,238.0 34.5,238.0" fill="#7b808c"/><text x="210.0" y="123.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>O</tspan></text><text x="96.0" y="121.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>kx</tspan></text><text x="340.0" y="121.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>4k(x</tspan><tspan dy="4.8" style="font-size:10.8px">B</tspan><tspan dy="-4.8"> - x)</tspan></text><text x="240.0" y="217.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>mg</tspan></text><text x="186.0" y="267.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>N</tspan></text><text x="270.0" y="211.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#b42346"><tspan>f</tspan></text><text x="78.0" y="255.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>x</tspan></text><text x="40.0" y="217.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>y</tspan></text></svg><figcaption>Disk and base both displaced from the unstretched position</figcaption></figure></div><p class="small fbdnote">The left spring is stretched by $x$ and pulls O to the left. The right spring is stretched by $x_B - x$ and pulls O to the right. Writing both spring forces this way keeps the signs right for any $x$ and $x_B$.</p>
+</details>
+<details class="step"><summary>Step 2 · Write the Newton–Euler equations and the rolling condition</summary>
+<p>As in Example 6.C.1, the moment equation about O together with $\ddot x = R\alpha$ gives the friction force $f = -\tfrac12 m\ddot x$. The force equation then becomes</p>
+$$-kx + 4k(x_B - x) + f = m\ddot x \quad\Longrightarrow\quad \tfrac32 m\ddot x + 5kx = 4kb\sin\omega t$$
+<p>The moving base acts like a harmonic force of amplitude $4kb$. The natural frequency is</p>
+$$\omega_n = \sqrt{\frac{5k}{\tfrac32 m}} = \sqrt{\frac{10k}{3m}} = \sqrt{\frac{10(800)}{3(4)}} = 25.82\ \text{rad/s}$$
+</details>
+<details class="step"><summary>Step 3 · Find the particular solution</summary>
+<p>With $x_p = X\sin\omega t$,</p>
+$$\left(5k - \tfrac32 m\omega^2\right)X = 4kb \quad\Longrightarrow\quad X = \frac{(4/5)\,b}{1 - r^2}, \qquad r = \frac{\omega}{\omega_n}$$
+$$x_p(t) = \frac{0.8\,b}{1 - (\omega/\omega_n)^2}\,\sin\omega t$$
+</details>
+<details class="step"><summary>Step 4 · Evaluate at ω = 15 rad/s</summary>
+<p>The frequency ratio is $r = 15/25.82 = 0.581$, so $r^2 = 0.3375$.</p>
+$$X = \frac{0.8(20)}{1 - 0.3375} = \frac{16}{0.6625} = 24.2\ \text{mm}$$
+<p>$X$ is positive, so the disk moves <b>in phase</b> with the base motion, as expected below resonance.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>(a) $\tfrac32 m\ddot x + 5kx = 4kb\sin\omega t$, with $\omega_n = \sqrt{10k/3m} = 25.8$ rad/s.</p>
+<p>(b) $x_p(t) = \dfrac{0.8\,b}{1 - (\omega/\omega_n)^2}\sin\omega t$.</p>
+<p>(c) $X = 24.2$ mm at $\omega = 15$ rad/s, in phase with the base motion.</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>At what frequency is the disk amplitude exactly equal to $b$? (Solve $0.8/(1 - r^2) = 1$.)</li><li>Use the "Above resonance" preset. Why does the disk now move opposite to the base?</li><li>If the wall spring were removed, how would the equation of motion and $\omega_n$ change?</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 6, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-6-c-3.html"><small>← Previous</small>Example 6.C.3</a><a class="next" href="ex-6-c-5.html"><small>Next →</small>Example 6.C.5</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/kit.js"></script>
+<script src="../assets/ch6-exC1.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch6-3dC1.js"></script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 4.A.3 · Chapter 4 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 4</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="newton.html">A · Newton's laws</a>
+    <a href="energy.html">B · Work–energy</a>
+    <a href="impulse.html">C · Linear impulse–momentum</a>
+    <a href="angular.html">D · Angular impulse–momentum</a>
+    <a href="examples.html" class=active>Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Newton's second law examples"><a href="examples.html#group-A">All Newton's second law examples</a><a href="ex-4-a-1.html">4.A.1</a><a href="ex-4-a-2.html">4.A.2</a><a href="ex-4-a-3.html" class=active>4.A.3</a><a href="ex-4-a-4.html">4.A.4</a><a href="ex-4-a-5.html">4.A.5</a><a href="ex-4-a-6.html">4.A.6</a><a href="ex-4-a-7.html">4.A.7</a><a href="ex-4-a-8.html">4.A.8</a><a href="ex-4-a-9.html">4.A.9</a><a href="ex-4-a-10.html">4.A.10</a><a href="ex-4-a-11.html">4.A.11</a><a href="ex-4-a-12.html">4.A.12</a><a href="ex-4-a-13.html">4.A.13</a><a href="ex-4-a-14.html">4.A.14</a><a href="ex-4-a-15.html">4.A.15</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-A">Newton's second law</a> › Example 4.A.3</p>
+<h2><span class="num">Example 4.A.3</span>A crate sliding up a rough incline</h2>
+<div class="tags"><span>Newton's law</span><span>friction</span><span>incline</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>Crate C of weight $W$ slides up a rough incline of angle $\theta$ with initial speed $v_0$. The coefficient of kinetic friction is $\mu_k$.</p>
+<p>The data are $W = 100$ lb, $\theta = 36.87°$, $v_0 = 40$ ft/s and $\mu_k = 0.25$.</p>
+<p><b>Find</b> the time $t$ after which the crate comes to rest.</p>
+</div>
+<div class="demo" id="x4a-3">
+  <div class="demo-title"><span class="tag">Interactive</span><span>Crate C slides up, stops, and slides back down</span></div>
+  <div class="grid2"><canvas id="x4a-3-anim" class="anim" style="height:400px"></canvas><div><canvas id="x4a-3-plot" class="plot" style="height:300px"></canvas></div></div>
+  <div class="controls" id="x4a-3-ctl"></div>
+  <div class="bar" id="x4a-3-pre"><span class="lbl">Try:</span></div>
+  <div class="bar" id="x4a-3-btn"></div>
+  <div class="stats" id="x4a-3-stats"></div>
+  <p class="small concept-note">After the crate stops, it slides back down if friction cannot hold it. The animation assumes the static coefficient is also 0.25, so the crate returns because $\tan\theta = 0.75$ is larger. The slope of the graph changes at the stop because friction reverses direction.</p>
+</div>
+<div class="demo v3d" data-clip="x4a-3"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Every solution follows the four-step method: free-body diagrams, kinetics equations, kinematics, solve. Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Draw the free-body diagram</summary>
+<p>Three forces act on the crate. The weight $W$ acts downward. The incline pushes with the normal force $N$, perpendicular to its surface. The crate slides up, so the kinetic friction force $F_f = \mu_k N$ acts down the incline. We take $x$ up the incline and $y$ normal to it.</p>
+<div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 400 320" role="img" aria-label="Crate C sliding up the incline" style="max-width:400px"><line x1="75.4" y1="267.2" x2="355.4" y2="57.2" stroke="#7b808c" stroke-width="1.4" stroke-dasharray="5 4"/><rect x="-34.0" y="-34.0" width="68.0" height="68.0" rx="4" transform="translate(215.0,120.0) rotate(-36.9)" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><line x1="211.0" y1="120.0" x2="211.0" y2="214.0" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="211.0,225.0 205.5,214.0 216.5,214.0" fill="#c2410c"/><line x1="220.2" y1="179.6" x2="249.6" y2="140.4" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="256.2,131.6 254.0,143.7 245.2,137.1" fill="#17915a"/><line x1="216.2" y1="161.6" x2="169.0" y2="197.0" stroke="#b42346" stroke-width="2.6" stroke-linecap="round"/><polygon points="160.2,203.6 165.7,192.6 172.3,201.4" fill="#b42346"/><line x1="79.4" y1="264.2" x2="149.4" y2="264.2" stroke="#7b808c" stroke-width="1.2" stroke-dasharray="5 4"/><path d="M125.4,264.2 A46,46 0 0 0 116.2,236.6" fill="none" stroke="#7b808c" stroke-width="1.2"/><line x1="345.0" y1="290.0" x2="363.4" y2="276.2" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="372.2,269.6 366.7,280.6 360.1,271.8" fill="#7b808c"/><line x1="345.0" y1="290.0" x2="331.2" y2="271.6" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="324.6,262.8 335.6,268.3 326.8,274.9" fill="#7b808c"/><text x="199.0" y="112.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:16px;font-style:italic;fill:#1c1d21"><tspan>C</tspan></text><text x="225.0" y="231.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>W</tspan></text><text x="225.0" y="197.2" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>N</tspan></text><text x="144.6" y="196.8" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#b42346"><tspan>F</tspan><tspan dy="4.8" style="font-size:10.8px">f</tspan></text><text x="133.5" y="246.2" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>θ</tspan></text><text x="380.2" y="263.6" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>x</tspan></text><text x="318.6" y="254.8" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>y</tspan></text></svg><figcaption>Crate C sliding up the incline</figcaption></figure></div><p class="small fbdnote">The crate slides up the incline, so the kinetic friction force $F_f = \mu_k N$ points down the incline. The $x$ axis points up the incline and the $y$ axis is normal to it.</p>
+</details>
+<details class="step"><summary>Step 2 · Write the kinetics equations</summary>
+<p>The mass of the crate is $m = W/g$. Newton's second law in the two directions gives</p>
+$$\sum F_x = -W\sin\theta - \mu_k N = \frac{W}{g}\,a_x, \qquad \sum F_y = N - W\cos\theta = 0$$
+</details>
+<details class="step"><summary>Step 3 · Write the kinematics equations</summary>
+<p>The acceleration is constant while the crate slides up, so $v = v_0 + a_x t$. The crate is at rest when $v = 0$.</p>
+</details>
+<details class="step"><summary>Step 4 · Solve</summary>
+<p>The normal force is $N = W\cos\theta = 80$ lb, and the acceleration is</p>
+$$a_x = -g\left(\sin\theta + \mu_k\cos\theta\right) = -32.2\,(0.6 + 0.25 \times 0.8) = -25.76\ \text{ft/s}^2$$
+$$t = \frac{v_0}{g(\sin\theta + \mu_k\cos\theta)} = \frac{40}{25.76} = 1.553\ \text{s}$$
+<p class="small">The weight cancels out, so the result does not depend on $W$. The crate travels $v_0^2/(2 \times 25.76) = 31.06$ ft up the incline before it stops.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>$t = 1.55$ s.</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Set $\mu_k = 0.8$. The crate now stays at the top. Which condition decides whether it slides back?</li><li>Compare the slopes of the velocity graph before and after the stop. Explain the difference with the direction of the friction force.</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 4, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-4-a-2.html"><small>← Previous</small>Example 4.A.2</a><a class="next" href="ex-4-a-4.html"><small>Next →</small>Example 4.A.4</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/kit.js"></script>
+<script src="../assets/ch4-exA1.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch4-3dA1.js"></script>
+</body>
+</html>

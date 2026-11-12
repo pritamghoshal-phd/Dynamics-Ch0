@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 5.B.6 · Chapter 5 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 5</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="newton-euler.html">A · Newton–Euler</a>
+    <a href="work-energy.html">B · Work–energy</a>
+    <a href="impulse-momentum.html">C · Impulse–momentum</a>
+    <a href="examples.html" class=active>Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Work and energy examples"><a href="examples.html#group-B">All work–energy examples</a><a href="ex-5-b-1.html">5.B.1</a><a href="ex-5-b-3.html">5.B.3</a><a href="ex-5-b-4.html">5.B.4</a><a href="ex-5-b-5.html">5.B.5</a><a href="ex-5-b-6.html" class=active>5.B.6</a><a href="ex-5-b-7.html">5.B.7</a><a href="ex-5-b-8.html">5.B.8</a><a href="ex-5-b-9.html">5.B.9</a><a href="ex-5-b-10.html">5.B.10</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-B">Work and energy</a> › Example 5.B.6</p>
+<h2><span class="num">Example 5.B.6</span>Bar pushing a rolling disk</h2>
+<div class="tags"><span>work–energy</span><span>rolling</span><span>smooth contact</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>A disk of mass $m$ and radius $R$ rolls without slipping along a rough straight guide. A thin, homogeneous bar of mass $m$ and length $L$ is pinned at O and rests against the disk along a smooth contact. O lies on the line through the center C of the disk, parallel to the guide. A constant force $F$ acts at the free end of the bar and is always perpendicular to the bar. The system is released from rest with C a distance $d$ from O, and everything moves in a horizontal plane.</p>
+<p><b>Find</b> the speed of C after C has moved an additional distance $d$ away from O.</p>
+</div>
+<div class="demo" id="xw-6">
+  <div class="demo-title"><span class="tag">Interactive</span><span>The bar drives the disk along the guide</span></div>
+  <canvas id="xw-6-anim" class="anim" style="height:340px"></canvas>
+  <div class="controls" id="xw-6-ctl"></div>
+  <div class="bar" id="xw-6-btn"></div>
+  <div class="stats" id="xw-6-stats"></div>
+  <p class="small concept-note">The animation uses the sample values $m = 2$ kg, $R = 0.2$ m, $L = 1.2$ m and $d = 0.4$ m. The red dot is the smooth contact between the bar and the disk. The bars show that the work done by $F$ equals the kinetic energy of the bar plus that of the disk.</p>
+</div>
+<div class="demo v3d" data-clip="xw-6"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Every solution follows the four-step method. Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Draw the free-body diagrams</summary>
+<p>We take the system made of the bar and the disk. The external forces in the plane of motion are $F$, the pin reaction at O, and the normal and friction forces from the guide at the contact point of the disk. The contact force between the bar and the disk is internal. The motion is in a horizontal plane, so gravity does no work.</p><div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 310 285" role="img" aria-label="System: bar and disk" style="max-width:310px"><line x1="40.0" y1="160.0" x2="238.9" y2="92.5" stroke="#8a6a12" stroke-width="12" stroke-linecap="round"/><line x1="40.0" y1="160.0" x2="238.9" y2="92.5" stroke="#f1e6c8" stroke-width="8" stroke-linecap="round"/><circle cx="40.0" cy="160.0" r="4.5" fill="#fff" stroke="#1c1d21" stroke-width="2"/><circle cx="152.0" cy="160.0" r="36.0" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><circle cx="152.0" cy="160.0" r="3" fill="#1c1d21"/><line x1="220.2" y1="37.6" x2="235.3" y2="82.1" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="238.9,92.5 230.1,83.9 240.5,80.3" fill="#2457d6"/><line x1="152.0" y1="240.0" x2="152.0" y2="207.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="152.0,196.0 157.5,207.0 146.5,207.0" fill="#17915a"/><line x1="204.0" y1="196.0" x2="163.0" y2="196.0" stroke="#b42346" stroke-width="2.6" stroke-linecap="round"/><polygon points="152.0,196.0 163.0,190.5 163.0,201.5" fill="#b42346"/><line x1="4.0" y1="160.0" x2="29.0" y2="160.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="40.0,160.0 29.0,165.5 29.0,154.5" fill="#17915a"/><line x1="40.0" y1="206.0" x2="40.0" y2="171.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="40.0,160.0 45.5,171.0 34.5,171.0" fill="#17915a"/><text x="44.0" y="144.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:14px;font-style:italic;fill:#1c1d21"><tspan>O</tspan></text><text x="152.0" y="148.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>C</tspan></text><text x="216.4" y="26.2" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>F</tspan></text><text x="138.0" y="252.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>N</tspan></text><text x="214.0" y="196.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#b42346"><tspan>f</tspan></text><text x="12.0" y="176.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>O</tspan><tspan dy="4.8" style="font-size:10.8px">x</tspan></text><text x="40.0" y="218.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>O</tspan><tspan dy="4.8" style="font-size:10.8px">y</tspan></text><text x="100.0" y="276.0" text-anchor="middle" dominant-baseline="middle" style="font-family:system-ui,sans-serif;font-size:11px;fill:#7b808c">top view (horizontal plane)</text></svg><figcaption>System: bar and disk</figcaption></figure><figure><svg class="fbd" viewBox="0 0 310 250" role="img" aria-label="Bar alone" style="max-width:310px"><line x1="40.0" y1="160.0" x2="238.9" y2="92.5" stroke="#8a6a12" stroke-width="12" stroke-linecap="round"/><line x1="40.0" y1="160.0" x2="238.9" y2="92.5" stroke="#f1e6c8" stroke-width="8" stroke-linecap="round"/><circle cx="40.0" cy="160.0" r="4.5" fill="#fff" stroke="#1c1d21" stroke-width="2"/><line x1="220.2" y1="37.6" x2="235.3" y2="82.1" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="238.9,92.5 230.1,83.9 240.5,80.3" fill="#2457d6"/><line x1="156.5" y1="173.3" x2="144.0" y2="136.3" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="140.4,125.9 149.2,134.6 138.8,138.1" fill="#17915a"/><line x1="4.0" y1="160.0" x2="29.0" y2="160.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="40.0,160.0 29.0,165.5 29.0,154.5" fill="#17915a"/><line x1="40.0" y1="206.0" x2="40.0" y2="171.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="40.0,160.0 45.5,171.0 34.5,171.0" fill="#17915a"/><text x="44.0" y="144.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:14px;font-style:italic;fill:#1c1d21"><tspan>O</tspan></text><text x="216.4" y="26.2" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>F</tspan></text><text x="160.4" y="184.6" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>P</tspan></text><text x="12.0" y="176.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>O</tspan><tspan dy="4.8" style="font-size:10.8px">x</tspan></text><text x="40.0" y="218.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>O</tspan><tspan dy="4.8" style="font-size:10.8px">y</tspan></text></svg><figcaption>Bar alone</figcaption></figure><figure><svg class="fbd" viewBox="0 0 200 250" role="img" aria-label="Disk alone" style="max-width:200px"><circle cx="95.0" cy="125.0" r="36.0" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><circle cx="95.0" cy="125.0" r="3" fill="#1c1d21"/><line x1="67.4" y1="43.6" x2="79.9" y2="80.5" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="83.4,90.9 74.7,82.3 85.1,78.7" fill="#17915a"/><line x1="95.0" y1="205.0" x2="95.0" y2="172.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="95.0,161.0 100.5,172.0 89.5,172.0" fill="#17915a"/><line x1="147.0" y1="161.0" x2="106.0" y2="161.0" stroke="#b42346" stroke-width="2.6" stroke-linecap="round"/><polygon points="95.0,161.0 106.0,155.5 106.0,166.5" fill="#b42346"/><text x="95.0" y="113.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>C</tspan></text><text x="63.5" y="32.2" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>P</tspan></text><text x="81.0" y="217.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>N</tspan></text><text x="157.0" y="161.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#b42346"><tspan>f</tspan></text></svg><figcaption>Disk alone</figcaption></figure></div><p class="small fbdnote">$P$ is the smooth contact force between the bar and the disk. It is internal to the system, and its work on the bar cancels its work on the disk. The pin reaction ($O_x$, $O_y$) acts at the fixed point O, and $N$ and $f$ act at the contact point of the rolling disk, which has zero velocity. None of these forces does work, so only $F$ does.</p>
+</details>
+<details class="step"><summary>Step 2 · Write the kinetics equation (work–energy)</summary>
+<p>The pin reaction does no work because O does not move. The friction and normal forces from the guide act at the contact point of a rolling disk, which has zero velocity, so they do no work. The bar–disk contact is smooth, so the only force there is normal to the surfaces, and since the two bodies stay in contact, its work on the bar cancels its work on the disk. Only $F$ does work. Because $F$ stays perpendicular to the bar at the distance $L$ from O, it acts like a moment $FL$, and its work is</p>
+$$U_{1\to2} = F L\,(\varphi_1 - \varphi_2)$$
+<p>where $\varphi$ is the angle between the bar and the line OC. The kinetic energy of the system is</p>
+$$T = \tfrac12\left(\tfrac13 mL^2\right)\dot\varphi^2 + \tfrac12 m v_C^2 + \tfrac12\left(\tfrac12 mR^2\right)\left(\frac{v_C}{R}\right)^2 = \tfrac16 mL^2\dot\varphi^2 + \tfrac34 m v_C^2$$
+</details>
+<details class="step"><summary>Step 3 · Write the kinematics equations</summary>
+<p>The bar is tangent to the disk, so the distance from C to the bar is $R = x_C\sin\varphi$, where $x_C$ is the distance from O to C. Therefore</p>
+$$\sin\varphi = \frac{R}{x_C}, \qquad \dot\varphi = -\frac{R\,v_C}{x_C\sqrt{x_C^2 - R^2}}$$
+<p>At the start $x_C = d$, so $\varphi_1 = \sin^{-1}(R/d)$. At the end $x_C = 2d$, so $\varphi_2 = \sin^{-1}(R/2d)$ and $\dot\varphi_2^2 = \dfrac{R^2 v_C^2}{4d^2(4d^2 - R^2)}$.</p>
+</details>
+<details class="step"><summary>Step 4 · Solve</summary>
+<p>Setting $U_{1\to2} = T_2$ with $T_1 = 0$ gives</p>
+$$v_C = \sqrt{\frac{F L\left[\sin^{-1}(R/d) - \sin^{-1}(R/2d)\right]}{\dfrac34 m + \dfrac{m L^2 R^2}{24\,d^2\,(4d^2 - R^2)}}}$$
+<p class="small">With the sample values used in the animation ($F = 10$ N, $m = 2$ kg, $R = 0.2$ m, $L = 1.2$ m, $d = 0.4$ m) this gives $v_C = 1.448$ m/s. Integrating the equation of motion gives the same value, and the contact force between the bar and the disk stays positive throughout, so they never separate.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>$v_C = \sqrt{\dfrac{F L\left[\sin^{-1}(R/d) - \sin^{-1}(R/2d)\right]}{\tfrac34 m + m L^2 R^2/\left[24\,d^2(4d^2 - R^2)\right]}}$, directed away from O.</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Double $F$. By what factor does $v_C$ change? Explain with the formula.</li><li>Why does the friction force from the guide do no work, even though it is needed for rolling?</li><li>Which body has more kinetic energy at the end, the bar or the disk?</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 5, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-5-b-5.html"><small>← Previous</small>Example 5.B.5</a><a class="next" href="ex-5-b-7.html"><small>Next →</small>Example 5.B.7</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/ch5.js"></script>
+<script src="../assets/ch5-exB.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch5-3dB.js"></script>
+</body>
+</html>

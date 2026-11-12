@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 5.A.16 · Chapter 5 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 5</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="newton-euler.html">A · Newton–Euler</a>
+    <a href="work-energy.html">B · Work–energy</a>
+    <a href="impulse-momentum.html">C · Impulse–momentum</a>
+    <a href="examples.html" class=active>Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Newton–Euler equations examples"><a href="examples.html#group-A">All Newton–Euler examples</a><a href="ex-5-a-1.html">5.A.1</a><a href="ex-5-a-2.html">5.A.2</a><a href="ex-5-a-3.html">5.A.3</a><a href="ex-5-a-4.html">5.A.4</a><a href="ex-5-a-5.html">5.A.5</a><a href="ex-5-a-6.html">5.A.6</a><a href="ex-5-a-7.html">5.A.7</a><a href="ex-5-a-8.html">5.A.8</a><a href="ex-5-a-9.html">5.A.9</a><a href="ex-5-a-10.html">5.A.10</a><a href="ex-5-a-11.html">5.A.11</a><a href="ex-5-a-12.html">5.A.12</a><a href="ex-5-a-13.html">5.A.13</a><a href="ex-5-a-14.html">5.A.14</a><a href="ex-5-a-15.html">5.A.15</a><a href="ex-5-a-16.html" class=active>5.A.16</a><a href="ex-5-a-17.html">5.A.17</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-A">Newton–Euler equations</a> › Example 5.A.16</p>
+<h2><span class="num">Example 5.A.16</span>Disk rolling on an accelerating cart</h2>
+<div class="tags"><span>Newton–Euler</span><span>rolling</span><span>systems of bodies</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>A cart of mass $M$ rests on a smooth floor. A homogeneous disk of mass $m$ and radius $R$, with center G, sits on top of the cart and can roll on it without slipping. The system is initially at rest when a horizontal force $F$ is applied to the cart.</p>
+<p><b>Find</b> the acceleration of G.</p>
+</div>
+<div class="demo" id="xb-16">
+  <div class="demo-title"><span class="tag">Interactive</span><span>The cart and the rolling disk</span></div>
+  <canvas id="xb-16-anim" class="anim" style="height:260px"></canvas>
+  <div class="controls" id="xb-16-ctl"></div>
+  <div class="bar" id="xb-16-btn"></div>
+  <div class="stats" id="xb-16-stats"></div>
+  <p class="small concept-note">The animation uses $R = 0.2$ m and the values on the sliders. The green arrow is the acceleration of G and the white arrow on the cart is the acceleration of the cart, both drawn to the same scale. Friction from the cart pushes the disk forward, but it also spins the disk backward, so the disk lags behind the cart.</p>
+</div>
+<div class="demo v3d" data-clip="xb-16"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Every solution follows the four-step method. Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Draw the free-body diagrams</summary>
+<div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 210 240" role="img" aria-label="Disk" style="max-width:210px"><circle cx="100.0" cy="95.0" r="55.0" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><circle cx="100.0" cy="95.0" r="4" fill="#1c1d21"/><path d="M89.1,64.9 L87.6,65.5 L86.2,66.1 L84.9,66.8 L83.5,67.6 L82.2,68.4 L81.0,69.3 L79.8,70.2 L78.6,71.2 L77.5,72.3 L76.4,73.4 L75.4,74.5 L74.4,75.7 L73.5,77.0 L72.7,78.3 L71.9,79.6 L71.2,81.0 L70.6,82.4 L70.0,83.8 L69.5,85.2 L69.1,86.7 L68.7,88.2 L68.4,89.7 L68.2,91.2 L68.1,92.8 L68.0,94.3 L68.0,95.8 L68.1,97.4 L68.2,98.9 L68.5,100.4 L68.8,101.9 L69.1,103.4 L69.6,104.9 L70.1,106.3 L70.7,107.8 L71.3,109.2 L72.0,110.5 L72.8,111.8 L73.6,113.1 L74.5,114.4 L75.5,115.6" fill="none" stroke="#8a3fd1" stroke-width="2.2"/><polygon points="77.9,118.8 67.9,113.8 75.8,107.8" fill="#8a3fd1"/><line x1="100.0" y1="95.0" x2="100.0" y2="126.0" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="100.0,137.0 94.5,126.0 105.5,126.0" fill="#c2410c"/><line x1="106.0" y1="210.0" x2="106.0" y2="161.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="106.0,150.0 111.5,161.0 100.5,161.0" fill="#17915a"/><line x1="100.0" y1="150.0" x2="151.0" y2="150.0" stroke="#b42346" stroke-width="2.6" stroke-linecap="round"/><polygon points="162.0,150.0 151.0,155.5 151.0,144.5" fill="#b42346"/><line x1="24.0" y1="226.0" x2="47.0" y2="226.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="58.0,226.0 47.0,231.5 47.0,220.5" fill="#7b808c"/><line x1="24.0" y1="226.0" x2="24.0" y2="203.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="24.0,192.0 29.5,203.0 18.5,203.0" fill="#7b808c"/><text x="114.0" y="83.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:14px;font-style:italic;fill:#1c1d21"><tspan>G</tspan></text><text x="56.5" y="83.4" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#8a3fd1"><tspan>α</tspan></text><text x="118.0" y="137.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>mg</tspan></text><text x="122.0" y="208.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>N</tspan></text><text x="172.0" y="154.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#b42346"><tspan>f</tspan></text><text x="68.0" y="226.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>x</tspan></text><text x="24.0" y="182.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>y</tspan></text></svg><figcaption>Disk</figcaption></figure><figure><svg class="fbd" viewBox="0 0 350 240" role="img" aria-label="Cart" style="max-width:350px"><rect x="-105.0" y="-35.0" width="210.0" height="70.0" rx="4" transform="translate(185.0,125.0) rotate(0.0)" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><line x1="225.0" y1="35.0" x2="225.0" y2="79.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="225.0,90.0 219.5,79.0 230.5,79.0" fill="#17915a"/><line x1="225.0" y1="85.0" x2="174.0" y2="85.0" stroke="#b42346" stroke-width="2.6" stroke-linecap="round"/><polygon points="163.0,85.0 174.0,79.5 174.0,90.5" fill="#b42346"/><line x1="22.0" y1="125.0" x2="69.0" y2="125.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="80.0,125.0 69.0,130.5 69.0,119.5" fill="#2457d6"/><circle cx="185.0" cy="137.0" r="4" fill="#1c1d21"/><line x1="185.0" y1="137.0" x2="185.0" y2="184.0" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="185.0,195.0 179.5,184.0 190.5,184.0" fill="#c2410c"/><line x1="110.0" y1="210.0" x2="110.0" y2="171.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="110.0,160.0 115.5,171.0 104.5,171.0" fill="#17915a"/><line x1="260.0" y1="210.0" x2="260.0" y2="171.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="260.0,160.0 265.5,171.0 254.5,171.0" fill="#17915a"/><line x1="24.0" y1="226.0" x2="47.0" y2="226.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="58.0,226.0 47.0,231.5 47.0,220.5" fill="#7b808c"/><line x1="24.0" y1="226.0" x2="24.0" y2="203.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="24.0,192.0 29.5,203.0 18.5,203.0" fill="#7b808c"/><text x="135.0" y="125.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:16px;font-style:italic;fill:#1c1d21"><tspan>M</tspan></text><text x="241.0" y="37.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>N</tspan></text><text x="151.0" y="81.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#b42346"><tspan>f</tspan></text><text x="8.0" y="125.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>F</tspan></text><text x="203.0" y="207.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>Mg</tspan></text><text x="92.0" y="208.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>N</tspan><tspan dy="4.8" style="font-size:10.8px">1</tspan></text><text x="278.0" y="208.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>N</tspan><tspan dy="4.8" style="font-size:10.8px">2</tspan></text><text x="68.0" y="226.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>x</tspan></text><text x="24.0" y="182.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>y</tspan></text></svg><figcaption>Cart</figcaption></figure></div><p class="small fbdnote">The disk and the cart push on each other at the contact point with equal and opposite forces $N$ and $f$. Friction is drawn in its assumed positive direction on the disk (forward), so it acts backward on the cart. The smooth floor exerts only the vertical forces $N_1$ and $N_2$. The curved arrow shows the positive (counterclockwise) sense of $\alpha$.</p><p>The disk is acted on by its weight $mg$, the normal force from the cart, and a friction force $f$ from the cart at the contact point. The cart is acted on by $F$, its weight, the floor reactions (vertical only, because the floor is smooth), and the reactions from the disk, which are equal and opposite to those on the disk. We take accelerations positive to the right and the angular acceleration $\alpha$ of the disk positive counterclockwise.</p>
+</details>
+<details class="step"><summary>Step 2 · Write the kinetics equations</summary>
+<p>Disk, Newton's equation and Euler's equation about G:</p>
+$$f = m\,a_G, \qquad f\,R = \tfrac12 mR^2\,\alpha$$
+<p>Cart, Newton's equation in the horizontal direction:</p>
+$$F - f = M\,A$$
+<p>Here $A$ is the acceleration of the cart.</p>
+</details>
+<details class="step"><summary>Step 3 · Write the kinematics equation</summary>
+<p>The disk does not slip on the cart, so the contact point of the disk has the same horizontal acceleration as the cart. The contact point lies a distance $R$ below G, so</p>
+$$a_G + R\,\alpha = A$$
+</details>
+<details class="step"><summary>Step 4 · Solve</summary>
+<p>The disk equations give $f = m a_G$ and $R\alpha = 2a_G$. The kinematic condition then gives $A = 3a_G$. Substituting into the cart equation,</p>
+$$F - m\,a_G = 3M\,a_G \quad\Longrightarrow\quad a_G = \frac{F}{3M + m}$$
+<p>The cart accelerates at $A = 3F/(3M + m)$, three times faster than the disk center, so the disk rolls toward the back of the cart while it moves forward.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>$\mathbf a_G = \dfrac{F}{3M + m}\,\hat{\mathbf i}$, in the direction of $F$.</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Make the disk very heavy compared with the cart. What happens to $a_G$, and does that agree with the formula?</li><li>Show that the friction force on the disk equals $mF/(3M + m)$, and check it with the statistic.</li><li>Replace the disk with a thin ring. Repeat the solution and compare.</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 5, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-5-a-15.html"><small>← Previous</small>Example 5.A.15</a><a class="next" href="ex-5-a-17.html"><small>Next →</small>Example 5.A.17</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/ch5.js"></script>
+<script src="../assets/ch5-exA2.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch5-3dA2.js"></script>
+</body>
+</html>

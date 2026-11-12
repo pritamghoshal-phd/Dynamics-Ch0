@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Impulse and momentum · Chapter 5 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 5</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="newton-euler.html">A · Newton–Euler</a>
+    <a href="work-energy.html">B · Work–energy</a>
+    <a href="impulse-momentum.html" class=active>C · Impulse–momentum</a>
+    <a href="examples.html">Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<section>
+<h2><span class="num">C</span>Impulse and momentum</h2>
+<p>Integrating the Newton–Euler equations over a time interval gives the two impulse–momentum equations.</p>
+$$\int_{t_1}^{t_2}\sum\mathbf F\,dt = m\mathbf v_{G2} - m\mathbf v_{G1}$$
+$$\int_{t_1}^{t_2}\sum\mathbf M_A\,dt = \mathbf H_{A2} - \mathbf H_{A1}$$
+<p>If A is the mass center G, or a fixed pivot O, the angular momentum is simply $\mathbf H_A = I_A\,\boldsymbol\omega$. About any other fixed point A in space, the angular momentum is</p>
+$$\mathbf H_A = I_G\,\boldsymbol\omega + \mathbf r_{G/A}\times m\,\mathbf v_G$$
+<p>The first term is due to the rotation of the body about G, and the second is due to the motion of G about A.</p>
+
+<h3>Conservation of angular momentum</h3>
+<p>If the external forces produce no moment about a fixed point A during some time interval, then $\mathbf H_A$ has the same value at the start and at the end of the interval. This remains true when the body changes shape. If mass is pulled toward the axis, $I$ decreases and $\omega$ must increase. The kinetic energy is not conserved in this case, because whatever pulls the mass inward does work on it.</p>
+<div class="demo concept" id="c-spin">
+  <div class="demo-title"><span class="tag concept-tag">Concept</span><span>Pulling the masses inward reduces $I$, increases $\omega$ and keeps $H$ constant</span></div>
+  <div class="grid2"><canvas id="c-spin-anim" class="anim" style="height:340px"></canvas><div><canvas id="c-spin-plot" class="plot" style="height:300px"></canvas></div></div>
+  <div class="controls" id="c-spin-ctl"></div>
+  <div class="bar" id="c-spin-pre"><span class="lbl">Do:</span></div>
+  <div class="bar" id="c-spin-btn"></div>
+  <div class="stats" id="c-spin-stats"></div>
+  <p class="small concept-note">A frame spins freely about a vertical axis, and nothing applies a moment about that axis. The angular momentum $H_O = I\omega$ is therefore constant. Watch the kinetic energy in the statistics. It increases when the masses are pulled inward, because work is done on them, and it decreases when they are let out.</p>
+</div>
+
+<h3>Impacts</h3>
+<p>During an impact, very large forces act for a very short time. Their impulses are finite, whereas ordinary forces such as weight produce a negligible impulse during the impact and can be ignored. The following guidelines are useful.</p>
+<ul>
+<li>Take moments about a point through which the unknown impulsive forces pass, such as a pivot or a corner that sticks. Angular momentum about that point is then conserved during the impact.</li>
+<li>Linear momentum is conserved only if no external impulse acts. A pivot usually supplies an impulse, so do not assume that linear momentum is conserved.</li>
+<li>When bodies bounce apart, the coefficient of restitution $e$ relates the speeds of separation and approach of the contact points along the line of impact.</li>
+<li>Energy is generally lost in an impact. The work–energy principle may be used before or after the impact, but not across it.</li>
+</ul>
+<div class="demo concept" id="c-perc">
+  <div class="demo-title"><span class="tag concept-tag">Concept</span><span>Where to strike a pinned bar: the center of percussion</span></div>
+  <div class="grid2"><canvas id="c-perc-anim" class="anim" style="height:340px"></canvas><div><canvas id="c-perc-plot" class="plot" style="height:300px"></canvas></div></div>
+  <div class="controls" id="c-perc-ctl"></div>
+  <div class="bar" id="c-perc-pre"><span class="lbl">Try:</span></div>
+  <div class="bar" id="c-perc-btn"></div>
+  <div class="stats" id="c-perc-stats"></div>
+  <p class="small concept-note">A ball delivers an impulse $J$ to a hanging bar. Unless the bar is struck at $2L/3$ from the pin, the pin must push or pull on the bar during the impact, as shown by the red arrow. At the center of percussion the bar begins to rotate about the pin without any help from it.</p>
+</div>
+<p>Consider a uniform bar of length $L$ that is pinned at its top and struck with an impulse $J$ at a distance $h$ below the pin. The two impulse–momentum equations show that the pin applies a horizontal impulse $R = J\left(\tfrac{3h}{2L} - 1\right)$. This impulse vanishes when $h = 2L/3$, and that point is called the <b>center of percussion</b>.</p>
+<div class="try"><h4>Try this</h4><ul><li>In the spinning-frame animation, make the frame inertia $I_0$ very large. Explain why pulling the masses inward now barely changes $\omega$.</li><li>Find the impact point at which the pin impulse equals $-J/2$. Describe the motion of the bar immediately afterward.</li><li>Strike the bar at its tip. In which direction does the pin push, and how large is its impulse?</li></ul></div>
+<div class="wild"><span class="wi" aria-hidden="true">⚾</span><div><b class="wh">Impulse in the wild</b><p>When a baseball is hit at the center of percussion of the bat, the batter's hands feel almost nothing. When it is hit near the handle or near the tip, the bat stings. The same idea is used to choose the striking face of a hammer and the best spot on a tennis racket.</p></div></div>
+</section>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="work-energy.html"><small>← Previous</small>B · Work–energy</a><a class="next" href="examples.html"><small>Next →</small>Worked examples</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/ch5.js"></script>
+</body>
+</html>

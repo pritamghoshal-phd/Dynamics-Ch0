@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 2.B.7 · Chapter 2 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 2</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="rigid.html">A · Rigid body equations</a>
+    <a href="instant.html">B · Instant centers</a>
+    <a href="mechanisms.html">C · Mechanisms</a>
+    <a href="examples.html" class=active>Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Instant centers examples"><a href="examples.html#group-B">All Instant centers examples</a><a href="ex-2-b-1.html">2.B.1</a><a href="ex-2-b-2.html">2.B.2</a><a href="ex-2-b-3.html">2.B.3</a><a href="ex-2-b-4.html">2.B.4</a><a href="ex-2-b-5.html">2.B.5</a><a href="ex-2-b-6.html">2.B.6</a><a href="ex-2-b-7.html" class=active>2.B.7</a><a href="ex-2-b-8.html">2.B.8</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-B">Instant centers</a> › Example 2.B.7</p>
+<h2><span class="num">Example 2.B.7</span>Link with ends on a 45° guide and a level track</h2>
+<div class="tags"><span>instant centers</span><span>guides</span><span>mass center</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>The roller at end A of link AB moves in a straight guide inclined at the angle $\theta$ to the horizontal. The roller at end B moves along a horizontal track with speed $v_B$ to the right. The link has length $L$, makes the angle $\phi$ with the horizontal, and G is its midpoint.</p>
+<p>The data are $\theta = 45°$, $\phi = 30°$, $L = 0.6$ m and $v_B = 2.5$ m/s.</p>
+<p><b>Find</b>, using the method of instant centers, (a) the angular velocity of link AB, (b) the speed of end A and (c) the speed of G.</p>
+</div>
+<div class="demo" id="x2b-7">
+  <div class="demo-title"><span class="tag">Interactive</span><span>The link moving along its guides (slow motion)</span></div>
+  <canvas id="x2b-7-anim" class="anim" style="height:440px"></canvas>
+  <div class="bar" id="x2b-7-pre"><span class="lbl">View:</span></div>
+  <div class="bar" id="x2b-7-btn"></div>
+  <div class="stats" id="x2b-7-stats"></div>
+  <p class="small concept-note">The guide for A is drawn as a slotted plate behind the link, so the link can pass in front of it. The violet lines show that $\mathbf v_A$, $\mathbf v_B$ and $\mathbf v_G$ are each perpendicular to the line from the instant center.</p>
+</div>
+<div class="demo v3d" data-clip="x2b-7"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">The method of instant centers has four steps. Find the direction of the velocity of two points of the body, locate the instant center where the perpendiculars to those velocities meet, find ω from one known speed, and then find any other velocity from its distance to the instant center. The figure in the book draws the guide at A less steep than the link, while the data give a 45° guide and a 30° link. We follow the data, so the guide is drawn as a slot in a plate behind the link.</p>
+<details class="step"><summary>Step 1 · Set up the geometry</summary>
+<p>Put A at the origin. B is then at $L(\cos\phi, \sin\phi) = (0.5196, 0.3)$ m, and G is at $(0.2598, 0.15)$ m. The velocity of A points along the guide, at 45°, and the velocity of B is horizontal.</p>
+<div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 330 380" role="img" aria-label="Link AB with the instant center" style="max-width:330px"><line x1="20.0" y1="230.0" x2="94.0" y2="156.0" stroke="#8b8f98" stroke-width="1.6"/><line x1="165.88" y1="109.0" x2="295.88" y2="109.0" stroke="#8b8f98" stroke-width="1.8"/><line x1="169" y1="109.0" x2="164" y2="116.0" stroke="#8b8f98" stroke-width="1"/><line x1="178" y1="109.0" x2="173" y2="116.0" stroke="#8b8f98" stroke-width="1"/><line x1="187" y1="109.0" x2="182" y2="116.0" stroke="#8b8f98" stroke-width="1"/><line x1="196" y1="109.0" x2="191" y2="116.0" stroke="#8b8f98" stroke-width="1"/><line x1="205" y1="109.0" x2="200" y2="116.0" stroke="#8b8f98" stroke-width="1"/><line x1="214" y1="109.0" x2="209" y2="116.0" stroke="#8b8f98" stroke-width="1"/><line x1="223" y1="109.0" x2="218" y2="116.0" stroke="#8b8f98" stroke-width="1"/><line x1="232" y1="109.0" x2="227" y2="116.0" stroke="#8b8f98" stroke-width="1"/><line x1="241" y1="109.0" x2="236" y2="116.0" stroke="#8b8f98" stroke-width="1"/><line x1="250" y1="109.0" x2="245" y2="116.0" stroke="#8b8f98" stroke-width="1"/><line x1="259" y1="109.0" x2="254" y2="116.0" stroke="#8b8f98" stroke-width="1"/><line x1="268" y1="109.0" x2="263" y2="116.0" stroke="#8b8f98" stroke-width="1"/><line x1="277" y1="109.0" x2="272" y2="116.0" stroke="#8b8f98" stroke-width="1"/><line x1="286" y1="109.0" x2="281" y2="116.0" stroke="#8b8f98" stroke-width="1"/><line x1="60.0" y1="190.0" x2="215.9" y2="100.0" stroke="#8a6a12" stroke-width="15" stroke-linecap="round"/><line x1="60.0" y1="190.0" x2="215.9" y2="100.0" stroke="#f1e6c8" stroke-width="11" stroke-linecap="round"/><circle cx="60.0" cy="190.0" r="4.5" fill="#fff" stroke="#1c1d21" stroke-width="2"/><circle cx="215.9" cy="100.0" r="4.5" fill="#fff" stroke="#1c1d21" stroke-width="2"/><circle cx="137.9" cy="145.0" r="4" fill="#1c1d21"/><line x1="215.9" y1="345.9" x2="60.0" y2="190.0" stroke="#8a3fd1" stroke-width="1.3" stroke-dasharray="5 4"/><polyline points="65.7,195.7 71.3,190.0 65.7,184.3" fill="none" stroke="#8a3fd1" stroke-width="1.2"/><line x1="215.9" y1="345.9" x2="215.9" y2="100.0" stroke="#8a3fd1" stroke-width="1.3" stroke-dasharray="5 4"/><polyline points="215.9,108.0 223.9,108.0 223.9,100.0" fill="none" stroke="#8a3fd1" stroke-width="1.2"/><line x1="215.9" y1="345.9" x2="137.9" y2="145.0" stroke="#8a3fd1" stroke-width="1.3" stroke-dasharray="5 4"/><polyline points="140.8,152.5 148.3,149.6 145.4,142.1" fill="none" stroke="#8a3fd1" stroke-width="1.2"/><circle cx="215.9" cy="345.9" r="10" fill="#8a3fd1" fill-opacity=".15"/><circle cx="215.9" cy="345.9" r="6" fill="none" stroke="#8a3fd1" stroke-width="2"/><circle cx="215.9" cy="345.9" r="2.4" fill="#8a3fd1"/><line x1="215.9" y1="100.0" x2="254.9" y2="100.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="265.9,100.0 254.9,105.5 254.9,94.5" fill="#2457d6"/><line x1="60.0" y1="190.0" x2="79.1" y2="170.9" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="86.9,163.1 83.0,174.8 75.2,167.0" fill="#17915a"/><line x1="137.9" y1="145.0" x2="168.7" y2="133.1" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="179.0,129.1 170.7,138.2 166.7,127.9" fill="#17915a"/><path d="M90.0,190.0 A30,30 0 0 0 86.0,175.0" fill="none" stroke="#7b808c" stroke-width="1.2"/><line x1="60.0" y1="190.0" x2="115.0" y2="190.0" stroke="#7b808c" stroke-width="1" stroke-dasharray="5 4"/><text x="58.0" y="242.0" text-anchor="middle" dominant-baseline="middle" style="font-family:system-ui,sans-serif;font-size:11px;fill:#7b808c">guide at 45°</text><text x="44.0" y="184.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>A</tspan></text><text x="219.9" y="80.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>B</tspan></text><text x="133.9" y="125.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>G</tspan></text><text x="229.9" y="345.9" text-anchor="start" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:14px;font-style:italic;fill:#8a3fd1"><tspan>IC</tspan><tspan dy="4.5" style="font-size:10.1px">AB</tspan></text><text x="277.9" y="88.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>v</tspan><tspan dy="4.8" style="font-size:10.8px">B</tspan></text><text x="79.4" y="152.6" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>v</tspan><tspan dy="4.8" style="font-size:10.8px">A</tspan></text><text x="194.2" y="140.7" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>v</tspan><tspan dy="4.8" style="font-size:10.8px">G</tspan></text><text x="99.6" y="179.4" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>φ</tspan></text></svg><figcaption>Link AB with the instant center</figcaption></figure></div><p class="small fbdnote">$\mathbf v_A$ points along the 45° guide and $\mathbf v_B$ is horizontal. The perpendicular to $\mathbf v_A$ at A and the vertical line through B meet at the instant center.</p>
+</details>
+<details class="step"><summary>Step 2 · Locate the instant center</summary>
+<p>The perpendicular to $\mathbf v_A$ at A is the line through the origin at 135°, whose points are $s(-1, 1)$. The perpendicular to $\mathbf v_B$ at B is the vertical line $x = 0.5196$ m. They meet at $s = -0.5196$, so</p>
+$$IC_{AB} = (0.5196,\ -0.5196)\ \text{m}$$
+$$r_{B/IC} = 0.3 + 0.5196 = 0.8196\ \text{m}, \qquad r_{A/IC} = 0.5196\sqrt2 = 0.7348\ \text{m}$$
+$$r_{G/IC} = \sqrt{0.2598^2 + 0.6696^2} = 0.7183\ \text{m}$$
+</details>
+<details class="step"><summary>Step 3 · Find the angular velocity of AB</summary>
+<p>B lies directly above the instant center and moves to the right, so the link turns <b>clockwise</b> with</p>
+$$\omega_{AB} = \frac{v_B}{r_{B/IC}} = \frac{2.5}{0.8196} = 3.05\ \text{rad/s}$$
+</details>
+<details class="step"><summary>Step 4 · Find the speeds of A and G</summary>
+$$v_A = \omega_{AB}\, r_{A/IC} = 3.05(0.7348) = 2.24\ \text{m/s}$$
+$$v_G = \omega_{AB}\, r_{G/IC} = 3.05(0.7183) = 2.19\ \text{m/s}$$
+<p>A moves up the guide, and $\mathbf v_G$ points up and to the right at 21.2° above the horizontal.</p>
+<p class="small">Check: $\mathbf v_G$ must equal the average of $\mathbf v_A$ and $\mathbf v_B$, because G is the midpoint. $\tfrac12\left[(1.585 + 2.5)\,\hat{\mathbf i} + 1.585\,\hat{\mathbf j}\right] = 2.04\,\hat{\mathbf i} + 0.79\,\hat{\mathbf j}$ m/s, whose magnitude is 2.19 m/s.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>(a) $\omega_{AB} = 3.05$ rad/s clockwise. (b) $v_A = 2.24$ m/s, up the guide. (c) $v_G = 2.19$ m/s.</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Watch the instant center as B moves. Where is it when the link is perpendicular to the guide?</li><li>Why is $\mathbf v_G$ always the average of $\mathbf v_A$ and $\mathbf v_B$?</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 2, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-2-b-6.html"><small>← Previous</small>Example 2.B.6</a><a class="next" href="ex-2-b-8.html"><small>Next →</small>Example 2.B.8</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/kit.js"></script>
+<script src="../assets/ch2-exB.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch2-3dB.js"></script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 5.C.7 · Chapter 5 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 5</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="newton-euler.html">A · Newton–Euler</a>
+    <a href="work-energy.html">B · Work–energy</a>
+    <a href="impulse-momentum.html">C · Impulse–momentum</a>
+    <a href="examples.html" class=active>Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Impulse and momentum examples"><a href="examples.html#group-C">All impulse–momentum examples</a><a href="ex-5-c-1.html">5.C.1</a><a href="ex-5-c-2.html">5.C.2</a><a href="ex-5-c-3.html">5.C.3</a><a href="ex-5-c-4.html">5.C.4</a><a href="ex-5-c-5.html">5.C.5</a><a href="ex-5-c-6.html">5.C.6</a><a href="ex-5-c-7.html" class=active>5.C.7</a><a href="ex-5-c-8.html">5.C.8</a><a href="ex-5-c-9.html">5.C.9</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-C">Impulse and momentum</a> › Example 5.C.7</p>
+<h2><span class="num">Example 5.C.7</span>Bar striking a fixed stop</h2>
+<div class="tags"><span>impact</span><span>restitution</span><span>horizontal plane</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>A thin homogeneous bar of mass $m$ and length $L$ slides on a smooth horizontal surface. It translates without rotating, with its mass center G moving at speed $v_{G1}$ perpendicular to the bar. The bar strikes a fixed stop at point A, which lies a distance $L/4$ from G. The coefficient of restitution for the impact is $e$, with $0 &lt; e &lt; 1$.</p>
+<p><b>Find</b> (a) the velocity of the mass center G and (b) the angular velocity of the bar immediately after the impact.</p>
+</div>
+<div class="demo" id="xi-7">
+  <div class="demo-title"><span class="tag">Interactive</span><span>The bar before and after the impact, seen from above</span></div>
+  <canvas id="xi-7-anim" class="anim" style="height:380px"></canvas>
+  <div class="controls" id="xi-7-ctl"></div>
+  <div class="bar" id="xi-7-pre"><span class="lbl">Try:</span></div>
+  <div class="bar" id="xi-7-btn"></div>
+  <div class="stats" id="xi-7-stats"></div>
+  <p class="small concept-note">The motion after the impact is computed from the impulse–momentum answer, with the bar moving freely on the smooth surface. Try $e = 3/4$, for which the mass center stops completely and the bar only spins.</p>
+</div>
+<div class="demo v3d" data-clip="xi-7"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Every solution follows the four-step method. Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Draw the free-body diagram during the impact</summary>
+<p>During the impact the stop exerts a large impulse $\hat F$ on the bar at A, perpendicular to the bar and directed away from the stop. The weight and the normal force from the surface are perpendicular to the plane of motion, so they produce no impulse in the plane.</p>
+<div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 300 300" role="img" aria-label="Bar during the impact (top view)" style="max-width:300px"><line x1="170.0" y1="28.0" x2="170.0" y2="212.0" stroke="#8a6a12" stroke-width="13" stroke-linecap="round"/><line x1="170.0" y1="28.0" x2="170.0" y2="212.0" stroke="#f1e6c8" stroke-width="9" stroke-linecap="round"/><circle cx="170.0" cy="120.0" r="4" fill="#1c1d21"/><circle cx="170.0" cy="166.0" r="4.5" fill="#fff" stroke="#1c1d21" stroke-width="2"/><line x1="84.0" y1="166.0" x2="153.0" y2="166.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="164.0,166.0 153.0,171.5 153.0,160.5" fill="#17915a"/><line x1="162.0" y1="120.0" x2="113.0" y2="120.0" stroke="#7b808c" stroke-width="2.6" stroke-linecap="round"/><polygon points="102.0,120.0 113.0,114.5 113.0,125.5" fill="#7b808c"/><line x1="210.0" y1="120.0" x2="210.0" y2="166.0" stroke="#7b808c" stroke-width="1.2"/><line x1="215.0" y1="120.0" x2="205.0" y2="120.0" stroke="#7b808c" stroke-width="1.2"/><line x1="215.0" y1="166.0" x2="205.0" y2="166.0" stroke="#7b808c" stroke-width="1.2"/><line x1="210.0" y1="28.0" x2="210.0" y2="120.0" stroke="#7b808c" stroke-width="1.2"/><line x1="215.0" y1="28.0" x2="205.0" y2="28.0" stroke="#7b808c" stroke-width="1.2"/><line x1="215.0" y1="120.0" x2="205.0" y2="120.0" stroke="#7b808c" stroke-width="1.2"/><line x1="30.0" y1="280.0" x2="53.0" y2="280.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="64.0,280.0 53.0,285.5 53.0,274.5" fill="#7b808c"/><line x1="30.0" y1="280.0" x2="30.0" y2="257.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="30.0,246.0 35.5,257.0 24.5,257.0" fill="#7b808c"/><text x="186.0" y="118.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>G</tspan></text><text x="186.0" y="172.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>A</tspan></text><text x="72.0" y="154.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>F̂</tspan></text><text x="80.0" y="120.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#7b808c"><tspan>v</tspan><tspan dy="4.8" style="font-size:10.8px">G1</tspan></text><text x="190.0" y="143.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>L/4</tspan></text><text x="190.0" y="74.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>L/2</tspan></text><text x="74.0" y="280.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>x</tspan></text><text x="30.0" y="236.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>y</tspan></text></svg><figcaption>Bar during the impact (top view)</figcaption></figure></div><p class="small fbdnote">The stop pushes on the bar at A with the impulse $\hat F$, perpendicular to the bar and away from the stop (the positive $x$ direction). The weight and the normal force from the surface act perpendicular to the page and give no impulse in the plane. The grey arrow is the velocity of G before the impact, not a force.</p>
+</details>
+<details class="step"><summary>Step 2 · Write the kinetics equations (impulse and momentum)</summary>
+<p>Take the $x$ direction perpendicular to the bar, positive away from the stop. Before the impact $v_{Gx} = -v_{G1}$ and $\omega_1 = 0$. Linear impulse and momentum, and angular impulse and momentum about G, give</p>
+$$m\,v_{G2} = -m\,v_{G1} + \hat F, \qquad I_G\,\omega_2 = \hat F\,\frac L4, \qquad I_G = \tfrac1{12} mL^2$$
+<p>Here $\omega_2$ is positive in the sense that moves point A away from the stop.</p>
+</details>
+<details class="step"><summary>Step 3 · Write the kinematics equation (coefficient of restitution)</summary>
+<p>The stop is fixed, so the coefficient of restitution compares the velocity of A along $x$ after the impact with its value before the impact.</p>
+$$v_{A2} = v_{G2} + \omega_2\,\frac L4 = e\,v_{G1}$$
+</details>
+<details class="step"><summary>Step 4 · Solve</summary>
+<p>From the angular equation, $\omega_2 = \dfrac{3\hat F}{mL}$. Substituting both kinetics equations into the restitution equation gives $\tfrac74\hat F/m = (1 + e)\,v_{G1}$, so</p>
+$$\hat F = \tfrac47\,m\,(1 + e)\,v_{G1}, \qquad v_{G2} = \frac{4e - 3}{7}\,v_{G1}, \qquad \omega_2 = \frac{12\,(1 + e)}{7}\,\frac{v_{G1}}{L}$$
+<p class="small">For $e &lt; 3/4$ the mass center keeps moving toward the stop, more slowly. For $e = 3/4$ it stops, and for $e &gt; 3/4$ it moves away. The kinetic energy after the impact never exceeds the kinetic energy before it, which can be checked in the statistics.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>(a) $v_{G2} = \dfrac{4e - 3}{7}\,v_{G1}$, measured away from the stop, so the speed of G is $\dfrac{|4e - 3|}{7}\,v_{G1}$. (b) $\omega_2 = \dfrac{12(1 + e)}{7}\,\dfrac{v_{G1}}{L}$, in the sense that turns the struck end away from the stop.</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Set $e = 1$. Show that the kinetic energy after the impact equals the kinetic energy before it.</li><li>Suppose the stop struck the bar exactly at G. Show that the bar would then not rotate and that $v_{G2} = e\,v_{G1}$.</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 5, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-5-c-6.html"><small>← Previous</small>Example 5.C.6</a><a class="next" href="ex-5-c-8.html"><small>Next →</small>Example 5.C.8</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/ch5.js"></script>
+<script src="../assets/ch5-exC.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch5-3dC.js"></script>
+</body>
+</html>

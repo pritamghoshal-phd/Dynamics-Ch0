@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 6.B.5 · Chapter 6 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 6</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="eom.html">A · Equations of motion</a>
+    <a href="free.html">B · Free vibration</a>
+    <a href="damped.html">B · Damped vibration</a>
+    <a href="forced.html">C · Forced vibration</a>
+    <a href="base.html">C · Base excitation</a>
+    <a href="summary.html">Summary</a>
+    <a href="examples.html" class=active>Examples</a>
+    <a href="badges.html">🏅 Badges</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Free response examples"><a href="examples.html#group-B">All Free response examples</a><a href="ex-6-b-1.html">6.B.1</a><a href="ex-6-b-2.html">6.B.2</a><a href="ex-6-b-3.html">6.B.3</a><a href="ex-6-b-4.html">6.B.4</a><a href="ex-6-b-5.html" class=active>6.B.5</a><a href="ex-6-b-6.html">6.B.6</a><a href="ex-6-b-7.html">6.B.7</a><a href="ex-6-b-8.html">6.B.8</a><a href="ex-6-b-9.html">6.B.9</a><a href="ex-6-b-10.html">6.B.10</a><a href="ex-6-b-11.html">6.B.11</a><a href="ex-6-b-12.html">6.B.12</a><a href="ex-6-b-13.html">6.B.13</a><a href="ex-6-b-14.html">6.B.14</a><a href="ex-6-b-15.html">6.B.15</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-B">Free response</a> › Example 6.B.5</p>
+<h2><span class="num">Example 6.B.5</span>Stepped pulley with a hanging block and two springs</h2>
+<div class="tags"><span>equation of motion</span><span>rotation</span><span>natural frequency</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>A stepped pulley turns about a fixed axle at O and has a mass moment of inertia $I_O$ about O. A cable wrapped on the inner radius $r$ supports a block of mass $m$ on the left. A second cable on the inner radius runs down on the right to a spring of stiffness $k_1$ anchored to the ground. A third cable leaves the top of the outer radius $4r$ horizontally and is attached to a spring of stiffness $k_2$ anchored to a wall. All cables stay taut. The coordinate $\theta$ measures the counterclockwise rotation of the pulley from static equilibrium.</p>
+<p><b>Find</b> (a) the equation of motion of the system in terms of $\theta$ and (b) the natural frequency of the system.</p>
+</div>
+<div class="demo" id="x6b-5">
+  <div class="demo-title"><span class="tag">Interactive</span><span>The pulley released from a small rotation</span></div>
+  <canvas id="x6b-5-anim" class="anim" style="height:380px"></canvas><canvas id="x6b-5-plot" class="plot" style="height:200px"></canvas>
+  <div class="controls" id="x6b-5-ctl"></div>
+  <div class="bar" id="x6b-5-pre"><span class="lbl">Try:</span></div>
+  <div class="bar" id="x6b-5-btn"></div>
+  <div class="stats" id="x6b-5-stats"></div>
+  <p class="small concept-note">The animation uses r = 0.1 m and the values on the sliders. The springs are installed so that each one carries half of the static moment of the weight. The initial rotation is limited so that neither cable goes slack, which keeps the motion linear.</p>
+</div>
+<div class="demo v3d" data-clip="x6b-5"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Every solution starts from free-body diagrams in a displaced position, then writes the equation of motion and reads off the vibration properties. Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Choose the coordinate and draw the free-body diagrams</summary>
+<p>We use $\theta$, the counterclockwise rotation of the pulley measured from static equilibrium. When the pulley turns by $\theta$, the left side of the inner drum moves down by $r\theta$, so the block moves down by $y = r\theta$. The right side of the inner drum moves up by $r\theta$, which stretches spring $k_1$ by $r\theta$. The top of the outer drum moves to the left by $4r\theta$, which stretches spring $k_2$ by $4r\theta$.</p>
+<p>In static equilibrium the springs are already stretched, by $\delta_1$ and $\delta_2$. We draw the pulley and the block separately so that the cable tension $T$ appears.</p><div class="fbdrow"><figure style="width:360px;max-width:100%"><svg class="fbd" viewBox="0 0 360 275" role="img" aria-label="Pulley, turned by θ" style="max-width:360px"><circle cx="170.0" cy="125.0" r="70.0" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><circle cx="170.0" cy="125.0" r="28.0" fill="#e8dcb6" stroke="#8a6a12" stroke-width="2"/><circle cx="170.0" cy="125.0" r="4.5" fill="#fff" stroke="#1c1d21" stroke-width="2"/><line x1="142.0" y1="125.0" x2="142.0" y2="210.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="142.0,221.0 136.5,210.0 147.5,210.0" fill="#2457d6"/><line x1="198.0" y1="125.0" x2="198.0" y2="210.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="198.0,221.0 192.5,210.0 203.5,210.0" fill="#2457d6"/><line x1="170.0" y1="55.0" x2="243.0" y2="55.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="254.0,55.0 243.0,60.5 243.0,49.5" fill="#2457d6"/><line x1="170.0" y1="125.0" x2="139.0" y2="125.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="128.0,125.0 139.0,119.5 139.0,130.5" fill="#17915a"/><line x1="170.0" y1="125.0" x2="170.0" y2="90.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="170.0,79.0 175.5,90.0 164.5,90.0" fill="#17915a"/><path d="M134.5,48.9 L132.8,49.7 L131.2,50.5 L129.6,51.4 L128.0,52.3 L126.4,53.2 L124.9,54.2 L123.3,55.2 L121.8,56.2 L120.3,57.3 L118.9,58.4 L117.4,59.5 L116.0,60.7 L114.6,61.8 L113.3,63.1 L111.9,64.3 L110.6,65.6 L109.3,66.9 L108.1,68.3 L106.8,69.6 L105.7,71.0 L104.5,72.4 L103.4,73.9 L102.3,75.3 L101.2,76.8 L100.2,78.3 L99.2,79.9 L98.2,81.4 L97.3,83.0 L96.4,84.6 L95.5,86.2 L94.7,87.8 L93.9,89.5 L93.1,91.2 L92.4,92.9 L91.7,94.6 L91.1,96.3 L90.5,98.0 L89.9,99.7 L89.4,101.5 L88.9,103.3" fill="none" stroke="#7b808c" stroke-width="2.2"/><polygon points="87.7,107.1 85.7,96.1 95.3,98.9" fill="#7b808c"/><text x="182.0" y="139.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>O</tspan></text><text x="142.0" y="233.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>T</tspan></text><text x="232.0" y="234.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>k</tspan><tspan dy="4.8" style="font-size:10.8px">1</tspan><tspan dy="-4.8">(δ</tspan><tspan dy="4.8" style="font-size:10.8px">1</tspan><tspan dy="-4.8"> + rθ)</tspan></text><text x="238.0" y="39.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>k</tspan><tspan dy="4.8" style="font-size:10.8px">2</tspan><tspan dy="-4.8">(δ</tspan><tspan dy="4.8" style="font-size:10.8px">2</tspan><tspan dy="-4.8"> + 4rθ)</tspan></text><text x="114.0" y="125.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>O</tspan><tspan dy="4.8" style="font-size:10.8px">x</tspan></text><text x="186.0" y="69.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>O</tspan><tspan dy="4.8" style="font-size:10.8px">y</tspan></text><text x="95.7" y="62.6" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#7b808c"><tspan>θ</tspan></text><text x="170.0" y="259.0" text-anchor="middle" dominant-baseline="middle" style="font-family:system-ui,sans-serif;font-size:11px;fill:#7b808c">The weight of the pulley also acts at O.</text></svg><figcaption>Pulley, turned by θ</figcaption></figure><figure style="width:170px;max-width:100%"><svg class="fbd" viewBox="0 0 170 275" role="img" aria-label="Block" style="max-width:170px"><rect x="-27.0" y="-27.0" width="54.0" height="54.0" rx="4" transform="translate(80.0,135.0) rotate(0.0)" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><line x1="80.0" y1="108.0" x2="80.0" y2="61.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="80.0,50.0 85.5,61.0 74.5,61.0" fill="#2457d6"/><line x1="80.0" y1="162.0" x2="80.0" y2="201.0" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="80.0,212.0 74.5,201.0 85.5,201.0" fill="#c2410c"/><line x1="140.0" y1="100.0" x2="140.0" y2="129.0" stroke="#7b808c" stroke-width="2.6" stroke-linecap="round"/><polygon points="140.0,140.0 134.5,129.0 145.5,129.0" fill="#7b808c"/><text x="80.0" y="135.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:16px;font-style:italic;fill:#1c1d21"><tspan>m</tspan></text><text x="80.0" y="38.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>T</tspan></text><text x="80.0" y="224.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>mg</tspan></text><text x="140.0" y="152.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#7b808c"><tspan>y = rθ</tspan></text></svg><figcaption>Block</figcaption></figure></div><p class="small fbdnote">Positions are measured from static equilibrium. The block moves down by $y = r\theta$ when the pulley turns counterclockwise by $\theta$.</p>
+</details>
+<details class="step"><summary>Step 2 · Write the kinetics equations</summary>
+<p>For the block, with $y$ positive downward, Newton's second law gives</p>
+$$m\ddot y = mg - T \qquad\Longrightarrow\qquad T = mg - m r\ddot\theta$$
+<p>For the pulley we take moments about the fixed point O, with counterclockwise moments positive. The pin forces and the weight of the pulley act at O and have no moment about it. The tension $T$ acts at the left of the inner drum, spring $k_1$ pulls down at the right of the inner drum, and spring $k_2$ pulls to the right at the top of the outer drum.</p>
+$$\sum M_O = T r - k_1\left(\delta_1 + r\theta\right) r - k_2\left(\delta_2 + 4r\theta\right) 4r = I_O\,\ddot\theta$$
+</details>
+<details class="step"><summary>Step 3 · Use the static equilibrium condition</summary>
+<p>In static equilibrium $\theta = 0$, $\ddot\theta = 0$ and $T = mg$. The moment equation then gives</p>
+$$m g\,r = k_1\delta_1\,r + 4 k_2\delta_2\,r$$
+<p>These terms cancel when we substitute $T$ into the moment equation, which is why measuring $\theta$ from static equilibrium removes gravity from the equation of motion.</p>
+</details>
+<details class="step"><summary>Step 4 · Write the equation of motion and the natural frequency</summary>
+<p>Substituting $T = mg - m r\ddot\theta$ and using the static condition gives</p>
+$$\left(I_O + m r^2\right)\ddot\theta + \left(k_1 + 16 k_2\right) r^2\,\theta = 0$$
+<p>This has the standard form $m_{eq}\ddot\theta + k_{eq}\theta = 0$, so the natural frequency is</p>
+$$\omega_n = \sqrt{\frac{k_{eq}}{m_{eq}}} = r\,\sqrt{\frac{k_1 + 16 k_2}{I_O + m r^2}}$$
+<p class="small">Spring $k_2$ counts sixteen times because both its stretch and its moment arm are four times larger. With the default values of the animation ($r = 0.1$ m, $I_O = 0.6$ kg·m², $m = 20$ kg, $k_1 = 1000$ N/m, $k_2 = 200$ N/m) the formula gives $\omega_n = 7.25$ rad/s, a period of 0.867 s.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>(a) $\left(I_O + m r^2\right)\ddot\theta + \left(k_1 + 16 k_2\right) r^2\,\theta = 0$. (b) $\omega_n = r\sqrt{\dfrac{k_1 + 16 k_2}{I_O + m r^2}}$.</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Raise $k_2$ in the animation and compare the change in the period with the same change in $k_1$. Which spring matters more, and why?</li><li>Make the pulley inertia very large. What happens to the frequency, and what limit does it approach when $I_O \to 0$?</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 6, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-6-b-4.html"><small>← Previous</small>Example 6.B.4</a><a class="next" href="ex-6-b-6.html"><small>Next →</small>Example 6.B.6</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/kit.js"></script>
+<script src="../assets/ch6-exB2.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch6-3dB2.js"></script>
+</body>
+</html>

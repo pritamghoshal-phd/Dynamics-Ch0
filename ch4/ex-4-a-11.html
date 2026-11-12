@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 4.A.11 · Chapter 4 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 4</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="newton.html">A · Newton's laws</a>
+    <a href="energy.html">B · Work–energy</a>
+    <a href="impulse.html">C · Linear impulse–momentum</a>
+    <a href="angular.html">D · Angular impulse–momentum</a>
+    <a href="examples.html" class=active>Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Newton's second law examples"><a href="examples.html#group-A">All Newton's second law examples</a><a href="ex-4-a-1.html">4.A.1</a><a href="ex-4-a-2.html">4.A.2</a><a href="ex-4-a-3.html">4.A.3</a><a href="ex-4-a-4.html">4.A.4</a><a href="ex-4-a-5.html">4.A.5</a><a href="ex-4-a-6.html">4.A.6</a><a href="ex-4-a-7.html">4.A.7</a><a href="ex-4-a-8.html">4.A.8</a><a href="ex-4-a-9.html">4.A.9</a><a href="ex-4-a-10.html">4.A.10</a><a href="ex-4-a-11.html" class=active>4.A.11</a><a href="ex-4-a-12.html">4.A.12</a><a href="ex-4-a-13.html">4.A.13</a><a href="ex-4-a-14.html">4.A.14</a><a href="ex-4-a-15.html">4.A.15</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-A">Newton's second law</a> › Example 4.A.11</p>
+<h2><span class="num">Example 4.A.11</span>Follower riding on a fixed cam</h2>
+<div class="tags"><span>polar components</span><span>cam</span><span>spring</span><span>loss of contact</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>A slotted arm turns about a vertical shaft through O, which is at the center of a <b>fixed</b> cam. Particle P, of mass $m = 0.2$ kg, moves in the slot and stays in contact with the cam because a spring between P and the outer end of the arm pushes it toward O. The shape of the cam gives the radial distance from O to P as</p>
+$$R = R_0 - R_1\cos 6\theta, \qquad R_0 = 0.5\ \text{m}, \quad R_1 = 0.1\ \text{m}$$
+<p>The spring has stiffness $k = 500$ N/m and is compressed by $\Delta = 0.2$ m when $\theta = 0$. The arm turns at a constant rate $\omega = 10$ rad/s.</p>
+<p><b>Find</b> the force of the cam on P when P passes over the top of a lobe.</p>
+</div>
+<div class="demo" id="x4a-11">
+  <div class="demo-title"><span class="tag">Interactive</span><span>The arm, the spring and the follower P on the fixed cam (top view)</span></div>
+  <canvas id="x4a-11-anim" class="anim" style="height:520px"></canvas><canvas id="x4a-11-plot" class="plot" style="height:220px"></canvas>
+  <div class="controls" id="x4a-11-ctl"></div>
+  <div class="bar" id="x4a-11-pre"><span class="lbl">Try:</span></div>
+  <div class="bar" id="x4a-11-btn"></div>
+  <div class="stats" id="x4a-11-stats"></div>
+  <p class="small concept-note">The forces on P are drawn to scale. The graph shows the cam force over one lobe, assuming that P stays in contact. If the curve drops below zero, the cam would have to pull, which it cannot do, and P lifts off. Try the fast preset, in which P turns red when it leaves the cam.</p>
+</div>
+<div class="demo v3d" data-clip="x4a-11"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Try the problem first, and then open one step at a time to check your work. The animation is played at one tenth of real speed.</p>
+<details class="step"><summary>Step 1 · Draw the free-body diagram</summary>
+<p>Isolate P and look at it from above. Three forces act in the horizontal plane. The spring pushes P toward O with the force $F_s$. The cam pushes P away from its surface with the normal force $N$. The smooth slot pushes P perpendicular to the arm with a force $A$. At the top of a lobe the cam surface is perpendicular to the arm, so $N$ is radial there. The weight and the vertical support force act perpendicular to the page.</p>
+<div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 340 270" role="img" aria-label="P at the top of a lobe (seen from above)" style="max-width:340px"><line x1="42.8" y1="225.0" x2="259.3" y2="100.0" stroke="#8a6a12" stroke-width="25" stroke-linecap="round"/><line x1="42.8" y1="225.0" x2="259.3" y2="100.0" stroke="#f1e6c8" stroke-width="21" stroke-linecap="round"/><polyline points="205.7,211.7 204.2,204.5 202.6,197.4 200.6,190.4 198.5,183.6 196.2,176.8 193.6,170.2 190.9,163.7 187.9,157.4 184.7,151.1 181.3,145.0 177.7,139.0 173.9,133.1 169.9,127.4 165.6,121.7 161.2,116.2 156.5,110.8 151.6,105.6 146.6,100.4 141.2,95.4 135.7,90.5" fill="none" stroke="#8a6a12" stroke-width="2" stroke-linejoin="round"/><circle cx="190.0" cy="140.0" r="10.0" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><circle cx="51.4" cy="220.0" r="4.5" fill="#fff" stroke="#1c1d21" stroke-width="2"/><line x1="263.6" y1="97.5" x2="208.2" y2="129.5" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="198.7,135.0 205.4,124.7 210.9,134.3" fill="#c2410c"/><line x1="120.7" y1="180.0" x2="171.8" y2="150.5" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="181.3,145.0 174.6,155.3 169.1,145.7" fill="#17915a"/><line x1="190.0" y1="140.0" x2="168.0" y2="101.9" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="162.5,92.4 172.8,99.1 163.2,104.6" fill="#2457d6"/><line x1="270.0" y1="245.0" x2="289.9" y2="233.5" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="299.4,228.0 292.7,238.3 287.2,228.7" fill="#7b808c"/><line x1="270.0" y1="245.0" x2="258.5" y2="225.1" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="253.0,215.6 263.3,222.3 253.7,227.8" fill="#7b808c"/><text x="37.4" y="230.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>O</tspan></text><text x="274.0" y="77.5" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>F</tspan><tspan dy="4.8" style="font-size:10.8px">s</tspan></text><text x="106.3" y="202.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>N</tspan></text><text x="156.5" y="82.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>A</tspan></text><text x="308.1" y="223.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>e</tspan><tspan dy="4.2" style="font-size:9.4px">r</tspan></text><text x="248.0" y="206.9" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>e</tspan><tspan dy="4.2" style="font-size:9.4px">θ</tspan></text></svg><figcaption>P at the top of a lobe (seen from above)</figcaption></figure></div><p class="small fbdnote">The spring pushes P toward O with the force $F_s$. The cam pushes P outward with the normal force $N$, which is radial at the top of a lobe because there the cam surface is perpendicular to the arm. The smooth slot can only push perpendicular to the arm, with a force $A$. The weight and the vertical support force act perpendicular to the page and cancel.</p>
+</details>
+<details class="step"><summary>Step 2 · Write the kinetics equations</summary>
+<p>In polar components,</p>
+$$\sum F_r = m a_r: \quad N - F_s = m a_r, \qquad \sum F_\theta = m a_\theta: \quad A = m a_\theta$$
+<p>The spring is compressed by 0.2 m when $R = 0.4$ m and is compressed further as P moves out, so its compression is $\delta = R - 0.2$ m and $F_s = k\,(R - 0.2)$.</p>
+</details>
+<details class="step"><summary>Step 3 · Write the kinematics equations</summary>
+<p>P follows the cam, so $r = R(\theta)$ with $\theta = \omega t$. Differentiating with the chain rule,</p>
+$$\dot r = 6R_1\omega\sin 6\theta, \qquad \ddot r = 36R_1\omega^2\cos 6\theta$$
+<p>The top of the first lobe is where $\cos 6\theta = -1$, at $\theta = 30°$. There $R = 0.6$ m, $\dot r = 0$ and $\ddot r = -36(0.1)(10)^2 = -360$ m/s². The polar components of the acceleration are</p>
+$$a_r = \ddot r - r\omega^2 = -360 - (0.6)(10)^2 = -420\ \text{m/s}^2, \qquad a_\theta = r\dot\omega + 2\dot r\omega = 0$$
+</details>
+<details class="step"><summary>Step 4 · Solve</summary>
+<p>The spring force at the top of the lobe is $F_s = 500\,(0.6 - 0.2) = 200$ N. The radial equation then gives</p>
+$$N = F_s + m a_r = 200 + (0.2)(-420) = 116\ \text{N}$$
+<p>The transverse equation gives $A = 0$, so at this point the slot does not push on P at all.</p>
+<p class="small">The cam force stays positive only if $F_s > m|a_r|$ at the top of each lobe. With these numbers P lifts off when $\omega > 15.4$ rad/s.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>$N = 116$ N, directed radially outward from O. The slot force is zero at that instant.</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Raise $\omega$ slowly while watching the graph. At what speed does the cam force first reach zero at the top of a lobe?</li><li>At the valleys between lobes the cam force is largest. Explain why from the sign of $\ddot r$ there.</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 4, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-4-a-10.html"><small>← Previous</small>Example 4.A.10</a><a class="next" href="ex-4-a-12.html"><small>Next →</small>Example 4.A.12</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/kit.js"></script>
+<script src="../assets/ch4-exA2.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch4-3dA2.js"></script>
+</body>
+</html>

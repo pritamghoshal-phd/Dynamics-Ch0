@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 1.D.4 · Chapter 1 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 1</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="planar.html">A · Planar descriptions</a>
+    <a href="threed.html">B · 3D descriptions</a>
+    <a href="joint.html">C · Joint description</a>
+    <a href="relative.html">D · Relative & constrained</a>
+    <a href="examples.html" class=active>Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Relative and constrained motion examples"><a href="examples.html#group-D">All Relative and constrained motion examples</a><a href="ex-1-d-1.html">1.D.1</a><a href="ex-1-d-2.html">1.D.2</a><a href="ex-1-d-3.html">1.D.3</a><a href="ex-1-d-4.html" class=active>1.D.4</a><a href="ex-1-d-5.html">1.D.5</a><a href="ex-1-d-6.html">1.D.6</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-D">Relative and constrained motion</a> › Example 1.D.4</p>
+<h2><span class="num">Example 1.D.4</span>Block on an incline and a block on a movable pulley</h2>
+<div class="tags"><span>constrained motion</span><span>pulleys</span><span>incline</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>Block A slides on an incline. It is tied to a cable that runs up the incline over a fixed pulley, down around a movable pulley that carries block B, and up to the ceiling. Block A moves with an acceleration of $\ddot x_A = a_A = 0.44$ m/s², where $x_A$ is measured along the incline and increases up the incline toward the fixed pulley.</p>
+<p><b>Find</b> the acceleration of block B.</p>
+</div>
+<div class="demo" id="x1d-4">
+  <div class="demo-title"><span class="tag">Interactive</span><span>One cable links block A and block B</span></div>
+  <canvas id="x1d-4-anim" class="anim" style="height:440px"></canvas><canvas id="x1d-4-plot" class="plot" style="height:220px"></canvas><div class="legendrow"><span><span class="sw" style="background:var(--c1)"></span>v<sub>A</sub></span><span><span class="sw" style="background:var(--c3)"></span>v<sub>B</sub></span></div>
+  <div class="controls" id="x1d-4-ctl"></div>
+  <div class="bar" id="x1d-4-btn"></div>
+  <div class="stats" id="x1d-4-stats"></div>
+  <p class="small concept-note">The motion starts from rest. The cable that A gives up at the fixed pulley is shared between the two strands that hold B, so B moves half as far as A.</p>
+</div>
+<div class="demo v3d" data-clip="x1d-4"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Choose coordinates from fixed points</summary>
+<p>Measure $x_B$ downward from the ceiling to the centre of the pulley that carries B. Measure $x_A$ along the incline from a fixed point, positive up the incline. Both coordinates locate a moving point relative to a fixed one.</p>
+</details>
+<details class="step"><summary>Step 2 · Draw the cable diagram</summary>
+<div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 440 300" role="img" aria-label="Coordinates measured from fixed points" style="max-width:440px"><line x1="60.0" y1="30.0" x2="260.0" y2="30.0" stroke="#1c1d21" stroke-width="1.8"/><line x1="64.0" y1="30.0" x2="59.0" y2="24.0" stroke="#8b8f98" stroke-width="1"/><line x1="73.0" y1="30.0" x2="68.0" y2="24.0" stroke="#8b8f98" stroke-width="1"/><line x1="82.0" y1="30.0" x2="77.0" y2="24.0" stroke="#8b8f98" stroke-width="1"/><line x1="91.0" y1="30.0" x2="86.0" y2="24.0" stroke="#8b8f98" stroke-width="1"/><line x1="100.0" y1="30.0" x2="95.0" y2="24.0" stroke="#8b8f98" stroke-width="1"/><line x1="109.0" y1="30.0" x2="104.0" y2="24.0" stroke="#8b8f98" stroke-width="1"/><line x1="118.0" y1="30.0" x2="113.0" y2="24.0" stroke="#8b8f98" stroke-width="1"/><line x1="127.0" y1="30.0" x2="122.0" y2="24.0" stroke="#8b8f98" stroke-width="1"/><line x1="136.0" y1="30.0" x2="131.0" y2="24.0" stroke="#8b8f98" stroke-width="1"/><line x1="145.0" y1="30.0" x2="140.0" y2="24.0" stroke="#8b8f98" stroke-width="1"/><line x1="154.0" y1="30.0" x2="149.0" y2="24.0" stroke="#8b8f98" stroke-width="1"/><line x1="163.0" y1="30.0" x2="158.0" y2="24.0" stroke="#8b8f98" stroke-width="1"/><line x1="172.0" y1="30.0" x2="167.0" y2="24.0" stroke="#8b8f98" stroke-width="1"/><line x1="181.0" y1="30.0" x2="176.0" y2="24.0" stroke="#8b8f98" stroke-width="1"/><line x1="190.0" y1="30.0" x2="185.0" y2="24.0" stroke="#8b8f98" stroke-width="1"/><line x1="199.0" y1="30.0" x2="194.0" y2="24.0" stroke="#8b8f98" stroke-width="1"/><line x1="208.0" y1="30.0" x2="203.0" y2="24.0" stroke="#8b8f98" stroke-width="1"/><line x1="217.0" y1="30.0" x2="212.0" y2="24.0" stroke="#8b8f98" stroke-width="1"/><line x1="226.0" y1="30.0" x2="221.0" y2="24.0" stroke="#8b8f98" stroke-width="1"/><line x1="235.0" y1="30.0" x2="230.0" y2="24.0" stroke="#8b8f98" stroke-width="1"/><line x1="244.0" y1="30.0" x2="239.0" y2="24.0" stroke="#8b8f98" stroke-width="1"/><line x1="253.0" y1="30.0" x2="248.0" y2="24.0" stroke="#8b8f98" stroke-width="1"/><line x1="200.0" y1="30.0" x2="200.0" y2="70.0" stroke="#2b2f38" stroke-width="1.8"/><path d="M161,30 L161,170 A13,13 0 0 0 187,170 L187,70 A13,13 0 0 1 208.4,60.0 L353.9,182.2" fill="none" stroke="#1c1d21" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="200.0" cy="70.0" r="13.0" fill="#fff" stroke="#2b2f38" stroke-width="1.8"/><circle cx="200.0" cy="70.0" r="2.2" fill="#2b2f38"/><circle cx="174.0" cy="170.0" r="13.0" fill="#fff" stroke="#2b2f38" stroke-width="1.8"/><circle cx="174.0" cy="170.0" r="2.2" fill="#2b2f38"/><line x1="174.0" y1="183.0" x2="174.0" y2="203.0" stroke="#2b2f38" stroke-width="1.8"/><rect x="-21.0" y="-18.0" width="42.0" height="36.0" rx="4" transform="translate(174.0,222.0) rotate(0.0)" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><rect x="-18.0" y="-18.0" width="36.0" height="36.0" rx="4" transform="translate(367.7,193.7) rotate(40.0)" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><line x1="287.2" y1="149.7" x2="402.1" y2="246.1" stroke="#1c1d21" stroke-width="1.8"/><line x1="291.8" y1="153.5" x2="284.9" y2="155.6" stroke="#8b8f98" stroke-width="1"/><line x1="298.7" y1="159.3" x2="291.7" y2="161.3" stroke="#8b8f98" stroke-width="1"/><line x1="305.6" y1="165.1" x2="298.6" y2="167.1" stroke="#8b8f98" stroke-width="1"/><line x1="312.5" y1="170.9" x2="305.5" y2="172.9" stroke="#8b8f98" stroke-width="1"/><line x1="319.4" y1="176.7" x2="312.4" y2="178.7" stroke="#8b8f98" stroke-width="1"/><line x1="326.2" y1="182.5" x2="319.3" y2="184.5" stroke="#8b8f98" stroke-width="1"/><line x1="333.1" y1="188.2" x2="326.2" y2="190.3" stroke="#8b8f98" stroke-width="1"/><line x1="340.0" y1="194.0" x2="333.1" y2="196.1" stroke="#8b8f98" stroke-width="1"/><line x1="346.9" y1="199.8" x2="340.0" y2="201.8" stroke="#8b8f98" stroke-width="1"/><line x1="353.8" y1="205.6" x2="346.9" y2="207.6" stroke="#8b8f98" stroke-width="1"/><line x1="360.7" y1="211.4" x2="353.8" y2="213.4" stroke="#8b8f98" stroke-width="1"/><line x1="367.6" y1="217.2" x2="360.7" y2="219.2" stroke="#8b8f98" stroke-width="1"/><line x1="374.5" y1="223.0" x2="367.6" y2="225.0" stroke="#8b8f98" stroke-width="1"/><line x1="381.4" y1="228.7" x2="374.5" y2="230.8" stroke="#8b8f98" stroke-width="1"/><line x1="388.3" y1="234.5" x2="381.4" y2="236.6" stroke="#8b8f98" stroke-width="1"/><line x1="395.2" y1="240.3" x2="388.3" y2="242.3" stroke="#8b8f98" stroke-width="1"/><line x1="110.0" y1="34.0" x2="110.0" y2="159.0" stroke="#7b808c" stroke-width="2.6" stroke-linecap="round"/><polygon points="110.0,170.0 104.5,159.0 115.5,159.0" fill="#7b808c"/><line x1="423.4" y1="189.6" x2="432.4" y2="178.9" stroke="#7b808c" stroke-width="1.2"/><line x1="427.9" y1="184.2" x2="375.0" y2="139.9" stroke="#7b808c" stroke-width="2.6" stroke-linecap="round"/><polygon points="366.6,132.8 378.6,135.6 371.5,144.1" fill="#7b808c"/><text x="174.0" y="222.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:16px;font-style:italic;fill:#1c1d21"><tspan>B</tspan></text><text x="367.7" y="193.7" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:16px;font-style:italic;fill:#1c1d21"><tspan>A</tspan></text><text x="124.0" y="102.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#7b808c"><tspan>x</tspan><tspan dy="4.8" style="font-size:10.8px">B</tspan></text><text x="355.9" y="123.8" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#7b808c"><tspan>x</tspan><tspan dy="4.8" style="font-size:10.8px">A</tspan></text><text x="292.7" y="107.3" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>d − x</tspan><tspan dy="4.2" style="font-size:9.4px">A</tspan></text></svg><figcaption>Coordinates measured from fixed points</figcaption></figure></div><p class="small fbdnote">Two strands of length $x_B$ (plus constants) support the pulley of B. The segment from the fixed pulley down the incline to A has length $d - x_A$, where $d$ is a constant and $x_A$ increases up the incline.</p>
+</details>
+<details class="step"><summary>Step 3 · Write the length of the cable</summary>
+<p>The two vertical strands that hold B each have length $x_B$ plus a constant. The segment from the fixed pulley to A has length $d - x_A$, where $d$ is a constant distance along the incline. The parts wrapped on the pulleys have constant length.</p>
+$$L = 2x_B + \left(d - x_A\right) + \text{constant}$$
+</details>
+<details class="step"><summary>Step 4 · Differentiate twice</summary>
+$$0 = 2\dot x_B - \dot x_A, \qquad 0 = 2\ddot x_B - \ddot x_A \qquad\Longrightarrow\qquad \ddot x_B = \tfrac12\,\ddot x_A$$
+</details>
+<details class="step"><summary>Step 5 · Solve</summary>
+$$a_B = \ddot x_B = \tfrac12(0.44) = 0.22\ \text{m/s}^2$$
+<p>The result is positive, and $x_B$ is measured downward, so B accelerates downward. This makes sense, because A moving toward the fixed pulley shortens the incline segment and releases cable to the strands that hold B.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>$a_B = 0.22$ m/s², directed downward.</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Does the angle of the incline appear in the answer? Explain why not.</li><li>If the cable wrapped around the pulley of B twice, giving four supporting strands, what would $a_B$ be?</li><li>Change $a_A$ with the slider. Is the ratio $a_B/a_A$ always ½?</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 1, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-1-d-3.html"><small>← Previous</small>Example 1.D.3</a><a class="next" href="ex-1-d-5.html"><small>Next →</small>Example 1.D.5</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/kit.js"></script>
+<script src="../assets/ch1-exD.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch1-3dD.js"></script>
+</body>
+</html>

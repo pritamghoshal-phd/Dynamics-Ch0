@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>3D rotating frames · Chapter 3 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 3</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="frames-2d.html">A · 2D rotating frames</a>
+    <a href="frames-3d.html" class=active>B · 3D rotating frames</a>
+    <a href="coriolis.html">C · Coriolis in real life</a>
+    <a href="examples.html">Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<section>
+<h2><span class="num">B</span>3D rotating reference frames</h2>
+<p>Good news first: the velocity and acceleration equations from Section A hold <b>without change</b> in three dimensions. The derivation is the same, with a third rotating unit vector $\hat k$ that also obeys $d\hat k/dt = \vec\omega\times\hat k$:</p>
+<div class="formula">$$\vec v_B = \vec v_A + (\vec v_{B/A})_{rel} + \vec\omega\times\vec r_{B/A}$$</div>
+<div class="formula">$$\vec a_B = \vec a_A + (\vec a_{B/A})_{rel} + \vec\alpha\times\vec r_{B/A} + 2\vec\omega\times(\vec v_{B/A})_{rel} + \vec\omega\times(\vec\omega\times\vec r_{B/A})$$</div>
+<p>What is new is finding $\vec\omega$ and $\vec\alpha$ of the observer. In the plane, the observer always turned about the same fixed $\hat k$ axis. In 3D it usually turns about several axes at once, and some of those axes are themselves turning.</p>
+
+<h3>Angular velocity: add the rotations</h3>
+<p>If the observer's body spins at rate $\omega_1$ about one axis, while that axis is carried around at rate $\omega_2$ about another, the angular velocity is the vector sum</p>
+<div class="formula">$$\vec\omega = \vec\omega_1 + \vec\omega_2 + \vec\omega_3 + \dots$$</div>
+<p>Each component points along its own rotation axis (right-hand rule). Write all of them in one set of unit vectors before adding, usually the observer's $xyz$ at the instant of interest. For each component, note whether its axis is <b>fixed</b> in space or <b>moves</b> with some body: that decides the angular acceleration.</p>
+
+<h3>Angular acceleration: differentiate the direction too</h3>
+<p>By definition $\vec\alpha = d\vec\omega/dt$. Take a U-shaped frame turning at $\omega_1$ about the fixed vertical axis $\hat J$, carrying a disk that spins at $\omega_2$ about the frame's horizontal axis $\hat\imath$. Then $\vec\omega = \omega_1\hat J + \omega_2\hat\imath$, and the product rule gives</p>
+<div class="formula">$$\vec\alpha = \dot\omega_1\hat J + \omega_1\underbrace{\frac{d\hat J}{dt}}_{=\,0\ \text{(fixed)}} + \dot\omega_2\hat\imath + \omega_2\underbrace{\frac{d\hat\imath}{dt}}_{=\,\omega_1\hat J\times\hat\imath}$$</div>
+<p>With both rates constant, the first and third terms vanish but the last one does not: $\vec\alpha = \omega_1\omega_2\,(\hat J\times\hat\imath)$. The magnitude $|\vec\omega| = \sqrt{\omega_1^2+\omega_2^2}$ never changes, yet $\vec\alpha\neq\vec 0$, because the <em>direction</em> of $\vec\omega$ keeps turning. In 3D, "constant spin rates" does not mean "zero angular acceleration".</p>
+<p class="small">When differentiating a rotating unit vector, use the angular velocity of whatever body that unit vector is attached to. Here $\hat\imath$ is the axle of the U-frame, which turns at $\omega_1\hat J$ only, but using the disk's full $\vec\omega$ gives the same answer because $\omega_2\hat\imath\times\hat\imath = \vec 0$.</p>
+<div class="demo concept" id="c-omega">
+  <div class="demo-title"><span class="tag concept-tag">Concept</span><span>A spinning disk on a turning frame: ω swings around, so α ≠ 0</span></div>
+  <canvas id="c-omega-anim" class="anim" style="height:400px"></canvas>
+  <div class="controls" id="c-omega-ctl"></div>
+  <div class="bar" id="c-omega-btn"></div>
+  <div class="stats" id="c-omega-stats"></div>
+  <p class="small concept-note">The red arrow is ω = ω₁Ĵ + ω₂î. Its tip runs around the grey circle at constant speed, and the green arrow, the velocity of that tip, is α. Set ω₁ = 0 or ω₂ = 0 and α vanishes.</p>
+</div>
+
+<h3>3D rigid bodies</h3>
+<p>If B is a point of the observer's own body, the observer sees it standing still, so both "rel" terms are zero and</p>
+<div class="formula">$$\vec v_B = \vec v_A + \vec\omega\times\vec r_{B/A}, \qquad \vec a_B = \vec a_A + \vec\alpha\times\vec r_{B/A} + \vec\omega\times(\vec\omega\times\vec r_{B/A})$$</div>
+<p>These look exactly like the planar rigid-body equations, but now $\vec\omega$ can point in any direction, and $\vec\alpha$ need not be parallel to $\vec\omega$. For a body turning about a fixed point, every point moves on a circle around the $\vec\omega$ axis, with velocity perpendicular to both $\vec\omega$ and $\vec r$.</p>
+<div class="demo concept" id="c-rigid">
+  <div class="demo-title"><span class="tag concept-tag">Concept</span><span>A block spinning about a tilted axis: v = ω × r at every point</span></div>
+  <canvas id="c-rigid-anim" class="anim" style="height:380px"></canvas>
+  <div class="controls" id="c-rigid-ctl"></div>
+  <div class="bar" id="c-rigid-btn"></div>
+  <div class="stats" id="c-rigid-stats"></div>
+  <p class="small concept-note">The green arrows at the corners are ω × r. The dashed loop is the path of corner B: a circle in a plane perpendicular to ω. The statistics confirm v · ω = 0 and v · r = 0.</p>
+</div>
+
+<div class="card method"><h3 style="margin-top:.2rem">Checklist for 3D problems</h3>
+<ol><li>Attach the observer to the body you know most about (often the one whose angles you are given).</li>
+<li>List every rotation the observer takes part in, with its axis. Mark each axis as fixed or moving.</li>
+<li>Write $\vec\omega$ as a sum, all in the observer's $xyz$ unit vectors at the instant shown.</li>
+<li>Differentiate for $\vec\alpha$: rate changes give $\dot\omega_i$ terms; moving axes give $\omega_i\,(\vec\Omega\times\hat e_i)$ terms, with $\vec\Omega$ the angular velocity of the body carrying that axis.</li>
+<li>Describe what the observer sees, then substitute into the velocity and acceleration equations.</li></ol></div>
+<div class="try"><h4>Try this</h4><ul><li>In the disk demo, reverse ω₂. Which way does α point now?</li><li>Set the tilt in the rigid-body demo to 0°. Which points of the block have zero velocity?</li><li>For the U-frame, suppose ω₂ is about a fixed horizontal axis instead (the disk is not carried around). What is α then?</li></ul></div>
+<div class="wild"><span class="wi" aria-hidden="true">🛰️</span><div><b class="wh">3D frames in the wild</b><p>A gyroscope resists being tilted because tilting its spin axis requires an angular acceleration α = ω₁ × ω₂, exactly the term in the disk demo. Spacecraft use spinning wheels and this effect to turn without firing thrusters.</p></div></div>
+</section>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="frames-2d.html"><small>← Previous</small>A · 2D rotating frames</a><a class="next" href="coriolis.html"><small>Next →</small>C · Coriolis in real life</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/labels.js"></script>
+<script src="../assets/ch3.js"></script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 2.A.1 · Chapter 2 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 2</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="rigid.html">A · Rigid body equations</a>
+    <a href="instant.html">B · Instant centers</a>
+    <a href="mechanisms.html">C · Mechanisms</a>
+    <a href="examples.html" class=active>Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Rigid body equations examples"><a href="examples.html#group-A">All Rigid body equations examples</a><a href="ex-2-a-1.html" class=active>2.A.1</a><a href="ex-2-a-2.html">2.A.2</a><a href="ex-2-a-3.html">2.A.3</a><a href="ex-2-a-4.html">2.A.4</a><a href="ex-2-a-5.html">2.A.5</a><a href="ex-2-a-6.html">2.A.6</a><a href="ex-2-a-7.html">2.A.7</a><a href="ex-2-a-8.html">2.A.8</a><a href="ex-2-a-9.html">2.A.9</a><a href="ex-2-a-10.html">2.A.10</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-A">Rigid body equations</a> › Example 2.A.1</p>
+<h2><span class="num">Example 2.A.1</span>Angular velocity and acceleration from one acceleration vector</h2>
+<div class="tags"><span>fixed-axis rotation</span><span>normal and tangential parts</span><span>acceleration</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>A disk turns at a non-constant rate $\Omega$ about a fixed axis through its center O. At a particular instant the acceleration of point P on the disk is $\mathbf a_P = 3\,\hat{\mathbf i} + 4\,\hat{\mathbf j}$ m/s². Point P is a distance $r = 0.4$ m from O, on the negative $x$ axis.</p>
+<p><b>Find</b> (a) the angular velocity of the disk and (b) its angular acceleration at this instant. Write both answers as vectors.</p>
+</div>
+<div class="demo" id="x2a-1">
+  <div class="demo-title"><span class="tag">Interactive</span><span>The disk slows down while it turns counterclockwise</span></div>
+  <div class="grid2"><canvas id="x2a-1-anim" class="anim" style="height:360px"></canvas><div><canvas id="x2a-1-plot" class="plot" style="height:300px"></canvas></div></div>
+  <div class="bar" id="x2a-1-pre"><span class="lbl">View:</span></div>
+  <div class="bar" id="x2a-1-btn"></div>
+  <div class="stats" id="x2a-1-stats"></div>
+  <p class="small concept-note">The dashed arrows are the two parts of $\mathbf a_P$, the normal part $\omega^2 r$ toward O and the tangential part $\alpha r$, placed head to tail. Their sum (red) equals $3\,\hat{\mathbf i} + 4\,\hat{\mathbf j}$ m/s² at the instant. Switch to a clockwise spin and notice that the acceleration at the instant is exactly the same.</p>
+</div>
+<div class="demo v3d" data-clip="x2a-1"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Draw the kinematics diagram</summary>
+<p>Point P is on the negative $x$ axis, so its position relative to O is $\mathbf r_{P/O} = -0.4\,\hat{\mathbf i}$ m. Because O is fixed, the acceleration of P has a normal part, which points from P toward O, and a tangential part, which is perpendicular to OP.</p><div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 330 280" role="img" aria-label="Disk at the instant, with the two parts of the acceleration of P" style="max-width:330px"><circle cx="175.0" cy="150.0" r="95.0" fill="#e6e2d6" stroke="#8a6a12" stroke-width="2"/><line x1="50.0" y1="150.0" x2="300.0" y2="150.0" stroke="#7b808c" stroke-width="1.4" stroke-dasharray="5 4"/><line x1="175.0" y1="255.0" x2="175.0" y2="35.0" stroke="#7b808c" stroke-width="1.4" stroke-dasharray="5 4"/><circle cx="175.0" cy="150.0" r="4.5" fill="#fff" stroke="#1c1d21" stroke-width="2"/><line x1="80.0" y1="190.0" x2="175.0" y2="190.0" stroke="#7b808c" stroke-width="1.2"/><line x1="80.0" y1="185.0" x2="80.0" y2="195.0" stroke="#7b808c" stroke-width="1.2"/><line x1="175.0" y1="185.0" x2="175.0" y2="195.0" stroke="#7b808c" stroke-width="1.2"/><circle cx="80.0" cy="150.0" r="4" fill="#1c1d21"/><line x1="80.0" y1="150.0" x2="123.0" y2="150.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="134.0,150.0 123.0,155.5 123.0,144.5" fill="#17915a"/><line x1="80.0" y1="150.0" x2="80.0" y2="89.0" stroke="#8a3fd1" stroke-width="2.6" stroke-linecap="round"/><polygon points="80.0,78.0 85.5,89.0 74.5,89.0" fill="#8a3fd1"/><line x1="80.0" y1="150.0" x2="127.4" y2="86.8" stroke="#b42346" stroke-width="2.6" stroke-linecap="round"/><polygon points="134.0,78.0 131.8,90.1 123.0,83.5" fill="#b42346"/><path d="M206.9,138.4 L207.4,139.6 L207.8,140.9 L208.1,142.2 L208.4,143.5 L208.6,144.8 L208.8,146.2 L208.9,147.5 L209.0,148.8 L209.0,150.1 L209.0,151.5 L208.9,152.8 L208.7,154.1 L208.6,155.5 L208.3,156.8 L208.0,158.1 L207.7,159.4 L207.3,160.6 L206.8,161.9 L206.4,163.1 L205.8,164.4 L205.2,165.6 L204.6,166.7 L203.9,167.9 L203.2,169.0 L202.4,170.1 L201.6,171.2 L200.8,172.2 L199.9,173.2 L198.9,174.1 L198.0,175.1 L197.0,175.9 L195.9,176.8 L194.9,177.6 L193.8,178.4 L192.6,179.1 L191.5,179.7 L190.3,180.4 L189.1,180.9 L187.9,181.5 L186.6,181.9" fill="none" stroke="#8a3fd1" stroke-width="2.2"/><polygon points="182.9,183.5 190.3,175.0 194.1,184.3" fill="#8a3fd1"/><text x="310.0" y="150.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>x</tspan></text><text x="175.0" y="25.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>y</tspan></text><text x="189.0" y="164.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>O</tspan></text><text x="127.5" y="208.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>r = 0.4 m</tspan></text><text x="66.0" y="164.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>P</tspan></text><text x="107.0" y="166.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>ω</tspan><tspan dy="-5.7" style="font-size:10.8px">2</tspan><tspan dy="5.7"> r</tspan></text><text x="54.0" y="84.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#8a3fd1"><tspan>α r</tspan></text><text x="119.8" y="123.6" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#b42346"><tspan>a</tspan><tspan dy="4.8" style="font-size:10.8px">P</tspan></text><text x="217.6" y="169.9" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#8a3fd1"><tspan>α</tspan></text></svg><figcaption>Disk at the instant, with the two parts of the acceleration of P</figcaption></figure></div><p class="small fbdnote">The normal part $\omega^2 r$ always points from P toward O. The tangential part $\alpha r$ is perpendicular to OP. Here it points up, so the disk has a clockwise angular acceleration.</p>
+</details>
+<details class="step"><summary>Step 2 · Write the rigid-body acceleration equation</summary>
+<p>Let $\boldsymbol\omega = \omega\,\hat{\mathbf k}$ and $\boldsymbol\alpha = \alpha\,\hat{\mathbf k}$. Since $\mathbf a_O = \mathbf 0$,</p>
+$$\mathbf a_P = \boldsymbol\alpha\times\mathbf r_{P/O} - \omega^2\,\mathbf r_{P/O} = \alpha\hat{\mathbf k}\times\left(-0.4\,\hat{\mathbf i}\right) - \omega^2\left(-0.4\,\hat{\mathbf i}\right) = 0.4\,\omega^2\,\hat{\mathbf i} - 0.4\,\alpha\,\hat{\mathbf j}$$
+</details>
+<details class="step"><summary>Step 3 · Match the components</summary>
+<p>Setting this equal to $3\,\hat{\mathbf i} + 4\,\hat{\mathbf j}$ gives one equation for each component.</p>
+$$\hat{\mathbf i}:\quad 0.4\,\omega^2 = 3 \;\;\Rightarrow\;\; \omega^2 = 7.5\ \text{rad}^2/\text{s}^2, \qquad |\omega| = 2.74\ \text{rad/s}$$
+$$\hat{\mathbf j}:\quad -0.4\,\alpha = 4 \;\;\Rightarrow\;\; \alpha = -10\ \text{rad/s}^2$$
+</details>
+<details class="step"><summary>Step 4 · Interpret the signs</summary>
+<p>The angular velocity enters the acceleration only through $\omega^2$, so the acceleration of P cannot tell us the direction of rotation. The figure shows $\Omega$ counterclockwise, so $\boldsymbol\omega = 2.74\,\hat{\mathbf k}$ rad/s. The angular acceleration is negative, which means it is clockwise. A counterclockwise spin with a clockwise angular acceleration is a disk that is slowing down.</p>
+<p class="small">The animation lets you switch to a clockwise spin. The acceleration of P at the instant does not change, which confirms that only the magnitude of $\omega$ can be found from $\mathbf a_P$.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>(a) $\boldsymbol\omega = \pm 2.74\,\hat{\mathbf k}$ rad/s. With the counterclockwise rotation shown in the figure, $\boldsymbol\omega = 2.74\,\hat{\mathbf k}$ rad/s. (b) $\boldsymbol\alpha = -10\,\hat{\mathbf k}$ rad/s².</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Change the problem so that $\mathbf a_P = 3\,\hat{\mathbf i} - 4\,\hat{\mathbf j}$ m/s². Which of the two answers changes?</li><li>Could any rim point have an acceleration with a component pointing away from O? Explain with the normal and tangential parts.</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 2, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="examples.html"><small>← Previous</small>All examples</a><a class="next" href="ex-2-a-2.html"><small>Next →</small>Example 2.A.2</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/kit.js"></script>
+<script src="../assets/ch2-exA1.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch2-3dA1.js"></script>
+</body>
+</html>

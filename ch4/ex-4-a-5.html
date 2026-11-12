@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 4.A.5 · Chapter 4 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 4</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="newton.html">A · Newton's laws</a>
+    <a href="energy.html">B · Work–energy</a>
+    <a href="impulse.html">C · Linear impulse–momentum</a>
+    <a href="angular.html">D · Angular impulse–momentum</a>
+    <a href="examples.html" class=active>Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Newton's second law examples"><a href="examples.html#group-A">All Newton's second law examples</a><a href="ex-4-a-1.html">4.A.1</a><a href="ex-4-a-2.html">4.A.2</a><a href="ex-4-a-3.html">4.A.3</a><a href="ex-4-a-4.html">4.A.4</a><a href="ex-4-a-5.html" class=active>4.A.5</a><a href="ex-4-a-6.html">4.A.6</a><a href="ex-4-a-7.html">4.A.7</a><a href="ex-4-a-8.html">4.A.8</a><a href="ex-4-a-9.html">4.A.9</a><a href="ex-4-a-10.html">4.A.10</a><a href="ex-4-a-11.html">4.A.11</a><a href="ex-4-a-12.html">4.A.12</a><a href="ex-4-a-13.html">4.A.13</a><a href="ex-4-a-14.html">4.A.14</a><a href="ex-4-a-15.html">4.A.15</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-A">Newton's second law</a> › Example 4.A.5</p>
+<h2><span class="num">Example 4.A.5</span>A cable car pulled up a taut cable</h2>
+<div class="tags"><span>Newton's law</span><span>normal force</span><span>inclined path</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>The cable car C, of mass $m = 200$ kg, rolls on a taut straight cable that rises with a slope of 5 vertical to 12 horizontal. A horizontal force $F = 2400$ N pulls the car up the cable.</p>
+<p><b>Find</b> (a) the acceleration of the cable car and (b) the total force that the cable car exerts on the cable.</p>
+</div>
+<div class="demo" id="x4a-5">
+  <div class="demo-title"><span class="tag">Interactive</span><span>The cable car accelerates up the cable</span></div>
+  <div class="grid2"><canvas id="x4a-5-anim" class="anim" style="height:420px"></canvas><div><canvas id="x4a-5-plot" class="plot" style="height:300px"></canvas></div></div>
+  <div class="controls" id="x4a-5-ctl"></div>
+  <div class="bar" id="x4a-5-pre"><span class="lbl">Try:</span></div>
+  <div class="bar" id="x4a-5-btn"></div>
+  <div class="stats" id="x4a-5-stats"></div>
+  <p class="small concept-note">The car starts from rest. The orange arrow is the force that the car exerts on the cable, which is perpendicular to the cable. The graph shows how the acceleration depends on $F$.</p>
+</div>
+<div class="demo v3d" data-clip="x4a-5"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Every solution follows the four-step method: free-body diagrams, kinetics equations, kinematics, solve. Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Draw the free-body diagram</summary>
+<p>Three forces act on the car. The weight $mg$ acts downward, and the horizontal force $F$ acts to the right. The wheels roll freely on the cable, so the cable can push on the car only perpendicular to itself, with the normal force $N$. We take $x$ up the cable and $y$ perpendicular to it. The cable makes the angle $\beta$ with the horizontal, with $\sin\beta = 5/13$ and $\cos\beta = 12/13$.</p>
+<div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 360 270" role="img" aria-label="Cable car C" style="max-width:360px"><line x1="36.5" y1="140.7" x2="313.5" y2="25.3" stroke="#7b808c" stroke-width="1.4" stroke-dasharray="5 4"/><rect x="-45.0" y="-30.0" width="90.0" height="60.0" rx="4" transform="translate(175.0,135.0) rotate(0.0)" fill="#d8d4c8" stroke="#8a6a12" stroke-width="2"/><line x1="220.0" y1="145.0" x2="279.0" y2="145.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="290.0,145.0 279.0,150.5 279.0,139.5" fill="#2457d6"/><line x1="155.0" y1="145.0" x2="155.0" y2="204.0" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="155.0,215.0 149.5,204.0 160.5,204.0" fill="#c2410c"/><line x1="165.0" y1="105.0" x2="142.3" y2="50.5" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="138.1,40.4 147.4,48.4 137.2,52.7" fill="#17915a"/><line x1="300.0" y1="250.0" x2="321.2" y2="241.2" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="331.4,236.9 323.3,246.2 319.1,236.1" fill="#7b808c"/><line x1="300.0" y1="250.0" x2="291.2" y2="228.8" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="286.9,218.6 296.2,226.7 286.1,230.9" fill="#7b808c"/><text x="175.0" y="135.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:16px;font-style:italic;fill:#1c1d21"><tspan>C</tspan></text><text x="302.0" y="145.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>F</tspan></text><text x="137.0" y="221.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>mg</tspan></text><text x="133.5" y="29.3" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>N</tspan></text><text x="340.6" y="233.1" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>x</tspan></text><text x="283.1" y="209.4" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>y</tspan></text><text x="262.7" y="28.5" text-anchor="middle" dominant-baseline="middle" style="font-family:system-ui,sans-serif;font-size:11px;fill:#7b808c">cable</text></svg><figcaption>Cable car C</figcaption></figure></div><p class="small fbdnote">The wheels roll freely on the cable, so the cable can push on the car only perpendicular to itself, with the normal force $N$. The $x$ axis points up the cable, at $\beta = 22.62°$ above the horizontal ($\tan\beta = 5/12$).</p>
+</details>
+<details class="step"><summary>Step 2 · Write the kinetics equations</summary>
+$$\sum F_x = F\cos\beta - mg\sin\beta = m a, \qquad \sum F_y = N - F\sin\beta - mg\cos\beta = 0$$
+<p>The component of $F$ perpendicular to the cable points into the cable, so it adds to the weight component.</p>
+</details>
+<details class="step"><summary>Step 3 · Write the kinematics equations</summary>
+<p>The car moves along the straight cable, so its acceleration points along the cable, $\mathbf a = a\,\hat{\imath}$.</p>
+</details>
+<details class="step"><summary>Step 4 · Solve</summary>
+$$a = \frac{F\cos\beta}{m} - g\sin\beta = \frac{2400(12/13)}{200} - 9.81\left(\frac{5}{13}\right) = 11.08 - 3.77 = 7.30\ \text{m/s}^2$$
+$$N = F\sin\beta + mg\cos\beta = 2400\left(\frac{5}{13}\right) + 200(9.81)\left(\frac{12}{13}\right) = 923.1 + 1811.1 = 2734\ \text{N}$$
+<p>By Newton's third law the car pushes on the cable with a force of the same size in the opposite direction, perpendicular to the cable and toward the lower right.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>(a) $a = 7.30$ m/s² up the cable. (b) The car pushes on the cable with 2734 N, perpendicular to the cable.</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Use the preset in which $F$ just holds the car. Why is this force $mg\tan\beta$?</li><li>Set $F = 0$. The car slides down. Is the force on the cable larger or smaller than with $F = 2400$ N, and why?</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 4, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-4-a-4.html"><small>← Previous</small>Example 4.A.4</a><a class="next" href="ex-4-a-6.html"><small>Next →</small>Example 4.A.6</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/kit.js"></script>
+<script src="../assets/ch4-exA1.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch4-3dA1.js"></script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 4.C.1 · Chapter 4 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 4</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="newton.html">A · Newton's laws</a>
+    <a href="energy.html">B · Work–energy</a>
+    <a href="impulse.html">C · Linear impulse–momentum</a>
+    <a href="angular.html">D · Angular impulse–momentum</a>
+    <a href="examples.html" class=active>Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Linear impulse and momentum examples"><a href="examples.html#group-C">All Linear impulse and momentum examples</a><a href="ex-4-c-1.html" class=active>4.C.1</a><a href="ex-4-c-2.html">4.C.2</a><a href="ex-4-c-3.html">4.C.3</a><a href="ex-4-c-4.html">4.C.4</a><a href="ex-4-c-5.html">4.C.5</a><a href="ex-4-c-6.html">4.C.6</a><a href="ex-4-c-7.html">4.C.7</a><a href="ex-4-c-8.html">4.C.8</a><a href="ex-4-c-9.html">4.C.9</a><a href="ex-4-c-10.html">4.C.10</a><a href="ex-4-c-11.html">4.C.11</a><a href="ex-4-c-12.html">4.C.12</a><a href="ex-4-c-13.html">4.C.13</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-C">Linear impulse and momentum</a> › Example 4.C.1</p>
+<h2><span class="num">Example 4.C.1</span>Block pushed by a force pulse</h2>
+<div class="tags"><span>linear impulse</span><span>friction</span><span>force–time graph</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>Block A has mass $m$ and moves to the right with an initial speed $v_1$ on a rough horizontal surface. The coefficient of kinetic friction is $\mu_k$. While the block slides, a force $F(t)$ pushes it to the right. The force equals $F_0$ from $t = 0$ to $t = \Delta t$ and then decreases linearly to zero at $t = 2\Delta t$.</p>
+<p>The data are $m = 8$ kg, $F_0 = 20$ N, $v_1 = 15$ m/s, $\mu_k = 0.15$ and $\Delta t = 0.2$ s.</p>
+<p><b>Find</b> the speed of the block (a) at $t = \Delta t$ and (b) at $t = 2\Delta t$.</p>
+</div>
+<div class="demo" id="x4c-1">
+  <div class="demo-title"><span class="tag">Interactive</span><span>The block during the force pulse (slow motion)</span></div>
+  <canvas id="x4c-1-anim" class="anim" style="height:260px"></canvas><div class="grid2"><canvas id="x4c-1-plot" class="plot" style="height:210px"></canvas><canvas id="x4c-1-plot2" class="plot" style="height:210px"></canvas></div>
+  <div class="controls" id="x4c-1-ctl"></div>
+  <div class="bar" id="x4c-1-btn"></div>
+  <div class="stats" id="x4c-1-stats"></div>
+  <p class="small concept-note">The left plot shows the push $F(t)$ (solid) and the friction force (dashed). The impulse of each force is the area under its curve. The view follows the block, and the ticks on the floor mark every metre.</p>
+</div>
+<div class="demo v3d" data-clip="x4c-1"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Every solution follows the four-step method: free-body diagrams, kinetics equations, kinematics, solve. Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Draw the free-body diagram</summary>
+<p>The block is the system. Four forces act on it. The push $F(t)$ acts to the right, the weight $mg$ acts downward, the floor pushes up with the normal force $N$, and kinetic friction $\mu_k N$ acts to the left because the block slides to the right.</p>
+<div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 340 230" role="img" aria-label="Block A while it slides" style="max-width:340px"><rect x="-45.0" y="-32.0" width="90.0" height="64.0" rx="4" transform="translate(170.0,110.0) rotate(0.0)" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><line x1="55.0" y1="110.0" x2="114.0" y2="110.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="125.0,110.0 114.0,115.5 114.0,104.5" fill="#2457d6"/><circle cx="188.0" cy="118.0" r="4" fill="#1c1d21"/><line x1="188.0" y1="118.0" x2="188.0" y2="177.0" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="188.0,188.0 182.5,177.0 193.5,177.0" fill="#c2410c"/><line x1="152.0" y1="194.0" x2="152.0" y2="153.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="152.0,142.0 157.5,153.0 146.5,153.0" fill="#17915a"/><line x1="180.0" y1="142.0" x2="119.0" y2="142.0" stroke="#b42346" stroke-width="2.6" stroke-linecap="round"/><polygon points="108.0,142.0 119.0,136.5 119.0,147.5" fill="#b42346"/><line x1="140.0" y1="56.0" x2="189.0" y2="56.0" stroke="#7b808c" stroke-width="2.6" stroke-linecap="round"/><polygon points="200.0,56.0 189.0,61.5 189.0,50.5" fill="#7b808c"/><line x1="30.0" y1="215.0" x2="53.0" y2="215.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="64.0,215.0 53.0,220.5 53.0,209.5" fill="#7b808c"/><line x1="30.0" y1="215.0" x2="30.0" y2="192.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="30.0,181.0 35.5,192.0 24.5,192.0" fill="#7b808c"/><text x="170.0" y="110.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:16px;font-style:italic;fill:#1c1d21"><tspan>A</tspan></text><text x="49.0" y="96.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>F(t)</tspan></text><text x="206.0" y="190.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>mg</tspan></text><text x="138.0" y="206.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>N</tspan></text><text x="96.0" y="156.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#b42346"><tspan>μ</tspan><tspan dy="4.8" style="font-size:10.8px">k</tspan><tspan dy="-4.8"> N</tspan></text><text x="212.0" y="56.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#7b808c"><tspan>v</tspan></text><text x="74.0" y="215.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>x</tspan></text><text x="30.0" y="171.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>y</tspan></text></svg><figcaption>Block A while it slides</figcaption></figure></div><p class="small fbdnote">The block keeps moving to the right, so kinetic friction $\mu_k N$ points to the left during the whole interval. The grey arrow is the velocity, not a force.</p>
+</details>
+<details class="step"><summary>Step 2 · Write the kinetics equations (impulse and momentum)</summary>
+<p>In the vertical direction the block does not accelerate, so $N = mg$ at every instant. In the horizontal direction, linear impulse and momentum between two times $t_1$ and $t_2$ gives</p>
+$$m v(t_2) = m v(t_1) + \int_{t_1}^{t_2} F\,dt - \mu_k m g\,(t_2 - t_1)$$
+<p>The impulse of the push is the area under the force–time graph. From $0$ to $\Delta t$ the area is a rectangle, $F_0\Delta t$. From $\Delta t$ to $2\Delta t$ it is a triangle, $\tfrac12 F_0\Delta t$.</p>
+</details>
+<details class="step"><summary>Step 3 · Check the kinematics</summary>
+<p>The friction force is $\mu_k m g = (0.15)(8)(9.81) = 11.77$ N. This force always opposes the motion, so the equation above holds only while the block keeps moving to the right. We check at the end that the speed stays positive.</p>
+</details>
+<details class="step"><summary>Step 4 · Solve</summary>
+<p>(a) From $t = 0$ to $t = \Delta t$:</p>
+$$v(\Delta t) = v_1 + \frac{(F_0 - \mu_k m g)\,\Delta t}{m} = 15 + \frac{(20 - 11.77)(0.2)}{8} = 15.21\ \text{m/s}$$
+<p>(b) From $t = \Delta t$ to $t = 2\Delta t$:</p>
+$$v(2\Delta t) = v(\Delta t) + \frac{\tfrac12 F_0\Delta t - \mu_k m g\,\Delta t}{m} = 15.206 + \frac{2.0 - 2.354}{8} = 15.16\ \text{m/s}$$
+<p class="small">During the second interval the average push, $F_0/2 = 10$ N, is smaller than the friction force, so the block slows down slightly. Both speeds are positive, so friction acts to the left throughout, as assumed.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>(a) $v(\Delta t) = 15.21$ m/s. (b) $v(2\Delta t) = 15.16$ m/s.</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Find the value of $F_0$ for which the speed at $t = 2\Delta t$ equals the initial speed. Check the formula $F_0 = \tfrac43 \mu_k m g$ with the slider.</li><li>Set $v_1 = 0$ and $F_0 = 10$ N. Why does the block not move at all?</li><li>Compare the two plots. How does the slope of the speed curve relate to the gap between the two force curves?</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 4, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-4-b-8.html"><small>← Previous</small>Example 4.B.8</a><a class="next" href="ex-4-c-2.html"><small>Next →</small>Example 4.C.2</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/kit.js"></script>
+<script src="../assets/ch4-exC1.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch4-3dC1.js"></script>
+</body>
+</html>

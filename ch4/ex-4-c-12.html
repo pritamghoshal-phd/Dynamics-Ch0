@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 4.C.12 · Chapter 4 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 4</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="newton.html">A · Newton's laws</a>
+    <a href="energy.html">B · Work–energy</a>
+    <a href="impulse.html">C · Linear impulse–momentum</a>
+    <a href="angular.html">D · Angular impulse–momentum</a>
+    <a href="examples.html" class=active>Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Linear impulse and momentum examples"><a href="examples.html#group-C">All Linear impulse and momentum examples</a><a href="ex-4-c-1.html">4.C.1</a><a href="ex-4-c-2.html">4.C.2</a><a href="ex-4-c-3.html">4.C.3</a><a href="ex-4-c-4.html">4.C.4</a><a href="ex-4-c-5.html">4.C.5</a><a href="ex-4-c-6.html">4.C.6</a><a href="ex-4-c-7.html">4.C.7</a><a href="ex-4-c-8.html">4.C.8</a><a href="ex-4-c-9.html">4.C.9</a><a href="ex-4-c-10.html">4.C.10</a><a href="ex-4-c-11.html">4.C.11</a><a href="ex-4-c-12.html" class=active>4.C.12</a><a href="ex-4-c-13.html">4.C.13</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-C">Linear impulse and momentum</a> › Example 4.C.12</p>
+<h2><span class="num">Example 4.C.12</span>Cue ball sending the object ball into the side pocket</h2>
+<div class="tags"><span>oblique impact</span><span>billiards</span><span>restitution</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>Cue ball A strikes the stationary object ball B with speed $v_{A1}$, moving at the angle $\theta_1$ to the cushion. After the impact, B moves straight toward the side pocket, perpendicular to the cushion, and A moves along a line at the angle $\theta_2$ to the cushion. The balls have equal masses, and the coefficient of restitution is $e$.</p>
+<p>The data are $\theta_1 = 45°$ and $e = 0.9$.</p>
+<p><b>Find</b> the rebound angle $\theta_2$ of A.</p>
+</div>
+<div class="demo" id="x4c-12">
+  <div class="demo-title"><span class="tag">Interactive</span><span>Top view of the table near the side pocket</span></div>
+  <canvas id="x4c-12-anim" class="anim" style="height:360px"></canvas>
+  <div class="controls" id="x4c-12-ctl"></div>
+  <div class="bar" id="x4c-12-btn"></div>
+  <div class="stats" id="x4c-12-stats"></div>
+  <p class="small concept-note">The balls are treated as particles, as in the book, so spin and rolling are ignored. Change $\theta_1$ and $e$ and watch how flat the rebound of A becomes.</p>
+</div>
+<div class="demo v3d" data-clip="x4c-12"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Every solution follows the four-step method: free-body diagrams, kinetics equations, kinematics, solve. Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Draw the free-body diagrams</summary>
+<p>Seen from above, each ball receives one impulsive force at the impact, the contact force $F$ along the line of impact. Because B leaves straight toward the pocket, the impulse on B points toward the pocket. The line of impact $n$ is therefore perpendicular to the cushion, and the tangent direction $t$ is parallel to it.</p>
+<div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 240 240" role="img" aria-label="Ball A during the impact (top view)" style="max-width:240px"><circle cx="120.0" cy="150.0" r="36.0" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><line x1="120.0" y1="59.0" x2="120.0" y2="103.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="120.0,114.0 114.5,103.0 125.5,103.0" fill="#17915a"/><circle cx="120.0" cy="114.0" r="4" fill="#1c1d21"/><line x1="40.0" y1="60.0" x2="63.0" y2="60.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="74.0,60.0 63.0,65.5 63.0,54.5" fill="#7b808c"/><line x1="40.0" y1="60.0" x2="40.0" y2="37.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="40.0,26.0 45.5,37.0 34.5,37.0" fill="#7b808c"/><text x="120.0" y="150.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:16px;font-style:italic;fill:#1c1d21"><tspan>A</tspan></text><text x="134.0" y="53.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>F</tspan></text><text x="84.0" y="60.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>t</tspan></text><text x="40.0" y="16.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>n</tspan></text></svg><figcaption>Ball A during the impact (top view)</figcaption></figure><figure><svg class="fbd" viewBox="0 0 240 240" role="img" aria-label="Ball B during the impact (top view)" style="max-width:240px"><circle cx="120.0" cy="110.0" r="36.0" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><line x1="120.0" y1="201.0" x2="120.0" y2="157.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="120.0,146.0 125.5,157.0 114.5,157.0" fill="#17915a"/><circle cx="120.0" cy="146.0" r="4" fill="#1c1d21"/><line x1="40.0" y1="215.0" x2="63.0" y2="215.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="74.0,215.0 63.0,220.5 63.0,209.5" fill="#7b808c"/><line x1="40.0" y1="215.0" x2="40.0" y2="192.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="40.0,181.0 45.5,192.0 34.5,192.0" fill="#7b808c"/><text x="120.0" y="110.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:16px;font-style:italic;fill:#1c1d21"><tspan>B</tspan></text><text x="134.0" y="207.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>F</tspan></text><text x="84.0" y="215.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>t</tspan></text><text x="40.0" y="171.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>n</tspan></text></svg><figcaption>Ball B during the impact (top view)</figcaption></figure></div><p class="small fbdnote">B moves straight toward the pocket, so the impulse on B, and therefore the line of impact $n$, points from the center of A to the center of B. The impulse on A has the same size and points the other way. Along $t$ there is no impulse on either ball.</p>
+</details>
+<details class="step"><summary>Step 2 · Write the kinetics equations</summary>
+<p>Before the impact, A has the components $v_{A1t} = v_{A1}\cos\theta_1$ and $v_{A1n} = v_{A1}\sin\theta_1$. B is at rest. Along $t$ there is no impulse on either ball, so</p>
+$$v_{A2t} = v_{A1}\cos\theta_1, \qquad v_{B2t} = 0$$
+<p>Along $n$, momentum is conserved and the coefficient of restitution applies. With equal masses,</p>
+$$v_{A1n} = v_{A2n} + v_{B2n}, \qquad v_{B2n} - v_{A2n} = e\,v_{A1n}$$
+</details>
+<details class="step"><summary>Step 3 · Write the kinematics equations</summary>
+<p>The rebound angle of A is measured from the cushion, which is the $t$ direction, so</p>
+$$\tan\theta_2 = \frac{v_{A2n}}{v_{A2t}}$$
+</details>
+<details class="step"><summary>Step 4 · Solve</summary>
+<p>Subtracting the restitution equation from the momentum equation gives $2\,v_{A2n} = (1 - e)\,v_{A1n}$. Therefore</p>
+$$\tan\theta_2 = \frac{(1 - e)\,v_{A1}\sin\theta_1/2}{v_{A1}\cos\theta_1} = \frac{1 - e}{2}\,\tan\theta_1 = \frac{0.1}{2}\,(1) = 0.05$$
+$$\theta_2 = 2.86°$$
+<p class="small">The result does not depend on the speed of the cue ball. With a perfectly elastic impact ($e = 1$), A would leave exactly along the cushion, at 90° to the path of B, which is the well-known rule for equal billiard balls.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>$\theta_2 = 2.86°$ from the cushion.</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Set $e = 1$. Check that the two balls leave at a right angle to each other.</li><li>Change $\theta_1$ to 60°. Show with the formula that $\theta_2$ becomes 4.95°, and compare with the animation.</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 4, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-4-c-11.html"><small>← Previous</small>Example 4.C.11</a><a class="next" href="ex-4-c-13.html"><small>Next →</small>Example 4.C.13</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/kit.js"></script>
+<script src="../assets/ch4-exC2.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch4-3dC2.js"></script>
+</body>
+</html>

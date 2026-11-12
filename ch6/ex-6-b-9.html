@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 6.B.9 · Chapter 6 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 6</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="eom.html">A · Equations of motion</a>
+    <a href="free.html">B · Free vibration</a>
+    <a href="damped.html">B · Damped vibration</a>
+    <a href="forced.html">C · Forced vibration</a>
+    <a href="base.html">C · Base excitation</a>
+    <a href="summary.html">Summary</a>
+    <a href="examples.html" class=active>Examples</a>
+    <a href="badges.html">🏅 Badges</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Free response examples"><a href="examples.html#group-B">All Free response examples</a><a href="ex-6-b-1.html">6.B.1</a><a href="ex-6-b-2.html">6.B.2</a><a href="ex-6-b-3.html">6.B.3</a><a href="ex-6-b-4.html">6.B.4</a><a href="ex-6-b-5.html">6.B.5</a><a href="ex-6-b-6.html">6.B.6</a><a href="ex-6-b-7.html">6.B.7</a><a href="ex-6-b-8.html">6.B.8</a><a href="ex-6-b-9.html" class=active>6.B.9</a><a href="ex-6-b-10.html">6.B.10</a><a href="ex-6-b-11.html">6.B.11</a><a href="ex-6-b-12.html">6.B.12</a><a href="ex-6-b-13.html">6.B.13</a><a href="ex-6-b-14.html">6.B.14</a><a href="ex-6-b-15.html">6.B.15</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-B">Free response</a> › Example 6.B.9</p>
+<h2><span class="num">Example 6.B.9</span>Free response of an underdamped system</h2>
+<div class="tags"><span>free response</span><span>underdamped</span><span>initial conditions</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>A block of mass $m$ is connected to a wall by a spring of stiffness $k$ and a dashpot with damping constant $c$. The block slides on a smooth horizontal surface, and $x$ measures its displacement from equilibrium.</p>
+<p>The data are $x_0 = 6$ mm, $c = 32$ kg/s, $k = 1600$ N/m and $m = 1$ kg.</p>
+<p><b>Find</b> the free response $x(t)$ for the initial conditions $x(0) = x_0$ and $\dot x(0) = 0$.</p>
+</div>
+<div class="demo" id="x6b-9">
+  <div class="demo-title"><span class="tag">Interactive</span><span>Released from rest at x = 6 mm</span></div>
+  <canvas id="x6b-9-anim" class="anim" style="height:300px"></canvas><canvas id="x6b-9-plot" class="plot" style="height:200px"></canvas>
+  <div class="controls" id="x6b-9-ctl"></div>
+  <div class="bar" id="x6b-9-pre"><span class="lbl">Try:</span></div>
+  <div class="bar" id="x6b-9-btn"></div>
+  <div class="stats" id="x6b-9-stats"></div>
+  <p class="small concept-note">The motion is only a few millimetres, so the gauge shows x magnified ten times. The dashed curves are the envelope ±6.55 e^(−16t) mm. The default playback speed is 0.1×.</p>
+</div>
+<div class="demo v3d" data-clip="x6b-9"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Every solution starts from free-body diagrams in a displaced position, then writes the equation of motion and reads off the vibration properties. Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Draw the free-body diagram</summary>
+<p>We draw the block a distance $x$ to the right of equilibrium, moving to the right. The spring pulls it back with $kx$ and the dashpot resists with $c\dot x$. The weight and the normal force are vertical and balance each other.</p><div class="fbdrow"><figure style="width:320px;max-width:100%"><svg class="fbd" viewBox="0 0 320 200" role="img" aria-label="Block in a displaced position" style="max-width:320px"><rect x="-42.0" y="-35.0" width="84.0" height="70.0" rx="4" transform="translate(170.0,100.0) rotate(0.0)" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><line x1="128.0" y1="84.0" x2="79.0" y2="84.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="68.0,84.0 79.0,78.5 79.0,89.5" fill="#2457d6"/><line x1="128.0" y1="118.0" x2="79.0" y2="118.0" stroke="#b42346" stroke-width="2.6" stroke-linecap="round"/><polygon points="68.0,118.0 79.0,112.5 79.0,123.5" fill="#b42346"/><line x1="182.0" y1="100.0" x2="182.0" y2="149.0" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="182.0,160.0 176.5,149.0 187.5,149.0" fill="#c2410c"/><line x1="158.0" y1="181.0" x2="158.0" y2="146.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="158.0,135.0 163.5,146.0 152.5,146.0" fill="#17915a"/><line x1="250.0" y1="40.0" x2="285.0" y2="40.0" stroke="#7b808c" stroke-width="2.6" stroke-linecap="round"/><polygon points="296.0,40.0 285.0,45.5 285.0,34.5" fill="#7b808c"/><text x="170.0" y="100.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:16px;font-style:italic;fill:#1c1d21"><tspan>m</tspan></text><text x="54.0" y="84.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>kx</tspan></text><text x="54.0" y="118.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#b42346"><tspan>cẋ</tspan></text><text x="198.0" y="172.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>mg</tspan></text><text x="146.0" y="193.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>N</tspan></text><text x="306.0" y="40.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#7b808c"><tspan>x</tspan></text></svg><figcaption>Block in a displaced position</figcaption></figure></div><p class="small fbdnote">The floor is smooth, so the vertical forces $N$ and $mg$ balance and only $kx$ and $c\dot x$ act along the motion.</p>
+</details>
+<details class="step"><summary>Step 2 · Write the equation of motion and its parameters</summary>
+$$m\ddot x + c\dot x + k x = 0$$
+$$\omega_n = \sqrt{\frac{k}{m}} = \sqrt{1600} = 40\ \text{rad/s}, \qquad \zeta = \frac{c}{2\sqrt{km}} = \frac{32}{2(40)} = 0.400$$
+<p>The system is underdamped, so it oscillates at the damped natural frequency</p>
+$$\omega_d = \omega_n\sqrt{1 - \zeta^2} = 40\sqrt{0.84} = 36.66\ \text{rad/s}$$
+</details>
+<details class="step"><summary>Step 3 · Write the general underdamped response</summary>
+$$x(t) = e^{-\zeta\omega_n t}\left(A\cos\omega_d t + B\sin\omega_d t\right), \qquad \zeta\omega_n = 16\ \text{s}^{-1}$$
+</details>
+<details class="step"><summary>Step 4 · Apply the initial conditions</summary>
+<p>At $t = 0$ the response must equal $x_0$, so $A = x_0 = 6$ mm. Differentiating and setting $\dot x(0) = 0$ gives $-\zeta\omega_n A + \omega_d B = 0$, so</p>
+$$B = \frac{\zeta\omega_n\,x_0}{\omega_d} = \frac{16(6)}{36.66} = 2.62\ \text{mm}$$
+</details>
+<details class="step"><summary>Step 5 · Write the result</summary>
+$$x(t) = e^{-16t}\left(6\cos 36.66t + 2.62\sin 36.66t\right)\ \text{mm}$$
+<p>In amplitude–phase form this is $x(t) = 6.55\,e^{-16t}\cos\left(36.66t - 0.412\right)$ mm, with the amplitude $X = \sqrt{A^2 + B^2} = 6.55$ mm and the phase $\phi = \tan^{-1}(B/A) = 0.412$ rad (23.6°).</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>$x(t) = e^{-16t}\left(6\cos 36.66t + 2.62\sin 36.66t\right)$ mm, which is $6.55\,e^{-16t}\cos(36.66t - 0.412)$ mm.</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Read the time of the first zero crossing from the graph and compare it with the formula, where $36.66t - 0.412 = \pi/2$.</li><li>Set $c$ to the critical value of 80 kg/s. Does the block cross the equilibrium position?</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 6, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-6-b-8.html"><small>← Previous</small>Example 6.B.8</a><a class="next" href="ex-6-b-10.html"><small>Next →</small>Example 6.B.10</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/kit.js"></script>
+<script src="../assets/ch6-exB2.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch6-3dB2.js"></script>
+</body>
+</html>

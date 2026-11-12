@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 6.B.1 · Chapter 6 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 6</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="eom.html">A · Equations of motion</a>
+    <a href="free.html">B · Free vibration</a>
+    <a href="damped.html">B · Damped vibration</a>
+    <a href="forced.html">C · Forced vibration</a>
+    <a href="base.html">C · Base excitation</a>
+    <a href="summary.html">Summary</a>
+    <a href="examples.html" class=active>Examples</a>
+    <a href="badges.html">🏅 Badges</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Free response examples"><a href="examples.html#group-B">All Free response examples</a><a href="ex-6-b-1.html" class=active>6.B.1</a><a href="ex-6-b-2.html">6.B.2</a><a href="ex-6-b-3.html">6.B.3</a><a href="ex-6-b-4.html">6.B.4</a><a href="ex-6-b-5.html">6.B.5</a><a href="ex-6-b-6.html">6.B.6</a><a href="ex-6-b-7.html">6.B.7</a><a href="ex-6-b-8.html">6.B.8</a><a href="ex-6-b-9.html">6.B.9</a><a href="ex-6-b-10.html">6.B.10</a><a href="ex-6-b-11.html">6.B.11</a><a href="ex-6-b-12.html">6.B.12</a><a href="ex-6-b-13.html">6.B.13</a><a href="ex-6-b-14.html">6.B.14</a><a href="ex-6-b-15.html">6.B.15</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-B">Free response</a> › Example 6.B.1</p>
+<h2><span class="num">Example 6.B.1</span>Block on an incline pulled through a movable pulley</h2>
+<div class="tags"><span>equation of motion</span><span>natural frequency</span><span>pulleys</span><span>constraint</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>Block A (mass $m$) rests on a smooth incline of angle $\theta$ and is connected to the ground by a spring of stiffness $k$. A cable runs from A over a fixed pulley, down around a movable pulley and back up to the axle of the fixed pulley. Block B (mass $m$) hangs from the movable pulley, and a force $f(t)$ acts downward on B. The pulleys are light. Let $x$ describe the position of A up the incline, measured from the position where the spring is unstretched.</p>
+<p><b>Find</b> (a) the EOM of this system in terms of the coordinate $x$, and (b) the natural frequency of the system.</p>
+<p class="small">The animation uses $m = 2$ kg, $k = 80$ N/m and $\theta = 30°$.</p>
+</div>
+<div class="demo" id="x6b-1">
+  <div class="demo-title"><span class="tag">Interactive</span><span>Block A slides on the incline while B rises and falls half as far</span></div>
+  <div class="grid2"><canvas id="x6b-1-anim" class="anim" style="height:380px"></canvas><div><canvas id="x6b-1-plot" class="plot" style="height:380px"></canvas></div></div>
+  <div class="controls" id="x6b-1-ctl"></div>
+  <div class="bar" id="x6b-1-pre"><span class="lbl">Try:</span></div>
+  <div class="bar" id="x6b-1-btn"></div>
+  <div class="stats" id="x6b-1-stats"></div>
+  <p class="small concept-note">The cable stays parallel to the incline and leaves the fixed pulley tangentially. When A moves up the incline by $x$, B moves down by $x/2$. If a large force would carry A to the end of the incline, the motion stops there and the loop restarts.</p>
+</div>
+<div class="demo v3d" data-clip="x6b-1"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Every solution starts from free-body diagrams in a displaced position, then writes the equation of motion and reads off the vibration properties. Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Draw the free-body diagrams</summary>
+<div class="fbdrow"><figure style="width:min(360px,100%)"><svg class="fbd" viewBox="0 0 360 290" role="img" aria-label="Block A, displaced x up the incline" style="max-width:360px"><line x1="65.6" y1="251.8" x2="316.7" y2="106.8" stroke="#7b808c" stroke-width="1.2" stroke-dasharray="5 4"/><rect x="-45.0" y="-30.0" width="90.0" height="60.0" rx="4" transform="translate(180.0,150.0) rotate(-30.0)" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><line x1="219.0" y1="127.5" x2="264.9" y2="101.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="274.4,95.5 267.6,105.8 262.1,96.2" fill="#2457d6"/><line x1="141.0" y1="172.5" x2="95.1" y2="199.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="85.6,204.5 92.4,194.2 97.9,203.8" fill="#2457d6"/><line x1="193.9" y1="142.0" x2="193.9" y2="195.0" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="193.9,206.0 188.4,195.0 199.4,195.0" fill="#c2410c"/><line x1="199.5" y1="235.7" x2="178.0" y2="198.5" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="172.5,189.0 182.7,195.8 173.2,201.3" fill="#17915a"/><path d="M105.6,251.8 A40,40 0 0 0 100.2,231.8" fill="none" stroke="#7b808c" stroke-width="1.2"/><line x1="65.6" y1="251.8" x2="123.2" y2="251.8" stroke="#7b808c" stroke-width="1" stroke-dasharray="5 4"/><line x1="252.0" y1="262.0" x2="282.3" y2="244.5" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="291.8,239.0 285.1,249.3 279.6,239.7" fill="#7b808c"/><text x="168.0" y="146.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:17px;font-style:italic;fill:#1c1d21"><tspan>m</tspan></text><text x="292.8" y="81.5" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>T</tspan></text><text x="69.2" y="196.5" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>kx</tspan></text><text x="211.9" y="210.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>mg</tspan></text><text x="196.5" y="247.9" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>N</tspan></text><text x="114.9" y="238.6" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>θ</tspan></text><text x="301.8" y="235.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:14px;font-style:italic;fill:#7b808c"><tspan>x</tspan></text></svg><figcaption>Block A, displaced x up the incline</figcaption></figure><figure style="width:min(240px,100%)"><svg class="fbd" viewBox="0 0 240 290" role="img" aria-label="Pulley and block B together" style="max-width:240px"><circle cx="120.0" cy="80.0" r="24.0" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><circle cx="120.0" cy="80.0" r="4" fill="#1c1d21"/><line x1="96.0" y1="80.0" x2="96.0" y2="33.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="96.0,22.0 101.5,33.0 90.5,33.0" fill="#2457d6"/><line x1="144.0" y1="80.0" x2="144.0" y2="33.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="144.0,22.0 149.5,33.0 138.5,33.0" fill="#2457d6"/><line x1="120.0" y1="80.0" x2="120.0" y2="150.0" stroke="#1c1d21" stroke-width="2"/><rect x="-35.0" y="-28.0" width="70.0" height="56.0" rx="4" transform="translate(120.0,180.0) rotate(0.0)" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><line x1="102.0" y1="196.0" x2="102.0" y2="243.0" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="102.0,254.0 96.5,243.0 107.5,243.0" fill="#c2410c"/><line x1="138.0" y1="208.0" x2="138.0" y2="247.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="138.0,258.0 132.5,247.0 143.5,247.0" fill="#2457d6"/><line x1="208.0" y1="150.0" x2="208.0" y2="185.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="208.0,196.0 202.5,185.0 213.5,185.0" fill="#7b808c"/><text x="82.0" y="18.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>T</tspan></text><text x="158.0" y="18.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>T</tspan></text><text x="120.0" y="182.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:17px;font-style:italic;fill:#1c1d21"><tspan>m</tspan></text><text x="80.0" y="254.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>mg</tspan></text><text x="164.0" y="260.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>f(t)</tspan></text><text x="208.0" y="210.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:14px;font-style:italic;fill:#7b808c"><tspan>x/2</tspan></text></svg><figcaption>Pulley and block B together</figcaption></figure></div><p class="small fbdnote">The incline is smooth, so it pushes only along its normal. The pulley is light, so the two cable segments that hold it up carry the same tension $T$. The spring is stretched by $x$ and pulls A down the incline.</p><p>We use two free-body diagrams. The first is block A, displaced a distance $x$ up the incline. The second is the movable pulley together with block B, which removes the force in the short hanger from the problem.</p>
+</details>
+<details class="step"><summary>Step 2 · Write the cable constraint</summary>
+<p>The cable has a fixed length. When A moves up the incline by $x$, the length of cable between A and the fixed pulley shortens by $x$. That length is shared by the two vertical segments that hold the movable pulley, so each lengthens by $x/2$ and B moves down by $x/2$.</p>
+$$y_B = \frac{x}{2}, \qquad \ddot y_B = \frac{\ddot x}{2} \quad (\text{downward})$$
+</details>
+<details class="step"><summary>Step 3 · Apply Newton's second law to each free-body diagram</summary>
+<p>For A, along the incline with up-the-incline positive,</p>
+$$T - kx - mg\sin\theta = m\ddot x$$
+<p>For the pulley and B, with downward positive,</p>
+$$mg + f(t) - 2T = m\,\frac{\ddot x}{2} \qquad\Longrightarrow\qquad T = \frac{mg + f(t)}{2} - \frac{m\ddot x}{4}$$
+</details>
+<details class="step"><summary>Step 4 · Write the equation of motion</summary>
+<p>Substituting the tension into the equation for A gives</p>
+$$\frac{mg + f(t)}{2} - \frac{m\ddot x}{4} - kx - mg\sin\theta = m\ddot x$$
+$$\tfrac54 m\ddot x + kx = \frac{f(t)}{2} + mg\left(\tfrac12 - \sin\theta\right)$$
+<p>The constant term on the right moves the equilibrium position to $x_{eq} = mg(\tfrac12 - \sin\theta)/k$. It does not change the natural frequency. For $\theta = 30°$ the two gravity terms cancel exactly, so the equilibrium is at the unstretched position.</p>
+</details>
+<details class="step"><summary>Step 5 · Find the natural frequency</summary>
+<p>The equation has the form $m_{eq}\ddot x + k_{eq}x = \ldots$ with $m_{eq} = \tfrac54 m$ and $k_{eq} = k$.</p>
+$$\omega_n = \sqrt{\frac{k}{\tfrac54 m}} = \sqrt{\frac{4k}{5m}}$$
+<p>For the values in the animation, $\omega_n = \sqrt{4(80)/(5 \cdot 2)} = 5.66$ rad/s, a period of 1.11 s.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>(a) $$\tfrac54 m\ddot x + kx = \frac{f(t)}{2} + mg\left(\tfrac12 - \sin\theta\right)$$ (b) $$\omega_n = \sqrt{\frac{4k}{5m}}$$</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Change the incline angle. The equilibrium position moves, but the period stays the same. Why does gravity not affect $\omega_n$?</li><li>Block B has the same mass as A, but it adds only $m/4$ to the effective mass. Where does the factor $1/4$ come from?</li><li>Switch on the harmonic force on B. Only half of $f(t)$ reaches the equation of motion. Explain this with the movable pulley.</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 6, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-6-a-3.html"><small>← Previous</small>Example 6.A.3</a><a class="next" href="ex-6-b-2.html"><small>Next →</small>Example 6.B.2</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/kit.js"></script>
+<script src="../assets/ch6-exB1.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch6-3dB1.js"></script>
+</body>
+</html>

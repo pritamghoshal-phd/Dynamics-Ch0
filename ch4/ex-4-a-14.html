@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 4.A.14 · Chapter 4 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 4</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="newton.html">A · Newton's laws</a>
+    <a href="energy.html">B · Work–energy</a>
+    <a href="impulse.html">C · Linear impulse–momentum</a>
+    <a href="angular.html">D · Angular impulse–momentum</a>
+    <a href="examples.html" class=active>Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Newton's second law examples"><a href="examples.html#group-A">All Newton's second law examples</a><a href="ex-4-a-1.html">4.A.1</a><a href="ex-4-a-2.html">4.A.2</a><a href="ex-4-a-3.html">4.A.3</a><a href="ex-4-a-4.html">4.A.4</a><a href="ex-4-a-5.html">4.A.5</a><a href="ex-4-a-6.html">4.A.6</a><a href="ex-4-a-7.html">4.A.7</a><a href="ex-4-a-8.html">4.A.8</a><a href="ex-4-a-9.html">4.A.9</a><a href="ex-4-a-10.html">4.A.10</a><a href="ex-4-a-11.html">4.A.11</a><a href="ex-4-a-12.html">4.A.12</a><a href="ex-4-a-13.html">4.A.13</a><a href="ex-4-a-14.html" class=active>4.A.14</a><a href="ex-4-a-15.html">4.A.15</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-A">Newton's second law</a> › Example 4.A.14</p>
+<h2><span class="num">Example 4.A.14</span>Car on a banked turn</h2>
+<div class="tags"><span>path components</span><span>banked curve</span><span>friction</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>Car C travels at speed $v$ around a banked turn of radius $\rho = 500$ m. The road is banked at $\theta = 36.87°$.</p>
+<p><b>Find</b> the speed $v$ for which no friction force is needed to keep the car on the road.</p>
+</div>
+<div class="demo" id="x4a-14">
+  <div class="demo-title"><span class="tag">Interactive</span><span>Cross-section of the banked road and a top view of the turn</span></div>
+  <canvas id="x4a-14-anim" class="anim" style="height:340px"></canvas><canvas id="x4a-14-plot" class="plot" style="height:210px"></canvas>
+  <div class="controls" id="x4a-14-ctl"></div>
+  <div class="bar" id="x4a-14-pre"><span class="lbl">Try:</span></div>
+  <div class="bar" id="x4a-14-btn"></div>
+  <div class="stats" id="x4a-14-stats"></div>
+  <p class="small concept-note">The forces on the car are drawn to scale in the cross-section. The dashed blue arrow is $m a_n = m v^2/\rho$, the resultant force needed to turn the car. The top view is sped up six times. The graph shows the friction force per unit mass needed at each speed.</p>
+</div>
+<div class="demo v3d" data-clip="x4a-14"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Every solution follows the four-step method: free-body diagrams, kinetics equations, kinematics, solve. Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Draw the free-body diagrams</summary>
+<p>Isolate the car and look at it in a vertical plane through the center of the turn. With no friction the forces are the weight $mg$ and the normal force $N$, which is perpendicular to the road. At other speeds the road must also supply a friction force $F$ along its surface.</p>
+<div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 300 250" role="img" aria-label="Car at the speed that needs no friction" style="max-width:300px"><polygon points="42.0,84.0 226.0,222.0 42.0,222.0" fill="#e4dfd2" stroke="#8a6a12" stroke-width="2" stroke-linejoin="round"/><rect x="-30.0" y="-17.0" width="60.0" height="34.0" rx="4" transform="translate(144.4,130.8) rotate(36.9)" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><circle cx="144.4" cy="130.8" r="4" fill="#1c1d21"/><line x1="144.4" y1="130.8" x2="144.4" y2="194.8" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="144.4,205.8 138.9,194.8 149.9,194.8" fill="#c2410c"/><line x1="92.0" y1="212.0" x2="127.4" y2="164.8" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="134.0,156.0 131.8,168.1 123.0,161.5" fill="#17915a"/><line x1="240.0" y1="70.0" x2="263.0" y2="70.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="274.0,70.0 263.0,75.5 263.0,64.5" fill="#7b808c"/><line x1="240.0" y1="70.0" x2="240.0" y2="47.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="240.0,36.0 245.5,47.0 234.5,47.0" fill="#7b808c"/><text x="110.4" y="96.8" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>C</tspan></text><text x="122.4" y="205.8" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>mg</tspan></text><text x="102.8" y="229.6" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>N</tspan></text><text x="284.0" y="70.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>e</tspan><tspan dy="4.2" style="font-size:9.4px">n</tspan></text><text x="240.0" y="26.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>j</tspan></text><text x="74.0" y="208.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>θ</tspan></text></svg><figcaption>Car at the speed that needs no friction</figcaption></figure><figure><svg class="fbd" viewBox="0 0 300 250" role="img" aria-label="Car at any other speed" style="max-width:300px"><polygon points="42.0,84.0 226.0,222.0 42.0,222.0" fill="#e4dfd2" stroke="#8a6a12" stroke-width="2" stroke-linejoin="round"/><rect x="-30.0" y="-17.0" width="60.0" height="34.0" rx="4" transform="translate(144.4,130.8) rotate(36.9)" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><circle cx="144.4" cy="130.8" r="4" fill="#1c1d21"/><line x1="144.4" y1="130.8" x2="144.4" y2="194.8" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="144.4,205.8 138.9,194.8 149.9,194.8" fill="#c2410c"/><line x1="92.0" y1="212.0" x2="127.4" y2="164.8" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="134.0,156.0 131.8,168.1 123.0,161.5" fill="#17915a"/><line x1="154.0" y1="172.0" x2="189.2" y2="198.4" stroke="#b42346" stroke-width="2.6" stroke-linecap="round"/><polygon points="198.0,205.0 185.9,202.8 192.5,194.0" fill="#b42346"/><line x1="240.0" y1="70.0" x2="263.0" y2="70.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="274.0,70.0 263.0,75.5 263.0,64.5" fill="#7b808c"/><line x1="240.0" y1="70.0" x2="240.0" y2="47.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="240.0,36.0 245.5,47.0 234.5,47.0" fill="#7b808c"/><text x="110.4" y="96.8" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>C</tspan></text><text x="122.4" y="205.8" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>mg</tspan></text><text x="102.8" y="229.6" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>N</tspan></text><text x="217.6" y="200.2" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#b42346"><tspan>F</tspan></text><text x="284.0" y="70.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>e</tspan><tspan dy="4.2" style="font-size:9.4px">n</tspan></text><text x="240.0" y="26.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>j</tspan></text></svg><figcaption>Car at any other speed</figcaption></figure></div><p class="small fbdnote">The center of the turn is to the right, in the $\hat{\mathbf e}_n$ direction. Left: at the design speed only the weight and the normal force act. Right: at other speeds a friction force $F$ along the road is also needed. It is drawn down the slope, toward the center, and its sign tells its true direction.</p>
+</details>
+<details class="step"><summary>Step 2 · Write the kinetics equations</summary>
+<p>Use path components. The center of the turn is in the horizontal direction $\hat{\mathbf e}_n$, and $\hat{\mathbf j}$ points up. The normal force is tilted from the vertical by the bank angle $\theta$, toward the center. With no friction,</p>
+$$\sum F_n = m\frac{v^2}{\rho}: \quad N\sin\theta = m\frac{v^2}{\rho}, \qquad \sum F_y = 0: \quad N\cos\theta - mg = 0$$
+</details>
+<details class="step"><summary>Step 3 · Write the kinematics equations</summary>
+<p>The car moves at constant speed on a horizontal circle, so its acceleration is $a_n = v^2/\rho$ toward the center and it has no vertical acceleration.</p>
+</details>
+<details class="step"><summary>Step 4 · Solve</summary>
+<p>Dividing the first equation by the second eliminates $N$ and the mass,</p>
+$$\tan\theta = \frac{v^2}{g\rho} \quad\Longrightarrow\quad v = \sqrt{g\rho\tan\theta} = \sqrt{(9.81)(500)(0.75)} = 60.7\ \text{m/s}$$
+<p>This is about 218 km/h. At other speeds the road must supply friction. With $F$ positive down the slope, the two equations give $F = m\left(\dfrac{v^2}{\rho}\cos\theta - g\sin\theta\right)$. A slower car needs friction up the slope, and a faster car needs friction down the slope.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>$v = \sqrt{g\rho\tan\theta} = 60.7$ m/s (about 218 km/h).</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Choose the slow preset. Which way does friction act, and why?</li><li>Find the bank angle for which no friction is needed at 30 m/s on the same turn.</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 4, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-4-a-13.html"><small>← Previous</small>Example 4.A.13</a><a class="next" href="ex-4-a-15.html"><small>Next →</small>Example 4.A.15</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/kit.js"></script>
+<script src="../assets/ch4-exA2.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch4-3dA2.js"></script>
+</body>
+</html>

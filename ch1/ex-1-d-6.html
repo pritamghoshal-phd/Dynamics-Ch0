@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 1.D.6 · Chapter 1 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 1</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="planar.html">A · Planar descriptions</a>
+    <a href="threed.html">B · 3D descriptions</a>
+    <a href="joint.html">C · Joint description</a>
+    <a href="relative.html">D · Relative & constrained</a>
+    <a href="examples.html" class=active>Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Relative and constrained motion examples"><a href="examples.html#group-D">All Relative and constrained motion examples</a><a href="ex-1-d-1.html">1.D.1</a><a href="ex-1-d-2.html">1.D.2</a><a href="ex-1-d-3.html">1.D.3</a><a href="ex-1-d-4.html">1.D.4</a><a href="ex-1-d-5.html">1.D.5</a><a href="ex-1-d-6.html" class=active>1.D.6</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-D">Relative and constrained motion</a> › Example 1.D.6</p>
+<h2><span class="num">Example 1.D.6</span>Block lifted on a vertical guide by one cable</h2>
+<div class="tags"><span>constrained motion</span><span>nonlinear constraint</span><span>chain rule</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>Blocks B and C are connected by a single inextensible cable that is wrapped around small pulleys at D and E. Between D and E, the cable passes around a small pulley attached to block A, which slides in a vertical guide midway between D and E. Pulleys D and E are 3 ft on either side of the guide. Blocks B and C move downward with speeds of $v_B = 6$ ft/s and $v_C = 18$ ft/s.</p>
+<p><b>Find</b> the velocity of block A when $s_A = 4$ ft, where $s_A$ is the distance of A below the level of D and E.</p>
+</div>
+<div class="demo" id="x1d-6">
+  <div class="demo-title"><span class="tag">Interactive</span><span>B and C fall and A rises in its guide</span></div>
+  <canvas id="x1d-6-anim" class="anim" style="height:440px"></canvas><canvas id="x1d-6-plot" class="plot" style="height:220px"></canvas>
+  <div class="controls" id="x1d-6-ctl"></div>
+  <div class="bar" id="x1d-6-btn"></div>
+  <div class="stats" id="x1d-6-stats"></div>
+  <p class="small concept-note">The animation pauses at $s_A = 4$ ft. The graph shows that the speed of A depends on its position even though B and C move at constant speeds, because the cable segments to A are inclined.</p>
+</div>
+<div class="demo v3d" data-clip="x1d-6"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Choose coordinates from the fixed pulleys</summary>
+<p>Measure $s_C$ and $s_B$ downward from the level of D and E to blocks C and B, and measure $s_A$ downward from the same level to the pulley on A. With these choices $\dot s_B = 6$ ft/s and $\dot s_C = 18$ ft/s.</p>
+</details>
+<details class="step"><summary>Step 2 · Draw the geometry</summary>
+<div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 340 260" role="img" aria-label="Geometry of the cable" style="max-width:340px"><line x1="40.0" y1="34.0" x2="80.0" y2="34.0" stroke="#1c1d21" stroke-width="1.8"/><line x1="44.0" y1="34.0" x2="39.0" y2="28.0" stroke="#8b8f98" stroke-width="1"/><line x1="53.0" y1="34.0" x2="48.0" y2="28.0" stroke="#8b8f98" stroke-width="1"/><line x1="62.0" y1="34.0" x2="57.0" y2="28.0" stroke="#8b8f98" stroke-width="1"/><line x1="71.0" y1="34.0" x2="66.0" y2="28.0" stroke="#8b8f98" stroke-width="1"/><line x1="260.0" y1="34.0" x2="300.0" y2="34.0" stroke="#1c1d21" stroke-width="1.8"/><line x1="264.0" y1="34.0" x2="259.0" y2="28.0" stroke="#8b8f98" stroke-width="1"/><line x1="273.0" y1="34.0" x2="268.0" y2="28.0" stroke="#8b8f98" stroke-width="1"/><line x1="282.0" y1="34.0" x2="277.0" y2="28.0" stroke="#8b8f98" stroke-width="1"/><line x1="291.0" y1="34.0" x2="286.0" y2="28.0" stroke="#8b8f98" stroke-width="1"/><line x1="60.0" y1="34.0" x2="60.0" y2="50.0" stroke="#2b2f38" stroke-width="2"/><line x1="280.0" y1="34.0" x2="280.0" y2="50.0" stroke="#2b2f38" stroke-width="2"/><line x1="170.0" y1="40.0" x2="170.0" y2="240.0" stroke="#7b808c" stroke-width="1" stroke-dasharray="5 4"/><line x1="60.0" y1="50.0" x2="280.0" y2="50.0" stroke="#7b808c" stroke-width="1" stroke-dasharray="5 4"/><path d="M60,110 L60,50 L170,190 L280,50 L280,228" fill="none" stroke="#1c1d21" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="60.0" cy="50.0" r="5.0" fill="#fff" stroke="#2b2f38" stroke-width="1.8"/><circle cx="60.0" cy="50.0" r="2.2" fill="#2b2f38"/><circle cx="280.0" cy="50.0" r="5.0" fill="#fff" stroke="#2b2f38" stroke-width="1.8"/><circle cx="280.0" cy="50.0" r="2.2" fill="#2b2f38"/><circle cx="170.0" cy="190.0" r="6.0" fill="#fff" stroke="#2b2f38" stroke-width="1.8"/><circle cx="170.0" cy="190.0" r="2.2" fill="#2b2f38"/><rect x="-9.0" y="-13.0" width="18.0" height="26.0" rx="4" transform="translate(60.0,122.0) rotate(0.0)" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><rect x="-9.0" y="-13.0" width="18.0" height="26.0" rx="4" transform="translate(280.0,240.0) rotate(0.0)" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><line x1="60.0" y1="24.0" x2="170.0" y2="24.0" stroke="#7b808c" stroke-width="1.2"/><line x1="60.0" y1="19.0" x2="60.0" y2="29.0" stroke="#7b808c" stroke-width="1.2"/><line x1="170.0" y1="19.0" x2="170.0" y2="29.0" stroke="#7b808c" stroke-width="1.2"/><line x1="170.0" y1="24.0" x2="280.0" y2="24.0" stroke="#7b808c" stroke-width="1.2"/><line x1="170.0" y1="19.0" x2="170.0" y2="29.0" stroke="#7b808c" stroke-width="1.2"/><line x1="280.0" y1="19.0" x2="280.0" y2="29.0" stroke="#7b808c" stroke-width="1.2"/><line x1="185.0" y1="50.0" x2="185.0" y2="190.0" stroke="#7b808c" stroke-width="1.2"/><line x1="190.0" y1="50.0" x2="180.0" y2="50.0" stroke="#7b808c" stroke-width="1.2"/><line x1="190.0" y1="190.0" x2="180.0" y2="190.0" stroke="#7b808c" stroke-width="1.2"/><text x="42.0" y="42.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:14px;font-style:italic;fill:#1c1d21"><tspan>D</tspan></text><text x="298.0" y="42.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:14px;font-style:italic;fill:#1c1d21"><tspan>E</tspan></text><text x="188.0" y="202.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:14px;font-style:italic;fill:#1c1d21"><tspan>A</tspan></text><text x="40.0" y="126.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:14px;font-style:italic;fill:#1c1d21"><tspan>C</tspan></text><text x="300.0" y="244.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:14px;font-style:italic;fill:#1c1d21"><tspan>B</tspan></text><text x="115.0" y="16.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>3 ft</tspan></text><text x="225.0" y="16.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>3 ft</tspan></text><text x="175.0" y="120.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>s</tspan><tspan dy="4.2" style="font-size:9.4px">A</tspan></text><text x="100.0" y="152.0" text-anchor="end" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#b42346"><tspan>√(9 + s</tspan><tspan dy="4.2" style="font-size:9.4px">A</tspan><tspan dy="-9.1" style="font-size:9.4px">2</tspan><tspan dy="4.9">)</tspan></text></svg><figcaption>Geometry of the cable</figcaption></figure></div><p class="small fbdnote">Each inclined segment is the hypotenuse of a right triangle with legs of 3 ft and $s_A$. The vertical segments to C and B have lengths $s_C$ and $s_B$.</p>
+</details>
+<details class="step"><summary>Step 3 · Write the length of the cable</summary>
+<p>The cable has two vertical segments and two inclined segments of equal length.</p>
+$$L = s_C + 2\sqrt{3^2 + s_A^2} + s_B$$
+<p>The radii of the pulleys are small, so the wrapped parts are neglected.</p>
+</details>
+<details class="step"><summary>Step 4 · Differentiate with the chain rule</summary>
+$$0 = \dot s_C + \frac{2\,s_A\,\dot s_A}{\sqrt{9 + s_A^2}} + \dot s_B \qquad\Longrightarrow\qquad \dot s_A = -\frac{\sqrt{9 + s_A^2}}{2\,s_A}\left(\dot s_B + \dot s_C\right)$$
+<p>Unlike the earlier examples, the relation between the speeds depends on the position of A.</p>
+</details>
+<details class="step"><summary>Step 5 · Solve at $s_A = 4$ ft</summary>
+$$\dot s_A = -\frac{\sqrt{9 + 16}}{2(4)}\,(6 + 18) = -\frac{5}{8}(24) = -15\ \text{ft/s}$$
+<p>The negative sign means that $s_A$ decreases, so block A moves upward.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>$\mathbf v_A = 15$ ft/s upward when $s_A = 4$ ft.</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Use the graph to explain why A moves faster and faster as it approaches the level of D and E.</li><li>Find $\ddot s_A$ at $s_A = 4$ ft by differentiating the constraint a second time. Remember that $\ddot s_B = \ddot s_C = 0$.</li><li>What happens to the speed of A as $s_A \to 0$? Is that physically possible?</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 1, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-1-d-5.html"><small>← Previous</small>Example 1.D.5</a><a class="next" href="examples.html"><small>Next →</small>All examples</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/kit.js"></script>
+<script src="../assets/ch1-exD.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch1-3dD.js"></script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 2.A.5 · Chapter 2 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 2</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="rigid.html">A · Rigid body equations</a>
+    <a href="instant.html">B · Instant centers</a>
+    <a href="mechanisms.html">C · Mechanisms</a>
+    <a href="examples.html" class=active>Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Rigid body equations examples"><a href="examples.html#group-A">All Rigid body equations examples</a><a href="ex-2-a-1.html">2.A.1</a><a href="ex-2-a-2.html">2.A.2</a><a href="ex-2-a-3.html">2.A.3</a><a href="ex-2-a-4.html">2.A.4</a><a href="ex-2-a-5.html" class=active>2.A.5</a><a href="ex-2-a-6.html">2.A.6</a><a href="ex-2-a-7.html">2.A.7</a><a href="ex-2-a-8.html">2.A.8</a><a href="ex-2-a-9.html">2.A.9</a><a href="ex-2-a-10.html">2.A.10</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-A">Rigid body equations</a> › Example 2.A.5</p>
+<h2><span class="num">Example 2.A.5</span>Acceleration of a point on a rolling wheel</h2>
+<div class="tags"><span>rolling without slip</span><span>acceleration</span><span>sketch</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>A wheel of radius $r = 2$ ft rolls without slipping on a rough horizontal surface. At one instant the center O moves to the right with speed $v_O = 5$ ft/s, and this speed is decreasing at 3 ft/s². At that instant point P on the rim is at $\theta = 90°$, directly above O.</p>
+<p><b>Find</b> the acceleration of P at this instant, and sketch the acceleration vector at P.</p>
+</div>
+<div class="demo" id="x2a-5">
+  <div class="demo-title"><span class="tag">Interactive</span><span>The wheel slows down and stops</span></div>
+  <div class="grid2"><canvas id="x2a-5-anim" class="anim" style="height:320px"></canvas><div><canvas id="x2a-5-plot" class="plot" style="height:260px"></canvas></div></div>
+  <div class="bar" id="x2a-5-pre"><span class="lbl">View:</span></div>
+  <div class="bar" id="x2a-5-btn"></div>
+  <div class="stats" id="x2a-5-stats"></div>
+  <p class="small concept-note">The dotted curve is the path of P, a cycloid. The dashed arrows are the three parts of $\mathbf a_P$ placed head to tail (grey $\mathbf a_O$, green $\boldsymbol\alpha\times\mathbf r$, purple $-\omega^2\mathbf r$), and the red arrow is their sum.</p>
+</div>
+<div class="demo v3d" data-clip="x2a-5"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Draw the kinematics diagram</summary>
+<p>Take $\hat{\mathbf i}$ to the right, $\hat{\mathbf j}$ up and $\hat{\mathbf k}$ out of the page. The center moves to the right and slows down, so</p>
+$$\mathbf v_O = 5\,\hat{\mathbf i}\ \text{ft/s}, \qquad \mathbf a_O = -3\,\hat{\mathbf i}\ \text{ft/s}^2$$<div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 360 300" role="img" aria-label="Wheel at the instant, with the parts of the acceleration of P" style="max-width:360px"><line x1="20" y1="270" x2="340" y2="270" stroke="#8b8f98" stroke-width="3"/><circle cx="200.0" cy="190.0" r="80.0" fill="#e6e2d6" stroke="#8a6a12" stroke-width="2"/><circle cx="200.0" cy="190.0" r="4.5" fill="#fff" stroke="#1c1d21" stroke-width="2"/><line x1="200.0" y1="190.0" x2="231.0" y2="190.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="242.0,190.0 231.0,195.5 231.0,184.5" fill="#2457d6"/><line x1="200.0" y1="220.0" x2="175.0" y2="220.0" stroke="#7b808c" stroke-width="2.6" stroke-linecap="round"/><polygon points="164.0,220.0 175.0,214.5 175.0,225.5" fill="#7b808c"/><path d="M171.8,200.3 L172.4,201.7 L173.0,203.2 L173.8,204.5 L174.6,205.9 L175.4,207.2 L176.4,208.5 L177.4,209.7 L178.4,210.8 L179.5,211.9 L180.7,213.0 L181.9,214.0 L183.2,214.9 L184.5,215.7 L185.9,216.5 L187.3,217.2 L188.8,217.8 L190.2,218.4 L191.7,218.8 L193.3,219.2 L194.8,219.5 L196.3,219.8 L197.9,219.9 L199.5,220.0 L201.0,220.0 L202.6,219.9 L204.2,219.7 L205.7,219.4 L207.3,219.1 L208.8,218.7 L210.3,218.2 L211.7,217.6 L213.2,217.0 L214.5,216.2 L215.9,215.4 L217.2,214.6 L218.5,213.6 L219.7,212.6 L220.8,211.6 L221.9,210.5 L223.0,209.3" fill="none" stroke="#8a3fd1" stroke-width="2.2"/><polygon points="225.7,206.4 222.5,217.1 215.2,210.3" fill="#8a3fd1"/><line x1="200.0" y1="110.0" x2="184.0" y2="110.0" stroke="#7b808c" stroke-width="2.6" stroke-linecap="round"/><polygon points="173.0,110.0 184.0,104.5 184.0,115.5" fill="#7b808c"/><line x1="173.0" y1="110.0" x2="157.0" y2="110.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="146.0,110.0 157.0,104.5 157.0,115.5" fill="#17915a"/><line x1="146.0" y1="110.0" x2="146.0" y2="177.8" stroke="#8a3fd1" stroke-width="2.6" stroke-linecap="round"/><polygon points="146.0,188.8 140.5,177.8 151.5,177.8" fill="#8a3fd1"/><line x1="200.0" y1="110.0" x2="152.2" y2="179.7" stroke="#b42346" stroke-width="2.6" stroke-linecap="round"/><polygon points="146.0,188.8 147.7,176.6 156.8,182.8" fill="#b42346"/><circle cx="200.0" cy="110.0" r="4" fill="#1c1d21"/><line x1="40.0" y1="150.0" x2="63.0" y2="150.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="74.0,150.0 63.0,155.5 63.0,144.5" fill="#7b808c"/><line x1="40.0" y1="150.0" x2="40.0" y2="127.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="40.0,116.0 45.5,127.0 34.5,127.0" fill="#7b808c"/><text x="214.0" y="204.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>O</tspan></text><text x="256.0" y="190.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>v</tspan><tspan dy="4.8" style="font-size:10.8px">O</tspan></text><text x="150.0" y="220.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#7b808c"><tspan>a</tspan><tspan dy="4.8" style="font-size:10.8px">O</tspan></text><text x="192.5" y="232.3" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#8a3fd1"><tspan>α</tspan></text><text x="186.5" y="97.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:12px;font-style:italic;fill:#7b808c"><tspan>a</tspan><tspan dy="3.8" style="font-size:8.6px">O</tspan></text><text x="153.5" y="97.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:12px;font-style:italic;fill:#17915a"><tspan>α r</tspan></text><text x="116.0" y="155.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:12px;font-style:italic;fill:#8a3fd1"><tspan>ω</tspan><tspan dy="-4.6" style="font-size:8.6px">2</tspan><tspan dy="4.6"> r</tspan></text><text x="186.2" y="158.4" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#b42346"><tspan>a</tspan><tspan dy="4.8" style="font-size:10.8px">P</tspan></text><text x="212.0" y="98.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>P</tspan></text><text x="84.0" y="150.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>x</tspan></text><text x="40.0" y="106.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>y</tspan></text></svg><figcaption>Wheel at the instant, with the parts of the acceleration of P</figcaption></figure></div><p class="small fbdnote">The three parts of $\mathbf a_P$ placed head to tail (the vertical part is drawn at 70% of its length). The centripetal part $\omega^2 r = 12.5$ ft/s² dominates, so $\mathbf a_P$ points mostly toward the center, and backward because the wheel is slowing down.</p>
+</details>
+<details class="step"><summary>Step 2 · Use rolling without slipping</summary>
+<p>For rolling without slipping, $v_O = -r\omega$ and $a_O = -r\alpha$.</p>
+$$\omega = -\frac{5}{2} = -2.5\ \text{rad/s (clockwise)}, \qquad \alpha = -\frac{-3}{2} = 1.5\ \text{rad/s}^2\ \text{(counterclockwise)}$$
+<p class="small">The wheel turns clockwise but is slowing down, so its angular acceleration is counterclockwise.</p>
+</details>
+<details class="step"><summary>Step 3 · Relative acceleration from O to P</summary>
+<p>With $\mathbf r_{P/O} = 2\,\hat{\mathbf j}$ ft,</p>
+$$\mathbf a_P = \mathbf a_O + \boldsymbol\alpha\times\mathbf r_{P/O} - \omega^2\,\mathbf r_{P/O} = -3\,\hat{\mathbf i} + \left(1.5\,\hat{\mathbf k}\right)\times\left(2\,\hat{\mathbf j}\right) - (2.5)^2\left(2\,\hat{\mathbf j}\right)$$
+$$\mathbf a_P = -3\,\hat{\mathbf i} - 3\,\hat{\mathbf i} - 12.5\,\hat{\mathbf j} = -6\,\hat{\mathbf i} - 12.5\,\hat{\mathbf j}\ \text{ft/s}^2$$
+</details>
+<details class="step"><summary>Step 4 · Sketch and check</summary>
+<p>The vector points down and to the left. Its largest part is the centripetal part, 12.5 ft/s² toward the center, and it has a backward part of 6 ft/s² because the wheel is slowing down. Its magnitude is $\sqrt{6^2 + 12.5^2} = 13.9$ ft/s². Freeze the animation at the instant and compare with the red arrow.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>$\mathbf a_P = -6\,\hat{\mathbf i} - 12.5\,\hat{\mathbf j}$ ft/s², with magnitude 13.9 ft/s², pointing down and backward toward the center.</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Play the motion to the end. What is the acceleration of the top point once the wheel has stopped?</li><li>At the instant in the problem, the contact point has zero velocity. Is its acceleration also zero? Compute it.</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 2, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-2-a-4.html"><small>← Previous</small>Example 2.A.4</a><a class="next" href="ex-2-a-6.html"><small>Next →</small>Example 2.A.6</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/kit.js"></script>
+<script src="../assets/ch2-exA1.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch2-3dA1.js"></script>
+</body>
+</html>

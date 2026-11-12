@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scalar kinematics · Chapter 0 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 0</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="vectors.html">A · Vectors</a>
+    <a href="fbd.html">B · Free-body diagrams</a>
+    <a href="kinematics.html" class=active>C · Scalar kinematics</a>
+    <a href="examples.html">Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<section>
+<h2><span class="num">C</span>Scalar kinematics</h2>
+<p>Kinematics describes motion without asking what causes it. For a point P moving along a line, its position is a single number $s(t)$. Its velocity and acceleration are</p>
+$$v = \frac{ds}{dt}=\dot s, \qquad a = \frac{dv}{dt} = \frac{d^2s}{dt^2}=\ddot s$$
+<p>Geometrically, <b>velocity is the slope</b> of the $s$–$t$ curve and <b>acceleration is the slope</b> of the $v$–$t$ curve. Going the other way, integration undoes differentiation, so <b>areas</b> under the curves give changes:</p>
+$$v(t) = v(0) + \int_0^t a\,dt, \qquad s(t) = s(0) + \int_0^t v\,dt$$
+<div class="demo concept" id="c-sva">
+  <div class="demo-title"><span class="tag concept-tag">Concept</span><span>Slopes and areas: s, v and a together</span></div>
+  <canvas id="c-sva-anim" class="anim" style="height:90px"></canvas><div class="grid3"><canvas id="c-sva-s" class="plot" style="height:200px"></canvas><canvas id="c-sva-v" class="plot" style="height:200px"></canvas><canvas id="c-sva-a" class="plot" style="height:200px"></canvas></div>
+  <div class="bar" id="c-sva-pre"><span class="lbl">Motion:</span></div>
+  <div class="bar" id="c-sva-btn"></div>
+  <div class="stats" id="c-sva-stats"></div>
+  <p class="small concept-note">The dashed orange lines are tangents: the slope of the s curve is the current v, and the slope of the v curve is the current a. The shaded areas are integrals: the area under a (so far) is the change in v, and the area under v is the change in s.</p>
+</div>
+
+<h3>When acceleration depends on position: the chain rule</h3>
+<p>Sometimes we know the velocity or the acceleration as a function of <em>position</em>, not time. A spring force, for example, depends on how far the spring is stretched. Then the chain rule lets us avoid time altogether:</p>
+$$a = \frac{dv}{dt} = \frac{dv}{ds}\,\frac{ds}{dt} = v\,\frac{dv}{ds}$$
+<p>In words: the acceleration is the speed times the slope of the speed-vs-position curve. Moving fast up a steep part of that curve means a large acceleration.</p>
+<div class="demo concept" id="c-chain">
+  <div class="demo-title"><span class="tag concept-tag">Concept</span><span>a = v dv/ds, checked against the motion</span></div>
+  <canvas id="c-chain-anim" class="anim" style="height:90px"></canvas><div class="grid2"><canvas id="c-chain-plot" class="plot" style="height:230px"></canvas><canvas id="c-chain-plot2" class="plot" style="height:230px"></canvas></div>
+  <div class="bar" id="c-chain-pre"><span class="lbl">Speed profile:</span></div>
+  <div class="bar" id="c-chain-btn"></div>
+  <div class="stats" id="c-chain-stats"></div>
+  <p class="small concept-note">Point P moves with the speed v(s) shown on the left. The dashed tangent has slope dv/ds. Multiply by v and you get the acceleration on the right. The last statistic measures the acceleration directly from the motion (change in speed over a short time); the two agree.</p>
+</div>
+
+<h3>Integrating with respect to position</h3>
+<p>If $a$ is known as a function of $s$, rewrite $a = v\,dv/ds$ as $v\,dv = a\,ds$ and integrate both sides:</p>
+$$\tfrac12 v^2 - \tfrac12 v(0)^2 = \int_{s(0)}^{s} a\,ds$$
+<p>This gives the speed at any position without ever finding $s(t)$. Multiply both sides by $m$ and you will recognize it later in the course as the <b>work–energy</b> principle: $\int ma\,ds$ is the work done by the net force.</p>
+<div class="card"><h3 style="margin-top:.2rem">Which formula do I use?</h3>
+<div class="tblwrap"><table class="tbl"><tr><th>You know</th><th>You want</th><th>Use</th></tr>
+<tr><td>$s(t)$</td><td>$v$, $a$</td><td>differentiate: $v=\dot s$, $a=\ddot s$</td></tr>
+<tr><td>$v(s)$</td><td>$a$</td><td>chain rule: $a = v\,dv/ds$</td></tr>
+<tr><td>$a(t)$</td><td>$v(t)$, $s(t)$</td><td>integrate in time: $v = v(0)+\int a\,dt$, then $s = s(0) + \int v\,dt$</td></tr>
+<tr><td>$a(s)$</td><td>$v(s)$</td><td>integrate in position: $\tfrac12v^2-\tfrac12v(0)^2=\int a\,ds$</td></tr>
+<tr><td>$a(v)$</td><td>$v(t)$ or $v(s)$</td><td>separate variables: $dt = dv/a(v)$, or $ds = v\,dv/a(v)$</td></tr>
+</table></div></div>
+<div class="try"><h4>Try this</h4><ul><li>In the s–v–a demo, choose "Speed up, cruise, brake". Where is the s curve straight? Where does it bend? Match each part to the a plot.</li><li>With "Oscillation", find the moments when v = 0. What is a doing there?</li><li>In the chain-rule demo with v = 4 − s²/4, the speed drops while P still moves forward. What is the sign of a? Does that agree with the formula?</li></ul></div>
+<div class="wild"><span class="wi" aria-hidden="true">🚗</span><div><b class="wh">Kinematics in the wild</b><p>A car’s speedometer shows v and the odometer shows s. The odometer is literally adding up the area under the speed curve. Crash investigators run the chain-rule formula backwards: from the length of the skid marks and the braking deceleration, ½v² = a·s gives the speed before braking.</p></div></div>
+</section>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="fbd.html"><small>← Previous</small>B · Free-body diagrams</a><a class="next" href="examples.html"><small>Next →</small>Worked examples</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/labels.js"></script>
+<script src="../assets/ch0.js"></script>
+</body>
+</html>

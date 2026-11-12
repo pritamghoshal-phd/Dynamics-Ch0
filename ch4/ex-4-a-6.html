@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 4.A.6 · Chapter 4 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 4</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="newton.html">A · Newton's laws</a>
+    <a href="energy.html">B · Work–energy</a>
+    <a href="impulse.html">C · Linear impulse–momentum</a>
+    <a href="angular.html">D · Angular impulse–momentum</a>
+    <a href="examples.html" class=active>Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Newton's second law examples"><a href="examples.html#group-A">All Newton's second law examples</a><a href="ex-4-a-1.html">4.A.1</a><a href="ex-4-a-2.html">4.A.2</a><a href="ex-4-a-3.html">4.A.3</a><a href="ex-4-a-4.html">4.A.4</a><a href="ex-4-a-5.html">4.A.5</a><a href="ex-4-a-6.html" class=active>4.A.6</a><a href="ex-4-a-7.html">4.A.7</a><a href="ex-4-a-8.html">4.A.8</a><a href="ex-4-a-9.html">4.A.9</a><a href="ex-4-a-10.html">4.A.10</a><a href="ex-4-a-11.html">4.A.11</a><a href="ex-4-a-12.html">4.A.12</a><a href="ex-4-a-13.html">4.A.13</a><a href="ex-4-a-14.html">4.A.14</a><a href="ex-4-a-15.html">4.A.15</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-A">Newton's second law</a> › Example 4.A.6</p>
+<h2><span class="num">Example 4.A.6</span>Block A pulled across block B by a cable and pulley</h2>
+<div class="tags"><span>Newton's law</span><span>systems of particles</span><span>friction</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>Block A, of mass $m$, rests on block B, of mass $M$, which rests on a smooth floor. A light pulley is attached to the right side of A. A cable is tied to the upright at the right end of B, passes around the pulley, and its free upper end is pulled to the right with the force $F$. The system is initially at rest.</p>
+<p>The data are $F = 60$ N, $m = 20$ kg, $M = 100$ kg and $\mu_k = 0.5$.</p>
+<p><b>Find</b> the accelerations of A and B (a) if the surface between A and B is smooth and (b) if the surface between A and B is rough with coefficient of kinetic friction $\mu_k$, given that A slips on B.</p>
+</div>
+<div class="demo" id="x4a-6">
+  <div class="demo-title"><span class="tag">Interactive</span><span>The cable pulls A to the right and B to the left</span></div>
+  <div class="grid2"><canvas id="x4a-6-anim" class="anim" style="height:330px"></canvas><div><canvas id="x4a-6-plot" class="plot" style="height:300px"></canvas></div></div>
+  <div class="controls" id="x4a-6-ctl"></div>
+  <div class="bar" id="x4a-6-pre"><span class="lbl">Choose a case:</span></div>
+  <div class="bar" id="x4a-6-btn"></div>
+  <div class="stats" id="x4a-6-stats"></div>
+  <p class="small concept-note">The dark curve is the velocity of A and the orange curve is the velocity of B. The motion is shown until the pulley has moved 0.3 m relative to B. With friction the floor pushes B forward, so it moves to the right.</p>
+</div>
+<div class="demo v3d" data-clip="x4a-6"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Every solution follows the four-step method: free-body diagrams, kinetics equations, kinematics, solve. Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Draw the free-body diagrams</summary>
+<p>We draw separate diagrams for A (with its pulley) and for B. The two strands of the cable both pull the pulley to the right, so A feels $2F$ to the right. The lower strand is tied to the upright of B and pulls B to the left with $F$. Between A and B act the normal force $N$ and, in part (b), the friction force $f$. A slides to the right relative to B, so friction acts to the left on A and to the right on B. The floor is smooth and only pushes B upward.</p>
+<div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 330 260" role="img" aria-label="Block A with its pulley" style="max-width:330px"><rect x="-40.0" y="-40.0" width="80.0" height="80.0" rx="4" transform="translate(130.0,115.0) rotate(0.0)" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><circle cx="200.0" cy="105.0" r="14.0" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><line x1="170.0" y1="105.0" x2="200.0" y2="105.0" stroke="#1c1d21" stroke-width="2"/><line x1="200.0" y1="91.0" x2="259.0" y2="91.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="270.0,91.0 259.0,96.5 259.0,85.5" fill="#2457d6"/><line x1="200.0" y1="119.0" x2="259.0" y2="119.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="270.0,119.0 259.0,124.5 259.0,113.5" fill="#2457d6"/><line x1="118.0" y1="127.0" x2="118.0" y2="186.0" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="118.0,197.0 112.5,186.0 123.5,186.0" fill="#c2410c"/><line x1="152.0" y1="205.0" x2="152.0" y2="166.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="152.0,155.0 157.5,166.0 146.5,166.0" fill="#17915a"/><line x1="110.0" y1="155.0" x2="66.0" y2="155.0" stroke="#b42346" stroke-width="2.6" stroke-linecap="round"/><polygon points="55.0,155.0 66.0,149.5 66.0,160.5" fill="#b42346"/><line x1="270.0" y1="240.0" x2="293.0" y2="240.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="304.0,240.0 293.0,245.5 293.0,234.5" fill="#7b808c"/><line x1="270.0" y1="240.0" x2="270.0" y2="217.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="270.0,206.0 275.5,217.0 264.5,217.0" fill="#7b808c"/><text x="130.0" y="115.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:16px;font-style:italic;fill:#1c1d21"><tspan>A</tspan></text><text x="282.0" y="79.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>F</tspan></text><text x="282.0" y="131.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>F</tspan></text><text x="102.0" y="195.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>mg</tspan></text><text x="166.0" y="227.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>N</tspan></text><text x="43.0" y="167.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#b42346"><tspan>f</tspan></text><text x="314.0" y="240.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>x</tspan></text><text x="270.0" y="196.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>y</tspan></text></svg><figcaption>Block A with its pulley</figcaption></figure><figure><svg class="fbd" viewBox="0 0 360 260" role="img" aria-label="Block B" style="max-width:360px"><polygon points="40.0,130.0 280.0,130.0 280.0,40.0 310.0,40.0 310.0,170.0 40.0,170.0" fill="#e4dfd2" stroke="#8a6a12" stroke-width="2" stroke-linejoin="round"/><line x1="280.0" y1="90.0" x2="231.0" y2="90.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="220.0,90.0 231.0,84.5 231.0,95.5" fill="#2457d6"/><line x1="130.0" y1="80.0" x2="130.0" y2="119.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="130.0,130.0 124.5,119.0 135.5,119.0" fill="#17915a"/><line x1="170.0" y1="130.0" x2="219.0" y2="130.0" stroke="#b42346" stroke-width="2.6" stroke-linecap="round"/><polygon points="230.0,130.0 219.0,135.5 219.0,124.5" fill="#b42346"/><line x1="190.0" y1="150.0" x2="190.0" y2="189.0" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="190.0,200.0 184.5,189.0 195.5,189.0" fill="#c2410c"/><line x1="80.0" y1="210.0" x2="80.0" y2="181.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="80.0,170.0 85.5,181.0 74.5,181.0" fill="#17915a"/><line x1="270.0" y1="210.0" x2="270.0" y2="181.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="270.0,170.0 275.5,181.0 264.5,181.0" fill="#17915a"/><text x="295.0" y="26.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:16px;font-style:italic;fill:#1c1d21"><tspan>B</tspan></text><text x="208.0" y="78.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>F</tspan></text><text x="116.0" y="68.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>N</tspan></text><text x="242.0" y="118.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#b42346"><tspan>f</tspan></text><text x="208.0" y="202.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>Mg</tspan></text><text x="64.0" y="222.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>R</tspan><tspan dy="4.8" style="font-size:10.8px">1</tspan></text><text x="286.0" y="222.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>R</tspan><tspan dy="4.8" style="font-size:10.8px">2</tspan></text></svg><figcaption>Block B</figcaption></figure></div><p class="small fbdnote">Two strands of the cable pull on the pulley of A, so A feels $2F$ to the right. The lower strand is tied to the upright of B and pulls B to the left with $F$. The friction force $f$ is zero in part (a). In part (b) A slides to the right relative to B, so $f = \mu_k N$ acts to the left on A and to the right on B. $R_1$ and $R_2$ are the floor forces on the rollers.</p>
+</details>
+<details class="step"><summary>Step 2 · Write the kinetics equations</summary>
+<p>With $x$ to the right, the horizontal equations of A and B and the vertical equation of A are</p>
+$$m a_A = 2F - f, \qquad M a_B = -F + f, \qquad N = mg$$
+<p>Adding the first two equations gives $m a_A + M a_B = F$. This is the equation of the whole system, on which the only horizontal external force is the pull $F$ on the free end of the cable.</p>
+</details>
+<details class="step"><summary>Step 3 · Write the kinematics equations</summary>
+<p>The blocks move independently because A slides on B, so no kinematic relation connects $a_A$ and $a_B$. The friction force is $f = 0$ in part (a) and $f = \mu_k N = \mu_k m g$ in part (b), because A slips.</p>
+</details>
+<details class="step"><summary>Step 4 · Solve</summary>
+<p><b>(a) Smooth surface.</b></p>
+$$a_A = \frac{2F}{m} = \frac{120}{20} = 6.00\ \text{m/s}^2, \qquad a_B = -\frac{F}{M} = -\frac{60}{100} = -0.600\ \text{m/s}^2$$
+<p><b>(b) Rough surface.</b> The friction force is $f = 0.5(20)(9.81) = 98.1$ N.</p>
+$$a_A = \frac{2F - f}{m} = \frac{120 - 98.1}{20} = 1.10\ \text{m/s}^2, \qquad a_B = \frac{f - F}{M} = \frac{98.1 - 60}{100} = 0.381\ \text{m/s}^2$$
+<p class="small">The relative acceleration $a_A - a_B = 0.714$ m/s² is positive, so A does slide to the right relative to B, as assumed. If the blocks moved together, their common acceleration would be $F/(m + M) = 0.5$ m/s², which would need a friction force of 110 N. This is more than the 98.1 N available, which confirms that A slips.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>(a) $a_A = 6.00$ m/s² to the right and $a_B = 0.600$ m/s² to the left. (b) $a_A = 1.10$ m/s² and $a_B = 0.381$ m/s², both to the right.</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>In the rough case, raise $\mu_k$ until A stops slipping on B. At what value does this happen?</li><li>Check in both cases that $m a_A + M a_B = F$. Why must this hold whatever the friction between the blocks?</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 4, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-4-a-5.html"><small>← Previous</small>Example 4.A.5</a><a class="next" href="ex-4-a-7.html"><small>Next →</small>Example 4.A.7</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/kit.js"></script>
+<script src="../assets/ch4-exA1.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch4-3dA1.js"></script>
+</body>
+</html>

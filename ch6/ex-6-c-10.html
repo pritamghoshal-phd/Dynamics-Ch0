@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 6.C.10 · Chapter 6 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 6</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="eom.html">A · Equations of motion</a>
+    <a href="free.html">B · Free vibration</a>
+    <a href="damped.html">B · Damped vibration</a>
+    <a href="forced.html">C · Forced vibration</a>
+    <a href="base.html">C · Base excitation</a>
+    <a href="summary.html">Summary</a>
+    <a href="examples.html" class=active>Examples</a>
+    <a href="badges.html">🏅 Badges</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Forced response examples"><a href="examples.html#group-C">All Forced response examples</a><a href="ex-6-c-1.html">6.C.1</a><a href="ex-6-c-2.html">6.C.2</a><a href="ex-6-c-3.html">6.C.3</a><a href="ex-6-c-4.html">6.C.4</a><a href="ex-6-c-5.html">6.C.5</a><a href="ex-6-c-6.html">6.C.6</a><a href="ex-6-c-7.html">6.C.7</a><a href="ex-6-c-8.html">6.C.8</a><a href="ex-6-c-9.html">6.C.9</a><a href="ex-6-c-10.html" class=active>6.C.10</a><a href="ex-6-c-11.html">6.C.11</a><a href="ex-6-c-12.html">6.C.12</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-C">Forced response</a> › Example 6.C.10</p>
+<h2><span class="num">Example 6.C.10</span>Mass hung from a pulley and driven through a cable</h2>
+<div class="tags"><span>base excitation</span><span>pulleys</span><span>resonance</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>The base B moves horizontally with $x_B(t) = b\cos\omega t$. A spring of stiffness $k$ connects B to the end E of a cable. The cable passes over a fixed pulley, runs down and around a movable pulley, and is tied to the yoke of the fixed pulley. A block of mass $m$ hangs from the movable pulley, and a second spring of stiffness $k$ connects the block to the ground. The pulleys are light and smooth, and the coordinate $x$ of the block is measured downward from static equilibrium.</p>
+<p><b>Find</b> (a) the differential equation of motion for the system and (b) the resonant frequency of the system.</p>
+<p class="small">The book gives no numbers. The animation uses $m = 5$ kg, $k = 200$ N/m and $b = 20$ mm.</p>
+</div>
+<div class="demo" id="x6c-10">
+  <div class="demo-title"><span class="tag">Interactive</span><span>The base pulls the cable through the spring; the movable pulley carries the block</span></div>
+  <canvas id="x6c-10-anim" class="anim" style="height:360px"></canvas><div class="grid2"><canvas id="x6c-10-xt" class="plot" style="height:210px"></canvas><canvas id="x6c-10-fr" class="plot" style="height:210px"></canvas></div>
+  <div class="controls" id="x6c-10-ctl"></div>
+  <div class="bar" id="x6c-10-pre"><span class="lbl">Try:</span></div>
+  <div class="bar" id="x6c-10-btn"></div>
+  <div class="stats" id="x6c-10-stats"></div>
+  <p class="small concept-note">The animation integrates the full equation of motion from rest, so you see the transient and the steady state together. The chip "Steady state only" shows the particular solution alone. The left plot follows the motion over the last 2.5 s, with the predicted steady-state amplitude drawn as dashed lines. The right plot is the frequency response, and the dot marks the current forcing frequency. The book's systems have no damper. The optional damping slider stands for small friction losses and shows how the transient dies out.</p>
+</div>
+<div class="demo v3d" data-clip="x6c-10"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Every solution starts from free-body diagrams in a displaced position, then writes the equation of motion and reads off the vibration properties. Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Draw the free-body diagrams</summary>
+<p>Take the movable pulley and the block together. Two strands of the cable pull up on the pulley with the tension $T$. The lower spring pushes or pulls on the block with $F_2$, and the weight acts down. The cable end E is massless, so the upper spring force $F_1$ equals $T$.</p>
+<div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 300 330" role="img" aria-label="Movable pulley and m together" style="max-width:300px"><circle cx="150.0" cy="108.0" r="22.0" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><line x1="150.0" y1="130.0" x2="150.0" y2="162.0" stroke="#1c1d21" stroke-width="2.4"/><rect x="-35.0" y="-28.0" width="70.0" height="56.0" rx="4" transform="translate(150.0,190.0) rotate(0.0)" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><line x1="128.0" y1="108.0" x2="128.0" y2="63.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="128.0,52.0 133.5,63.0 122.5,63.0" fill="#2457d6"/><line x1="172.0" y1="108.0" x2="172.0" y2="63.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="172.0,52.0 177.5,63.0 166.5,63.0" fill="#2457d6"/><line x1="170.0" y1="218.0" x2="170.0" y2="257.0" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="170.0,268.0 164.5,257.0 175.5,257.0" fill="#c2410c"/><line x1="130.0" y1="274.0" x2="130.0" y2="229.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="130.0,218.0 135.5,229.0 124.5,229.0" fill="#17915a"/><line x1="36.0" y1="270.0" x2="36.0" y2="299.0" stroke="#7b808c" stroke-width="2.6" stroke-linecap="round"/><polygon points="36.0,310.0 30.5,299.0 41.5,299.0" fill="#7b808c"/><text x="150.0" y="190.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:16px;font-style:italic;fill:#1c1d21"><tspan>m</tspan></text><text x="114.0" y="40.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>T</tspan></text><text x="186.0" y="40.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>T</tspan></text><text x="192.0" y="280.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>mg</tspan></text><text x="110.0" y="286.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>F</tspan><tspan dy="4.8" style="font-size:10.8px">2</tspan></text><text x="50.0" y="322.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#7b808c"><tspan>x</tspan></text></svg><figcaption>Movable pulley and m together</figcaption></figure><figure><svg class="fbd" viewBox="0 0 300 200" role="img" aria-label="Cable end E (massless)" style="max-width:300px"><circle cx="150.0" cy="100.0" r="4" fill="#1c1d21"/><line x1="150.0" y1="100.0" x2="219.0" y2="100.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="230.0,100.0 219.0,105.5 219.0,94.5" fill="#2457d6"/><line x1="150.0" y1="100.0" x2="81.0" y2="100.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="70.0,100.0 81.0,94.5 81.0,105.5" fill="#2457d6"/><text x="150.0" y="84.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>E</tspan></text><text x="242.0" y="86.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>T</tspan></text><text x="58.0" y="86.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>F</tspan><tspan dy="4.8" style="font-size:10.8px">1</tspan></text></svg><figcaption>Cable end E (massless)</figcaption></figure></div><p class="small fbdnote">Left: two strands of the cable hold up the movable pulley, so the cable tension $T$ appears twice. $F_2$ is the force of the lower spring. Right: the end E of the upper spring is massless, so the spring force $F_1$ equals the cable tension. The pulleys are light and smooth, so $T$ is the same in every strand.</p>
+</details>
+<details class="step"><summary>Step 2 · Write the kinematics of the cable</summary>
+<p>When the block moves down by $x$, both strands that hold the movable pulley become longer by $x$. The cable has a fixed length, so the end E moves toward the fixed pulley by $2x$. The upper spring is then stretched by $2x - x_B$ beyond its static stretch.</p>
+$$T = F_1 = T_{st} + k\,(2x - x_B), \qquad F_2 = F_{2,st} + kx$$
+<p>Here $F_2$ acts up on the block when $x > 0$, because the lower spring is compressed further.</p>
+</details>
+<details class="step"><summary>Step 3 · Write the equation of motion</summary>
+<p>Newton's second law for the pulley and the block, with $x$ downward, gives</p>
+$$m\ddot x = mg - 2T - F_2 = mg - 2T_{st} - F_{2,st} - 2k\,(2x - x_B) - kx$$
+<p>The static terms balance the weight, $2T_{st} + F_{2,st} = mg$. What remains is</p>
+$$m\ddot x + 5kx = 2k\,x_B = 2k\,b\cos\omega t$$
+</details>
+<details class="step"><summary>Step 4 · Find the resonant frequency</summary>
+<p>Resonance occurs when the forcing frequency equals the natural frequency of the equation of motion.</p>
+$$\omega_{res} = \omega_n = \sqrt{\frac{5k}{m}}$$
+<p>The steady-state amplitude is $X = 2kb/(5k - m\omega^2)$, which grows without bound as $\omega$ approaches $\sqrt{5k/m}$. With the animation's values, $\omega_n = \sqrt{1000/5} = 14.14$ rad/s.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>(a) $m\ddot x + 5kx = 2k\,b\cos\omega t$. (b) The resonant frequency is $\omega = \sqrt{5k/m}$.</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Why does the upper spring contribute $4k$ to the stiffness while the lower spring contributes only $k$? Watch how far the end E moves compared with the block.</li><li>Choose the preset at resonance and play the full response. How many cycles does it take for the block to move 50 mm?</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 6, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-6-c-9.html"><small>← Previous</small>Example 6.C.9</a><a class="next" href="ex-6-c-11.html"><small>Next →</small>Example 6.C.11</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/kit.js"></script>
+<script src="../assets/ch6-exC2.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch6-3dC2.js"></script>
+</body>
+</html>

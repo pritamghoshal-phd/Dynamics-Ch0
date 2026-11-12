@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 1.D.5 · Chapter 1 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 1</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="planar.html">A · Planar descriptions</a>
+    <a href="threed.html">B · 3D descriptions</a>
+    <a href="joint.html">C · Joint description</a>
+    <a href="relative.html">D · Relative & constrained</a>
+    <a href="examples.html" class=active>Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Relative and constrained motion examples"><a href="examples.html#group-D">All Relative and constrained motion examples</a><a href="ex-1-d-1.html">1.D.1</a><a href="ex-1-d-2.html">1.D.2</a><a href="ex-1-d-3.html">1.D.3</a><a href="ex-1-d-4.html">1.D.4</a><a href="ex-1-d-5.html" class=active>1.D.5</a><a href="ex-1-d-6.html">1.D.6</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-D">Relative and constrained motion</a> › Example 1.D.5</p>
+<h2><span class="num">Example 1.D.5</span>Two cables and two movable pulleys</h2>
+<div class="tags"><span>constrained motion</span><span>two cables</span><span>pulleys</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>The system contains two inextensible cables. Cable 1 runs from B over a fixed pulley, down and under the pulley that carries block $m$, and up to the axle of pulley C. Cable 2 runs from A over a second fixed pulley, down and under pulley C, and up to a fixed bracket. End A moves to the right with a speed of $v_A = 2$ m/s, and end B moves to the left with a speed of $v_B = 2$ m/s.</p>
+<p><b>Find</b> the speed of block $m$.</p>
+</div>
+<div class="demo" id="x1d-5">
+  <div class="demo-title"><span class="tag">Interactive</span><span>Pulling A and B lifts C and the block m</span></div>
+  <canvas id="x1d-5-anim" class="anim" style="height:480px"></canvas><canvas id="x1d-5-plot" class="plot" style="height:220px"></canvas><div class="legendrow"><span><span class="sw" style="background:var(--c4)"></span>Δx<sub>C</sub></span><span><span class="sw" style="background:var(--c3)"></span>Δx<sub>m</sub></span></div>
+  <div class="controls" id="x1d-5-ctl"></div>
+  <div class="bar" id="x1d-5-btn"></div>
+  <div class="stats" id="x1d-5-stats"></div>
+  <p class="small concept-note">Positive values of A and B mean A moves right and B moves left, as in the problem. The graph shows how far C and m have moved, with downward positive.</p>
+</div>
+<div class="demo v3d" data-clip="x1d-5"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Choose coordinates</summary>
+<p>Measure $x_A$ to the right and $x_B$ to the left from the fixed pulleys. Measure $x_C$ and $x_m$ downward from the ceiling to the centres of pulley C and of the pulley that carries $m$. With these choices, $\dot x_A = 2$ m/s and $\dot x_B = 2$ m/s.</p>
+</details>
+<details class="step"><summary>Step 2 · Draw the cable diagram</summary>
+<div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 420 350" role="img" aria-label="Two cables, one color each" style="max-width:420px"><line x1="60.0" y1="25.2" x2="192.0" y2="25.2" stroke="#1c1d21" stroke-width="1.8"/><line x1="64.0" y1="25.2" x2="59.0" y2="19.2" stroke="#8b8f98" stroke-width="1"/><line x1="73.0" y1="25.2" x2="68.0" y2="19.2" stroke="#8b8f98" stroke-width="1"/><line x1="82.0" y1="25.2" x2="77.0" y2="19.2" stroke="#8b8f98" stroke-width="1"/><line x1="91.0" y1="25.2" x2="86.0" y2="19.2" stroke="#8b8f98" stroke-width="1"/><line x1="100.0" y1="25.2" x2="95.0" y2="19.2" stroke="#8b8f98" stroke-width="1"/><line x1="109.0" y1="25.2" x2="104.0" y2="19.2" stroke="#8b8f98" stroke-width="1"/><line x1="118.0" y1="25.2" x2="113.0" y2="19.2" stroke="#8b8f98" stroke-width="1"/><line x1="127.0" y1="25.2" x2="122.0" y2="19.2" stroke="#8b8f98" stroke-width="1"/><line x1="136.0" y1="25.2" x2="131.0" y2="19.2" stroke="#8b8f98" stroke-width="1"/><line x1="145.0" y1="25.2" x2="140.0" y2="19.2" stroke="#8b8f98" stroke-width="1"/><line x1="154.0" y1="25.2" x2="149.0" y2="19.2" stroke="#8b8f98" stroke-width="1"/><line x1="163.0" y1="25.2" x2="158.0" y2="19.2" stroke="#8b8f98" stroke-width="1"/><line x1="172.0" y1="25.2" x2="167.0" y2="19.2" stroke="#8b8f98" stroke-width="1"/><line x1="181.0" y1="25.2" x2="176.0" y2="19.2" stroke="#8b8f98" stroke-width="1"/><line x1="190.0" y1="25.2" x2="185.0" y2="19.2" stroke="#8b8f98" stroke-width="1"/><line x1="90.0" y1="25.2" x2="90.0" y2="61.2" stroke="#2b2f38" stroke-width="1.6"/><line x1="162.0" y1="25.2" x2="162.0" y2="61.2" stroke="#2b2f38" stroke-width="1.6"/><path d="M58.8,48.0 L90.0,48.0 A13.2,13.2 0 0 1 103.2,61.2 L103.2,259.2 A26.1,26.1 0 0 0 155.4,259.2 L155.4,172.2" fill="none" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M235.2,48.0 L162.0,48.0 A13.2,13.2 0 0 0 148.8,61.2 L148.8,163.2 A6.6,6.6 0 0 0 162.0,163.2 L162.0,74.4" fill="none" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="90.0" cy="61.2" r="13.2" fill="#fff" stroke="#2b2f38" stroke-width="1.8"/><circle cx="90.0" cy="61.2" r="2.2" fill="#2b2f38"/><circle cx="162.0" cy="61.2" r="13.2" fill="#fff" stroke="#2b2f38" stroke-width="1.8"/><circle cx="162.0" cy="61.2" r="2.2" fill="#2b2f38"/><circle cx="155.4" cy="163.2" r="6.6" fill="#fff" stroke="#2b2f38" stroke-width="1.8"/><circle cx="155.4" cy="163.2" r="2.2" fill="#2b2f38"/><circle cx="129.3" cy="259.2" r="26.1" fill="#fff" stroke="#2b2f38" stroke-width="1.8"/><circle cx="129.3" cy="259.2" r="2.2" fill="#2b2f38"/><line x1="129.3" y1="285.3" x2="129.3" y2="294.9" stroke="#2b2f38" stroke-width="1.6"/><rect x="-15.0" y="-12.0" width="30.0" height="24.0" rx="4" transform="translate(129.3,306.9) rotate(0.0)" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><rect x="-12.0" y="-6.0" width="24.0" height="12.0" rx="4" transform="translate(246.0,48.0) rotate(0.0)" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><rect x="-12.0" y="-6.0" width="24.0" height="12.0" rx="4" transform="translate(48.0,48.0) rotate(0.0)" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><line x1="90.0" y1="33.6" x2="59.0" y2="33.6" stroke="#7b808c" stroke-width="2.6" stroke-linecap="round"/><polygon points="48.0,33.6 59.0,28.1 59.0,39.1" fill="#7b808c"/><line x1="162.0" y1="33.6" x2="235.0" y2="33.6" stroke="#7b808c" stroke-width="2.6" stroke-linecap="round"/><polygon points="246.0,33.6 235.0,39.1 235.0,28.1" fill="#7b808c"/><line x1="192.0" y1="26.4" x2="192.0" y2="152.2" stroke="#7b808c" stroke-width="2.6" stroke-linecap="round"/><polygon points="192.0,163.2 186.5,152.2 197.5,152.2" fill="#7b808c"/><line x1="21.0" y1="26.4" x2="21.0" y2="248.2" stroke="#7b808c" stroke-width="2.6" stroke-linecap="round"/><polygon points="21.0,259.2 15.5,248.2 26.5,248.2" fill="#7b808c"/><text x="129.3" y="306.9" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:16px;font-style:italic;fill:#1c1d21"><tspan>m</tspan></text><text x="268.0" y="60.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:14px;font-style:italic;fill:#1c1d21"><tspan>A</tspan></text><text x="26.0" y="60.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:14px;font-style:italic;fill:#1c1d21"><tspan>B</tspan></text><text x="171.4" y="165.2" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:14px;font-style:italic;fill:#1c1d21"><tspan>C</tspan></text><text x="34.0" y="33.6" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#7b808c"><tspan>x</tspan><tspan dy="4.8" style="font-size:10.8px">B</tspan></text><text x="260.0" y="33.6" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#7b808c"><tspan>x</tspan><tspan dy="4.8" style="font-size:10.8px">A</tspan></text><text x="178.0" y="94.8" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#7b808c"><tspan>x</tspan><tspan dy="4.8" style="font-size:10.8px">C</tspan></text><text x="35.0" y="142.8" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#7b808c"><tspan>x</tspan><tspan dy="4.8" style="font-size:10.8px">m</tspan></text><text x="82.2" y="205.2" text-anchor="middle" dominant-baseline="middle" style="font-family:system-ui,sans-serif;font-size:11px;fill:#c2410c">cable 1</text><text x="228.0" y="127.2" text-anchor="middle" dominant-baseline="middle" style="font-family:system-ui,sans-serif;font-size:11px;fill:#2457d6">cable 2</text></svg><figcaption>Two cables, one color each</figcaption></figure></div><p class="small fbdnote">Cable 1 (orange) runs from B over the left pulley, under the pulley of $m$, and up to the axle of C. Cable 2 (blue) runs from A over the right pulley, under C, and up to the bracket of that pulley. All coordinates are measured from fixed points.</p>
+</details>
+<details class="step"><summary>Step 3 · Write the length of each cable</summary>
+<p>Cable 2 consists of the horizontal segment to A and two vertical strands that hold C.</p>
+$$L_2 = x_A + 2x_C + \text{constant}$$
+<p>Cable 1 consists of the horizontal segment to B, the strand from the left fixed pulley down to the pulley of $m$, and the strand from the pulley of $m$ up to C. The last strand has length $x_m - x_C$.</p>
+$$L_1 = x_B + x_m + \left(x_m - x_C\right) + \text{constant} = x_B + 2x_m - x_C + \text{constant}$$
+</details>
+<details class="step"><summary>Step 4 · Differentiate</summary>
+$$0 = \dot x_A + 2\dot x_C \quad\Longrightarrow\quad \dot x_C = -\tfrac12\,\dot x_A = -1\ \text{m/s}$$
+$$0 = \dot x_B + 2\dot x_m - \dot x_C \quad\Longrightarrow\quad \dot x_m = \tfrac12\left(\dot x_C - \dot x_B\right)$$
+</details>
+<details class="step"><summary>Step 5 · Solve</summary>
+$$\dot x_m = \tfrac12\left(-1 - 2\right) = -1.5\ \text{m/s}$$
+<p>The negative sign means that $x_m$ decreases, so block $m$ moves upward. Both effects lift $m$. Pulling B shortens cable 1 directly, and pulling A raises C, which takes more of cable 1 into the strand between C and $m$.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>Block $m$ moves upward with a speed of 1.5 m/s.</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Set $v_B = -1$ m/s, so that B moves to the right. Find the value of $v_A$ that keeps $m$ at rest, and check it with the sliders.</li><li>Which pulleys in the animation turn clockwise? Explain the direction of each from the motion of the cable.</li><li>How would the answer change if cable 1 were tied to the ceiling instead of to the axle of C?</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 1, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-1-d-4.html"><small>← Previous</small>Example 1.D.4</a><a class="next" href="ex-1-d-6.html"><small>Next →</small>Example 1.D.6</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/kit.js"></script>
+<script src="../assets/ch1-exD.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch1-3dD.js"></script>
+</body>
+</html>

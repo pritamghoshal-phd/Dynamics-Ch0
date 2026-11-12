@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Newton's laws · Chapter 4 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 4</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="newton.html" class=active>A · Newton's laws</a>
+    <a href="energy.html">B · Work–energy</a>
+    <a href="impulse.html">C · Linear impulse–momentum</a>
+    <a href="angular.html">D · Angular impulse–momentum</a>
+    <a href="examples.html">Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<section>
+<h2><span class="num">A</span>Newton's laws</h2>
+<p>For a particle of mass $m$ acted on by forces $\mathbf F_1, \mathbf F_2, \dots$, Newton's second law says the resultant force equals mass times acceleration:</p>
+$$\sum \mathbf F = m\,\mathbf a$$
+<p>This is one vector equation, so in the plane it gives two scalar equations. You may write them in whichever components make the acceleration easiest, using the kinematics of Chapter 1:</p>
+<div class="tblwrap"><table class="tbl"><tr><th>Components</th><th>Equations</th><th>Good for</th></tr>
+<tr><td>Cartesian</td><td>$\sum F_x = m\ddot x,\quad \sum F_y = m\ddot y$</td><td>straight lines, projectiles</td></tr>
+<tr><td>Path (normal–tangential)</td><td>$\sum F_t = m\dot v,\quad \sum F_n = m\dfrac{v^2}{\rho}$</td><td>known curved paths, speeds</td></tr>
+<tr><td>Polar</td><td>$\sum F_r = m(\ddot r - r\dot\theta^2),\quad \sum F_\theta = m(r\ddot\theta + 2\dot r\dot\theta)$</td><td>rotating arms, slots, cords through holes</td></tr>
+</table></div>
+<p>The force side comes from the FBD; the acceleration side comes from kinematics. Keeping the two sides separate is the whole discipline of the four-step method.</p>
+
+<h3>There is no "centrifugal force"</h3>
+<p>When a body moves on a curve, the normal equation $\sum F_n = m v^2/\rho$ says the forces must <em>pull inward</em> to bend the path. Some people move $mv^2/\rho$ to the left side and call it an outward "centrifugal force" so the problem looks like statics. In this course we do not: an FBD shows only real forces exerted by real things (cords, surfaces, gravity, springs). The term $mv^2/\rho$ is part of $m\mathbf a$, not a force.</p>
+<div class="demo concept" id="c-circle">
+  <div class="demo-title"><span class="tag concept-tag">Concept</span><span>Swing a ball on a string, then cut the string</span></div>
+  <canvas id="c-circle-anim" class="anim" style="height:340px"></canvas>
+  <div class="controls" id="c-circle-ctl"></div>
+  <div class="bar" id="c-circle-pre"><span class="lbl">Do:</span></div>
+  <div class="bar" id="c-circle-btn"></div>
+  <div class="stats" id="c-circle-stats"></div>
+  <p class="small concept-note">While the string is attached, the only horizontal force is the tension pulling toward O. Nothing pushes outward. Cut the string and the ball does not fly outward along the radius: it continues straight along the tangent, exactly as Newton's first law says.</p>
+</div>
+
+<h3>Normal forces change on curved paths</h3>
+<p>On a road with hills and dips, the normal force is not $mg$. At the crest of a hill (center of curvature below), $mg - N = mv^2/\rho$, so $N = mg - mv^2/\rho$: the car feels lighter, and if $v^2 > g\rho$ the road would have to <em>pull</em> the car down, which it cannot, so the car leaves the road. In a dip, $N = mg + mv^2/\rho$ and the car feels heavier.</p>
+<div class="demo concept" id="c-hill">
+  <div class="demo-title"><span class="tag concept-tag">Concept</span><span>N over hills and dips at constant speed</span></div>
+  <canvas id="c-hill-anim" class="anim" style="height:260px"></canvas><canvas id="c-hill-plot" class="plot" style="height:220px"></canvas>
+  <div class="controls" id="c-hill-ctl"></div>
+  <div class="bar" id="c-hill-pre"><span class="lbl">Try:</span></div>
+  <div class="bar" id="c-hill-btn"></div>
+  <div class="stats" id="c-hill-stats"></div>
+  <p class="small concept-note">The plot traces N/mg along the road. The flat line at 1 is what N would be on level ground. Raise the speed until the curve dips below zero at the crests.</p>
+</div>
+
+<h3>Straight-line motion: integrating F = ma</h3>
+<p>When a particle moves along a line, Newton's law is a scalar equation $F = m\,dv/dt$. Depending on what the force depends on, separate variables just as in Chapter 0:</p>
+<ul>
+<li>$F(t)$: $\;m\,dv = F\,dt \Rightarrow m(v_2 - v_1) = \int F\,dt$</li>
+<li>$F(s)$: $\;m v\,dv = F\,ds \Rightarrow \tfrac12 m(v_2^2 - v_1^2) = \int F\,ds$</li>
+<li>$F(v)$: $\;dt = m\,dv/F(v)$, or $ds = m v\,dv/F(v)$</li>
+</ul>
+<p>These two integrals are the seeds of the next two sections: impulse–momentum and work–energy.</p>
+
+<h3>Systems of particles</h3>
+<p>Write Newton's law for each particle in a system and add them up. The forces particles exert on each other come in equal and opposite pairs (Newton's third law) and cancel, leaving</p>
+$$\sum \mathbf F_{\text{ext}} = M\,\mathbf a_G, \qquad M = \sum m_j,\quad \mathbf r_G = \frac{1}{M}\sum m_j\mathbf r_j$$
+<p>The center of mass G moves as if all the mass were concentrated there and all the external forces acted on it. Internal forces can shake the parts around, but they cannot move G.</p>
+<div class="demo concept" id="c-com">
+  <div class="demo-title"><span class="tag concept-tag">Concept</span><span>Internal forces cannot move the center of mass</span></div>
+  <canvas id="c-com-anim" class="anim" style="height:200px"></canvas><canvas id="c-com-plot" class="plot" style="height:240px"></canvas><div class="legendrow"><span><span class="sw" style="background:var(--c1)"></span>A</span><span><span class="sw" style="background:var(--c5)"></span>B</span><span><span class="sw" style="background:var(--c4)"></span>center of mass G</span><span><span class="sw" style="background:var(--c2)"></span>G predicted by F = (m_A + m_B) a_G</span></div>
+  <div class="controls" id="c-com-ctl"></div>
+  <div class="bar" id="c-com-btn"></div>
+  <div class="stats" id="c-com-stats"></div>
+  <p class="small concept-note">A force F pulls only on A; a spring links A and B. A and B jiggle back and forth, but G (thick purple) follows the smooth parabola of a single particle of mass m_A + m_B pushed by F.</p>
+</div>
+<div class="card method"><h3 style="margin-top:.2rem">The four-step method for kinetics</h3>
+<ol><li><b>Free-body diagrams.</b> Decide which body (or group of bodies) to isolate and draw every force on it. Draw your coordinate directions and unit vectors on the diagram too.</li>
+<li><b>Kinetics equations.</b> Pick the principle that suits the question (Newton's second law, work–energy, linear impulse–momentum or angular impulse–momentum) and write its equations from your FBDs.</li>
+<li><b>Kinematics.</b> Express the accelerations, velocities or displacements that appear in Step 2 using the kinematics of Chapters 1–3 (path, polar or Cartesian components, constraints).</li>
+<li><b>Solve.</b> Count unknowns and equations. Too few equations means you need another FBD or more kinematics. Then solve.</li></ol></div>
+<div class="try"><h4>Try this</h4><ul><li>In the string demo, double the speed. By how much does the tension grow? Then halve the string length at the original speed.</li><li>In the road demo, find the speed at which the car just leaves the road at the crest. Compare with √(gρ), where ρ = 1/(A k²) at the crest.</li><li>In the system demo, set F = 0 and stretch nothing. What does G do? Now make the spring very stiff: what do A and B look like?</li></ul></div>
+<div class="wild"><span class="wi" aria-hidden="true">🎢</span><div><b class="wh">Kinetics in the wild</b><p>Roller-coaster designers use $N = mg \pm mv^2/\rho$ all the time. The "airtime" hills that lift you out of your seat are crests shaped so that N briefly drops to nearly zero. Loops use a teardrop (clothoid) shape so the curvature is tight at the top, where the train is slow, and gentle at the bottom, where it is fast, keeping N comfortable everywhere.</p></div></div>
+</section>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="index.html"><small>← Previous</small>Overview</a><a class="next" href="energy.html"><small>Next →</small>B · Work and energy</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/labels.js"></script>
+<script src="../assets/ch4.js"></script>
+</body>
+</html>

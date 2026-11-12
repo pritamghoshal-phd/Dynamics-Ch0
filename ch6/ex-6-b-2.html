@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 6.B.2 · Chapter 6 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 6</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="eom.html">A · Equations of motion</a>
+    <a href="free.html">B · Free vibration</a>
+    <a href="damped.html">B · Damped vibration</a>
+    <a href="forced.html">C · Forced vibration</a>
+    <a href="base.html">C · Base excitation</a>
+    <a href="summary.html">Summary</a>
+    <a href="examples.html" class=active>Examples</a>
+    <a href="badges.html">🏅 Badges</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Free response examples"><a href="examples.html#group-B">All Free response examples</a><a href="ex-6-b-1.html">6.B.1</a><a href="ex-6-b-2.html" class=active>6.B.2</a><a href="ex-6-b-3.html">6.B.3</a><a href="ex-6-b-4.html">6.B.4</a><a href="ex-6-b-5.html">6.B.5</a><a href="ex-6-b-6.html">6.B.6</a><a href="ex-6-b-7.html">6.B.7</a><a href="ex-6-b-8.html">6.B.8</a><a href="ex-6-b-9.html">6.B.9</a><a href="ex-6-b-10.html">6.B.10</a><a href="ex-6-b-11.html">6.B.11</a><a href="ex-6-b-12.html">6.B.12</a><a href="ex-6-b-13.html">6.B.13</a><a href="ex-6-b-14.html">6.B.14</a><a href="ex-6-b-15.html">6.B.15</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-B">Free response</a> › Example 6.B.2</p>
+<h2><span class="num">Example 6.B.2</span>Blocks on a ledge and a movable pulley with two springs</h2>
+<div class="tags"><span>equation of motion</span><span>natural frequency</span><span>pulleys</span><span>static equilibrium</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>Blocks A and B, having masses $m$ and $3m$, are connected by a cable–pulley system as shown. A spring of stiffness $3k$ is attached between A and the ground. A second spring of stiffness $k$ is attached between block B and the ground. Let $x$ describe the position of A, where the springs are unstretched when $x = 0$. The horizontal surface is smooth and the pulleys are light.</p>
+<p><b>Find</b> (a) the EOM of this system in terms of the coordinate $x$, and (b) the natural frequency of the system.</p>
+<p class="small">The animation uses $m = 1$ kg and $k = 60$ N/m, with the system released from rest with both springs unstretched.</p>
+</div>
+<div class="demo" id="x6b-2">
+  <div class="demo-title"><span class="tag">Interactive</span><span>Released with both springs unstretched</span></div>
+  <div class="grid2"><canvas id="x6b-2-anim" class="anim" style="height:380px"></canvas><div><canvas id="x6b-2-plot" class="plot" style="height:380px"></canvas></div></div>
+  <div class="controls" id="x6b-2-ctl"></div>
+  <div class="bar" id="x6b-2-pre"><span class="lbl">Try:</span></div>
+  <div class="bar" id="x6b-2-btn"></div>
+  <div class="stats" id="x6b-2-stats"></div>
+  <p class="small concept-note">Released at $x = 0$, the system oscillates between $x = 0$ and $x = 2x_{eq}$ about the static equilibrium position (green dashed line in the plot). Block B moves half as far as A, so the spring below it is compressed by $x/2$.</p>
+</div>
+<div class="demo v3d" data-clip="x6b-2"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Every solution starts from free-body diagrams in a displaced position, then writes the equation of motion and reads off the vibration properties. Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Draw the free-body diagrams</summary>
+<div class="fbdrow"><figure style="width:min(340px,100%)"><svg class="fbd" viewBox="0 0 340 230" role="img" aria-label="Block A, displaced x to the right" style="max-width:340px"><line x1="40.0" y1="140.0" x2="300.0" y2="140.0" stroke="#7b808c" stroke-width="1.2" stroke-dasharray="5 4"/><rect x="-45.0" y="-30.0" width="90.0" height="60.0" rx="4" transform="translate(170.0,110.0) rotate(0.0)" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><line x1="215.0" y1="110.0" x2="268.0" y2="110.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="279.0,110.0 268.0,115.5 268.0,104.5" fill="#2457d6"/><line x1="125.0" y1="110.0" x2="72.0" y2="110.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="61.0,110.0 72.0,104.5 72.0,115.5" fill="#2457d6"/><line x1="156.0" y1="114.0" x2="156.0" y2="169.0" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="156.0,180.0 150.5,169.0 161.5,169.0" fill="#c2410c"/><line x1="188.0" y1="192.0" x2="188.0" y2="151.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="188.0,140.0 193.5,151.0 182.5,151.0" fill="#17915a"/><line x1="240.0" y1="204.0" x2="281.0" y2="204.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="292.0,204.0 281.0,209.5 281.0,198.5" fill="#7b808c"/><text x="170.0" y="112.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:17px;font-style:italic;fill:#1c1d21"><tspan>m</tspan></text><text x="295.0" y="96.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>T</tspan></text><text x="45.0" y="96.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>3kx</tspan></text><text x="134.0" y="176.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>mg</tspan></text><text x="204.0" y="204.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>N</tspan></text><text x="304.0" y="204.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:14px;font-style:italic;fill:#7b808c"><tspan>x</tspan></text></svg><figcaption>Block A, displaced x to the right</figcaption></figure><figure style="width:min(250px,100%)"><svg class="fbd" viewBox="0 0 250 320" role="img" aria-label="Pulley and block B together" style="max-width:250px"><circle cx="120.0" cy="80.0" r="24.0" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><circle cx="120.0" cy="80.0" r="4" fill="#1c1d21"/><line x1="96.0" y1="80.0" x2="96.0" y2="33.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="96.0,22.0 101.5,33.0 90.5,33.0" fill="#2457d6"/><line x1="144.0" y1="80.0" x2="144.0" y2="33.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="144.0,22.0 149.5,33.0 138.5,33.0" fill="#2457d6"/><line x1="120.0" y1="80.0" x2="120.0" y2="152.0" stroke="#1c1d21" stroke-width="2"/><rect x="-38.0" y="-32.0" width="76.0" height="64.0" rx="4" transform="translate(120.0,186.0) rotate(0.0)" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><line x1="100.0" y1="200.0" x2="100.0" y2="253.0" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="100.0,264.0 94.5,253.0 105.5,253.0" fill="#c2410c"/><line x1="140.0" y1="276.0" x2="140.0" y2="229.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="140.0,218.0 145.5,229.0 134.5,229.0" fill="#2457d6"/><line x1="214.0" y1="150.0" x2="214.0" y2="185.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="214.0,196.0 208.5,185.0 219.5,185.0" fill="#7b808c"/><text x="82.0" y="18.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>T</tspan></text><text x="158.0" y="18.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>T</tspan></text><text x="120.0" y="188.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:17px;font-style:italic;fill:#1c1d21"><tspan>3m</tspan></text><text x="74.0" y="262.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>3mg</tspan></text><text x="170.0" y="290.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>k(x/2)</tspan></text><text x="214.0" y="210.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:14px;font-style:italic;fill:#7b808c"><tspan>x/2</tspan></text></svg><figcaption>Pulley and block B together</figcaption></figure></div><p class="small fbdnote">The left spring (stiffness $3k$) is stretched by $x$ and pulls A to the left. Block B has moved down $x/2$, so the spring below it is compressed by $x/2$ and pushes B up.</p><p>We draw block A displaced $x$ to the right, and the movable pulley together with block B, which has moved down by $x/2$.</p>
+</details>
+<details class="step"><summary>Step 2 · Write the cable constraint</summary>
+<p>When A moves right by $x$, the horizontal cable segment shortens by $x$. The two vertical segments that hold the movable pulley share that length, so B moves down by $x/2$.</p>
+$$y_B = \frac{x}{2}, \qquad \ddot y_B = \frac{\ddot x}{2}$$
+</details>
+<details class="step"><summary>Step 3 · Apply Newton's second law</summary>
+<p>For A (right positive) and for the pulley with B (down positive),</p>
+$$T - 3kx = m\ddot x$$
+$$3mg - 2T - k\,\frac{x}{2} = 3m\,\frac{\ddot x}{2} \qquad\Longrightarrow\qquad T = \frac{3mg}{2} - \frac{kx}{4} - \frac{3m\ddot x}{4}$$
+</details>
+<details class="step"><summary>Step 4 · Write the equation of motion</summary>
+<p>Substituting $T$ into the equation for A gives</p>
+$$\frac{3mg}{2} - \frac{kx}{4} - \frac{3m\ddot x}{4} - 3kx = m\ddot x \qquad\Longrightarrow\qquad \tfrac74 m\ddot x + \tfrac{13}{4}kx = \tfrac32 mg$$
+$$7m\ddot x + 13kx = 6mg$$
+<p>The right side is constant, so the system vibrates about the static equilibrium position $x_{eq} = 6mg/(13k)$. For the values in the animation, $x_{eq} = 6(1)(9.81)/(13 \cdot 60) = 0.0755$ m.</p>
+</details>
+<details class="step"><summary>Step 5 · Find the natural frequency</summary>
+$$\omega_n = \sqrt{\frac{13k}{7m}}$$
+<p>For the values in the animation, $\omega_n = \sqrt{13(60)/(7 \cdot 1)} = 10.6$ rad/s, a period of 0.595 s.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>(a) $$7m\ddot x + 13kx = 6mg$$ (b) $$\omega_n = \sqrt{\frac{13k}{7m}}$$</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Release the system from equilibrium plus 5 cm. The oscillation is now centred on $x_{eq}$ with an amplitude of 5 cm, and the period is unchanged.</li><li>Block B has mass $3m$ but adds only $\tfrac34 m$ to the effective mass, and the spring $k$ adds only $\tfrac14 k$. Both come from the factor $1/2$ in the constraint, squared.</li><li>Check the energy method: $T = \tfrac12 m\dot x^2 + \tfrac12(3m)(\dot x/2)^2$ and $V = \tfrac12(3k)x^2 + \tfrac12 k(x/2)^2 - 3mg(x/2)$.</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 6, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-6-b-1.html"><small>← Previous</small>Example 6.B.1</a><a class="next" href="ex-6-b-3.html"><small>Next →</small>Example 6.B.3</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/kit.js"></script>
+<script src="../assets/ch6-exB1.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch6-3dB1.js"></script>
+</body>
+</html>

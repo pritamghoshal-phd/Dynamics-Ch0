@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 6.B.4 · Chapter 6 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 6</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="eom.html">A · Equations of motion</a>
+    <a href="free.html">B · Free vibration</a>
+    <a href="damped.html">B · Damped vibration</a>
+    <a href="forced.html">C · Forced vibration</a>
+    <a href="base.html">C · Base excitation</a>
+    <a href="summary.html">Summary</a>
+    <a href="examples.html" class=active>Examples</a>
+    <a href="badges.html">🏅 Badges</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Free response examples"><a href="examples.html#group-B">All Free response examples</a><a href="ex-6-b-1.html">6.B.1</a><a href="ex-6-b-2.html">6.B.2</a><a href="ex-6-b-3.html">6.B.3</a><a href="ex-6-b-4.html" class=active>6.B.4</a><a href="ex-6-b-5.html">6.B.5</a><a href="ex-6-b-6.html">6.B.6</a><a href="ex-6-b-7.html">6.B.7</a><a href="ex-6-b-8.html">6.B.8</a><a href="ex-6-b-9.html">6.B.9</a><a href="ex-6-b-10.html">6.B.10</a><a href="ex-6-b-11.html">6.B.11</a><a href="ex-6-b-12.html">6.B.12</a><a href="ex-6-b-13.html">6.B.13</a><a href="ex-6-b-14.html">6.B.14</a><a href="ex-6-b-15.html">6.B.15</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-B">Free response</a> › Example 6.B.4</p>
+<h2><span class="num">Example 6.B.4</span>Two carts linked to a light inverted bar</h2>
+<div class="tags"><span>equation of motion</span><span>natural frequency</span><span>small angles</span><span>massless bar</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>Two carts, each of mass $m$, are connected by links to a massless bar that can rotate about a pin O at its lower end. One cart is linked to the top of the bar, a height $L$ above O. The other is linked to the middle of the bar, a height $L/2$ above O. Each cart is connected to the ground by a spring of stiffness $k$ and moves on a smooth surface. The coordinate $x$ is the displacement of the upper cart, measured from its position when the bar is vertical. The springs are unstretched when $x = 0$. Assume small motions, so the bar rotates through small angles only.</p>
+<p><b>Find</b> (a) the equation of motion in terms of the coordinate $x$, and (b) the natural frequency of the system.</p>
+<p class="small">The animation uses $m = 2$ kg, $k = 50$ N/m and $L = 1$ m, with the upper cart released from rest at $x_0 = 0.08$ m.</p>
+</div>
+<div class="demo" id="x6b-4">
+  <div class="demo-title"><span class="tag">Interactive</span><span>The bar rocks and the two carts move together</span></div>
+  <div class="grid2"><canvas id="x6b-4-anim" class="anim" style="height:340px"></canvas><div><canvas id="x6b-4-plot" class="plot" style="height:340px"></canvas></div></div>
+  <div class="controls" id="x6b-4-ctl"></div>
+  <div class="bar" id="x6b-4-pre"><span class="lbl">Try:</span></div>
+  <div class="bar" id="x6b-4-btn"></div>
+  <div class="stats" id="x6b-4-stats"></div>
+  <p class="small concept-note">The links keep their exact lengths in the drawing, and the wheels roll on the platforms. For these small angles the lower cart moves almost exactly $x/2$.</p>
+</div>
+<div class="demo v3d" data-clip="x6b-4"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Every solution starts from free-body diagrams in a displaced position, then writes the equation of motion and reads off the vibration properties. Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Draw the free-body diagrams</summary>
+<div class="fbdrow"><figure style="width:min(300px,100%)"><svg class="fbd" viewBox="0 0 300 220" role="img" aria-label="Upper cart" style="max-width:300px"><rect x="-50.0" y="-30.0" width="100.0" height="60.0" rx="4" transform="translate(150.0,100.0) rotate(0.0)" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><circle cx="150.0" cy="100.0" r="3" fill="#1c1d21"/><line x1="150.0" y1="100.0" x2="83.0" y2="100.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="72.0,100.0 83.0,94.5 83.0,105.5" fill="#2457d6"/><line x1="264.0" y1="88.0" x2="211.0" y2="88.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="200.0,88.0 211.0,82.5 211.0,93.5" fill="#2457d6"/><line x1="176.0" y1="106.0" x2="176.0" y2="151.0" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="176.0,162.0 170.5,151.0 181.5,151.0" fill="#c2410c"/><line x1="128.0" y1="176.0" x2="128.0" y2="141.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="128.0,130.0 133.5,141.0 122.5,141.0" fill="#17915a"/><line x1="214.0" y1="200.0" x2="255.0" y2="200.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="266.0,200.0 255.0,205.5 255.0,194.5" fill="#7b808c"/><text x="168.0" y="102.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:17px;font-style:italic;fill:#1c1d21"><tspan>m</tspan></text><text x="56.0" y="86.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>P</tspan><tspan dy="4.8" style="font-size:10.8px">1</tspan></text><text x="280.0" y="76.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>kx</tspan></text><text x="194.0" y="164.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>mg</tspan></text><text x="112.0" y="188.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>N</tspan><tspan dy="4.8" style="font-size:10.8px">1</tspan></text><text x="278.0" y="200.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:14px;font-style:italic;fill:#7b808c"><tspan>x</tspan></text></svg><figcaption>Upper cart</figcaption></figure><figure style="width:min(300px,100%)"><svg class="fbd" viewBox="0 0 300 220" role="img" aria-label="Lower cart" style="max-width:300px"><rect x="-50.0" y="-30.0" width="100.0" height="60.0" rx="4" transform="translate(150.0,100.0) rotate(0.0)" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><circle cx="150.0" cy="100.0" r="3" fill="#1c1d21"/><line x1="150.0" y1="100.0" x2="217.0" y2="100.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="228.0,100.0 217.0,105.5 217.0,94.5" fill="#2457d6"/><line x1="100.0" y1="88.0" x2="47.0" y2="88.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="36.0,88.0 47.0,82.5 47.0,93.5" fill="#2457d6"/><line x1="124.0" y1="106.0" x2="124.0" y2="151.0" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="124.0,162.0 118.5,151.0 129.5,151.0" fill="#c2410c"/><line x1="172.0" y1="176.0" x2="172.0" y2="141.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="172.0,130.0 177.5,141.0 166.5,141.0" fill="#17915a"/><line x1="214.0" y1="200.0" x2="255.0" y2="200.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="266.0,200.0 255.0,205.5 255.0,194.5" fill="#7b808c"/><text x="130.0" y="102.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:17px;font-style:italic;fill:#1c1d21"><tspan>m</tspan></text><text x="244.0" y="86.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>P</tspan><tspan dy="4.8" style="font-size:10.8px">2</tspan></text><text x="18.0" y="74.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>k(x/2)</tspan></text><text x="104.0" y="164.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>mg</tspan></text><text x="188.0" y="188.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>N</tspan><tspan dy="4.8" style="font-size:10.8px">2</tspan></text><text x="282.0" y="200.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:14px;font-style:italic;fill:#7b808c"><tspan>x/2</tspan></text></svg><figcaption>Lower cart</figcaption></figure><figure style="width:min(230px,100%)"><svg class="fbd" viewBox="0 0 230 330" role="img" aria-label="The light bar" style="max-width:230px"><line x1="110.0" y1="290.0" x2="110.0" y2="50.0" stroke="#8a6a12" stroke-width="17" stroke-linecap="round"/><line x1="110.0" y1="290.0" x2="110.0" y2="50.0" stroke="#f1e6c8" stroke-width="13" stroke-linecap="round"/><circle cx="110.0" cy="290.0" r="4.5" fill="#fff" stroke="#1c1d21" stroke-width="2"/><line x1="110.0" y1="50.0" x2="169.0" y2="50.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="180.0,50.0 169.0,55.5 169.0,44.5" fill="#2457d6"/><line x1="110.0" y1="170.0" x2="51.0" y2="170.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="40.0,170.0 51.0,164.5 51.0,175.5" fill="#2457d6"/><line x1="48.0" y1="290.0" x2="99.0" y2="290.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="110.0,290.0 99.0,295.5 99.0,284.5" fill="#17915a"/><line x1="150.0" y1="50.0" x2="150.0" y2="170.0" stroke="#7b808c" stroke-width="1.2"/><line x1="155.0" y1="50.0" x2="145.0" y2="50.0" stroke="#7b808c" stroke-width="1.2"/><line x1="155.0" y1="170.0" x2="145.0" y2="170.0" stroke="#7b808c" stroke-width="1.2"/><line x1="150.0" y1="170.0" x2="150.0" y2="290.0" stroke="#7b808c" stroke-width="1.2"/><line x1="155.0" y1="170.0" x2="145.0" y2="170.0" stroke="#7b808c" stroke-width="1.2"/><line x1="155.0" y1="290.0" x2="145.0" y2="290.0" stroke="#7b808c" stroke-width="1.2"/><text x="92.0" y="300.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:16px;font-style:italic;fill:#1c1d21"><tspan>O</tspan></text><text x="196.0" y="36.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>P</tspan><tspan dy="4.8" style="font-size:10.8px">1</tspan></text><text x="24.0" y="156.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>P</tspan><tspan dy="4.8" style="font-size:10.8px">2</tspan></text><text x="34.0" y="278.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>O</tspan><tspan dy="4.8" style="font-size:10.8px">x</tspan></text><text x="132.0" y="110.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>L/2</tspan></text><text x="132.0" y="230.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>L/2</tspan></text></svg><figcaption>The light bar</figcaption></figure></div><p class="small fbdnote">The links are two-force members, so each one pushes or pulls along its own line, which is horizontal. The bar has no mass, so the moments of the link forces about O must cancel. The link forces are horizontal, so the vertical pin force at O is zero and only $O_x$ is drawn.</p><p>We use three diagrams: the upper cart, the lower cart and the bar. Each link carries a horizontal force, $P_1$ for the upper link and $P_2$ for the lower one.</p>
+</details>
+<details class="step"><summary>Step 2 · Write the kinematics</summary>
+<p>For a small rotation $\phi$ of the bar, the top moves $L\phi$ and the middle moves $L\phi/2$ horizontally. The links carry these motions to the carts.</p>
+$$x = L\phi, \qquad x_{\text{lower}} = \frac{x}{2}, \qquad \ddot x_{\text{lower}} = \frac{\ddot x}{2}$$
+</details>
+<details class="step"><summary>Step 3 · Apply the Newton–Euler equations</summary>
+<p>For the upper cart, the spring is compressed by $x$ and pushes left.</p>
+$$-kx - P_1 = m\ddot x$$
+<p>For the lower cart, the spring is stretched by $x/2$ and pulls left.</p>
+$$-k\,\frac{x}{2} + P_2 = m\,\frac{\ddot x}{2}$$
+<p>The bar is massless, so the sum of the moments about O is zero even though the bar rotates.</p>
+$$\sum M_O = 0: \qquad P_2\,\frac{L}{2} - P_1 L = 0 \qquad\Longrightarrow\qquad P_2 = 2P_1$$
+</details>
+<details class="step"><summary>Step 4 · Eliminate the link forces</summary>
+<p>The lower-cart equation gives $P_2 = \tfrac12(m\ddot x + kx)$, so $P_1 = \tfrac14(m\ddot x + kx)$. Substituting into the upper-cart equation gives</p>
+$$m\ddot x + kx + \tfrac14(m\ddot x + kx) = 0 \qquad\Longrightarrow\qquad \tfrac54 m\ddot x + \tfrac54 kx = 0$$
+</details>
+<details class="step"><summary>Step 5 · Find the natural frequency</summary>
+$$\omega_n = \sqrt{\frac{\tfrac54 k}{\tfrac54 m}} = \sqrt{\frac{k}{m}}$$
+<p>For the values in the animation, $\omega_n = \sqrt{50/2} = 5$ rad/s. The lower cart adds $\tfrac14 m$ to the effective mass and its spring adds $\tfrac14 k$ to the effective stiffness, so the ratio, and the frequency, are the same as for a single cart on a single spring.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>(a) $$\tfrac54 m\ddot x + \tfrac54 kx = 0, \text{ that is, } m\ddot x + kx = 0$$ (b) $$\omega_n = \sqrt{\frac{k}{m}}$$</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>The answer does not depend on $L$. Explain why with the kinetic and potential energies of the two carts.</li><li>Suppose the lower link were attached at a height $aL$ instead of $L/2$. Show that the effective mass becomes $(1 + a^2)m$ and the effective stiffness $(1 + a^2)k$.</li><li>Why may we set the sum of the moments on the bar to zero while the bar is accelerating?</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 6, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-6-b-3.html"><small>← Previous</small>Example 6.B.3</a><a class="next" href="ex-6-b-5.html"><small>Next →</small>Example 6.B.5</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/kit.js"></script>
+<script src="../assets/ch6-exB1.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch6-3dB1.js"></script>
+</body>
+</html>

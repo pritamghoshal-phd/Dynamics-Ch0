@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 6.C.11 · Chapter 6 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 6</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="eom.html">A · Equations of motion</a>
+    <a href="free.html">B · Free vibration</a>
+    <a href="damped.html">B · Damped vibration</a>
+    <a href="forced.html">C · Forced vibration</a>
+    <a href="base.html">C · Base excitation</a>
+    <a href="summary.html">Summary</a>
+    <a href="examples.html" class=active>Examples</a>
+    <a href="badges.html">🏅 Badges</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Forced response examples"><a href="examples.html#group-C">All Forced response examples</a><a href="ex-6-c-1.html">6.C.1</a><a href="ex-6-c-2.html">6.C.2</a><a href="ex-6-c-3.html">6.C.3</a><a href="ex-6-c-4.html">6.C.4</a><a href="ex-6-c-5.html">6.C.5</a><a href="ex-6-c-6.html">6.C.6</a><a href="ex-6-c-7.html">6.C.7</a><a href="ex-6-c-8.html">6.C.8</a><a href="ex-6-c-9.html">6.C.9</a><a href="ex-6-c-10.html">6.C.10</a><a href="ex-6-c-11.html" class=active>6.C.11</a><a href="ex-6-c-12.html">6.C.12</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-C">Forced response</a> › Example 6.C.11</p>
+<h2><span class="num">Example 6.C.11</span>Bar in a horizontal plane driven through a spring</h2>
+<div class="tags"><span>base excitation</span><span>rigid body</span><span>small angles</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>A thin homogeneous bar OA of length $L$ and mass $m$ is pinned to the ground at O and moves in a <b>horizontal plane</b>. A spring of stiffness $k$ connects the end A to a base B, which is given the motion $y(t) = y_0\sin\omega t$ perpendicular to the bar. The spring is unstretched when $\theta = 0$ and $y = 0$.</p>
+<p><b>Find</b> the differential equation of motion for the system in terms of the rotation angle $\theta$, assuming small oscillations.</p>
+<p class="small">The book gives no numbers. The animation uses $m = 2$ kg, $L = 1$ m, $k = 150$ N/m and $y_0 = 30$ mm.</p>
+</div>
+<div class="demo" id="x6c-11">
+  <div class="demo-title"><span class="tag">Interactive</span><span>Top view: the base B moves the end A of the bar through the spring</span></div>
+  <canvas id="x6c-11-anim" class="anim" style="height:300px"></canvas><div class="grid2"><canvas id="x6c-11-xt" class="plot" style="height:210px"></canvas><canvas id="x6c-11-fr" class="plot" style="height:210px"></canvas></div>
+  <div class="controls" id="x6c-11-ctl"></div>
+  <div class="bar" id="x6c-11-pre"><span class="lbl">Try:</span></div>
+  <div class="bar" id="x6c-11-btn"></div>
+  <div class="stats" id="x6c-11-stats"></div>
+  <p class="small concept-note">The animation integrates the full equation of motion from rest, so you see the transient and the steady state together. The chip "Steady state only" shows the particular solution alone. The left plot follows the motion over the last 2.5 s, with the predicted steady-state amplitude drawn as dashed lines. The right plot is the frequency response, and the dot marks the current forcing frequency. The book's systems have no damper. The optional damping slider stands for small friction losses and shows how the transient dies out.</p>
+</div>
+<div class="demo v3d" data-clip="x6c-11"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Every solution starts from free-body diagrams in a displaced position, then writes the equation of motion and reads off the vibration properties. Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Draw the free-body diagram</summary>
+<p>Draw the bar at a small angle $\theta$. The forces in the horizontal plane are the pin forces $O_x$ and $O_y$ and the spring force at A. For small angles, A moves a distance $L\theta$ perpendicular to the bar, so the spring is stretched by $y - L\theta$ and pulls A with $F_s = k\,(y - L\theta)$.</p>
+<div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 420 250" role="img" aria-label="Bar OA, top view (horizontal plane)" style="max-width:420px"><line x1="90.0" y1="140.0" x2="363.9" y2="81.8" stroke="#8a6a12" stroke-width="15" stroke-linecap="round"/><line x1="90.0" y1="140.0" x2="363.9" y2="81.8" stroke="#f1e6c8" stroke-width="11" stroke-linecap="round"/><circle cx="90.0" cy="140.0" r="4.5" fill="#fff" stroke="#1c1d21" stroke-width="2"/><circle cx="226.9" cy="110.9" r="4" fill="#1c1d21"/><line x1="40.0" y1="140.0" x2="79.0" y2="140.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="90.0,140.0 79.0,145.5 79.0,134.5" fill="#17915a"/><line x1="90.0" y1="190.0" x2="90.0" y2="151.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="90.0,140.0 95.5,151.0 84.5,151.0" fill="#17915a"/><line x1="363.9" y1="147.8" x2="363.9" y2="98.8" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="363.9,87.8 369.4,98.8 358.4,98.8" fill="#17915a"/><line x1="90.0" y1="140.0" x2="220.0" y2="140.0" stroke="#7b808c" stroke-width="1" stroke-dasharray="5 4"/><path d="M160.0,140.0 A70,70 0 0 0 158.5,125.4" fill="none" stroke="#7b808c" stroke-width="1.2"/><line x1="370.0" y1="224.0" x2="393.0" y2="224.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="404.0,224.0 393.0,229.5 393.0,218.5" fill="#7b808c"/><line x1="370.0" y1="224.0" x2="370.0" y2="201.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="370.0,190.0 375.5,201.0 364.5,201.0" fill="#7b808c"/><text x="84.0" y="160.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>O</tspan></text><text x="238.9" y="100.9" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>G</tspan></text><text x="28.0" y="126.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>O</tspan><tspan dy="4.8" style="font-size:10.8px">x</tspan></text><text x="72.0" y="202.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>O</tspan><tspan dy="4.8" style="font-size:10.8px">y</tspan></text><text x="381.9" y="159.8" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>F</tspan><tspan dy="4.8" style="font-size:10.8px">s</tspan></text><text x="170.6" y="131.5" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>θ</tspan></text><text x="414.0" y="224.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>x</tspan></text><text x="370.0" y="180.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>y</tspan></text></svg><figcaption>Bar OA, top view (horizontal plane)</figcaption></figure></div><p class="small fbdnote">The motion is in a horizontal plane, so gravity acts perpendicular to the page and is balanced by vertical support forces that do not appear in this view. The spring force at A is $F_s = k\,(y - L\theta)$ for small angles. The pin forces at O have no moment about O.</p>
+</details>
+<details class="step"><summary>Step 2 · Write the moment equation about O</summary>
+<p>The bar rotates about the fixed point O, so use $\sum M_O = I_O\,\ddot\theta$ with $I_O = mL^2/3$. The pin forces have no moment about O, and gravity acts perpendicular to the plane of motion.</p>
+$$\frac{mL^2}{3}\,\ddot\theta = L\,k\,(y - L\theta)$$
+</details>
+<details class="step"><summary>Step 3 · Rearrange into standard form</summary>
+$$\frac{mL^2}{3}\,\ddot\theta + kL^2\,\theta = kL\,y_0\sin\omega t \qquad\Longrightarrow\qquad \ddot\theta + \frac{3k}{m}\,\theta = \frac{3k\,y_0}{mL}\sin\omega t$$
+<p>The natural frequency is $\omega_n = \sqrt{3k/m}$. It does not depend on $L$, because both the stiffness moment and the inertia grow as $L^2$.</p>
+</details>
+<details class="step"><summary>Step 4 · Find the steady-state amplitude</summary>
+<p>Substituting $\theta_p = \Theta\sin\omega t$ gives</p>
+$$\Theta = \frac{y_0/L}{1 - r^2}, \qquad r = \frac{\omega}{\omega_n}$$
+<p>With the animation's values, $\omega_n = 15$ rad/s. At $\omega = 10$ rad/s, $\Theta = 0.054$ rad $= 3.09°$, so A moves 54 mm while the base moves 30 mm.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+$$\frac{mL^2}{3}\,\ddot\theta + kL^2\,\theta = kL\,y_0\sin\omega t, \qquad\text{or}\qquad \ddot\theta + \frac{3k}{m}\,\theta = \frac{3k\,y_0}{mL}\sin\omega t$$
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Change the bar mass and watch the natural frequency in the stats. Why does it fall as $1/\sqrt m$?</li><li>Explain why gravity does not appear in the equation of motion. Would it appear if the bar moved in a vertical plane?</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 6, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-6-c-10.html"><small>← Previous</small>Example 6.C.10</a><a class="next" href="ex-6-c-12.html"><small>Next →</small>Example 6.C.12</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/kit.js"></script>
+<script src="../assets/ch6-exC2.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch6-3dC2.js"></script>
+</body>
+</html>

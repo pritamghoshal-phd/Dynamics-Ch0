@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 4.A.1 · Chapter 4 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 4</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="newton.html">A · Newton's laws</a>
+    <a href="energy.html">B · Work–energy</a>
+    <a href="impulse.html">C · Linear impulse–momentum</a>
+    <a href="angular.html">D · Angular impulse–momentum</a>
+    <a href="examples.html" class=active>Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Newton's second law examples"><a href="examples.html#group-A">All Newton's second law examples</a><a href="ex-4-a-1.html" class=active>4.A.1</a><a href="ex-4-a-2.html">4.A.2</a><a href="ex-4-a-3.html">4.A.3</a><a href="ex-4-a-4.html">4.A.4</a><a href="ex-4-a-5.html">4.A.5</a><a href="ex-4-a-6.html">4.A.6</a><a href="ex-4-a-7.html">4.A.7</a><a href="ex-4-a-8.html">4.A.8</a><a href="ex-4-a-9.html">4.A.9</a><a href="ex-4-a-10.html">4.A.10</a><a href="ex-4-a-11.html">4.A.11</a><a href="ex-4-a-12.html">4.A.12</a><a href="ex-4-a-13.html">4.A.13</a><a href="ex-4-a-14.html">4.A.14</a><a href="ex-4-a-15.html">4.A.15</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-A">Newton's second law</a> › Example 4.A.1</p>
+<h2><span class="num">Example 4.A.1</span>A braking car</h2>
+<div class="tags"><span>Newton's law</span><span>constant acceleration</span><span>friction</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>As a car of mass $m$ brakes with a constant braking force $F_f$, its speed drops from $v_1$ to $v_2 = 0$ in a distance $s$ and in a time $t$.</p>
+<p>The data are $m = 2000$ kg, $v_1 = 80$ m/s and $F_f = 10{,}000$ N.</p>
+<p><b>Find</b> (a) the distance $s$ and (b) the time $t$.</p>
+</div>
+<div class="demo" id="x4a-1">
+  <div class="demo-title"><span class="tag">Interactive</span><span>The car brakes from 80 m/s to rest</span></div>
+  <div class="grid2"><canvas id="x4a-1-anim" class="anim" style="height:300px"></canvas><div><canvas id="x4a-1-plot" class="plot" style="height:300px"></canvas></div></div>
+  <div class="controls" id="x4a-1-ctl"></div>
+  <div class="bar" id="x4a-1-pre"><span class="lbl">Try:</span></div>
+  <div class="bar" id="x4a-1-btn"></div>
+  <div class="stats" id="x4a-1-stats"></div>
+  <p class="small concept-note">The camera follows the car, and the ticks on the road mark every 10 m. The speed falls linearly with time because the braking force, and so the acceleration, is constant.</p>
+</div>
+<div class="demo v3d" data-clip="x4a-1"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Every solution follows the four-step method: free-body diagrams, kinetics equations, kinematics, solve. Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Draw the free-body diagram</summary>
+<p>We treat the car as a particle. Three forces act on it. The weight $mg$ acts downward, the road pushes upward with the normal force $N$, and the braking force $F_f$ acts on the tires at the road, opposite to the motion. We take $x$ in the direction of motion and $y$ upward.</p>
+<div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 330 230" role="img" aria-label="Car (treated as a particle)" style="max-width:330px"><rect x="-65.0" y="-27.0" width="130.0" height="54.0" rx="4" transform="translate(160.0,110.0) rotate(0.0)" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><circle cx="160.0" cy="110.0" r="4" fill="#1c1d21"/><line x1="160.0" y1="110.0" x2="160.0" y2="169.0" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="160.0,180.0 154.5,169.0 165.5,169.0" fill="#c2410c"/><line x1="200.0" y1="187.0" x2="200.0" y2="148.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="200.0,137.0 205.5,148.0 194.5,148.0" fill="#17915a"/><line x1="120.0" y1="137.0" x2="61.0" y2="137.0" stroke="#b42346" stroke-width="2.6" stroke-linecap="round"/><polygon points="50.0,137.0 61.0,131.5 61.0,142.5" fill="#b42346"/><line x1="270.0" y1="205.0" x2="293.0" y2="205.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="304.0,205.0 293.0,210.5 293.0,199.5" fill="#7b808c"/><line x1="270.0" y1="205.0" x2="270.0" y2="182.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="270.0,171.0 275.5,182.0 264.5,182.0" fill="#7b808c"/><text x="170.0" y="98.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>G</tspan></text><text x="178.0" y="182.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>mg</tspan></text><text x="214.0" y="209.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>N</tspan></text><text x="38.0" y="149.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#b42346"><tspan>F</tspan><tspan dy="4.8" style="font-size:10.8px">f</tspan></text><text x="314.0" y="205.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>x</tspan></text><text x="270.0" y="161.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>y</tspan></text></svg><figcaption>Car (treated as a particle)</figcaption></figure><figure><svg class="fbd" viewBox="0 0 220 230" role="img" aria-label="Kinetic diagram" style="max-width:220px"><rect x="-65.0" y="-27.0" width="130.0" height="54.0" rx="4" transform="translate(110.0,110.0) rotate(0.0)" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><circle cx="110.0" cy="110.0" r="4" fill="#1c1d21"/><line x1="110.0" y1="110.0" x2="41.0" y2="110.0" stroke="#7b808c" stroke-width="2.6" stroke-linecap="round"/><polygon points="30.0,110.0 41.0,104.5 41.0,115.5" fill="#7b808c"/><text x="18.0" y="98.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#7b808c"><tspan>ma</tspan></text></svg><figcaption>Kinetic diagram</figcaption></figure></div><p class="small fbdnote">The car moves to the right. The braking force $F_f$ acts on the tires at the road, opposite to the motion. The normal force $N$ stands for the sum of the forces on all four tires.</p>
+</details>
+<details class="step"><summary>Step 2 · Write the kinetics equations</summary>
+<p>Newton's second law in the $x$ and $y$ directions gives</p>
+$$\sum F_x = -F_f = m a_x, \qquad \sum F_y = N - mg = 0$$
+<p>The car does not leave the road, so its acceleration has no $y$ component.</p>
+</details>
+<details class="step"><summary>Step 3 · Write the kinematics equations</summary>
+<p>The acceleration $a_x = -F_f/m$ is constant, so the constant-acceleration relations of Chapter 0 apply.</p>
+$$v_2^2 = v_1^2 + 2 a_x s, \qquad v_2 = v_1 + a_x t$$
+</details>
+<details class="step"><summary>Step 4 · Solve</summary>
+<p>The acceleration is $a_x = -10{,}000/2000 = -5$ m/s². With $v_2 = 0$,</p>
+$$s = \frac{v_1^2}{2F_f/m} = \frac{80^2}{2(5)} = 640\ \text{m}, \qquad t = \frac{v_1}{F_f/m} = \frac{80}{5} = 16\ \text{s}$$
+<p class="small">The normal force is $N = mg = 19{,}620$ N. The braking force is about half of $N$, so the tires need a friction coefficient of at least 0.51.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>(a) $s = 640$ m. (b) $t = 16$ s.</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Double the braking force. Why does the stopping distance halve, and why does the stopping time also halve?</li><li>Reduce the initial speed to 30 m/s. The stopping distance falls by a factor of about 7. Explain this with the equation $s = v_1^2 m/(2F_f)$.</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 4, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="examples.html"><small>← Previous</small>All examples</a><a class="next" href="ex-4-a-2.html"><small>Next →</small>Example 4.A.2</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/kit.js"></script>
+<script src="../assets/ch4-exA1.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch4-3dA1.js"></script>
+</body>
+</html>

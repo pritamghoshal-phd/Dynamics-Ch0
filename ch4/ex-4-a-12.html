@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 4.A.12 · Chapter 4 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 4</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="newton.html">A · Newton's laws</a>
+    <a href="energy.html">B · Work–energy</a>
+    <a href="impulse.html">C · Linear impulse–momentum</a>
+    <a href="angular.html">D · Angular impulse–momentum</a>
+    <a href="examples.html" class=active>Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Newton's second law examples"><a href="examples.html#group-A">All Newton's second law examples</a><a href="ex-4-a-1.html">4.A.1</a><a href="ex-4-a-2.html">4.A.2</a><a href="ex-4-a-3.html">4.A.3</a><a href="ex-4-a-4.html">4.A.4</a><a href="ex-4-a-5.html">4.A.5</a><a href="ex-4-a-6.html">4.A.6</a><a href="ex-4-a-7.html">4.A.7</a><a href="ex-4-a-8.html">4.A.8</a><a href="ex-4-a-9.html">4.A.9</a><a href="ex-4-a-10.html">4.A.10</a><a href="ex-4-a-11.html">4.A.11</a><a href="ex-4-a-12.html" class=active>4.A.12</a><a href="ex-4-a-13.html">4.A.13</a><a href="ex-4-a-14.html">4.A.14</a><a href="ex-4-a-15.html">4.A.15</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-A">Newton's second law</a> › Example 4.A.12</p>
+<h2><span class="num">Example 4.A.12</span>Block leaving a circular hill</h2>
+<div class="tags"><span>path components</span><span>loss of contact</span><span>work–energy</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>A block of mass $m$ slides with speed $v_0$ along a smooth horizontal surface and then over a smooth circular hill of radius $R$, as shown. The angle $\theta$ is measured from the vertical through the center of the hill.</p>
+<p>The book asks for (a) the speed $v_0$ for which the block loses contact with the hill at $\theta = 53.13°$, and (b) the normal force on the block at $\theta = 36.87°$ for that speed. Use $m = 10$ kg and $R = 2.5$ m.</p>
+</div>
+<div class="demo" id="x4a-12">
+  <div class="demo-title"><span class="tag">Interactive</span><span>The block slides onto the hill, leaves it, and flies as a projectile</span></div>
+  <canvas id="x4a-12-anim" class="anim" style="height:360px"></canvas><canvas id="x4a-12-plot" class="plot" style="height:210px"></canvas>
+  <div class="controls" id="x4a-12-ctl"></div>
+  <div class="bar" id="x4a-12-pre"><span class="lbl">Try:</span></div>
+  <div class="bar" id="x4a-12-btn"></div>
+  <div class="stats" id="x4a-12-stats"></div>
+  <p class="small concept-note">The normal force $N$ is drawn to scale while the block touches the surface. The graph shows $N(\theta)$ for the chosen $v_0$. The block leaves the hill where $N$ reaches zero, and after that only gravity acts on it.</p>
+</div>
+<div class="demo v3d" data-clip="x4a-12"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Every solution follows the four-step method: free-body diagrams, kinetics equations, kinematics, solve. Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Draw the free-body diagrams</summary>
+<p>Isolate the block at a general angle $\theta$ on the hill. The hill is smooth, so only two forces act, the weight $mg$ and the normal force $N$, which points away from the center of the hill. The block leaves the hill at the instant when $N$ drops to zero.</p>
+<div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 300 270" role="img" aria-label="Block on the hill at angle θ" style="max-width:300px"><polyline points="90.0,60.0 99.9,60.3 109.9,61.0 119.7,62.3 129.5,64.2 139.2,66.5 148.7,69.3 158.1,72.6 167.3,76.4 176.3,80.7 185.0,85.5 193.5,90.7 201.7,96.3 209.6,102.3 217.1,108.8 224.4,115.6 231.2,122.9 237.7,130.4 243.7,138.3 249.3,146.5 254.5,155.0" fill="none" stroke="#8a6a12" stroke-width="2" stroke-linejoin="round"/><line x1="90.0" y1="250.0" x2="90.0" y2="60.0" stroke="#7b808c" stroke-width="1.4" stroke-dasharray="5 4"/><line x1="90.0" y1="250.0" x2="185.0" y2="85.5" stroke="#7b808c" stroke-width="1.4" stroke-dasharray="5 4"/><path d="M110.0,215.4 A40,40 0 0 0 90.0,210.0" fill="none" stroke="#7b808c" stroke-width="1.2"/><circle cx="90.0" cy="250.0" r="4.5" fill="#fff" stroke="#1c1d21" stroke-width="2"/><rect x="-14.0" y="-14.0" width="28.0" height="28.0" rx="4" transform="translate(192.0,73.3) rotate(30.0)" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><line x1="192.0" y1="73.3" x2="192.0" y2="132.3" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="192.0,143.3 186.5,132.3 197.5,132.3" fill="#c2410c"/><line x1="155.0" y1="137.4" x2="179.5" y2="95.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="185.0,85.5 184.3,97.7 174.7,92.2" fill="#17915a"/><line x1="240.0" y1="215.0" x2="259.9" y2="226.5" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="269.4,232.0 257.2,231.3 262.7,221.7" fill="#7b808c"/><line x1="240.0" y1="215.0" x2="251.5" y2="195.1" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="257.0,185.6 256.3,197.8 246.7,192.3" fill="#7b808c"/><text x="103.2" y="200.7" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>θ</tspan></text><text x="76.0" y="254.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>O</tspan></text><text x="208.0" y="141.3" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>mg</tspan></text><text x="135.0" y="143.8" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>N</tspan></text><text x="278.1" y="237.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>e</tspan><tspan dy="4.2" style="font-size:9.4px">t</tspan></text><text x="262.0" y="176.9" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>e</tspan><tspan dy="4.2" style="font-size:9.4px">n</tspan></text></svg><figcaption>Block on the hill at angle θ</figcaption></figure><figure><svg class="fbd" viewBox="0 0 220 270" role="img" aria-label="At the instant of separation" style="max-width:220px"><rect x="-15.0" y="-15.0" width="30.0" height="30.0" rx="4" transform="translate(110.0,120.0) rotate(36.9)" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><line x1="110.0" y1="120.0" x2="110.0" y2="189.0" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="110.0,200.0 104.5,189.0 115.5,189.0" fill="#c2410c"/><text x="128.0" y="200.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>mg</tspan></text><text x="110.0" y="240.0" text-anchor="middle" dominant-baseline="middle" style="font-family:system-ui,sans-serif;font-size:11px;fill:#7b808c">N = 0 when contact is lost</text></svg><figcaption>At the instant of separation</figcaption></figure></div><p class="small fbdnote">Left: on the smooth hill only the weight $mg$ and the normal force $N$ act. $\hat{\mathbf e}_t$ points along the path in the direction of motion, and $\hat{\mathbf e}_n$ points toward the center O of the circle (opposite to $N$). Right: at the separation angle the normal force has just dropped to zero.</p>
+</details>
+<details class="step"><summary>Step 2 · Write the kinetics equations</summary>
+<p>Use path components, with $\hat{\mathbf e}_t$ along the motion and $\hat{\mathbf e}_n$ toward the center of the hill. The weight has a component $mg\sin\theta$ along the path and $mg\cos\theta$ toward the center.</p>
+$$\sum F_t = m\dot v: \quad mg\sin\theta = m\dot v, \qquad \sum F_n = m\frac{v^2}{R}: \quad mg\cos\theta - N = m\frac{v^2}{R}$$
+</details>
+<details class="step"><summary>Step 3 · Write the kinematics equations</summary>
+<p>Write $\dot v = v\,\dfrac{dv}{ds}$ with $ds = R\,d\theta$. The tangential equation becomes $v\,dv = gR\sin\theta\,d\theta$. Integrating from the top of the hill, where $v = v_0$ and $\theta = 0$,</p>
+$$v^2 = v_0^2 + 2gR\,(1 - \cos\theta)$$
+<p>This is the same result that the work–energy principle gives.</p>
+</details>
+<details class="step"><summary>Step 4 · Solve</summary>
+<p>Substituting $v^2$ into the normal equation gives the normal force as a function of the angle,</p>
+$$N = m\left[g\,(3\cos\theta - 2) - \frac{v_0^2}{R}\right]$$
+<p>Setting $N = 0$ gives the speed for separation at a chosen angle $\theta_s$, namely $v_0^2 = gR\,(3\cos\theta_s - 2)$.</p>
+<p><b>(a) The data in the book cannot be met.</b> For $\theta_s = 53.13°$ we have $\cos\theta_s = 0.6$, and</p>
+$$v_0^2 = (9.81)(2.5)(1.8 - 2) = -4.91\ \text{m}^2/\text{s}^2$$
+<p>A negative value of $v_0^2$ means that no speed works. Even a block that starts almost at rest leaves the hill at $\cos\theta_s = 2/3$, which is $\theta_s = 48.2°$, and a faster block leaves earlier. With the angles as given, the numbers fit if the block leaves at $\theta_s = 36.87°$, which is 53.13° measured from the horizontal. Then</p>
+$$v_0^2 = (9.81)(2.5)(3 \times 0.8 - 2) = 9.81\ \text{m}^2/\text{s}^2, \qquad v_0 = 3.13\ \text{m/s}$$
+<p><b>(b)</b> With $v_0 = 3.13$ m/s the block is still on the hill at any angle below 36.87°. For example, at $\theta = 20°$,</p>
+$$N = 10\left[9.81\,(3\cos 20° - 2) - \frac{9.81}{2.5}\right] = 10\,(8.04 - 3.92) = 41.1\ \text{N}$$
+<p class="small">At $\theta = 36.87°$ itself the normal force is zero, since that is where the block leaves the hill.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>(a) Separation at 53.13° from the vertical is impossible, since every block leaves the hill before 48.2°. For separation at 36.87° from the vertical (53.13° from the horizontal), $v_0 = 3.13$ m/s. (b) For that speed, $N = m[g(3\cos\theta - 2) - v_0^2/R]$, which is 41.1 N at $\theta = 20°$ and falls to zero at 36.87°.</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Choose the "almost at rest" preset. Why can the separation angle never exceed 48.2°?</li><li>Find the smallest $v_0$ for which the block never touches the hill. Compare it with $\sqrt{gR}$.</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 4, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-4-a-11.html"><small>← Previous</small>Example 4.A.11</a><a class="next" href="ex-4-a-13.html"><small>Next →</small>Example 4.A.13</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/kit.js"></script>
+<script src="../assets/ch4-exA2.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch4-3dA2.js"></script>
+</body>
+</html>

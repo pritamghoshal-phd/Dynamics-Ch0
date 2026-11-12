@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 5.B.9 · Chapter 5 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 5</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="newton-euler.html">A · Newton–Euler</a>
+    <a href="work-energy.html">B · Work–energy</a>
+    <a href="impulse-momentum.html">C · Impulse–momentum</a>
+    <a href="examples.html" class=active>Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Work and energy examples"><a href="examples.html#group-B">All work–energy examples</a><a href="ex-5-b-1.html">5.B.1</a><a href="ex-5-b-3.html">5.B.3</a><a href="ex-5-b-4.html">5.B.4</a><a href="ex-5-b-5.html">5.B.5</a><a href="ex-5-b-6.html">5.B.6</a><a href="ex-5-b-7.html">5.B.7</a><a href="ex-5-b-8.html">5.B.8</a><a href="ex-5-b-9.html" class=active>5.B.9</a><a href="ex-5-b-10.html">5.B.10</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-B">Work and energy</a> › Example 5.B.9</p>
+<h2><span class="num">Example 5.B.9</span>Bar on a vertical and a circular guide</h2>
+<div class="tags"><span>work–energy</span><span>instant center</span><span>constrained motion</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>A thin, homogeneous bar AB has mass $m$ and length $L = 2r$. End A slides along a smooth vertical guide, and end B slides along a smooth circular guide of radius $r$. The circular guide is a quarter circle whose center lies a distance $r$ above its lowest point and a distance $2r$ to the left of the vertical guide. In position 1, B is at the upper end of the circular guide, level with the center of the arc, and the bar is released from rest. In position 2 the bar is horizontal, with B at the lowest point of the arc.</p>
+<p><b>Find</b> the speed of end A when the bar reaches position 2.</p>
+</div>
+<div class="demo" id="xw-9">
+  <div class="demo-title"><span class="tag">Interactive</span><span>The bar slides from position 1 to position 2</span></div>
+  <canvas id="xw-9-anim" class="anim" style="height:400px"></canvas>
+  <div class="bar" id="xw-9-btn"></div>
+  <div class="stats" id="xw-9-stats"></div>
+  <p class="small concept-note">The animation uses the sample radius $r = 0.5$ m. The blue arrow is the velocity of A and the orange arrow is the velocity of B. Notice that B slows to a stop as the bar reaches the horizontal position.</p>
+</div>
+<div class="demo v3d" data-clip="xw-9"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Every solution follows the four-step method. Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Draw the free-body diagram</summary>
+<p>The bar is acted on by its weight $mg$ at its midpoint G and by the normal forces from the two guides at A and B. Both guides are smooth, so each normal force is perpendicular to the path of its point and does no work. Only gravity does work.</p><div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 360 320" role="img" aria-label="Bar AB in a general position" style="max-width:360px"><line x1="170.0" y1="190.0" x2="169.6" y2="198.7" stroke="#7b808c" stroke-width="1" stroke-dasharray="5 4"/><line x1="169.6" y1="198.7" x2="168.5" y2="207.4" stroke="#7b808c" stroke-width="1" stroke-dasharray="5 4"/><line x1="168.5" y1="207.4" x2="166.6" y2="215.9" stroke="#7b808c" stroke-width="1" stroke-dasharray="5 4"/><line x1="166.6" y1="215.9" x2="164.0" y2="224.2" stroke="#7b808c" stroke-width="1" stroke-dasharray="5 4"/><line x1="164.0" y1="224.2" x2="160.6" y2="232.3" stroke="#7b808c" stroke-width="1" stroke-dasharray="5 4"/><line x1="160.6" y1="232.3" x2="156.6" y2="240.0" stroke="#7b808c" stroke-width="1" stroke-dasharray="5 4"/><line x1="156.6" y1="240.0" x2="151.9" y2="247.4" stroke="#7b808c" stroke-width="1" stroke-dasharray="5 4"/><line x1="151.9" y1="247.4" x2="146.6" y2="254.3" stroke="#7b808c" stroke-width="1" stroke-dasharray="5 4"/><line x1="146.6" y1="254.3" x2="140.7" y2="260.7" stroke="#7b808c" stroke-width="1" stroke-dasharray="5 4"/><line x1="140.7" y1="260.7" x2="134.3" y2="266.6" stroke="#7b808c" stroke-width="1" stroke-dasharray="5 4"/><line x1="134.3" y1="266.6" x2="127.4" y2="271.9" stroke="#7b808c" stroke-width="1" stroke-dasharray="5 4"/><line x1="127.4" y1="271.9" x2="120.0" y2="276.6" stroke="#7b808c" stroke-width="1" stroke-dasharray="5 4"/><line x1="120.0" y1="276.6" x2="112.3" y2="280.6" stroke="#7b808c" stroke-width="1" stroke-dasharray="5 4"/><line x1="112.3" y1="280.6" x2="104.2" y2="284.0" stroke="#7b808c" stroke-width="1" stroke-dasharray="5 4"/><line x1="104.2" y1="284.0" x2="95.9" y2="286.6" stroke="#7b808c" stroke-width="1" stroke-dasharray="5 4"/><line x1="95.9" y1="286.6" x2="87.4" y2="288.5" stroke="#7b808c" stroke-width="1" stroke-dasharray="5 4"/><line x1="87.4" y1="288.5" x2="78.7" y2="289.6" stroke="#7b808c" stroke-width="1" stroke-dasharray="5 4"/><line x1="78.7" y1="289.6" x2="70.0" y2="290.0" stroke="#7b808c" stroke-width="1" stroke-dasharray="5 4"/><line x1="270.0" y1="30.0" x2="270.0" y2="300.0" stroke="#7b808c" stroke-width="1" stroke-dasharray="5 4"/><line x1="20.0" y1="290.0" x2="290.0" y2="290.0" stroke="#7b808c" stroke-width="1" stroke-dasharray="5 4"/><circle cx="70.0" cy="190.0" r="2.5" fill="#1c1d21"/><line x1="270.0" y1="96.9" x2="146.6" y2="254.3" stroke="#8a6a12" stroke-width="13" stroke-linecap="round"/><line x1="270.0" y1="96.9" x2="146.6" y2="254.3" stroke="#f1e6c8" stroke-width="9" stroke-linecap="round"/><circle cx="270.0" cy="96.9" r="4.5" fill="#fff" stroke="#1c1d21" stroke-width="2"/><circle cx="146.6" cy="254.3" r="4.5" fill="#fff" stroke="#1c1d21" stroke-width="2"/><circle cx="208.3" cy="175.6" r="3.5" fill="#1c1d21"/><line x1="208.3" y1="175.6" x2="208.3" y2="222.6" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="208.3,233.6 202.8,222.6 213.8,222.6" fill="#c2410c"/><line x1="322.0" y1="96.9" x2="281.0" y2="96.9" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="270.0,96.9 281.0,91.4 281.0,102.4" fill="#17915a"/><line x1="172.6" y1="276.1" x2="155.0" y2="261.3" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="146.6,254.3 158.6,257.1 151.5,265.6" fill="#17915a"/><text x="64.0" y="303.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:12px;fill:#7b808c"><tspan>datum, V</tspan><tspan dy="3.8" style="font-size:8.6px">g</tspan><tspan dy="-3.8"> = 0</tspan></text><text x="56.0" y="182.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:11px;fill:#7b808c"><tspan>center</tspan></text><text x="252.0" y="88.9" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:14px;font-style:italic;fill:#1c1d21"><tspan>A</tspan></text><text x="142.6" y="276.3" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:14px;font-style:italic;fill:#1c1d21"><tspan>B</tspan></text><text x="194.3" y="167.6" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>G</tspan></text><text x="222.3" y="241.6" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>mg</tspan></text><text x="334.0" y="96.9" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>N</tspan><tspan dy="4.8" style="font-size:10.8px">A</tspan></text><text x="191.8" y="275.8" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>N</tspan><tspan dy="4.8" style="font-size:10.8px">B</tspan></text></svg><figcaption>Bar AB in a general position</figcaption></figure></div><p class="small fbdnote">The vertical guide pushes on A horizontally, and the circular guide pushes on B along the radius of the arc. Each normal force is perpendicular to the path of its point, so neither does work, and only the weight $mg$ does work.</p>
+</details>
+<details class="step"><summary>Step 2 · Write the kinetics equation (work–energy)</summary>
+<p>Mechanical energy is conserved, $T_1 + V_1 = T_2 + V_2$, with $T_1 = 0$. Put the origin at the lowest point of the arc. In position 1, B is at $(r, r)$ and A is on the vertical guide at $x = 2r$. The length condition $r^2 + (y_A - r)^2 = (2r)^2$ gives $y_A = (1 + \sqrt3)\,r$. The midpoint G is therefore at the height</p>
+$$y_{G1} = \frac{r + (1+\sqrt3)r}{2} = \left(1 + \frac{\sqrt3}{2}\right) r$$
+<p>In position 2 the bar lies along the floor level, so $y_{G2} = 0$, and G falls $h = \left(1 + \tfrac{\sqrt3}{2}\right) r$.</p>
+</details>
+<details class="step"><summary>Step 3 · Write the kinematics equations</summary>
+<p>In position 2 the velocity of B is tangent to the arc at its lowest point, which is horizontal, and the velocity of A is vertical. The instant center of the bar lies where the lines perpendicular to these velocities meet. The vertical line through B and the horizontal line through A meet at B itself. The instant center is therefore B, which means $v_B = 0$ in position 2, and the bar rotates about B with</p>
+$$v_A = 2r\,\omega, \qquad T_2 = \tfrac12 I_B\,\omega^2 = \tfrac12\left(\tfrac13 m(2r)^2\right)\omega^2 = \tfrac23 m r^2\omega^2$$
+</details>
+<details class="step"><summary>Step 4 · Solve</summary>
+$$\tfrac23 m r^2\omega^2 = m g\left(1 + \frac{\sqrt3}{2}\right) r \quad\Longrightarrow\quad \omega^2 = \frac{3g}{2r}\left(1 + \frac{\sqrt3}{2}\right)$$
+$$v_A = 2r\omega = \sqrt{(6 + 3\sqrt3)\,g r} \approx 3.35\sqrt{g r}$$
+<p class="small">A direct simulation with $r = 1$ m gives $v_A = 10.48$ m/s, which matches $\sqrt{(6 + 3\sqrt3)(9.81)(1)} = 10.48$ m/s.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>$v_A = \sqrt{(6 + 3\sqrt3)\,g r} \approx 3.35\sqrt{g r}$, directed downward.</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Why is it enough to know the instant center in position 2? What would happen if B were moving there?</li><li>How does $v_A$ change if the radius $r$ is doubled?</li><li>Does the mass of the bar appear in the answer? Explain.</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 5, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-5-b-8.html"><small>← Previous</small>Example 5.B.8</a><a class="next" href="ex-5-b-10.html"><small>Next →</small>Example 5.B.10</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/ch5.js"></script>
+<script src="../assets/ch5-exB.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch5-3dB.js"></script>
+</body>
+</html>

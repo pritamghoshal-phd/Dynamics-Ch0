@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>3D kinematics · Chapter 1 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 1</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="planar.html">A · Planar descriptions</a>
+    <a href="threed.html" class=active>B · 3D descriptions</a>
+    <a href="joint.html">C · Joint description</a>
+    <a href="relative.html">D · Relative & constrained</a>
+    <a href="examples.html">Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<section>
+<h2><span class="num">B</span>3D kinematics: Cartesian and cylindrical</h2>
+<p>Nothing new is needed to move from the plane to space. We add a third unit vector and keep differentiating.</p>
+
+<h3>3D Cartesian description</h3>
+<p>With fixed unit vectors $\hat{\mathbf i}, \hat{\mathbf j}, \hat{\mathbf k}$,</p>
+$$\mathbf r = x\hat{\mathbf i} + y\hat{\mathbf j} + z\hat{\mathbf k}, \quad \mathbf v = \dot x\hat{\mathbf i} + \dot y\hat{\mathbf j} + \dot z\hat{\mathbf k}, \quad \mathbf a = \ddot x\hat{\mathbf i} + \ddot y\hat{\mathbf j} + \ddot z\hat{\mathbf k}$$
+<p>When the particle is confined to a surface, say $z = f(x, y)$, the third coordinate is not independent: differentiate the surface equation with the chain rule to get $\dot z$ and $\ddot z$ from the $x$ and $y$ motion.</p>
+<div class="demo concept" id="c-3d">
+  <div class="demo-title"><span class="tag concept-tag">Concept</span><span>A point and its three Cartesian components</span></div>
+  <canvas id="c-3d-anim" class="anim" style="height:360px"></canvas>
+  <div class="controls" id="c-3d-ctl"></div>
+  <div class="bar" id="c-3d-btn"></div>
+  <div class="stats" id="c-3d-stats"></div>
+  <p class="small concept-note">The green dashed box shows x, y and z. Each component is differentiated on its own; the three results are then reassembled into v (orange) and a (red).</p>
+</div>
+
+<h3>Cylindrical description</h3>
+<p>Cylindrical coordinates are polar coordinates plus height. P is located by its distance $r$ from the $z$-axis, the angle $\theta$ around it, and the height $z$. The unit vectors are $\hat{\mathbf e}_r$ and $\hat{\mathbf e}_\theta$ (which turn, exactly as in polar) and $\hat{\mathbf k}$ (which does not):</p>
+$$\mathbf r = r\,\hat{\mathbf e}_r + z\,\hat{\mathbf k}$$
+$$\mathbf v = \dot r\,\hat{\mathbf e}_r + r\dot\theta\,\hat{\mathbf e}_\theta + \dot z\,\hat{\mathbf k}$$
+$$\mathbf a = \left(\ddot r - r\dot\theta^2\right)\hat{\mathbf e}_r + \left(r\ddot\theta + 2\dot r\dot\theta\right)\hat{\mathbf e}_\theta + \ddot z\,\hat{\mathbf k}$$
+<p>In words: the shadow of P on the $xy$-plane moves exactly as in polar coordinates, and the height is handled separately, just like a Cartesian coordinate.</p>
+<div class="demo concept" id="c-cyl">
+  <div class="demo-title"><span class="tag concept-tag">Concept</span><span>Helices and spirals in cylindrical coordinates</span></div>
+  <canvas id="c-cyl-anim" class="anim" style="height:380px"></canvas>
+  <div class="controls" id="c-cyl-ctl"></div>
+  <div class="bar" id="c-cyl-pre"><span class="lbl">Try:</span></div>
+  <div class="bar" id="c-cyl-btn"></div>
+  <div class="stats" id="c-cyl-stats"></div>
+  <p class="small concept-note">On a helix (r and ż constant) the speed is constant and the acceleration points straight at the axis: only −rθ̇² survives. Turn on ṙ and the sideways Coriolis term 2ṙθ̇ appears.</p>
+</div>
+<div class="try"><h4>Try this</h4><ul><li>On the helix, change ż. Does the acceleration change? Why not?</li><li>Make the spiral widen (ṙ > 0) with ż = 0. Compare the acceleration with the bead-on-a-rod demo in Section A.</li><li>In the Cartesian demo, set H = 0. Which acceleration component vanishes?</li></ul></div>
+<div class="wild"><span class="wi" aria-hidden="true">🌀</span><div><b class="wh">Kinematics in the wild</b><p>A screw thread, a spiral staircase and the path of a charged particle in a magnetic field are all helices. In each case the motion around the axis and the motion along it are separate, which is exactly what cylindrical coordinates capture.</p></div></div>
+</section>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="planar.html"><small>← Previous</small>A · Planar descriptions</a><a class="next" href="joint.html"><small>Next →</small>C · Joint description</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/labels.js"></script>
+<script src="../assets/ch1.js"></script>
+</body>
+</html>

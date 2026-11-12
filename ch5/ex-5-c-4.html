@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 5.C.4 · Chapter 5 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 5</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="newton-euler.html">A · Newton–Euler</a>
+    <a href="work-energy.html">B · Work–energy</a>
+    <a href="impulse-momentum.html">C · Impulse–momentum</a>
+    <a href="examples.html" class=active>Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Impulse and momentum examples"><a href="examples.html#group-C">All impulse–momentum examples</a><a href="ex-5-c-1.html">5.C.1</a><a href="ex-5-c-2.html">5.C.2</a><a href="ex-5-c-3.html">5.C.3</a><a href="ex-5-c-4.html" class=active>5.C.4</a><a href="ex-5-c-5.html">5.C.5</a><a href="ex-5-c-6.html">5.C.6</a><a href="ex-5-c-7.html">5.C.7</a><a href="ex-5-c-8.html">5.C.8</a><a href="ex-5-c-9.html">5.C.9</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-C">Impulse and momentum</a> › Example 5.C.4</p>
+<h2><span class="num">Example 5.C.4</span>Bar sliding in a slot at the end of a spinning frame</h2>
+<div class="tags"><span>angular momentum</span><span>energy</span><span>horizontal plane</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>A frame of negligible mass is pinned to the ground at O and rotates in a horizontal plane. At its far end, a distance $R$ from O, the frame carries a smooth slot that is perpendicular to the arm OA. A thin homogeneous bar P of mass $m$ and length $d$ lies in the slot and can slide along it. Initially the frame rotates at $\Omega_1$, and the bar is at rest relative to the frame and centered in the slot, so its mass center lies on the line OA.</p>
+<p>The data are $\Omega_1 = 2$ rad/s, $m = 3$ kg, $R = 1$ m and $d = 0.3$ m.</p>
+<p><b>Find</b> the angular speed of the frame when the mass center of P has moved a distance $d$ along the slot.</p>
+</div>
+<div class="demo" id="xi-4">
+  <div class="demo-title"><span class="tag">Interactive</span><span>The frame and the sliding bar, seen from above</span></div>
+  <canvas id="xi-4-anim" class="anim" style="height:460px"></canvas>
+  <div class="controls" id="xi-4-ctl"></div>
+  <div class="bar" id="xi-4-pre"><span class="lbl">Direction:</span></div>
+  <div class="bar" id="xi-4-btn"></div>
+  <div class="stats" id="xi-4-stats"></div>
+  <p class="small concept-note">The centered position is unstable, so a tiny disturbance starts the bar sliding. The two presets let it slide ahead of the arm or behind it. In both cases the statistics show that the angular momentum about O and the kinetic energy stay constant, while the answers for $\Omega$ are very different.</p>
+</div>
+<div class="demo v3d" data-clip="xi-4"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Every solution follows the four-step method. Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Draw the free-body diagrams</summary>
+<p>Take the frame and the bar together as the system. In the horizontal plane the only external force is the pin reaction at O, which has no moment about O. The weights and the vertical support forces act perpendicular to the plane. The contact forces between the bar and the smooth slot are internal, and they have no component along the slot.</p>
+<div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 360 280" role="img" aria-label="Frame and bar together (top view)" style="max-width:360px"><line x1="90.0" y1="170.0" x2="340.0" y2="170.0" stroke="#7b808c" stroke-width="1.2" stroke-dasharray="5 4"/><line x1="90.0" y1="170.0" x2="300.0" y2="170.0" stroke="#8a6a12" stroke-width="9" stroke-linecap="round"/><line x1="90.0" y1="170.0" x2="300.0" y2="170.0" stroke="#f1e6c8" stroke-width="5" stroke-linecap="round"/><rect x="-7.0" y="-75.0" width="14.0" height="150.0" rx="4" transform="translate(300.0,170.0) rotate(0.0)" fill="#f3efe4" stroke="#8a6a12" stroke-width="2"/><line x1="300.0" y1="105.0" x2="300.0" y2="195.0" stroke="#8a6a12" stroke-width="13" stroke-linecap="round"/><line x1="300.0" y1="105.0" x2="300.0" y2="195.0" stroke="#f1e6c8" stroke-width="9" stroke-linecap="round"/><circle cx="300.0" cy="150.0" r="4" fill="#1c1d21"/><circle cx="90.0" cy="170.0" r="4.5" fill="#fff" stroke="#1c1d21" stroke-width="2"/><line x1="35.0" y1="170.0" x2="79.0" y2="170.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="90.0,170.0 79.0,175.5 79.0,164.5" fill="#17915a"/><line x1="90.0" y1="230.0" x2="90.0" y2="181.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="90.0,170.0 95.5,181.0 84.5,181.0" fill="#17915a"/><line x1="90.0" y1="260.0" x2="300.0" y2="260.0" stroke="#7b808c" stroke-width="1.2"/><line x1="90.0" y1="255.0" x2="90.0" y2="265.0" stroke="#7b808c" stroke-width="1.2"/><line x1="300.0" y1="255.0" x2="300.0" y2="265.0" stroke="#7b808c" stroke-width="1.2"/><line x1="334.0" y1="170.0" x2="334.0" y2="150.0" stroke="#7b808c" stroke-width="1.2"/><line x1="329.0" y1="170.0" x2="339.0" y2="170.0" stroke="#7b808c" stroke-width="1.2"/><line x1="329.0" y1="150.0" x2="339.0" y2="150.0" stroke="#7b808c" stroke-width="1.2"/><line x1="28.0" y1="80.0" x2="51.0" y2="80.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="62.0,80.0 51.0,85.5 51.0,74.5" fill="#7b808c"/><line x1="28.0" y1="80.0" x2="28.0" y2="57.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="28.0,46.0 33.5,57.0 22.5,57.0" fill="#7b808c"/><text x="318.0" y="154.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>G</tspan></text><text x="320.0" y="108.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:14px;font-style:italic;fill:#1c1d21"><tspan>P</tspan></text><text x="104.0" y="156.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>O</tspan></text><text x="23.0" y="170.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>O</tspan><tspan dy="4.8" style="font-size:10.8px">x</tspan></text><text x="76.0" y="242.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>O</tspan><tspan dy="4.8" style="font-size:10.8px">y</tspan></text><text x="195.0" y="274.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>R</tspan></text><text x="350.0" y="160.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>s</tspan></text><text x="72.0" y="80.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>x</tspan></text><text x="28.0" y="36.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>y</tspan></text></svg><figcaption>Frame and bar together (top view)</figcaption></figure><figure><svg class="fbd" viewBox="0 0 220 260" role="img" aria-label="Bar P alone (top view)" style="max-width:220px"><rect x="-7.0" y="-75.0" width="14.0" height="150.0" rx="4" transform="translate(110.0,130.0) rotate(0.0)" fill="#f3efe4" stroke="#8a6a12" stroke-width="2"/><line x1="110.0" y1="85.0" x2="110.0" y2="175.0" stroke="#8a6a12" stroke-width="13" stroke-linecap="round"/><line x1="110.0" y1="85.0" x2="110.0" y2="175.0" stroke="#f1e6c8" stroke-width="9" stroke-linecap="round"/><circle cx="110.0" cy="130.0" r="4" fill="#1c1d21"/><line x1="34.0" y1="100.0" x2="93.0" y2="100.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="104.0,100.0 93.0,105.5 93.0,94.5" fill="#17915a"/><line x1="186.0" y1="160.0" x2="127.0" y2="160.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="116.0,160.0 127.0,154.5 127.0,165.5" fill="#17915a"/><text x="126.0" y="130.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>G</tspan></text><text x="22.0" y="88.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>N</tspan><tspan dy="4.8" style="font-size:10.8px">1</tspan></text><text x="198.0" y="172.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>N</tspan><tspan dy="4.8" style="font-size:10.8px">2</tspan></text><text x="110.0" y="245.0" text-anchor="middle" dominant-baseline="middle" style="font-family:system-ui,sans-serif;font-size:11px;fill:#7b808c">slot drawn faintly for reference</text></svg><figcaption>Bar P alone (top view)</figcaption></figure></div><p class="small fbdnote">Left: in the horizontal plane the only external force on the system is the pin reaction at O, which has no moment about O. The weight and the vertical support forces act perpendicular to the page. Right: the smooth slot pushes on the bar only perpendicular to the slot, so the forces $N_1$ and $N_2$ have no component along it. For the system they are internal.</p>
+</details>
+<details class="step"><summary>Step 2 · Write the kinetics equations</summary>
+<p>The angular momentum of the system about O is conserved. The frame has no mass, so only the bar contributes. Let $s$ be the position of the mass center of P along the slot, measured from the line OA in the direction of rotation. The bar turns with the frame, so</p>
+$$H_O = I_G\,\Omega + m\,\mathbf r_{G/O}\times\mathbf v_G = \left[I_G + m\left(R^2 + s^2\right)\right]\Omega + m R\,\dot s, \qquad I_G = \tfrac1{12} m d^2$$
+<p>The slot is smooth, the pin O does not move and the frame has no mass, so no work is done on the system and its kinetic energy is also conserved.</p>
+$$T = \tfrac12 I_G\,\Omega^2 + \tfrac12 m\left[\Omega^2 s^2 + \left(\dot s + \Omega R\right)^2\right]$$
+</details>
+<details class="step"><summary>Step 3 · Write the kinematics equation</summary>
+<p>The velocity of G is the velocity relative to the frame, $\dot s$ along the slot, plus the velocity due to the rotation, $\boldsymbol\Omega\times\mathbf r_{G/O}$. In axes along OA and along the slot, $\mathbf v_G = \left(-\Omega s,\ \dot s + \Omega R\right)$. This is the velocity used in both equations above.</p>
+</details>
+<details class="step"><summary>Step 4 · Solve</summary>
+<p>Initially $s = 0$ and $\dot s = 0$, so $H_{O1} = (I_G + mR^2)\Omega_1 = 6.045$ kg·m²/s and $T_1 = \tfrac12(I_G + mR^2)\Omega_1^2 = 6.045$ J. When $|s| = d = 0.3$ m, the two conservation equations become</p>
+$$3.2925\,\Omega_2 + 3\,\dot s_2 = 6.045, \qquad 0.01125\,\Omega_2^2 + 1.5\left[0.09\,\Omega_2^2 + \left(\dot s_2 + \Omega_2\right)^2\right] = 6.045$$
+<p>These have two solutions. If the bar slides ahead of the arm, $\dot s_2 = 1.93$ m/s and $\Omega_2 = 0.079$ rad/s. If it slides behind the arm, $\dot s_2 = -1.93$ m/s and $\Omega_2 = 3.59$ rad/s. A simulation of the full equations of motion reproduces both results.</p>
+<p class="small">The relative velocity of the bar contributes $mR\dot s$ to the angular momentum, so it cannot be left out. If it is ignored, the answer $\Omega_2 = 6.045/3.2925 = 1.84$ rad/s is obtained, but that value violates the conservation of energy.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>If the bar slides ahead of the arm (in the direction of rotation), $\Omega_2 = 0.079$ rad/s. If it slides behind the arm, $\Omega_2 = 3.59$ rad/s. In both cases the bar slides along the slot at 1.93 m/s at that instant.</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Explain in words why the frame almost stops when the bar slides ahead. Which way does the bar push on the slot?</li><li>Check that $H_O$ and the kinetic energy in the statistics stay constant to five digits during the whole motion.</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 5, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-5-c-3.html"><small>← Previous</small>Example 5.C.3</a><a class="next" href="ex-5-c-5.html"><small>Next →</small>Example 5.C.5</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/ch5.js"></script>
+<script src="../assets/ch5-exC.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch5-3dC.js"></script>
+</body>
+</html>

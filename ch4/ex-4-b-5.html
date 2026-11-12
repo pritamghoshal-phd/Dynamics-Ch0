@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 4.B.5 · Chapter 4 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 4</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="newton.html">A · Newton's laws</a>
+    <a href="energy.html">B · Work–energy</a>
+    <a href="impulse.html">C · Linear impulse–momentum</a>
+    <a href="angular.html">D · Angular impulse–momentum</a>
+    <a href="examples.html" class=active>Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Work and energy examples"><a href="examples.html#group-B">All Work and energy examples</a><a href="ex-4-b-1.html">4.B.1</a><a href="ex-4-b-2.html">4.B.2</a><a href="ex-4-b-3.html">4.B.3</a><a href="ex-4-b-4.html">4.B.4</a><a href="ex-4-b-5.html" class=active>4.B.5</a><a href="ex-4-b-6.html">4.B.6</a><a href="ex-4-b-7.html">4.B.7</a><a href="ex-4-b-8.html">4.B.8</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-B">Work and energy</a> › Example 4.B.5</p>
+<h2><span class="num">Example 4.B.5</span>Slider on a curved rod pulled by a cord</h2>
+<div class="tags"><span>work–energy</span><span>variable direction</span><span>smooth guide</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>Slider P, of mass $m = 0.6$ kg, moves freely along a fixed, smooth, curved rod in the vertical plane. A cord attached to P passes over a small guide at the top of a post and carries a constant tension $F = 20$ N. Position 1 is the bottom of the left end of the rod. Position 2 is the top of the rod, 1.2 m to the right of position 1 and $0.3 + 0.4 = 0.7$ m higher. The tip of the guide is 0.3 m to the right of position 2 and 0.3 m above position 1. The slider is released from rest at position 1.</p>
+<p><b>Find</b> the speed of the slider at position 2.</p>
+</div>
+<div class="demo" id="x4b-5">
+  <div class="demo-title"><span class="tag">Interactive</span><span>The cord pulls the slider up the curved rod</span></div>
+  <canvas id="x4b-5-anim" class="anim" style="height:380px"></canvas>
+  <div class="controls" id="x4b-5-ctl"></div>
+  <div class="bar" id="x4b-5-pre"><span class="lbl">Try:</span></div>
+  <div class="bar" id="x4b-5-btn"></div>
+  <div class="stats" id="x4b-5-stats"></div>
+  <p class="small concept-note">The cord length between the slider and the guide tip shrinks as the slider rises, and the work of the cord force equals $F$ times that shortening. The animation stops at position 2.</p>
+</div>
+<div class="demo v3d" data-clip="x4b-5"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Every solution follows the four-step method: free-body diagrams, kinetics equations, kinematics, solve. Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Draw the free-body diagram</summary>
+<p>We isolate slider P. Three forces act on it. They are the weight $mg$, the cord tension $F$ directed from P toward the guide tip, and the force $N$ of the smooth rod.</p><div class="fbdrow"><figure style="width:min(360px,100%)"><svg class="fbd" viewBox="0 0 360 270" role="img" aria-label="Slider P at a general position" style="max-width:360px"><line x1="35.2" y1="196.0" x2="264.8" y2="74.0" stroke="#7b808c" stroke-width="1.2" stroke-dasharray="5 4"/><rect x="-25.0" y="-15.0" width="50.0" height="30.0" rx="4" transform="translate(150.0,135.0) rotate(-28.0)" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><line x1="150.0" y1="149.0" x2="150.0" y2="202.0" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="150.0,213.0 144.5,202.0 155.5,202.0" fill="#c2410c"/><line x1="118.8" y1="69.8" x2="140.8" y2="111.3" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="146.0,121.0 136.0,113.9 145.7,108.7" fill="#17915a"/><line x1="175.0" y1="137.0" x2="272.5" y2="154.2" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="283.3,156.1 271.5,159.6 273.5,148.8" fill="#2457d6"/><line x1="40.0" y1="248.0" x2="53.0" y2="248.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="64.0,248.0 53.0,253.5 53.0,242.5" fill="#7b808c"/><line x1="40.0" y1="248.0" x2="40.0" y2="235.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="40.0,224.0 45.5,235.0 34.5,235.0" fill="#7b808c"/><text x="120.0" y="105.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:16px;font-style:italic;fill:#1c1d21"><tspan>P</tspan></text><text x="130.0" y="213.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>mg</tspan></text><text x="112.2" y="57.4" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>N</tspan></text><text x="295.1" y="144.2" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>F</tspan></text><text x="74.0" y="248.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>x</tspan></text><text x="40.0" y="214.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>y</tspan></text></svg><figcaption>Slider P at a general position</figcaption></figure></div><p class="small fbdnote">The rod is smooth, so the force $N$ that it exerts is perpendicular to the rod and does no work. The cord tension $F$ has a constant magnitude but a changing direction, and the weight $mg$ is constant. Both do work.</p>
+</details>
+<details class="step"><summary>Step 2 · Write the work–energy equation</summary>
+<p>The slider starts from rest, so $T_1 = 0$. The rod force does no work, so</p>
+$$U_{1\to2}^{F} + U_{1\to2}^{g} = \tfrac12 m v_2^2$$
+</details>
+<details class="step"><summary>Step 3 · Find the work of the cord force</summary>
+<p>The cord tension has a constant magnitude $F$ and always points from P toward the fixed guide tip. For such a force, the work equals $F$ times the decrease in the distance from P to the tip.</p>
+$$U_{1\to2}^{F} = F\,(\ell_1 - \ell_2)$$
+<p>Taking position 1 as the origin, the tip is at $(1.5,\ 0.3)$ m and position 2 is at $(1.2,\ 0.7)$ m.</p>
+$$\ell_1 = \sqrt{1.5^2 + 0.3^2} = 1.530\ \text{m}, \qquad \ell_2 = \sqrt{0.3^2 + 0.4^2} = 0.500\ \text{m}$$
+$$U_{1\to2}^{F} = 20(1.530 - 0.500) = 20.59\ \text{J}$$
+<p>The slider rises 0.7 m, so gravity does negative work.</p>
+$$U_{1\to2}^{g} = -mg(0.7) = -0.6(9.81)(0.7) = -4.12\ \text{J}$$
+</details>
+<details class="step"><summary>Step 4 · Solve</summary>
+$$\tfrac12(0.6)\,v_2^2 = 20.59 - 4.12 = 16.47\ \text{J} \quad\Longrightarrow\quad v_2 = \sqrt{\frac{2(16.47)}{0.6}} = 7.41\ \text{m/s}$$
+<p class="small">The shape of the rod does not affect the answer, because the rod force does no work and the works of $F$ and $mg$ depend only on the end positions. The animation uses a circular arc through position 1, position 2 and the right foot, and it integrates the equation of motion along that arc. The shape does matter for whether the slider can start. If the rod were vertical at position 1, the upward pull of the cord there ($20 \times 0.30/1.53 = 3.9$ N) would be smaller than the weight ($5.9$ N), and the slider would stay at the bottom. On the arc, the rod starts at about 60° from the horizontal, and the pull along the rod wins.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>$v_2 = 7.41$ m/s at position 2.</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Change the tension $F$. What is the smallest tension that still brings the slider to position 2?</li><li>Why does the shape of the rod not matter for the speed at position 2? What would change if the rod were rough?</li><li>Watch the work bar of $F$. Where along the path does the cord do work most quickly, and why?</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 4, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-4-b-4.html"><small>← Previous</small>Example 4.B.4</a><a class="next" href="ex-4-b-6.html"><small>Next →</small>Example 4.B.6</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/kit.js"></script>
+<script src="../assets/ch4-exB.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch4-3dB.js"></script>
+</body>
+</html>

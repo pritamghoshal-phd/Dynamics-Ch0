@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 0.A.3 · Chapter 0 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 0</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="vectors.html">A · Vectors</a>
+    <a href="fbd.html">B · Free-body diagrams</a>
+    <a href="kinematics.html">C · Scalar kinematics</a>
+    <a href="examples.html" class=active>Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Vectors examples"><a href="examples.html#group-A">All Vectors examples</a><a href="ex-0-a-1.html">0.A.1</a><a href="ex-0-a-2.html">0.A.2</a><a href="ex-0-a-3.html" class=active>0.A.3</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-A">Vectors</a> › Example 0.A.3</p>
+<h2><span class="num">Example 0.A.3</span>From rotated xy components back to XY components</h2>
+<div class="tags"><span>vectors</span><span>unit vectors</span><span>projection</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>The vector $\mathbf b$ is given in terms of its $xy$ components as</p>
+$$\mathbf b = 3\hat{\mathbf i} - 5\hat{\mathbf j}$$
+<p>The $xy$ axes are turned counterclockwise from the $XY$ axes by the angle $\theta = 36.87°$, so that $\cos\theta = 0.8$ and $\sin\theta = 0.6$.</p>
+<p><b>Find</b> the $XY$ components of $\mathbf b$.</p>
+</div>
+<div class="demo" id="x0a-3">
+  <div class="demo-title"><span class="tag">Interactive</span><span>The same vector seen from both sets of axes</span></div>
+  <canvas id="x0a-3-anim" class="anim" style="height:380px"></canvas>
+  <div class="controls" id="x0a-3-ctl"></div>
+  <div class="bar" id="x0a-3-pre"><span class="lbl">Try:</span></div>
+  <div class="stats" id="x0a-3-stats"></div>
+  <p class="small concept-note">Here the components along the turned axes are fixed. When you change θ, the vector turns with the xy axes, and its XY components change.</p>
+</div>
+<div class="demo v3d" data-clip="x0a-3"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Sketch the two sets of axes</summary>
+<p>This is the reverse of Example 0.A.2. The vector is known in the purple $xy$ axes, and we want its components along the grey $XY$ axes.</p><div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 320 300" role="img" aria-label="The vector b and both sets of axes" style="max-width:320px"><line x1="40.4" y1="165.0" x2="279.6" y2="165.0" stroke="#7b808c" stroke-width="1.2" stroke-dasharray="5 4"/><line x1="160.0" y1="284.6" x2="160.0" y2="45.4" stroke="#7b808c" stroke-width="1.2" stroke-dasharray="5 4"/><line x1="64.3" y1="236.8" x2="255.7" y2="93.2" stroke="#8a3fd1" stroke-width="1.2"/><line x1="231.8" y1="260.7" x2="88.2" y2="69.3" stroke="#8a3fd1" stroke-width="1.2"/><line x1="160.0" y1="165.0" x2="290.2" y2="218.0" stroke="#b42346" stroke-width="3" stroke-linecap="round"/><polygon points="300.4,222.2 288.1,223.1 292.3,213.0" fill="#b42346"/><path d="M206.0,165.0 A46,46 0 0 0 196.8,137.4" fill="none" stroke="#7b808c" stroke-width="1.2"/><line x1="160.0" y1="165.0" x2="180.3" y2="149.8" stroke="#8a3fd1" stroke-width="2.2" stroke-linecap="round"/><polygon points="189.1,143.2 183.6,154.2 177.0,145.4" fill="#8a3fd1"/><line x1="160.0" y1="165.0" x2="144.8" y2="144.7" stroke="#8a3fd1" stroke-width="2.2" stroke-linecap="round"/><polygon points="138.2,135.9 149.2,141.4 140.4,148.0" fill="#8a3fd1"/><line x1="160.0" y1="165.0" x2="185.4" y2="165.0" stroke="#7b808c" stroke-width="2.2" stroke-linecap="round"/><polygon points="196.4,165.0 185.4,170.5 185.4,159.5" fill="#7b808c"/><line x1="160.0" y1="165.0" x2="160.0" y2="139.6" stroke="#7b808c" stroke-width="2.2" stroke-linecap="round"/><polygon points="160.0,128.6 165.5,139.6 154.5,139.6" fill="#7b808c"/><text x="291.6" y="165.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:14px;font-style:italic;fill:#7b808c"><tspan>X</tspan></text><text x="160.0" y="33.4" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:14px;font-style:italic;fill:#7b808c"><tspan>Y</tspan></text><text x="265.3" y="86.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:14px;font-style:italic;fill:#8a3fd1"><tspan>x</tspan></text><text x="81.0" y="59.7" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:14px;font-style:italic;fill:#8a3fd1"><tspan>y</tspan></text><text x="313.4" y="227.5" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#b42346"><tspan>b</tspan></text><text x="214.1" y="147.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>θ</tspan></text><text x="181.1" y="133.2" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:14px;font-style:italic;fill:#8a3fd1"><tspan>î</tspan></text><text x="126.2" y="137.9" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:14px;font-style:italic;fill:#8a3fd1"><tspan>ĵ</tspan></text><text x="196.4" y="153.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:14px;font-style:italic;fill:#7b808c"><tspan>Î</tspan></text><text x="148.0" y="126.6" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:14px;font-style:italic;fill:#7b808c"><tspan>Ĵ</tspan></text></svg><figcaption>The vector b and both sets of axes</figcaption></figure></div>
+</details>
+<details class="step"><summary>Step 2 · Write the old unit vectors in terms of the new ones</summary>
+<p>Seen from the $xy$ axes, the $XY$ axes are turned clockwise by $\theta$. Therefore</p>
+$$\hat{\mathbf I} = \cos\theta\,\hat{\mathbf i} - \sin\theta\,\hat{\mathbf j} = 0.8\,\hat{\mathbf i} - 0.6\,\hat{\mathbf j}$$
+$$\hat{\mathbf J} = \sin\theta\,\hat{\mathbf i} + \cos\theta\,\hat{\mathbf j} = 0.6\,\hat{\mathbf i} + 0.8\,\hat{\mathbf j}$$
+</details>
+<details class="step"><summary>Step 3 · Project the vector onto each fixed unit vector</summary>
+$$b_X = \mathbf b\cdot\hat{\mathbf I} = (3)(0.8) + (-5)(-0.6) = 2.4 + 3.0 = 5.4$$
+$$b_Y = \mathbf b\cdot\hat{\mathbf J} = (3)(0.6) + (-5)(0.8) = 1.8 - 4.0 = -2.2$$
+</details>
+<details class="step"><summary>Step 4 · Check the length</summary>
+$$|\mathbf b| = \sqrt{3^2 + (-5)^2} = \sqrt{34}, \qquad \sqrt{5.4^2 + (-2.2)^2} = \sqrt{29.16 + 4.84} = \sqrt{34}$$
+<p class="small">The length is unchanged, which confirms the arithmetic.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>$\mathbf b = 5.4\,\hat{\mathbf I} - 2.2\,\hat{\mathbf J}$</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Compare this example with Example 0.A.2. Which sign changes when you go from $xy$ back to $XY$?</li><li>Set θ = −36.87°. Predict the $XY$ components before you look.</li><li>Find θ for which $\mathbf b$ points straight along $\hat{\mathbf I}$.</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 0, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-0-a-2.html"><small>← Previous</small>Example 0.A.2</a><a class="next" href="ex-0-b-1.html"><small>Next →</small>Example 0.B.1</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/kit.js"></script>
+<script src="../assets/ch0-exA.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch0-3dA.js"></script>
+</body>
+</html>

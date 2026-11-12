@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 2.A.10 · Chapter 2 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 2</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="rigid.html">A · Rigid body equations</a>
+    <a href="instant.html">B · Instant centers</a>
+    <a href="mechanisms.html">C · Mechanisms</a>
+    <a href="examples.html" class=active>Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Rigid body equations examples"><a href="examples.html#group-A">All Rigid body equations examples</a><a href="ex-2-a-1.html">2.A.1</a><a href="ex-2-a-2.html">2.A.2</a><a href="ex-2-a-3.html">2.A.3</a><a href="ex-2-a-4.html">2.A.4</a><a href="ex-2-a-5.html">2.A.5</a><a href="ex-2-a-6.html">2.A.6</a><a href="ex-2-a-7.html">2.A.7</a><a href="ex-2-a-8.html">2.A.8</a><a href="ex-2-a-9.html">2.A.9</a><a href="ex-2-a-10.html" class=active>2.A.10</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-A">Rigid body equations</a> › Example 2.A.10</p>
+<h2><span class="num">Example 2.A.10</span>Four-bar linkage with two horizontal links</h2>
+<div class="tags"><span>four-bar</span><span>acceleration equation</span><span>translating link</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>In the four-bar linkage O–A–B–D, the links OA, AB and BD all have length $L$. Link OA rotates counterclockwise about the fixed pin O with a constant angular speed $\omega_{OA}$. At the instant shown, links OA and BD are both horizontal, and pin B is a height $d$ above the line OA. Pin D is fixed.</p>
+<p>The data are $\omega_{OA} = 3$ rad/s, $L = 0.5$ m and $d = 0.4$ m.</p>
+<p><b>Find</b>, at this instant, (a) the angular acceleration of link AB and (b) the angular acceleration of link BD. Express both answers as vectors.</p>
+</div>
+<div class="demo" id="x2a-10">
+  <div class="demo-title"><span class="tag">Interactive</span><span>The linkage rocking through the instant in the problem</span></div>
+  <canvas id="x2a-10-anim" class="anim" style="height:330px"></canvas><canvas id="x2a-10-plot" class="plot" style="height:220px"></canvas><div class="legendrow"><span><span class="sw" style="background:var(--c3)"></span>ω<sub>AB</sub></span><span><span class="sw" style="background:var(--c2)"></span>ω<sub>BD</sub></span></div>
+  <div class="controls" id="x2a-10-ctl"></div>
+  <div class="bar" id="x2a-10-pre"><span class="lbl">View:</span></div>
+  <div class="bar" id="x2a-10-btn"></div>
+  <div class="stats" id="x2a-10-stats"></div>
+  <p class="small concept-note">With these link lengths, OA cannot make a full turn, so the animation rocks OA back and forth. It passes through the horizontal position at 3 rad/s counterclockwise with zero angular acceleration, which is the instant in the problem. There, v<sub>A</sub> and v<sub>B</sub> are parallel and AB is momentarily translating.</p>
+</div>
+<div class="demo v3d" data-clip="x2a-10"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Draw a kinematics diagram</summary>
+<p>Put the origin at O, with $\hat{\mathbf i}$ to the right, $\hat{\mathbf j}$ upward and $\hat{\mathbf k}$ out of the page. Pin A is at $(0.5, 0)$ m. Pin B is 0.4 m higher and $\sqrt{0.5^2 - 0.4^2} = 0.3$ m to the right of A, at $(0.8, 0.4)$ m. Link BD is horizontal, so D is at $(1.3, 0.4)$ m. The relative positions are</p>
+$$\mathbf r_{A/O} = 0.5\,\hat{\mathbf i}, \qquad \mathbf r_{B/A} = 0.3\,\hat{\mathbf i} + 0.4\,\hat{\mathbf j}, \qquad \mathbf r_{B/D} = -0.5\,\hat{\mathbf i}\ \text{m}$$
+<p>Link OA turns at a constant rate, so $\boldsymbol\omega_{OA} = 3\,\hat{\mathbf k}$ rad/s and $\boldsymbol\alpha_{OA} = \mathbf 0$.</p>
+<div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 380 250" role="img" aria-label="Kinematics diagram of the four-bar linkage" style="max-width:380px"><line x1="40.0" y1="190.0" x2="150.0" y2="190.0" stroke="#8a6a12" stroke-width="13" stroke-linecap="round"/><line x1="40.0" y1="190.0" x2="150.0" y2="190.0" stroke="#f1e6c8" stroke-width="9" stroke-linecap="round"/><line x1="150.0" y1="190.0" x2="216.0" y2="102.0" stroke="#8a6a12" stroke-width="13" stroke-linecap="round"/><line x1="150.0" y1="190.0" x2="216.0" y2="102.0" stroke="#f1e6c8" stroke-width="9" stroke-linecap="round"/><line x1="216.0" y1="102.0" x2="326.0" y2="102.0" stroke="#8a6a12" stroke-width="13" stroke-linecap="round"/><line x1="216.0" y1="102.0" x2="326.0" y2="102.0" stroke="#f1e6c8" stroke-width="9" stroke-linecap="round"/><circle cx="40.0" cy="190.0" r="4.5" fill="#fff" stroke="#1c1d21" stroke-width="2"/><circle cx="150.0" cy="190.0" r="4.5" fill="#fff" stroke="#1c1d21" stroke-width="2"/><circle cx="216.0" cy="102.0" r="4.5" fill="#fff" stroke="#1c1d21" stroke-width="2"/><circle cx="326.0" cy="102.0" r="4.5" fill="#fff" stroke="#1c1d21" stroke-width="2"/><line x1="150.0" y1="190.0" x2="150.0" y2="156.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="150.0,145.0 155.5,156.0 144.5,156.0" fill="#2457d6"/><line x1="216.0" y1="102.0" x2="216.0" y2="68.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="216.0,57.0 221.5,68.0 210.5,68.0" fill="#2457d6"/><line x1="150.0" y1="200.0" x2="116.0" y2="200.0" stroke="#b42346" stroke-width="2.6" stroke-linecap="round"/><polygon points="105.0,200.0 116.0,194.5 116.0,205.5" fill="#b42346"/><line x1="216.0" y1="88.0" x2="250.0" y2="88.0" stroke="#b42346" stroke-width="2.6" stroke-linecap="round"/><polygon points="261.0,88.0 250.0,93.5 250.0,82.5" fill="#b42346"/><path d="M55.3,202.9 L56.5,201.3 L57.6,199.5 L58.4,197.7 L59.1,195.8 L59.6,193.9 L59.9,191.9 L60.0,189.9 L59.9,187.9 L59.6,185.9 L59.1,184.0 L58.4,182.1 L57.5,180.3 L56.4,178.6 L55.2,177.0 L53.8,175.6 L52.3,174.2 L50.7,173.1 L48.9,172.1 L47.1,171.3 L45.2,170.7 L43.2,170.3 L41.2,170.0 L39.2,170.0 L37.2,170.2 L35.2,170.6 L33.3,171.1 L31.5,171.9 L29.7,172.9 L28.0,174.0 L26.5,175.3 L25.1,176.7 L23.8,178.2 L22.7,179.9 L21.8,181.7 L21.1,183.6 L20.5,185.5 L20.2,187.5 L20.0,189.5 L20.1,191.5 L20.3,193.5" fill="none" stroke="#8a3fd1" stroke-width="2.2"/><polygon points="20.6,197.5 14.9,187.9 24.8,187.1" fill="#8a3fd1"/><line x1="255.0" y1="102.0" x2="255.0" y2="190.0" stroke="#7b808c" stroke-width="1.2"/><line x1="260.0" y1="102.0" x2="250.0" y2="102.0" stroke="#7b808c" stroke-width="1.2"/><line x1="260.0" y1="190.0" x2="250.0" y2="190.0" stroke="#7b808c" stroke-width="1.2"/><line x1="150.0" y1="190.0" x2="260.0" y2="190.0" stroke="#7b808c" stroke-width="1" stroke-dasharray="5 4"/><line x1="40.0" y1="80.0" x2="63.0" y2="80.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="74.0,80.0 63.0,85.5 63.0,74.5" fill="#7b808c"/><line x1="40.0" y1="80.0" x2="40.0" y2="57.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="40.0,46.0 45.5,57.0 34.5,57.0" fill="#7b808c"/><text x="36.0" y="208.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>O</tspan></text><text x="154.0" y="210.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>A</tspan></text><text x="202.0" y="88.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>B</tspan></text><text x="340.0" y="88.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>D</tspan></text><text x="134.0" y="137.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>v</tspan><tspan dy="4.8" style="font-size:10.8px">A</tspan></text><text x="200.0" y="49.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>v</tspan><tspan dy="4.8" style="font-size:10.8px">B</tspan></text><text x="105.0" y="212.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#b42346"><tspan>a</tspan><tspan dy="4.8" style="font-size:10.8px">A</tspan></text><text x="253.0" y="74.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#b42346"><tspan>(a</tspan><tspan dy="4.8" style="font-size:10.8px">B</tspan><tspan dy="-4.8">)</tspan><tspan dy="4.8" style="font-size:10.8px">n</tspan></text><text x="48.5" y="158.1" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#8a3fd1"><tspan>ω</tspan><tspan dy="4.8" style="font-size:10.8px">OA</tspan></text><text x="243.0" y="146.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>d</tspan></text><text x="84.0" y="80.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>x</tspan></text><text x="40.0" y="36.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>y</tspan></text></svg><figcaption>Kinematics diagram of the four-bar linkage</figcaption></figure></div><p class="small fbdnote">Blue arrows are velocities and red arrows are known parts of the accelerations. Both $\mathbf v_A$ and $\mathbf v_B$ point up, so AB translates at this instant. The centripetal part of $\mathbf a_B$ points from B toward D.</p>
+</details>
+<details class="step"><summary>Step 2 · Find the angular velocities</summary>
+$$\mathbf v_A = \boldsymbol\omega_{OA}\times\mathbf r_{A/O} = 3\,\hat{\mathbf k}\times 0.5\,\hat{\mathbf i} = 1.5\,\hat{\mathbf j}\ \text{m/s}$$
+<p>Write the velocity of B from link AB and from link BD.</p>
+$$\mathbf v_B = 1.5\,\hat{\mathbf j} + \omega_{AB}\,\hat{\mathbf k}\times(0.3\,\hat{\mathbf i} + 0.4\,\hat{\mathbf j}) = -0.4\,\omega_{AB}\,\hat{\mathbf i} + (1.5 + 0.3\,\omega_{AB})\,\hat{\mathbf j}$$
+$$\mathbf v_B = \omega_{BD}\,\hat{\mathbf k}\times(-0.5\,\hat{\mathbf i}) = -0.5\,\omega_{BD}\,\hat{\mathbf j}$$
+<p>The $\hat{\mathbf i}$ components give $\omega_{AB} = 0$, and the $\hat{\mathbf j}$ components give $\omega_{BD} = -3$ rad/s. Link AB is momentarily translating, because $\mathbf v_A$ and $\mathbf v_B$ are both $1.5\,\hat{\mathbf j}$ m/s.</p>
+</details>
+<details class="step"><summary>Step 3 · Write the acceleration equations</summary>
+$$\mathbf a_A = \boldsymbol\alpha_{OA}\times\mathbf r_{A/O} - \omega_{OA}^2\,\mathbf r_{A/O} = -(3)^2(0.5\,\hat{\mathbf i}) = -4.5\,\hat{\mathbf i}\ \text{m/s}^2$$
+<p>From link AB, whose angular velocity is zero,</p>
+$$\mathbf a_B = -4.5\,\hat{\mathbf i} + \alpha_{AB}\,\hat{\mathbf k}\times(0.3\,\hat{\mathbf i} + 0.4\,\hat{\mathbf j}) = (-4.5 - 0.4\,\alpha_{AB})\,\hat{\mathbf i} + 0.3\,\alpha_{AB}\,\hat{\mathbf j}$$
+<p>From link BD,</p>
+$$\mathbf a_B = \alpha_{BD}\,\hat{\mathbf k}\times(-0.5\,\hat{\mathbf i}) - (-3)^2(-0.5\,\hat{\mathbf i}) = 4.5\,\hat{\mathbf i} - 0.5\,\alpha_{BD}\,\hat{\mathbf j}$$
+</details>
+<details class="step"><summary>Step 4 · Solve</summary>
+<p>The $\hat{\mathbf i}$ components give $-4.5 - 0.4\,\alpha_{AB} = 4.5$, so $\alpha_{AB} = -22.5$ rad/s². The $\hat{\mathbf j}$ components give $0.3(-22.5) = -0.5\,\alpha_{BD}$, so $\alpha_{BD} = 13.5$ rad/s².</p>
+<p class="small">Link AB has zero angular velocity at this instant but a large angular acceleration. A momentarily translating link does not have zero angular acceleration in general.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>(a) $\boldsymbol\alpha_{AB} = -22.5\,\hat{\mathbf k}$ rad/s² (clockwise). (b) $\boldsymbol\alpha_{BD} = 13.5\,\hat{\mathbf k}$ rad/s² (counterclockwise).</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Watch the plot near the instant. How does the slope of the $\omega_{AB}$ curve relate to $\alpha_{AB}$?</li><li>Change the height $d$. Does $\omega_{AB}$ stay zero at the instant? Explain with the directions of $\mathbf v_A$ and $\mathbf v_B$.</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 2, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-2-a-9.html"><small>← Previous</small>Example 2.A.9</a><a class="next" href="ex-2-b-1.html"><small>Next →</small>Example 2.B.1</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/kit.js"></script>
+<script src="../assets/ch2-exA2.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch2-3dA2.js"></script>
+</body>
+</html>

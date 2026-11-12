@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 2.B.2 · Chapter 2 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 2</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="rigid.html">A · Rigid body equations</a>
+    <a href="instant.html">B · Instant centers</a>
+    <a href="mechanisms.html">C · Mechanisms</a>
+    <a href="examples.html" class=active>Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Instant centers examples"><a href="examples.html#group-B">All Instant centers examples</a><a href="ex-2-b-1.html">2.B.1</a><a href="ex-2-b-2.html" class=active>2.B.2</a><a href="ex-2-b-3.html">2.B.3</a><a href="ex-2-b-4.html">2.B.4</a><a href="ex-2-b-5.html">2.B.5</a><a href="ex-2-b-6.html">2.B.6</a><a href="ex-2-b-7.html">2.B.7</a><a href="ex-2-b-8.html">2.B.8</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-B">Instant centers</a> › Example 2.B.2</p>
+<h2><span class="num">Example 2.B.2</span>Pulley climbing a fixed cable</h2>
+<div class="tags"><span>instant centers</span><span>pulleys</span><span>no slip</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>A cable wrapped around the inner radius $r$ of the pulley shown is pulled upward at the rate $v_A$. A second cable is wrapped around the outer radius $R$, and its upper end is attached to the ceiling. The pulley does not slip on either cable.</p>
+<p>The data are $v_A = 3$ m/s, $r = 0.5$ ft and $R = 1$ ft.</p>
+<p><b>Find</b> (a) the location of the instant center of the pulley, and (b) the velocity of point B on the outer radius at the instant when B is directly above the center O. Sketch this velocity vector.</p>
+</div>
+<div class="demo" id="x2b-2">
+  <div class="demo-title"><span class="tag">Interactive</span><span>The pulley climbs the fixed cable (slow motion)</span></div>
+  <canvas id="x2b-2-anim" class="anim" style="height:430px"></canvas>
+  <div class="controls" id="x2b-2-ctl"></div>
+  <div class="bar" id="x2b-2-pre"><span class="lbl">View:</span></div>
+  <div class="bar" id="x2b-2-btn"></div>
+  <div class="stats" id="x2b-2-stats"></div>
+  <p class="small concept-note">The dotted curve is the path of B. At $t = 0$, B passes directly above O. The violet lines and right-angle marks show that $\mathbf v_B$ and $\mathbf v_O$ are perpendicular to their lines from C, with lengths proportional to the distances from C.</p>
+</div>
+<div class="demo v3d" data-clip="x2b-2"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">The method of instant centers has four steps. Find the direction of the velocity of two points of the body, locate the instant center where the perpendiculars to those velocities meet, find ω from one known speed, and then find any other velocity from its distance to the instant center. The book mixes units (m/s for the cable speed and ft for the radii). We convert the radii to metres: $r = 0.1524$ m and $R = 0.3048$ m. The velocity of B turns out not to depend on this choice, because it involves only the ratio of the radii.</p>
+<details class="step"><summary>Step 1 · Draw the kinematics diagram</summary>
+<p>The left side of the pulley touches the fixed cable at point C. The right side of the inner radius is in contact with the pulled cable at the point labeled A in the diagram.</p>
+<div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 300 270" role="img" aria-label="Pulley with the fixed cable at C and the pulled cable at A" style="max-width:300px"><circle cx="150.0" cy="150.0" r="70.0" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><circle cx="150.0" cy="150.0" r="35.0" fill="#f6f0dc" stroke="#8a6a12" stroke-width="2"/><line x1="80.0" y1="150.0" x2="80.0" y2="10.0" stroke="#1c1d21" stroke-width="2.2"/><line x1="185.0" y1="150.0" x2="185.0" y2="40.0" stroke="#1c1d21" stroke-width="2.2"/><circle cx="150.0" cy="150.0" r="4.5" fill="#fff" stroke="#1c1d21" stroke-width="2"/><circle cx="80.0" cy="150.0" r="10" fill="#8a3fd1" fill-opacity=".15"/><circle cx="80.0" cy="150.0" r="6" fill="none" stroke="#8a3fd1" stroke-width="2"/><circle cx="80.0" cy="150.0" r="2.4" fill="#8a3fd1"/><line x1="185.0" y1="60.0" x2="185.0" y2="27.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="185.0,16.0 190.5,27.0 179.5,27.0" fill="#2457d6"/><circle cx="150.0" cy="80.0" r="4" fill="#1c1d21"/><line x1="80.0" y1="150.0" x2="150.0" y2="80.0" stroke="#8a3fd1" stroke-width="1.3" stroke-dasharray="5 4"/><polyline points="144.3,85.7 138.7,80.0 144.3,74.3" fill="none" stroke="#8a3fd1" stroke-width="1.2"/><line x1="150.0" y1="80.0" x2="121.0" y2="51.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="113.2,43.2 124.9,47.1 117.1,54.9" fill="#17915a"/><line x1="80.0" y1="150.0" x2="185.0" y2="150.0" stroke="#8a3fd1" stroke-width="1.3" stroke-dasharray="5 4"/><polyline points="177.0,150.0 177.0,142.0 185.0,142.0" fill="none" stroke="#8a3fd1" stroke-width="1.2"/><line x1="80.0" y1="242.0" x2="185.0" y2="242.0" stroke="#7b808c" stroke-width="1.2"/><line x1="80.0" y1="237.0" x2="80.0" y2="247.0" stroke="#7b808c" stroke-width="1.2"/><line x1="185.0" y1="237.0" x2="185.0" y2="247.0" stroke="#7b808c" stroke-width="1.2"/><path d="M194.0,226.2 L196.3,224.8 L198.6,223.4 L200.8,221.9 L203.0,220.3 L205.1,218.6 L207.2,216.9 L209.2,215.1 L211.1,213.3 L213.0,211.4 L214.9,209.5 L216.7,207.4 L218.4,205.4 L220.0,203.3 L221.6,201.1 L223.2,198.9 L224.6,196.6 L226.0,194.3 L227.3,192.0 L228.6,189.6 L229.8,187.2 L230.9,184.7 L231.9,182.3 L232.8,179.7 L233.7,177.2 L234.5,174.6 L235.2,172.0 L235.8,169.4 L236.4,166.8 L236.9,164.1 L237.2,161.5 L237.6,158.8 L237.8,156.1 L237.9,153.5 L238.0,150.8 L238.0,148.1 L237.9,145.4 L237.7,142.7 L237.4,140.0 L237.1,137.4 L236.7,134.7" fill="none" stroke="#8a3fd1" stroke-width="2.2"/><polygon points="236.1,130.8 242.5,139.9 232.6,141.4" fill="#8a3fd1"/><text x="162.0" y="164.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>O</tspan></text><text x="70.0" y="168.0" text-anchor="end" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:14px;font-style:italic;fill:#8a3fd1"><tspan>C = IC</tspan></text><text x="201.0" y="14.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>v</tspan><tspan dy="4.8" style="font-size:10.8px">A</tspan></text><text x="164.0" y="70.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>B</tspan></text><text x="96.7" y="34.7" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>v</tspan><tspan dy="4.8" style="font-size:10.8px">B</tspan></text><text x="132.5" y="228.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>R + r</tspan></text><text x="241.5" y="192.7" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#8a3fd1"><tspan>ω</tspan></text></svg><figcaption>Pulley with the fixed cable at C and the pulled cable at A</figcaption></figure></div><p class="small fbdnote">Point C of the pulley touches the fixed cable without slipping, so its velocity is zero. Every other point moves perpendicular to its line from C.</p>
+</details>
+<details class="step"><summary>Step 2 · Locate the instant center</summary>
+<p>The pulley does not slip on the fixed cable, and that cable does not move. The point C of the pulley that touches it therefore has zero velocity, so C is the instant center.</p>
+<p>C lies on the horizontal diameter, a distance $R$ to the left of O.</p>
+</details>
+<details class="step"><summary>Step 3 · Find the angular velocity</summary>
+<p>The point of the pulley that touches the pulled cable moves with that cable, at $v_A$ upward. It is a distance $R + r$ from C, so</p>
+$$\omega = \frac{v_A}{R + r} = \frac{3}{0.3048 + 0.1524} = 6.56\ \text{rad/s}$$
+<p>This point is to the right of C and moves up, so the pulley turns <b>counterclockwise</b>. The center O, a distance $R$ from C, rises at $v_O = \omega R = 2.00$ m/s.</p>
+</details>
+<details class="step"><summary>Step 4 · Find the velocity of B</summary>
+<p>When B is directly above O, its position relative to C is $\mathbf r_{B/C} = R\,\hat{\mathbf i} + R\,\hat{\mathbf j}$. Its distance from C is $\sqrt2\,R$, and its velocity is perpendicular to the line CB.</p>
+$$\mathbf v_B = \omega\hat{\mathbf k}\times\mathbf r_{B/C} = \omega R\left(-\hat{\mathbf i} + \hat{\mathbf j}\right) = -2.00\,\hat{\mathbf i} + 2.00\,\hat{\mathbf j}\ \text{m/s}$$
+$$v_B = \sqrt2\,\omega R = \frac{\sqrt2\,R}{R + r}\,v_A = 2.83\ \text{m/s}$$
+<p>The velocity of B points up and to the left at 45°.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>(a) The instant center is the point C where the pulley touches the fixed cable. (b) $\mathbf v_B = -2.00\,\hat{\mathbf i} + 2.00\,\hat{\mathbf j}$ m/s, a speed of 2.83 m/s directed up and to the left at 45°. The pulley turns counterclockwise at 6.56 rad/s.</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Change $v_A$. Why does the direction of $\mathbf v_B$ stay at 45° while its size changes?</li><li>Which point of the pulley moves fastest? Find its speed in terms of $v_A$.</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 2, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-2-b-1.html"><small>← Previous</small>Example 2.B.1</a><a class="next" href="ex-2-b-3.html"><small>Next →</small>Example 2.B.3</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/kit.js"></script>
+<script src="../assets/ch2-exB.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch2-3dB.js"></script>
+</body>
+</html>

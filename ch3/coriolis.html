@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Coriolis in real life · Chapter 3 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 3</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="frames-2d.html">A · 2D rotating frames</a>
+    <a href="frames-3d.html">B · 3D rotating frames</a>
+    <a href="coriolis.html" class=active>C · Coriolis in real life</a>
+    <a href="examples.html">Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<section>
+<h2><span class="num">C</span>Coriolis in real life</h2>
+<p>The Coriolis term $2\vec\omega\times(\vec v_{B/A})_{rel}$ can look like a piece of algebra that falls out of a derivative. This section shows that it describes real things you can see and measure. In every animation the motion comes from the true equations. Bodies that feel no horizontal force move in straight lines in the fixed frame, and everything else is found by integrating Newton's second law.</p>
+<p>All of the examples use one idea. Solve the acceleration equation of Section A for what an observer on the turning body measures. With the observer's origin fixed and a constant rate $\omega$,</p>
+<div class="formula">$$(\vec a_{B/A})_{rel} = \vec a_B - 2\vec\omega\times(\vec v_{B/A})_{rel} - \vec\omega\times(\vec\omega\times\vec r_{B/A})$$</div>
+<p>A rider on a merry-go-round, a person standing on the Earth and the controller of a robot all live in rotating frames. When they describe motion in their own frame, the last two terms show up as a sideways "Coriolis" push and an outward "centrifugal" push, even though no real force of that kind acts.</p>
+
+<h3>1. Playing catch on a merry-go-round</h3>
+<p>Two friends sit on opposite sides of a merry-go-round of radius 2 m. The thrower aims straight at the friend and throws. Once the ball leaves the hand, nothing pushes it sideways, so from the ground its path seen from above is a straight line. Two things spoil the throw. The ball starts with the thrower's own velocity $\vec\omega\times\vec r$ added to the throw, and the friend moves while the ball is in the air. The riders see the ball curve away from where they aimed. They can explain the curve exactly with the Coriolis and centrifugal accelerations drawn on the ball.</p>
+<div class="demo concept" id="c-throw">
+  <div class="demo-title"><span class="tag concept-tag">Concept</span><span>Playing catch on a merry-go-round</span></div>
+  <canvas id="c-throw-anim" class="anim" style="height:380px"></canvas>
+  <div class="controls" id="c-throw-ctl"></div>
+  <div class="bar" id="c-throw-pre"><span class="lbl">Try:</span></div>
+  <div class="bar" id="c-throw-btn"></div>
+  <div class="stats" id="c-throw-stats"></div>
+  <p class="small concept-note">Left: from the ground the ball flies in a straight line at constant speed. Right: the riders see it curve. The red arrow is the Coriolis acceleration −2ω × (v)rel that they would infer, and the grey arrow is the centrifugal acceleration ω²r. Choose “Aim with the Coriolis correction” to see how far to the side the thrower must aim.</p>
+</div>
+<div class="demo v3d" data-clip="c-throw"><div class="demo-title"><span class="tag">3D</span><span>Playing catch in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<p class="small">In the 3D view the red line is the true path of the ball, a straight line in the ground frame when seen from above (the arc is caused by gravity alone). The blue line is painted on the platform, and it is the path the riders see.</p>
+
+<h3>2. Where the factor of two comes from</h3>
+<p>Take a bead that slides outward along a turning rod at constant speed $u$. During a short time $\Delta t$ its velocity changes sideways in two separate ways, and each one is worth $\omega u$ per second. First, the relative velocity $u$ along the rod turns with the rod. Second, the velocity $\omega r$ that the bead gets from the rod's rotation grows, because $r$ grows. The two changes point the same way, so the sideways acceleration is $2\omega u$. A third change, $\omega r$ turning, points inward and is the centripetal term $\omega^2 r$.</p>
+<div class="demo concept" id="c-two">
+  <div class="demo-title"><span class="tag concept-tag">Concept</span><span>Two halves of the Coriolis term</span></div>
+  <canvas id="c-two-anim" class="anim" style="height:360px"></canvas>
+  <div class="controls" id="c-two-ctl"></div>
+  <div class="bar" id="c-two-btn"></div>
+  <div class="stats" id="c-two-stats"></div>
+  <p class="small concept-note">Left: the rod and bead at time t (solid) and at t + Δt (faded). Right: the velocity changes during Δt, magnified. The green and orange arrows are each ωuΔt for small Δt, and together they make the Coriolis term 2ωuΔt. Shrink Δt and watch the statistics approach the exact value.</p>
+</div>
+
+<h3>3. The rotating Earth</h3>
+<p>The Earth turns once per sidereal day, $\Omega = 7.29\times10^{-5}$ rad/s. That is slow, but a long-range shell or a weather system moves fast enough, or for long enough, for the Coriolis acceleration to matter. At latitude $\lambda$ the Earth's spin has a vertical component $\Omega\sin\lambda$ and a horizontal component $\Omega\cos\lambda$ pointing north. For horizontal motion the vertical component is the important one. It is positive in the northern hemisphere and negative in the southern hemisphere, so moving bodies are deflected to the right in the north and to the left in the south.</p>
+<div class="demo concept" id="c-shell">
+  <div class="demo-title"><span class="tag concept-tag">Concept</span><span>A long-range shell fired on the rotating Earth</span></div>
+  <canvas id="c-shell-anim" class="anim" style="height:300px"></canvas><canvas id="c-shell-plot" class="plot" style="height:230px"></canvas>
+  <div class="controls" id="c-shell-ctl"></div>
+  <div class="bar" id="c-shell-pre"><span class="lbl">Try:</span></div>
+  <div class="bar" id="c-shell-btn"></div>
+  <div class="stats" id="c-shell-stats"></div>
+  <p class="small concept-note">The shell is fired at 45° elevation and its flight is integrated with a = g − 2Ω × v, ignoring air drag. The sideways drift is a few hundred metres over a range of tens of kilometres, so it is magnified in the top view. The plot shows it to scale in metres.</p>
+</div>
+<p>The same deflection organizes the weather. Air flows toward a region of low pressure. In the northern hemisphere the moving air is turned to the right, so instead of flowing straight in it circles the low counterclockwise. In the southern hemisphere the sense reverses. Near the equator $\sin\lambda$ is close to zero, which is why hurricanes do not form there.</p>
+<div class="demo concept" id="c-storm">
+  <div class="demo-title"><span class="tag concept-tag">Concept</span><span>Why storms spin: air flowing into a low</span></div>
+  <canvas id="c-storm-anim" class="anim" style="height:380px"></canvas>
+  <div class="controls" id="c-storm-ctl"></div>
+  <div class="bar" id="c-storm-pre"><span class="lbl">Try:</span></div>
+  <div class="bar" id="c-storm-btn"></div>
+  <div class="stats" id="c-storm-stats"></div>
+  <p class="small concept-note">Each dot is a parcel of air pulled toward the center by the pressure difference, deflected by −2Ω sin λ k × v and slowed by friction with the ground. The animation is a time-lapse: one second is about eight hours.</p>
+</div>
+
+<h3>4. The Foucault pendulum</h3>
+<p>In 1851 Léon Foucault hung a 67 m pendulum in the Panthéon in Paris and showed the public that the Earth turns. A pendulum that is free to swing in any direction keeps swinging in the same plane in a non-rotating frame. The floor turns underneath it, so people standing on the floor see the plane of the swing turn. In the ground frame the explanation is the Coriolis acceleration $-2\Omega\sin\lambda\,\hat k\times\vec v$, which nudges the bob sideways on every swing. The plane turns at the rate $\Omega\sin\lambda$, clockwise in the northern hemisphere, once per sidereal day at the poles, and not at all at the equator.</p>
+<div class="demo concept" id="c-foucault">
+  <div class="demo-title"><span class="tag concept-tag">Concept</span><span>The Foucault pendulum</span></div>
+  <canvas id="c-foucault-anim" class="anim" style="height:380px"></canvas>
+  <div class="controls" id="c-foucault-ctl"></div>
+  <div class="bar" id="c-foucault-pre"><span class="lbl">Try:</span></div>
+  <div class="bar" id="c-foucault-btn"></div>
+  <div class="stats" id="c-foucault-stats"></div>
+  <p class="small concept-note">A 1 m pendulum released from rest. Its small-swing equations, including the Coriolis term, are integrated numerically. The Earth’s spin is sped up so the turning can be seen within a few dozen swings, and the statistics give the real-Earth numbers. The orange line is the swing plane predicted by Ω sin λ · t, and the last statistic measures the plane from the swing itself.</p>
+</div>
+<div class="demo v3d" data-clip="c-foucault"><div class="demo-title"><span class="tag">3D</span><span>The Foucault pendulum in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+
+<h3>5. Engineering: a robot arm that extends while it turns</h3>
+<p>A pick-and-place robot turns about a vertical axis and extends its arm at the same time. The gripper must supply the whole force that accelerates the payload. In polar components, with $r$ along the arm,</p>
+<div class="formula">$$F_r = m(\ddot r - r\omega^2), \qquad F_\theta = m(r\alpha + 2\dot r\omega)$$</div>
+<p>The term $2m\dot r\omega$ is the Coriolis force. It is needed only because the payload moves along an arm that turns. While an extending arm speeds up its turn, the motor must push much harder than the $mr^2\alpha$ term alone suggests. While it slows the turn, the Coriolis term works against the braking torque. A retracting arm behaves the other way round, the same effect that makes a figure skater spin faster when she pulls in her arms. Designers size motors and gearboxes for the peak torque, so ignoring this term gives a robot that cannot follow its own path.</p>
+<div class="demo concept" id="c-robot">
+  <div class="demo-title"><span class="tag concept-tag">Concept</span><span>Torque needed to turn an extending arm</span></div>
+  <div class="grid2"><canvas id="c-robot-anim" class="anim" style="height:360px"></canvas><div><canvas id="c-robot-plot" class="plot" style="height:230px"></canvas><div class="legendrow"><span><span class="sw" style="background:#a61e4d"></span>torque needed</span><span><span class="sw" style="background:var(--c5)"></span>torque if the Coriolis term were ignored</span></div></div></div>
+  <div class="controls" id="c-robot-ctl"></div>
+  <div class="bar" id="c-robot-pre"><span class="lbl">Try:</span></div>
+  <div class="bar" id="c-robot-btn"></div>
+  <div class="stats" id="c-robot-stats"></div>
+  <p class="small concept-note">The arm turns through the chosen angle and extends from 0.4 m to 1.0 m with smooth motion profiles. The arrows are the forces the gripper applies to the payload: radial (orange), mrα (grey) and the Coriolis part 2mṙω (red).</p>
+</div>
+<div class="demo v3d" data-clip="c-robot"><div class="demo-title"><span class="tag">3D</span><span>The robot arm in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+
+<div class="try"><h4>Try this</h4><ul><li>On the merry-go-round, set the platform at rest. Where does the ball go now? Then double ω. Does the miss distance double?</li><li>In the factor-of-two animation, what happens to each half if the bead moves inward instead (imagine u negative)?</li><li>Fire the shell east, then west, at the same latitude. Is the drift the same? Look at the effect of the vertical velocity.</li><li>Move the Foucault pendulum to the equator. Does the plane turn? Now take it to 34° S. Which way does it turn?</li><li>Choose “Retract while turning” for the robot. Is the peak torque larger or smaller than for a fixed arm?</li></ul></div>
+<div class="wild"><span class="wi" aria-hidden="true">🌍</span><div><b class="wh">Coriolis in the wild</b><p>Ballistic tables for long-range artillery and sniper rifles include Coriolis corrections. Mass-flow meters in chemical plants vibrate a bent tube and measure the tiny twist produced by the Coriolis force of the fluid flowing through it. The vibrating gyroscopes in every phone sense rotation through the Coriolis force on a vibrating mass.</p></div></div>
+</section>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="frames-3d.html"><small>← Previous</small>B · 3D rotating frames</a><a class="next" href="examples.html"><small>Next →</small>Worked examples</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/labels.js"></script>
+<script src="../assets/ch3.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch3-3dT.js"></script>
+</body>
+</html>

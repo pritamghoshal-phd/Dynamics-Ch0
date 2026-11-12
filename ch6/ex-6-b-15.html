@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 6.B.15 · Chapter 6 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 6</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="eom.html">A · Equations of motion</a>
+    <a href="free.html">B · Free vibration</a>
+    <a href="damped.html">B · Damped vibration</a>
+    <a href="forced.html">C · Forced vibration</a>
+    <a href="base.html">C · Base excitation</a>
+    <a href="summary.html">Summary</a>
+    <a href="examples.html" class=active>Examples</a>
+    <a href="badges.html">🏅 Badges</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Free response examples"><a href="examples.html#group-B">All Free response examples</a><a href="ex-6-b-1.html">6.B.1</a><a href="ex-6-b-2.html">6.B.2</a><a href="ex-6-b-3.html">6.B.3</a><a href="ex-6-b-4.html">6.B.4</a><a href="ex-6-b-5.html">6.B.5</a><a href="ex-6-b-6.html">6.B.6</a><a href="ex-6-b-7.html">6.B.7</a><a href="ex-6-b-8.html">6.B.8</a><a href="ex-6-b-9.html">6.B.9</a><a href="ex-6-b-10.html">6.B.10</a><a href="ex-6-b-11.html">6.B.11</a><a href="ex-6-b-12.html">6.B.12</a><a href="ex-6-b-13.html">6.B.13</a><a href="ex-6-b-14.html">6.B.14</a><a href="ex-6-b-15.html" class=active>6.B.15</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-B">Free response</a> › Example 6.B.15</p>
+<h2><span class="num">Example 6.B.15</span>Center of percussion of a baseball bat</h2>
+<div class="tags"><span>physical pendulum</span><span>linearization</span><span>center of percussion</span><span>experiment</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>The location of the center of percussion P of a rigid body is given by $h = I_O/(md)$, where $h$ is the distance from the support point O to P, $d$ is the distance from O to the center of mass G, and $I_O$ is the moment of inertia of the body about O. In this example, we use the free vibration of a baseball bat suspended from a support point O to locate the bat’s center of percussion.</p>
+<p><b>Find</b></p>
+<ol type="a"><li>a free-body diagram of the bat;</li>
+<li>the equation of motion (EOM) of the bat in terms of the angle $\theta$, and its linearized form for small $\theta$;</li>
+<li>the natural frequency of the free response, in terms of the parameters of the problem;</li>
+<li>the relationship between the distance $h$ to the center of percussion and the natural frequency;</li>
+<li>a simple experiment that determines the location of the center of percussion.</li></ol>
+</div>
+<div class="demo" id="x6b-15">
+  <div class="demo-title"><span class="tag">Interactive</span><span>The bat swinging about the pin at its knob</span></div>
+  <canvas id="x6b-15-anim" class="anim" style="height:360px"></canvas><canvas id="x6b-15-plot" class="plot" style="height:220px"></canvas>
+  <div class="controls" id="x6b-15-ctl"></div>
+  <div class="bar" id="x6b-15-pre"><span class="lbl">Try:</span></div>
+  <div class="bar" id="x6b-15-btn"></div>
+  <div class="stats" id="x6b-15-stats"></div>
+  <p class="small concept-note">The bat is a 34 in (0.864 m) wooden bat. Its mass $m = 0.963$ kg, $d = 0.557$ m and $I_O = 0.341$ kg·m² are computed from its shape. The motion integrates the full equation with $\sin\theta$. The dashed curve is the linearized solution, which drifts out of step at large angles. The statistics “measure” the period from the swing, as in the experiment of part (e).</p>
+</div>
+<div class="demo v3d" data-clip="x6b-15"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Every solution starts from free-body diagrams in a displaced position, then writes the equation of motion and reads off the vibration properties. Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · (a) Draw the free-body diagram</summary>
+<div class="fbdrow"><figure style="width:300px;max-width:100%"><svg class="fbd" viewBox="0 0 300 320" role="img" aria-label="Bat, swung by θ from the vertical" style="max-width:300px"><line x1="110.0" y1="70.0" x2="185.2" y2="276.7" stroke="#8a6a12" stroke-width="19" stroke-linecap="round"/><line x1="110.0" y1="70.0" x2="185.2" y2="276.7" stroke="#f1e6c8" stroke-width="15" stroke-linecap="round"/><circle cx="110.0" cy="70.0" r="4.5" fill="#fff" stroke="#1c1d21" stroke-width="2"/><circle cx="158.2" cy="202.3" r="4" fill="#1c1d21"/><circle cx="164.9" cy="220.9" r="4" fill="#1c1d21"/><line x1="158.2" y1="202.3" x2="158.2" y2="247.3" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="158.2,258.3 152.7,247.3 163.7,247.3" fill="#c2410c"/><line x1="110.0" y1="70.0" x2="85.0" y2="70.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="74.0,70.0 85.0,64.5 85.0,75.5" fill="#17915a"/><line x1="110.0" y1="70.0" x2="110.0" y2="47.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="110.0,36.0 115.5,47.0 104.5,47.0" fill="#17915a"/><line x1="110.0" y1="70.0" x2="110.0" y2="280.0" stroke="#7b808c" stroke-width="1.4" stroke-dasharray="5 4"/><path d="M110.0,130.0 A60,60 0 0 0 130.5,126.4" fill="none" stroke="#7b808c" stroke-width="1.2"/><line x1="138.2" y1="59.7" x2="186.3" y2="192.0" stroke="#7b808c" stroke-width="1.2"/><line x1="142.9" y1="58.0" x2="133.5" y2="61.4" stroke="#7b808c" stroke-width="1.2"/><line x1="191.0" y1="190.3" x2="181.6" y2="193.8" stroke="#7b808c" stroke-width="1.2"/><text x="90.0" y="84.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>O</tspan></text><text x="140.2" y="198.3" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>G</tspan></text><text x="146.9" y="226.9" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>P</tspan></text><text x="136.2" y="260.3" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>mg</tspan></text><text x="58.0" y="70.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>O</tspan><tspan dy="4.8" style="font-size:10.8px">x</tspan></text><text x="128.0" y="34.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>O</tspan><tspan dy="4.8" style="font-size:10.8px">y</tspan></text><text x="122.3" y="139.9" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>θ</tspan></text><text x="179.2" y="119.7" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>d</tspan></text></svg><figcaption>Bat, swung by θ from the vertical</figcaption></figure></div><p class="small fbdnote">The pin force acts at O, so only the weight has a moment about O. Its moment arm is d sin θ.</p><p>Two forces act on the bat: the pin force at O (components $O_x$ and $O_y$) and the weight $mg$ at the center of mass G.</p>
+</details>
+<details class="step"><summary>Step 2 · (b) Write and linearize the equation of motion</summary>
+<p>The bat turns about the fixed pin O, so take moments about O. The weight has moment arm $d\sin\theta$ and tends to reduce $\theta$:</p>
+$$\sum M_O = I_O\ddot\theta: \qquad -mgd\sin\theta = I_O\ddot\theta \qquad\Longrightarrow\qquad I_O\ddot\theta + mgd\sin\theta = 0$$
+<p>For small $\theta$, $\sin\theta \approx \theta$, and the linearized EOM is</p>
+$$I_O\ddot\theta + mgd\,\theta = 0$$
+</details>
+<details class="step"><summary>Step 3 · (c) Find the natural frequency</summary>
+$$\omega_n = \sqrt{\frac{mgd}{I_O}}, \qquad T = \frac{2\pi}{\omega_n} = 2\pi\sqrt{\frac{I_O}{mgd}}$$
+<p class="small">For the bat in the animation, $\omega_n = \sqrt{(0.963)(9.81)(0.557)/0.341} = 3.93$ rad/s and $T = 1.60$ s.</p>
+</details>
+<details class="step"><summary>Step 4 · (d) Relate h to the natural frequency</summary>
+<p>Divide the definition of $h$ by the expression for $\omega_n^2$:</p>
+$$h = \frac{I_O}{md} = \frac{g}{\;mgd/I_O\;} = \frac{g}{\omega_n^2} = \frac{g\,T^2}{4\pi^2}$$
+<p>So the center of percussion is at the length of the simple pendulum that has the same period as the bat. For the animated bat, $h = 9.81/3.93^2 = 0.635$ m from O, or about 0.665 m (26 in) from the knob.</p>
+</details>
+<details class="step"><summary>Step 5 · (e) Design the experiment</summary>
+<p>Hang the bat from a low-friction pin through (or just below) the knob, so that it can swing freely in a vertical plane. Pull it aside by a small angle, about 10° or less, so that the linearized EOM holds, and release it. Time a large number of complete swings, for example 20, with a stopwatch, and divide by the number of swings to get $T$ accurately. Then compute $h = gT^2/(4\pi^2)$ and mark P at that distance from the pin along the bat.</p>
+<p class="small">No scale or inertia measurement is needed. Only a length (from the pin) and a time are required. The large-swing preset in the animation shows why small angles matter: at 45° the period is about 4% longer, so $h$ would come out about 8% too large.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>(b) $I_O\ddot\theta + mgd\sin\theta = 0$, linearized $I_O\ddot\theta + mgd\,\theta = 0$. (c) $\omega_n = \sqrt{mgd/I_O}$. (d) $h = g/\omega_n^2 = gT^2/4\pi^2$. (e) Time small free swings about O and use $h = gT^2/4\pi^2$.</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Use the “Large swing” preset. How far off is the measured $h$ compared with the exact $I_O/(md)$? Why?</li><li>Add a little pivot friction. Does the measured period change noticeably? Does the amplitude?</li><li>Why does striking a ball at P produce no reaction force at the pin (and so no sting in the batter’s hands)?</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 6, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-6-b-14.html"><small>← Previous</small>Example 6.B.14</a><a class="next" href="ex-6-c-1.html"><small>Next →</small>Example 6.C.1</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/kit.js"></script>
+<script src="../assets/ch6-exB3.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch6-3dB3.js"></script>
+</body>
+</html>

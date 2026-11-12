@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 2.B.1 · Chapter 2 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 2</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="rigid.html">A · Rigid body equations</a>
+    <a href="instant.html">B · Instant centers</a>
+    <a href="mechanisms.html">C · Mechanisms</a>
+    <a href="examples.html" class=active>Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Instant centers examples"><a href="examples.html#group-B">All Instant centers examples</a><a href="ex-2-b-1.html" class=active>2.B.1</a><a href="ex-2-b-2.html">2.B.2</a><a href="ex-2-b-3.html">2.B.3</a><a href="ex-2-b-4.html">2.B.4</a><a href="ex-2-b-5.html">2.B.5</a><a href="ex-2-b-6.html">2.B.6</a><a href="ex-2-b-7.html">2.B.7</a><a href="ex-2-b-8.html">2.B.8</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-B">Instant centers</a> › Example 2.B.1</p>
+<h2><span class="num">Example 2.B.1</span>Instant center of a four-bar coupler</h2>
+<div class="tags"><span>instant centers</span><span>four-bar linkage</span><span>angular velocity</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>Link OA rotates about pin O with an angular speed of $\omega_{OA} = 3$ rad/s in the counterclockwise sense. At the instant shown, link OA is horizontal, link AB is vertical, and link DB makes the angle $\theta = 36.87°$ with AB. Links OA and AB both have length $L$, and the fixed pin D lies on the horizontal line through O and A.</p>
+<p><b>Find</b> (a) the location of the instant center $IC_{AB}$ of link AB, and (b) the angular velocities of links AB and DB, using the location of $IC_{AB}$.</p>
+</div>
+<div class="demo" id="x2b-1">
+  <div class="demo-title"><span class="tag">Interactive</span><span>The four-bar rocking through the instant in the problem (L = 1 m shown)</span></div>
+  <canvas id="x2b-1-anim" class="anim" style="height:390px"></canvas><canvas id="x2b-1-plot" class="plot" style="height:220px"></canvas>
+  <div class="bar" id="x2b-1-pre"><span class="lbl">View:</span></div>
+  <div class="bar" id="x2b-1-btn"></div>
+  <div class="stats" id="x2b-1-stats"></div>
+  <p class="small concept-note">The dashed violet lines extend OA and DB. They always meet at the instant center of AB. In the problem position, that point is the fixed pin D itself. The graph shows $\omega_{AB}$ (solid) and $\omega_{DB}$ (dashed), with counterclockwise taken as positive.</p>
+</div>
+<div class="demo v3d" data-clip="x2b-1"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">The method of instant centers has four steps. Find the direction of the velocity of two points of the body, locate the instant center where the perpendiculars to those velocities meet, find ω from one known speed, and then find any other velocity from its distance to the instant center.</p>
+<details class="step"><summary>Step 1 · Find the directions of the velocities of A and B</summary>
+<p>Point A belongs to link OA, which turns about the fixed pin O. Its velocity is therefore perpendicular to OA. With OA horizontal and turning counterclockwise, $\mathbf v_A$ points straight up and has magnitude</p>
+$$v_A = \omega_{OA} L = 3L$$
+<p>Point B belongs to link DB, which turns about the fixed pin D. Its velocity is therefore perpendicular to DB.</p>
+<div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 330 250" role="img" aria-label="Directions of $\mathbf v_A$ and $\mathbf v_B$, and the instant center of AB" style="max-width:330px"><line x1="50.0" y1="80.0" x2="150.0" y2="80.0" stroke="#8a6a12" stroke-width="15" stroke-linecap="round"/><line x1="50.0" y1="80.0" x2="150.0" y2="80.0" stroke="#f1e6c8" stroke-width="11" stroke-linecap="round"/><line x1="150.0" y1="80.0" x2="150.0" y2="180.0" stroke="#8a6a12" stroke-width="15" stroke-linecap="round"/><line x1="150.0" y1="80.0" x2="150.0" y2="180.0" stroke="#f1e6c8" stroke-width="11" stroke-linecap="round"/><line x1="225.0" y1="80.0" x2="150.0" y2="180.0" stroke="#8a6a12" stroke-width="15" stroke-linecap="round"/><line x1="225.0" y1="80.0" x2="150.0" y2="180.0" stroke="#f1e6c8" stroke-width="11" stroke-linecap="round"/><circle cx="50.0" cy="80.0" r="4.5" fill="#fff" stroke="#1c1d21" stroke-width="2"/><circle cx="150.0" cy="80.0" r="4.5" fill="#fff" stroke="#1c1d21" stroke-width="2"/><circle cx="150.0" cy="180.0" r="4.5" fill="#fff" stroke="#1c1d21" stroke-width="2"/><circle cx="225.0" cy="80.0" r="4.5" fill="#fff" stroke="#1c1d21" stroke-width="2"/><line x1="150.0" y1="80.0" x2="225.0" y2="80.0" stroke="#8a3fd1" stroke-width="1.3" stroke-dasharray="5 4"/><circle cx="225.0" cy="80.0" r="10" fill="#8a3fd1" fill-opacity=".15"/><circle cx="225.0" cy="80.0" r="6" fill="none" stroke="#8a3fd1" stroke-width="2"/><circle cx="225.0" cy="80.0" r="2.4" fill="#8a3fd1"/><line x1="150.0" y1="80.0" x2="150.0" y2="39.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="150.0,28.0 155.5,39.0 144.5,39.0" fill="#2457d6"/><line x1="150.0" y1="180.0" x2="110.8" y2="150.6" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="102.0,144.0 114.1,146.2 107.5,155.0" fill="#17915a"/><line x1="225.0" y1="80.0" x2="150.0" y2="180.0" stroke="#8a3fd1" stroke-width="1.3" stroke-dasharray="5 4"/><polyline points="154.8,173.6 148.4,168.8 143.6,175.2" fill="none" stroke="#8a3fd1" stroke-width="1.2"/><line x1="225.0" y1="80.0" x2="150.0" y2="80.0" stroke="#8a3fd1" stroke-width="1.3" stroke-dasharray="5 4"/><polyline points="158.0,80.0 158.0,72.0 150.0,72.0" fill="none" stroke="#8a3fd1" stroke-width="1.2"/><line x1="225.0" y1="80.0" x2="225.0" y2="140.0" stroke="#7b808c" stroke-width="1" stroke-dasharray="5 4"/><path d="M207.0,104.0 A30,30 0 0 0 225.0,110.0" fill="none" stroke="#7b808c" stroke-width="1.2"/><line x1="150.0" y1="214.0" x2="225.0" y2="214.0" stroke="#7b808c" stroke-width="1.2"/><line x1="150.0" y1="209.0" x2="150.0" y2="219.0" stroke="#7b808c" stroke-width="1.2"/><line x1="225.0" y1="209.0" x2="225.0" y2="219.0" stroke="#7b808c" stroke-width="1.2"/><line x1="50.0" y1="56.0" x2="150.0" y2="56.0" stroke="#7b808c" stroke-width="1.2"/><line x1="50.0" y1="51.0" x2="50.0" y2="61.0" stroke="#7b808c" stroke-width="1.2"/><line x1="150.0" y1="51.0" x2="150.0" y2="61.0" stroke="#7b808c" stroke-width="1.2"/><text x="36.0" y="66.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>O</tspan></text><text x="138.0" y="64.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>A</tspan></text><text x="136.0" y="190.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>B</tspan></text><text x="235.0" y="64.0" text-anchor="start" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:14px;font-style:italic;fill:#8a3fd1"><tspan>IC</tspan><tspan dy="4.5" style="font-size:10.1px">AB</tspan><tspan dy="-4.5"> = D</tspan></text><text x="164.0" y="24.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>v</tspan><tspan dy="4.8" style="font-size:10.8px">A</tspan></text><text x="86.4" y="130.8" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>v</tspan><tspan dy="4.8" style="font-size:10.8px">B</tspan></text><text x="212.0" y="118.9" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>θ</tspan></text><text x="187.5" y="198.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>0.75L</tspan></text><text x="100.0" y="38.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>L</tspan></text></svg><figcaption>Directions of $\mathbf v_A$ and $\mathbf v_B$, and the instant center of AB</figcaption></figure></div><p class="small fbdnote">$\mathbf v_A$ is perpendicular to OA, so the instant center of AB lies on line OA. $\mathbf v_B$ is perpendicular to DB, so it also lies on line DB. The two lines meet at D.</p>
+</details>
+<details class="step"><summary>Step 2 · Locate the instant center of AB</summary>
+<p>The instant center of AB lies on the line through A perpendicular to $\mathbf v_A$, which is the horizontal line OA. It also lies on the line through B perpendicular to $\mathbf v_B$, which is line DB itself. These two lines meet at D, so</p>
+$$IC_{AB} = \text{point D}$$
+<p>From the geometry, D is a horizontal distance $L\tan\theta = 0.75L$ to the right of A, and the length of DB is $L/\cos\theta = 1.25L$.</p>
+</details>
+<details class="step"><summary>Step 3 · Find the angular velocity of AB</summary>
+<p>Every point of AB moves as if AB were turning about D at this instant. Point A is $0.75L$ from D and moves up at $3L$, so</p>
+$$\omega_{AB} = \frac{v_A}{r_{A/IC}} = \frac{3L}{0.75L} = 4\ \text{rad/s}$$
+<p>A lies to the left of D and moves upward, so AB turns <b>clockwise</b>.</p>
+</details>
+<details class="step"><summary>Step 4 · Find the angular velocity of DB</summary>
+<p>Point B is $1.25L$ from the instant center of AB, so its speed is</p>
+$$v_B = \omega_{AB}\, r_{B/IC} = 4(1.25L) = 5L$$
+<p>Point B is also $1.25L$ from the fixed pin D of link DB, so</p>
+$$\omega_{DB} = \frac{v_B}{L_{DB}} = \frac{5L}{1.25L} = 4\ \text{rad/s, clockwise}$$
+<p class="small">The two angular velocities are equal at this instant because the pivot D of DB and the instant center of AB are the same point. Check with vectors. The result has magnitude $5L$ and is perpendicular to DB.</p>
+$$\mathbf v_B = \mathbf v_A + \boldsymbol\omega_{AB}\times\mathbf r_{B/A} = 3L\,\hat{\mathbf j} + (-4\hat{\mathbf k})\times(-L\hat{\mathbf j}) = -4L\,\hat{\mathbf i} + 3L\,\hat{\mathbf j}$$
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>(a) The instant center of AB is at the fixed pin D. (b) $\omega_{AB} = 4$ rad/s clockwise and $\omega_{DB} = 4$ rad/s clockwise. Neither answer depends on $L$.</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Play the motion and watch the instant center. Why does it run far away when OA and DB become nearly parallel?</li><li>When $\omega_{AB}$ crosses zero on the graph, what is the motion of AB at that moment?</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 2, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-2-a-10.html"><small>← Previous</small>Example 2.A.10</a><a class="next" href="ex-2-b-2.html"><small>Next →</small>Example 2.B.2</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/kit.js"></script>
+<script src="../assets/ch2-exB.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch2-3dB.js"></script>
+</body>
+</html>

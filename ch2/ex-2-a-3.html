@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 2.A.3 · Chapter 2 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 2</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="rigid.html">A · Rigid body equations</a>
+    <a href="instant.html">B · Instant centers</a>
+    <a href="mechanisms.html">C · Mechanisms</a>
+    <a href="examples.html" class=active>Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Rigid body equations examples"><a href="examples.html#group-A">All Rigid body equations examples</a><a href="ex-2-a-1.html">2.A.1</a><a href="ex-2-a-2.html">2.A.2</a><a href="ex-2-a-3.html" class=active>2.A.3</a><a href="ex-2-a-4.html">2.A.4</a><a href="ex-2-a-5.html">2.A.5</a><a href="ex-2-a-6.html">2.A.6</a><a href="ex-2-a-7.html">2.A.7</a><a href="ex-2-a-8.html">2.A.8</a><a href="ex-2-a-9.html">2.A.9</a><a href="ex-2-a-10.html">2.A.10</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-A">Rigid body equations</a> › Example 2.A.3</p>
+<h2><span class="num">Example 2.A.3</span>Bent bar turning about a vertical shaft</h2>
+<div class="tags"><span>fixed-axis rotation</span><span>3D geometry</span><span>velocity and acceleration</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>The bent bar shown turns about a vertical shaft at O with $\omega = 2$ rad/s and $\alpha = 3$ rad/s², both counterclockwise when seen from above. The bar runs 500 mm from O along the $x$ axis, then 250 mm parallel to the $y$ axis, and point P is at the top of a 50 mm post at its end.</p>
+<p><b>Find</b> (a) the velocity of point P and (b) the acceleration of point P.</p>
+</div>
+<div class="demo" id="x2a-3">
+  <div class="demo-title"><span class="tag">Interactive</span><span>The bar seen from above, turning faster and faster</span></div>
+  <div class="grid2"><canvas id="x2a-3-anim" class="anim" style="height:420px"></canvas><div><canvas id="x2a-3-plot" class="plot" style="height:300px"></canvas></div></div>
+  <div class="bar" id="x2a-3-pre"><span class="lbl">View:</span></div>
+  <div class="bar" id="x2a-3-btn"></div>
+  <div class="stats" id="x2a-3-stats"></div>
+  <p class="small concept-note">Seen from above, P moves on a circle of radius $\sqrt{0.5^2 + 0.25^2} = 0.559$ m. The tangential part $\boldsymbol\alpha\times\mathbf r$ (purple) and the centripetal part $-\omega^2\mathbf r$ (green) add up to $\mathbf a_P$ (red), and the orange arrow is $\mathbf v_P$. The 3D view below shows the shaft, the bar and the post.</p>
+</div>
+<div class="demo v3d" data-clip="x2a-3"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Draw the kinematics diagram</summary>
+<p>The axis of rotation is the $z$ axis, so $\boldsymbol\omega = 2\,\hat{\mathbf k}$ rad/s and $\boldsymbol\alpha = 3\,\hat{\mathbf k}$ rad/s². At the instant shown, the position of P relative to O is</p>
+$$\mathbf r_{P/O} = 0.5\,\hat{\mathbf i} + 0.25\,\hat{\mathbf j} + 0.05\,\hat{\mathbf k}\ \text{m}$$<div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 340 300" role="img" aria-label="Top view at the instant (z points out of the page)" style="max-width:340px"><line x1="60.0" y1="220.0" x2="290.0" y2="220.0" stroke="#7b808c" stroke-width="1.4" stroke-dasharray="5 4"/><line x1="80.0" y1="240.0" x2="80.0" y2="75.0" stroke="#7b808c" stroke-width="1.4" stroke-dasharray="5 4"/><line x1="80.0" y1="220.0" x2="230.0" y2="220.0" stroke="#8a6a12" stroke-width="15" stroke-linecap="round"/><line x1="80.0" y1="220.0" x2="230.0" y2="220.0" stroke="#f1e6c8" stroke-width="11" stroke-linecap="round"/><line x1="230.0" y1="220.0" x2="230.0" y2="145.0" stroke="#8a6a12" stroke-width="15" stroke-linecap="round"/><line x1="230.0" y1="220.0" x2="230.0" y2="145.0" stroke="#f1e6c8" stroke-width="11" stroke-linecap="round"/><circle cx="230.0" cy="145.0" r="8.0" fill="#b8b4a8" stroke="#8a6a12" stroke-width="2"/><circle cx="80.0" cy="220.0" r="4.5" fill="#fff" stroke="#1c1d21" stroke-width="2"/><line x1="80.0" y1="240.0" x2="230.0" y2="240.0" stroke="#7b808c" stroke-width="1.2"/><line x1="80.0" y1="235.0" x2="80.0" y2="245.0" stroke="#7b808c" stroke-width="1.2"/><line x1="230.0" y1="235.0" x2="230.0" y2="245.0" stroke="#7b808c" stroke-width="1.2"/><line x1="252.0" y1="220.0" x2="252.0" y2="145.0" stroke="#7b808c" stroke-width="1.2"/><line x1="247.0" y1="220.0" x2="257.0" y2="220.0" stroke="#7b808c" stroke-width="1.2"/><line x1="247.0" y1="145.0" x2="257.0" y2="145.0" stroke="#7b808c" stroke-width="1.2"/><line x1="80.0" y1="220.0" x2="230.0" y2="145.0" stroke="#7b808c" stroke-width="1.2" stroke-dasharray="5 4"/><path d="M63.3,200.1 L61.5,201.8 L59.8,203.6 L58.3,205.6 L57.0,207.8 L56.0,210.1 L55.1,212.4 L54.5,214.8 L54.1,217.3 L54.0,219.8 L54.1,222.3 L54.4,224.7 L55.0,227.2 L55.8,229.5 L56.8,231.8 L58.1,234.0 L59.5,236.0 L61.1,237.9 L62.9,239.6 L64.9,241.2 L67.0,242.5 L69.2,243.7 L71.5,244.6 L73.9,245.3 L76.4,245.7 L78.9,246.0 L81.4,246.0 L83.8,245.7 L86.3,245.2 L88.7,244.5 L91.0,243.6 L93.2,242.4 L95.3,241.0 L97.2,239.5 L99.0,237.7 L100.6,235.8 L102.0,233.8 L103.3,231.6 L104.3,229.3 L105.1,226.9 L105.6,224.5" fill="none" stroke="#8a3fd1" stroke-width="2.2"/><polygon points="106.7,220.7 108.8,231.6 99.2,229.0" fill="#8a3fd1"/><line x1="230.0" y1="145.0" x2="209.9" y2="104.8" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="205.0,95.0 214.8,102.4 205.0,107.3" fill="#2457d6"/><line x1="230.0" y1="145.0" x2="163.8" y2="133.0" stroke="#b42346" stroke-width="2.6" stroke-linecap="round"/><polygon points="153.0,131.0 164.8,127.6 162.8,138.4" fill="#b42346"/><circle cx="230.0" cy="145.0" r="4" fill="#1c1d21"/><text x="300.0" y="220.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>x</tspan></text><text x="80.0" y="65.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>y</tspan></text><text x="92.0" y="196.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>O</tspan></text><text x="155.0" y="256.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>500 mm</tspan></text><text x="278.0" y="182.5" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>250 mm</tspan></text><text x="143.0" y="170.5" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>r</tspan><tspan dy="4.2" style="font-size:9.4px">P/O</tspan></text><text x="60.5" y="253.8" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#8a3fd1"><tspan>ω, α</tspan></text><text x="198.7" y="82.5" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>v</tspan><tspan dy="4.8" style="font-size:10.8px">P</tspan></text><text x="137.3" y="128.1" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#b42346"><tspan>a</tspan><tspan dy="4.8" style="font-size:10.8px">P</tspan></text><text x="244.0" y="133.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>P</tspan></text></svg><figcaption>Top view at the instant (z points out of the page)</figcaption></figure></div><p class="small fbdnote">Only the components of $\mathbf r_{P/O}$ in the horizontal plane matter, because $\boldsymbol\omega$ and $\boldsymbol\alpha$ are vertical. The 50 mm height of the post at P has no effect.</p>
+</details>
+<details class="step"><summary>Step 2 · Velocity of P</summary>
+<p>Point O is on the fixed axis, so $\mathbf v_O = \mathbf 0$ and</p>
+$$\mathbf v_P = \boldsymbol\omega\times\mathbf r_{P/O} = 2\,\hat{\mathbf k}\times\left(0.5\,\hat{\mathbf i} + 0.25\,\hat{\mathbf j} + 0.05\,\hat{\mathbf k}\right) = -0.5\,\hat{\mathbf i} + 1.0\,\hat{\mathbf j}\ \text{m/s}$$
+<p class="small">The $\hat{\mathbf k}$ part of $\mathbf r_{P/O}$ is parallel to $\boldsymbol\omega$, so its cross product is zero.</p>
+</details>
+<details class="step"><summary>Step 3 · Acceleration of P</summary>
+<p>Use $\mathbf a_P = \boldsymbol\alpha\times\mathbf r_{P/O} + \boldsymbol\omega\times\left(\boldsymbol\omega\times\mathbf r_{P/O}\right)$.</p>
+$$\boldsymbol\alpha\times\mathbf r_{P/O} = 3\,\hat{\mathbf k}\times\left(0.5\,\hat{\mathbf i} + 0.25\,\hat{\mathbf j}\right) = -0.75\,\hat{\mathbf i} + 1.5\,\hat{\mathbf j}\ \text{m/s}^2$$
+$$\boldsymbol\omega\times\mathbf v_P = 2\,\hat{\mathbf k}\times\left(-0.5\,\hat{\mathbf i} + 1.0\,\hat{\mathbf j}\right) = -2.0\,\hat{\mathbf i} - 1.0\,\hat{\mathbf j}\ \text{m/s}^2$$
+$$\mathbf a_P = -2.75\,\hat{\mathbf i} + 0.5\,\hat{\mathbf j}\ \text{m/s}^2$$
+<p class="small">The second term equals $-\omega^2$ times the horizontal part of $\mathbf r_{P/O}$. It points from P toward the axis, not toward O, because P travels on a horizontal circle centered on the axis.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>(a) $\mathbf v_P = -0.5\,\hat{\mathbf i} + 1.0\,\hat{\mathbf j}$ m/s. (b) $\mathbf a_P = -2.75\,\hat{\mathbf i} + 0.5\,\hat{\mathbf j}$ m/s².</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Make the post at P twice as tall. Do the answers change?</li><li>At what value of $\alpha$ would $\mathbf a_P$ point straight at the axis of rotation?</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 2, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-2-a-2.html"><small>← Previous</small>Example 2.A.2</a><a class="next" href="ex-2-a-4.html"><small>Next →</small>Example 2.A.4</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/kit.js"></script>
+<script src="../assets/ch2-exA1.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch2-3dA1.js"></script>
+</body>
+</html>

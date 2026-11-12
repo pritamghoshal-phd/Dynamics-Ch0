@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 3.B.9 · Chapter 3 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 3</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="frames-2d.html">A · 2D rotating frames</a>
+    <a href="frames-3d.html">B · 3D rotating frames</a>
+    <a href="coriolis.html">C · Coriolis in real life</a>
+    <a href="examples.html" class=active>Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="3D rotating frames examples"><a href="examples.html#group-B">All 3D rotating frames examples</a><a href="ex-3-b-1.html">3.B.1</a><a href="ex-3-b-2.html">3.B.2</a><a href="ex-3-b-3.html">3.B.3</a><a href="ex-3-b-4.html">3.B.4</a><a href="ex-3-b-5.html">3.B.5</a><a href="ex-3-b-6.html">3.B.6</a><a href="ex-3-b-7.html">3.B.7</a><a href="ex-3-b-8.html">3.B.8</a><a href="ex-3-b-9.html" class=active>3.B.9</a><a href="ex-3-b-10.html">3.B.10</a><a href="ex-3-b-11.html">3.B.11</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-B">3D rotating frames</a> › Example 3.B.9</p>
+<h2><span class="num">Example 3.B.9</span>Disk rolling around a vertical axis</h2>
+<div class="tags"><span>3D frames</span><span>rolling</span><span>angular acceleration</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>The arm OC rotates about the fixed vertical $Y$ axis at the constant rate $\Omega$. The disk at C can turn freely about the arm OC, and it rolls without slipping on the fixed horizontal surface. The arm has length $R$ (from the $Y$ axis to the plane of the disk) and the disk has radius $r$, so O is a height $r$ above the surface. The $xyz$ axes are attached to the disk, with $x$ along OC.</p>
+<p><b>Find</b> the angular acceleration of the disk.</p>
+<p class="small">The book's statement calls the disk radius $R$, but its figure labels the arm length $R$ and the disk radius $r$. We follow the figure.</p>
+</div>
+<div class="demo" id="x3b-9">
+  <div class="demo-title"><span class="tag">Interactive</span><span>The disk rolls on a circle around the vertical axis</span></div>
+  <canvas id="x3b-9-anim" class="anim" style="height:380px"></canvas><canvas id="x3b-9-plot" class="plot" style="height:230px"></canvas><div class="legendrow"><span><span class="sw" style="background:var(--c1)"></span>α<sub>X</sub></span><span><span class="sw" style="background:var(--c2)"></span>α<sub>Y</sub></span><span><span class="sw" style="background:var(--c3)"></span>α<sub>Z</sub></span></div>
+  <div class="controls" id="x3b-9-ctl"></div>
+  <div class="bar" id="x3b-9-pre"><span class="lbl">Try:</span></div>
+  <div class="bar" id="x3b-9-btn"></div>
+  <div class="stats" id="x3b-9-stats"></div>
+  <p class="small concept-note">The animation uses R = 0.6 m and r = 0.2 m, so the disk spins three times faster than the arm turns. Ω is positive counterclockwise seen from above. The curves are measured by differentiating the angular velocity numerically, and the dots at τ = 0 are the answer.</p>
+</div>
+<div class="demo v3d" data-clip="x3b-9"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Choose the reference frames and write ω</summary>
+<p>Let the $XYZ$ axes be fixed, with $Y$ vertical and $X$ along the arm at the instant considered. The disk turns with the arm about $\hat J$ at the rate $\Omega$, and it spins relative to the arm about the arm axis $\hat\imath$ at an unknown rate $\omega_s$. Its angular velocity is therefore</p>
+<div class="formula">$$\vec\omega = \Omega\,\hat J + \omega_s\,\hat\imath$$</div><div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 340 280" role="img" aria-label="Angular velocity and the contact point Q" style="max-width:340px"><line x1="41.0" y1="169.6" x2="287.2" y2="215.7" stroke="#8b8f98" stroke-width="1.6"/><line x1="275.4" y1="187.7" x2="212.1" y2="227.4" stroke="#8b8f98" stroke-width="1.6"/><line x1="70.0" y1="175.0" x2="70.0" y2="26.2" stroke="#7b808c" stroke-width="1.4" stroke-dasharray="5 4"/><line x1="70.0" y1="175.0" x2="70.0" y2="113.0" stroke="#8a6a12" stroke-width="11" stroke-linecap="round"/><line x1="70.0" y1="175.0" x2="70.0" y2="113.0" stroke="#f1e6c8" stroke-width="7" stroke-linecap="round"/><line x1="70.0" y1="113.0" x2="243.8" y2="145.6" stroke="#8a6a12" stroke-width="9" stroke-linecap="round"/><line x1="70.0" y1="113.0" x2="243.8" y2="145.6" stroke="#f1e6c8" stroke-width="5" stroke-linecap="round"/><polygon points="243.8,83.6 239.6,86.7 235.6,90.8 231.7,95.9 227.9,101.8 224.5,108.5 221.4,115.8 218.7,123.6 216.4,131.8 214.5,140.2 213.2,148.7 212.4,157.1 212.1,165.4 212.4,173.3 213.2,180.8 214.5,187.6 216.4,193.8 218.7,199.1 221.4,203.4 224.5,206.8 227.9,209.2 231.7,210.4 235.6,210.6 239.6,209.6 243.8,207.6 247.9,204.4 252.0,200.3 255.9,195.2 259.6,189.3 263.0,182.6 266.1,175.3 268.9,167.5 271.2,159.4 273.0,150.9 274.3,142.4 275.1,134.0 275.4,125.7 275.1,117.8 274.3,110.3 273.0,103.5 271.2,97.4 268.9,92.1 266.1,87.7 263.0,84.3 259.6,81.9 255.9,80.7 252.0,80.5 247.9,81.5" fill="#e9e1c8" stroke="#8a6a12" stroke-width="2" stroke-linejoin="round"/><circle cx="70.0" cy="113.0" r="4" fill="#1c1d21"/><circle cx="243.8" cy="145.6" r="4" fill="#1c1d21"/><circle cx="243.8" cy="207.6" r="4" fill="#1c1d21"/><line x1="49.7" y1="103.0" x2="49.7" y2="45.8" stroke="#b42346" stroke-width="2.6" stroke-linecap="round"/><polygon points="49.7,34.8 55.2,45.8 44.2,45.8" fill="#b42346"/><line x1="243.8" y1="145.6" x2="185.1" y2="134.6" stroke="#b42346" stroke-width="2.6" stroke-linecap="round"/><polygon points="174.3,132.5 186.1,129.2 184.1,140.0" fill="#b42346"/><line x1="70.0" y1="113.0" x2="243.8" y2="207.6" stroke="#b42346" stroke-width="1.2" stroke-dasharray="5 4"/><line x1="243.8" y1="145.6" x2="199.3" y2="173.5" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="190.0,179.3 196.4,168.8 202.2,178.1" fill="#17915a"/><text x="56.0" y="105.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>O</tspan></text><text x="257.8" y="133.6" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>C</tspan></text><text x="255.8" y="217.6" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>Q</tspan></text><text x="49.7" y="22.8" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#b42346"><tspan>Ω</tspan></text><text x="162.5" y="120.3" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#b42346"><tspan>ω</tspan><tspan dy="4.8" style="font-size:10.8px">s</tspan></text><text x="163.8" y="175.7" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>v</tspan><tspan dy="4.8" style="font-size:10.8px">C</tspan></text></svg><figcaption>Angular velocity and the contact point Q</figcaption></figure><figure><svg class="fbd" viewBox="0 0 300 280" role="img" aria-label="Angular acceleration" style="max-width:300px"><line x1="50.0" y1="175.0" x2="50.0" y2="26.2" stroke="#7b808c" stroke-width="1.4" stroke-dasharray="5 4"/><line x1="50.0" y1="175.0" x2="50.0" y2="113.0" stroke="#8a6a12" stroke-width="11" stroke-linecap="round"/><line x1="50.0" y1="175.0" x2="50.0" y2="113.0" stroke="#f1e6c8" stroke-width="7" stroke-linecap="round"/><line x1="50.0" y1="113.0" x2="223.8" y2="145.6" stroke="#8a6a12" stroke-width="9" stroke-linecap="round"/><line x1="50.0" y1="113.0" x2="223.8" y2="145.6" stroke="#f1e6c8" stroke-width="5" stroke-linecap="round"/><polygon points="223.8,83.6 219.6,86.7 215.6,90.8 211.7,95.9 207.9,101.8 204.5,108.5 201.4,115.8 198.7,123.6 196.4,131.8 194.5,140.2 193.2,148.7 192.4,157.1 192.1,165.4 192.4,173.3 193.2,180.8 194.5,187.6 196.4,193.8 198.7,199.1 201.4,203.4 204.5,206.8 207.9,209.2 211.7,210.4 215.6,210.6 219.6,209.6 223.8,207.6 227.9,204.4 232.0,200.3 235.9,195.2 239.6,189.3 243.0,182.6 246.1,175.3 248.9,167.5 251.2,159.4 253.0,150.9 254.3,142.4 255.1,134.0 255.4,125.7 255.1,117.8 254.3,110.3 253.0,103.5 251.2,97.4 248.9,92.1 246.1,87.7 243.0,84.3 239.6,81.9 235.9,80.7 232.0,80.5 227.9,81.5" fill="#e9e1c8" stroke="#8a6a12" stroke-width="2" stroke-linejoin="round"/><circle cx="50.0" cy="113.0" r="4" fill="#1c1d21"/><circle cx="223.8" cy="145.6" r="4" fill="#1c1d21"/><line x1="223.8" y1="145.6" x2="185.6" y2="169.5" stroke="#8a3fd1" stroke-width="2.6" stroke-linecap="round"/><polygon points="176.3,175.3 182.7,164.8 188.5,174.2" fill="#8a3fd1"/><line x1="136.9" y1="129.3" x2="152.9" y2="119.2" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="162.2,113.4 155.8,123.9 150.0,114.6" fill="#7b808c"/><text x="36.0" y="105.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>O</tspan></text><text x="237.8" y="133.6" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>C</tspan></text><text x="160.1" y="181.7" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#8a3fd1"><tspan>α</tspan></text><text x="158.2" y="99.4" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:12px;font-style:italic;fill:#7b808c"><tspan>dî/dt</tspan></text></svg><figcaption>Angular acceleration</figcaption></figure></div><p class="small fbdnote">The spin ω_s about the arm is negative (about −x) for Ω > 0. The angular velocity ω points along the dashed line OQ, which is the instantaneous axis of rotation, because both O and Q have zero velocity.</p>
+</details>
+<details class="step"><summary>Step 2 · Use the rolling condition</summary>
+<p>The point Q of the disk in contact with the floor has zero velocity. The center C moves on a horizontal circle of radius $R$, so $\vec v_C = \Omega\hat J\times R\,\hat\imath = -\Omega R\,\hat k$. With $\vec r_{Q/C} = -r\,\hat\jmath$,</p>
+<div class="formula">$$\vec v_Q = \vec v_C + \vec\omega\times\vec r_{Q/C} = -\Omega R\,\hat k + \omega_s\hat\imath\times\left(-r\,\hat\jmath\right) = -\left(\Omega R + \omega_s r\right)\hat k = \vec 0$$</div>
+<div class="formula">$$\omega_s = -\frac{R}{r}\,\Omega, \qquad \vec\omega = \Omega\,\hat J - \frac{R}{r}\,\Omega\,\hat\imath$$</div>
+<p>The vector $\vec\omega$ is parallel to the line from O to Q. This line is the instantaneous axis of rotation of the disk, because both O and Q have zero velocity.</p>
+</details>
+<details class="step"><summary>Step 3 · Differentiate ω</summary>
+<p>The rate $\Omega$ is constant, so $\omega_s$ is also constant. The direction $\hat J$ is fixed, but the arm direction $\hat\imath$ turns with the arm at $d\hat\imath/dt = \Omega\hat J\times\hat\imath = -\Omega\,\hat k$. Therefore</p>
+<div class="formula">$$\vec\alpha = \omega_s\frac{d\hat\imath}{dt} = \left(-\frac{R}{r}\,\Omega\right)\left(-\Omega\,\hat k\right) = \frac{R}{r}\,\Omega^2\,\hat k$$</div>
+<p>The angular acceleration is horizontal and perpendicular to the arm. Its magnitude is constant, but its direction turns with the arm, as the graph in the animation shows.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>$\vec\alpha = \dfrac{R}{r}\,\Omega^2\,\hat k$, horizontal and perpendicular to the arm OC. With the values of the animation ($R = 0.6$ m, $r = 0.2$ m, $\Omega = 1$ rad/s), $|\vec\alpha| = 3$ rad/s².</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Reverse the sign of $\Omega$. Does the direction of $\vec\alpha$ change? Explain with $\vec\alpha = \omega_s\, d\hat\imath/dt$.</li><li>Pause the animation and check that the contact point Q is the only point of the rim with zero velocity.</li><li>How would the answer change if the arm were pinned to the post at a height different from $r$?</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 3, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-3-b-8.html"><small>← Previous</small>Example 3.B.8</a><a class="next" href="ex-3-b-10.html"><small>Next →</small>Example 3.B.10</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/kit.js"></script>
+<script src="../assets/ch3-exB2.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch3-3dB2.js"></script>
+</body>
+</html>

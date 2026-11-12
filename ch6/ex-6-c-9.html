@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 6.C.9 · Chapter 6 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 6</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="eom.html">A · Equations of motion</a>
+    <a href="free.html">B · Free vibration</a>
+    <a href="damped.html">B · Damped vibration</a>
+    <a href="forced.html">C · Forced vibration</a>
+    <a href="base.html">C · Base excitation</a>
+    <a href="summary.html">Summary</a>
+    <a href="examples.html" class=active>Examples</a>
+    <a href="badges.html">🏅 Badges</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Forced response examples"><a href="examples.html#group-C">All Forced response examples</a><a href="ex-6-c-1.html">6.C.1</a><a href="ex-6-c-2.html">6.C.2</a><a href="ex-6-c-3.html">6.C.3</a><a href="ex-6-c-4.html">6.C.4</a><a href="ex-6-c-5.html">6.C.5</a><a href="ex-6-c-6.html">6.C.6</a><a href="ex-6-c-7.html">6.C.7</a><a href="ex-6-c-8.html">6.C.8</a><a href="ex-6-c-9.html" class=active>6.C.9</a><a href="ex-6-c-10.html">6.C.10</a><a href="ex-6-c-11.html">6.C.11</a><a href="ex-6-c-12.html">6.C.12</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-C">Forced response</a> › Example 6.C.9</p>
+<h2><span class="num">Example 6.C.9</span>Machine on four springs on a vibrating floor</h2>
+<div class="tags"><span>base excitation</span><span>isolation</span><span>parallel springs</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>A mass $m$ rests on four identical springs of stiffness $k$, which stand on a base B. The base moves vertically with $x_B(t) = 0.002\sin 50t$ m. The coordinate $x$ of the mass is measured upward from its static equilibrium position.</p>
+<p>The data are $m = 50$ kg and $k = 7500$ N/m.</p>
+<p><b>Find</b> (a) the differential equation of motion for the system and (b) the amplitude of the steady-state response.</p>
+</div>
+<div class="demo" id="x6c-9">
+  <div class="demo-title"><span class="tag">Interactive</span><span>The shaker moves the base B, and the springs carry the motion to the mass</span></div>
+  <canvas id="x6c-9-anim" class="anim" style="height:320px"></canvas><div class="grid2"><canvas id="x6c-9-xt" class="plot" style="height:210px"></canvas><canvas id="x6c-9-fr" class="plot" style="height:210px"></canvas></div>
+  <div class="controls" id="x6c-9-ctl"></div>
+  <div class="bar" id="x6c-9-pre"><span class="lbl">Try:</span></div>
+  <div class="bar" id="x6c-9-btn"></div>
+  <div class="stats" id="x6c-9-stats"></div>
+  <p class="small concept-note">The animation integrates the full equation of motion from rest, so you see the transient and the steady state together. The chip "Steady state only" shows the particular solution alone. The left plot follows the motion over the last 2.5 s, with the predicted steady-state amplitude drawn as dashed lines. The right plot is the frequency response, and the dot marks the current forcing frequency. The book's systems have no damper. The optional damping slider stands for small friction losses and shows how the transient dies out.</p>
+</div>
+<div class="demo v3d" data-clip="x6c-9"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Every solution starts from free-body diagrams in a displaced position, then writes the equation of motion and reads off the vibration properties. Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Draw the free-body diagram</summary>
+<p>Draw the mass displaced upward by $x$ while the base is displaced by $x_B$. Each spring is compressed by $\delta_{st} + x_B - x$, where $\delta_{st}$ is the static compression, and pushes up on the mass with $k(\delta_{st} + x_B - x)$.</p>
+<div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 340 270" role="img" aria-label="Mass in a displaced position" style="max-width:340px"><rect x="-85.0" y="-45.0" width="170.0" height="90.0" rx="4" transform="translate(170.0,110.0) rotate(0.0)" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><circle cx="170.0" cy="92.0" r="4" fill="#1c1d21"/><line x1="170.0" y1="92.0" x2="170.0" y2="135.0" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="170.0,146.0 164.5,135.0 175.5,135.0" fill="#c2410c"/><line x1="104.0" y1="201.0" x2="104.0" y2="166.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="104.0,155.0 109.5,166.0 98.5,166.0" fill="#2457d6"/><line x1="148.0" y1="201.0" x2="148.0" y2="166.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="148.0,155.0 153.5,166.0 142.5,166.0" fill="#2457d6"/><line x1="192.0" y1="201.0" x2="192.0" y2="166.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="192.0,155.0 197.5,166.0 186.5,166.0" fill="#2457d6"/><line x1="236.0" y1="201.0" x2="236.0" y2="166.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="236.0,155.0 241.5,166.0 230.5,166.0" fill="#2457d6"/><line x1="36.0" y1="250.0" x2="36.0" y2="221.0" stroke="#7b808c" stroke-width="2.6" stroke-linecap="round"/><polygon points="36.0,210.0 41.5,221.0 30.5,221.0" fill="#7b808c"/><text x="108.0" y="84.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:16px;font-style:italic;fill:#1c1d21"><tspan>m</tspan></text><text x="184.0" y="84.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>G</tspan></text><text x="190.0" y="119.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>mg</tspan></text><text x="270.0" y="180.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>F</tspan><tspan dy="4.8" style="font-size:10.8px">s</tspan></text><text x="50.0" y="198.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#7b808c"><tspan>x</tspan></text></svg><figcaption>Mass in a displaced position</figcaption></figure></div><p class="small fbdnote">Each of the four springs pushes up on the mass with $F_s = k(\delta_{st} + x_B - x)$, where $\delta_{st}$ is the static compression. The weight acts down. With $x$ measured from static equilibrium, $4k\delta_{st} = mg$ cancels the weight.</p>
+</details>
+<details class="step"><summary>Step 2 · Write the equation of motion</summary>
+<p>Newton's second law in the vertical direction gives</p>
+$$m\ddot x = 4k\left(\delta_{st} + x_B - x\right) - mg$$
+<p>In static equilibrium $4k\,\delta_{st} = mg$, so these two terms cancel.</p>
+$$m\ddot x + 4kx = 4k\,x_B = 4k\,(0.002)\sin 50t$$
+</details>
+<details class="step"><summary>Step 3 · Find the natural frequency and the frequency ratio</summary>
+$$\omega_n = \sqrt{\frac{4k}{m}} = \sqrt{\frac{4(7500)}{50}} = 24.49\ \text{rad/s}, \qquad r = \frac{\omega}{\omega_n} = \frac{50}{24.49} = 2.041$$
+</details>
+<details class="step"><summary>Step 4 · Find the steady-state amplitude</summary>
+<p>The particular solution is $x_p = X\sin 50t$ with</p>
+$$X = \frac{b}{1 - r^2} = \frac{0.002}{1 - 4.167} = -0.000632\ \text{m}$$
+<p>The amplitude is $|X| = 0.632$ mm. The negative sign means that the mass moves opposite to the base. Because $r > \sqrt2$, the springs isolate the mass: it moves less than the base does.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>(a) $m\ddot x + 4kx = 4k\,x_B(t)$, which is $50\,\ddot x + 30\,000\,x = 60\sin 50t$ (N). (b) The steady-state amplitude is $|X| = 0.632$ mm, and the mass moves opposite to the base.</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Lower $\omega$ until the mass moves more than the base. At what frequency does $|X| = b$?</li><li>Why does $r > \sqrt2$ mean isolation? Use the frequency-response plot to explain.</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 6, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-6-c-8.html"><small>← Previous</small>Example 6.C.8</a><a class="next" href="ex-6-c-10.html"><small>Next →</small>Example 6.C.10</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/kit.js"></script>
+<script src="../assets/ch6-exC2.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch6-3dC2.js"></script>
+</body>
+</html>

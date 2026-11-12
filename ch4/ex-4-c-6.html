@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 4.C.6 · Chapter 4 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 4</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="newton.html">A · Newton's laws</a>
+    <a href="energy.html">B · Work–energy</a>
+    <a href="impulse.html">C · Linear impulse–momentum</a>
+    <a href="angular.html">D · Angular impulse–momentum</a>
+    <a href="examples.html" class=active>Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Linear impulse and momentum examples"><a href="examples.html#group-C">All Linear impulse and momentum examples</a><a href="ex-4-c-1.html">4.C.1</a><a href="ex-4-c-2.html">4.C.2</a><a href="ex-4-c-3.html">4.C.3</a><a href="ex-4-c-4.html">4.C.4</a><a href="ex-4-c-5.html">4.C.5</a><a href="ex-4-c-6.html" class=active>4.C.6</a><a href="ex-4-c-7.html">4.C.7</a><a href="ex-4-c-8.html">4.C.8</a><a href="ex-4-c-9.html">4.C.9</a><a href="ex-4-c-10.html">4.C.10</a><a href="ex-4-c-11.html">4.C.11</a><a href="ex-4-c-12.html">4.C.12</a><a href="ex-4-c-13.html">4.C.13</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-C">Linear impulse and momentum</a> › Example 4.C.6</p>
+<h2><span class="num">Example 4.C.6</span>Particle on a curved rod sticks to a block on a spring</h2>
+<div class="tags"><span>work–energy</span><span>plastic impact</span><span>spring</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>Particle P, weighing 10 lb, is released from rest and slides down a smooth, curved rod. Its release point is 10 ft above the end of the rod. At the end of the rod, where the rod is horizontal, P strikes block A (weight 5 lb) and sticks to it. Block A rests on a smooth horizontal surface and is attached to a spring of stiffness $k = 100$ lb/ft, which is initially unstretched.</p>
+<p><b>Find</b> the maximum deflection of the spring.</p>
+</div>
+<div class="demo" id="x4c-6">
+  <div class="demo-title"><span class="tag">Interactive</span><span>Slide, impact and compression</span></div>
+  <canvas id="x4c-6-anim" class="anim" style="height:290px"></canvas><div class="grid2"><canvas id="x4c-6-plot" class="plot" style="height:200px"></canvas><canvas id="x4c-6-plot2" class="plot" style="height:200px"></canvas></div>
+  <div class="controls" id="x4c-6-ctl"></div>
+  <div class="bar" id="x4c-6-btn"></div>
+  <div class="stats" id="x4c-6-stats"></div>
+  <p class="small concept-note">The motion has three stages. On the rod, energy is conserved. At the impact, momentum is conserved and energy is lost. During the compression, energy is conserved again.</p>
+</div>
+<div class="demo v3d" data-clip="x4c-6"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Every solution follows the four-step method: free-body diagrams, kinetics equations, kinematics, solve. Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Draw the free-body diagrams</summary>
+<p>On the rod, P feels its weight $W_P$ and a normal force $N$ from the rod. The rod is smooth, so $N$ is perpendicular to the path and does no work. During the impact, take P and A together. The force between them is internal, the spring is still unstretched, and the vertical forces give no horizontal impulse. During the compression, P and A move together under the spring force $k\delta$, their weights and the normal force from the surface.</p>
+<div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 240 230" role="img" aria-label="P on the smooth rod" style="max-width:240px"><path d="M171.3,109.0 A150.0,150.0 0 0 0 68.7,109.0" fill="none" stroke="#8a6a12" stroke-width="9" stroke-linecap="round"/><path d="M171.3,109.0 A150.0,150.0 0 0 0 68.7,109.0" fill="none" stroke="#f1e6c8" stroke-width="5" stroke-linecap="round"/><circle cx="120.0" cy="100.0" r="13.0" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><line x1="120.0" y1="100.0" x2="120.0" y2="151.0" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="120.0,162.0 114.5,151.0 125.5,151.0" fill="#c2410c"/><line x1="120.0" y1="37.0" x2="120.0" y2="76.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="120.0,87.0 114.5,76.0 125.5,76.0" fill="#17915a"/><text x="90.0" y="96.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>P</tspan></text><text x="140.0" y="164.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>W</tspan><tspan dy="4.8" style="font-size:10.8px">P</tspan></text><text x="134.0" y="31.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>N</tspan></text><text x="120.0" y="214.0" text-anchor="middle" dominant-baseline="middle" style="font-family:system-ui,sans-serif;font-size:11px;fill:#7b808c">N is normal to the rod: it does no work</text></svg><figcaption>P on the smooth rod</figcaption></figure><figure><svg class="fbd" viewBox="0 0 300 230" role="img" aria-label="P and A at the impact" style="max-width:300px"><rect x="-13.0" y="-35.0" width="26.0" height="70.0" rx="4" transform="translate(170.0,110.0) rotate(0.0)" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><circle cx="144.0" cy="132.0" r="13.0" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><line x1="170.0" y1="110.0" x2="170.0" y2="155.0" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="170.0,166.0 164.5,155.0 175.5,155.0" fill="#c2410c"/><line x1="144.0" y1="132.0" x2="144.0" y2="161.0" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="144.0,172.0 138.5,161.0 149.5,161.0" fill="#c2410c"/><line x1="176.0" y1="179.0" x2="176.0" y2="156.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="176.0,145.0 181.5,156.0 170.5,156.0" fill="#17915a"/><text x="196.0" y="84.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>A</tspan></text><text x="128.0" y="104.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>P</tspan></text><text x="194.0" y="166.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>W</tspan><tspan dy="4.8" style="font-size:10.8px">A</tspan></text><text x="120.0" y="174.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>W</tspan><tspan dy="4.8" style="font-size:10.8px">P</tspan></text><text x="198.0" y="195.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>N</tspan><tspan dy="4.8" style="font-size:10.8px">A</tspan></text><text x="150.0" y="222.0" text-anchor="middle" dominant-baseline="middle" style="font-family:system-ui,sans-serif;font-size:11px;fill:#7b808c">spring force = 0 at the moment of impact</text></svg><figcaption>P and A at the impact</figcaption></figure><figure><svg class="fbd" viewBox="0 0 300 230" role="img" aria-label="P and A while the spring is compressed" style="max-width:300px"><rect x="-13.0" y="-35.0" width="26.0" height="70.0" rx="4" transform="translate(160.0,120.0) rotate(0.0)" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><circle cx="134.0" cy="140.0" r="13.0" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><circle cx="153.0" cy="112.0" r="4" fill="#1c1d21"/><line x1="153.0" y1="112.0" x2="153.0" y2="157.0" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="153.0,168.0 147.5,157.0 158.5,157.0" fill="#c2410c"/><line x1="237.0" y1="112.0" x2="184.0" y2="112.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="173.0,112.0 184.0,106.5 184.0,117.5" fill="#2457d6"/><line x1="169.0" y1="195.0" x2="169.0" y2="166.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="169.0,155.0 174.5,166.0 163.5,166.0" fill="#17915a"/><line x1="30.0" y1="214.0" x2="53.0" y2="214.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="64.0,214.0 53.0,219.5 53.0,208.5" fill="#7b808c"/><line x1="30.0" y1="214.0" x2="30.0" y2="191.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="30.0,180.0 35.5,191.0 24.5,191.0" fill="#7b808c"/><text x="160.0" y="72.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>A</tspan></text><text x="110.0" y="140.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>P</tspan></text><text x="109.0" y="170.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>W</tspan><tspan dy="4.8" style="font-size:10.8px">A</tspan><tspan dy="-4.8"> + W</tspan><tspan dy="4.8" style="font-size:10.8px">P</tspan></text><text x="249.0" y="98.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>kδ</tspan></text><text x="185.0" y="207.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>N</tspan></text><text x="74.0" y="214.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>x</tspan></text><text x="30.0" y="170.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>y</tspan></text></svg><figcaption>P and A while the spring is compressed</figcaption></figure></div><p class="small fbdnote">Three stages need three diagrams. On the rod only gravity does work. During the very short impact, the force between P and A is internal and the spring is still unstretched, so no horizontal impulse acts on P + A. During the compression the spring force $k\delta$ does negative work.</p>
+</details>
+<details class="step"><summary>Step 2 · Stage 1: work and energy on the rod</summary>
+<p>Only gravity does work on P, so with the datum at the end of the rod</p>
+$$0 + W_P h = \tfrac12 \frac{W_P}{g}\,v_P^2 \quad\Longrightarrow\quad v_P = \sqrt{2gh} = \sqrt{2(32.2)(10)} = 25.38\ \text{ft/s}$$
+<p>The shape of the rod does not matter. Only the drop in height does.</p>
+</details>
+<details class="step"><summary>Step 3 · Stage 2: impulse and momentum during the impact</summary>
+<p>The rod ends horizontally, so P arrives moving horizontally. No horizontal external impulse acts on P and A, so</p>
+$$\frac{W_P}{g}\,v_P = \frac{W_P + W_A}{g}\,v_2 \quad\Longrightarrow\quad v_2 = \frac{10}{15}\,(25.38) = 16.92\ \text{ft/s}$$
+<p>Energy is not conserved here, because P sticks to A in a plastic impact.</p>
+</details>
+<details class="step"><summary>Step 4 · Stage 3: work and energy during the compression</summary>
+<p>The surface is smooth and the weights do no work on the horizontal motion. The kinetic energy of P and A turns into spring energy, and at the maximum deflection the speed is zero:</p>
+$$\tfrac12 \frac{W_P + W_A}{g}\,v_2^2 = \tfrac12 k\,\delta_{max}^2$$
+</details>
+<details class="step"><summary>Step 5 · Solve</summary>
+$$\delta_{max} = v_2\sqrt{\frac{W_P + W_A}{g\,k}} = 16.92\sqrt{\frac{15}{(32.2)(100)}} = 1.155\ \text{ft}$$
+<p class="small">The impact loses one third of the kinetic energy, because $T_2/T_1 = W_P/(W_P + W_A) = 2/3$. Using energy conservation from the release point straight to the maximum deflection would therefore overestimate the deflection.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>$\delta_{max} = 1.155$ ft (about 13.9 in).</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Make block A very light. How close does the answer get to the result of energy conservation without the impact?</li><li>Double the drop height. By what factor does the maximum deflection grow?</li><li>Change the stiffness. Does the time the spring takes to stop the block depend on $k$?</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 4, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-4-c-5.html"><small>← Previous</small>Example 4.C.5</a><a class="next" href="ex-4-c-7.html"><small>Next →</small>Example 4.C.7</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/kit.js"></script>
+<script src="../assets/ch4-exC1.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch4-3dC1.js"></script>
+</body>
+</html>

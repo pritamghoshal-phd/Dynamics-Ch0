@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Worked examples · Chapter 0 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 0</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="vectors.html">A · Vectors</a>
+    <a href="fbd.html">B · Free-body diagrams</a>
+    <a href="kinematics.html">C · Scalar kinematics</a>
+    <a href="examples.html" class=active>Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<h2>Worked examples</h2>
+<p>This page collects every example from Chapter 0 of the book, each with a complete step-by-step solution. The examples are grouped by section. Each one has an animation of the system that you can explore, a 3D view of the same motion, and a solution that you can open one step at a time. Try each problem on paper before you open the solution.</p>
+
+<nav class="sub" aria-label="Groups"><a href="#group-A">A · Vectors</a><a href="#group-B">B · Free-body diagrams</a><a href="#group-C">C · Scalar kinematics</a></nav>
+<h3 id="group-A" style="margin-top:1.6rem">A · Vectors <span class="small" style="font-weight:400">(3 examples)</span></h3><p>Vector algebra: components, dot and cross products, and unit vectors in rotated axes.</p>
+<div class="cards cards-3"><a class="cardlink" href="ex-0-a-1.html"><span class="k">Example 0.A.1</span><h3>Vector operations in three dimensions</h3><p>Two vectors are given by their xyz components. Find their sum, difference, dot product and both cross products.</p><div class="tags"><span>vectors</span><span>dot product</span><span>cross product</span></div></a>
+<a class="cardlink" href="ex-0-a-2.html"><span class="k">Example 0.A.2</span><h3>From XY components to rotated xy components</h3><p>A vector is given in fixed XY axes. Find its components along a set of xy axes turned by 36.87°.</p><div class="tags"><span>vectors</span><span>unit vectors</span><span>projection</span></div></a>
+<a class="cardlink" href="ex-0-a-3.html"><span class="k">Example 0.A.3</span><h3>From rotated xy components back to XY components</h3><p>A vector is given in turned xy axes. Find its components in the fixed XY axes.</p><div class="tags"><span>vectors</span><span>unit vectors</span><span>projection</span></div></a></div>
+<h3 id="group-B" style="margin-top:1.6rem">B · Free-body diagrams <span class="small" style="font-weight:400">(3 examples)</span></h3><p>Choosing a system and drawing every external force that acts on it.</p>
+<div class="cards cards-3"><a class="cardlink" href="ex-0-b-1.html"><span class="k">Example 0.B.1</span><h3>Block pushed by an inclined force</h3><p>A block slides on a rough floor while a force pushes it downward at an angle. Draw its free-body diagram.</p><div class="tags"><span>FBD</span><span>friction</span><span>normal force</span></div></a>
+<a class="cardlink" href="ex-0-b-2.html"><span class="k">Example 0.B.2</span><h3>Block, two pulleys and a hanging block</h3><p>Four free-body diagrams of the same system: block A, block B with its pulley, the upper pulley, and the whole system.</p><div class="tags"><span>FBD</span><span>pulleys</span><span>internal forces</span></div></a>
+<a class="cardlink" href="ex-0-b-3.html"><span class="k">Example 0.B.3</span><h3>Piston, connecting rod and crankshaft</h3><p>Four free-body diagrams of a piston–crank mechanism, in which the connecting rod is not a two-force member.</p><div class="tags"><span>FBD</span><span>pins</span><span>mechanisms</span></div></a></div>
+<h3 id="group-C" style="margin-top:1.6rem">C · Scalar kinematics <span class="small" style="font-weight:400">(4 examples)</span></h3><p>Straight-line motion: moving between position, speed and acceleration with the chain rule and integration.</p>
+<div class="cards cards-3"><a class="cardlink" href="ex-0-c-1.html"><span class="k">Example 0.C.1</span><h3>Acceleration from the speed as a function of time</h3><p>The speed of a point on a straight path is v(t) = 3t². Find its acceleration.</p><div class="tags"><span>scalar kinematics</span><span>differentiation</span></div></a>
+<a class="cardlink" href="ex-0-c-2.html"><span class="k">Example 0.C.2</span><h3>Acceleration from the speed as a function of position</h3><p>Given v(s) = 5 sin 3s, find the acceleration as a function of position.</p><div class="tags"><span>scalar kinematics</span><span>chain rule</span></div></a>
+<a class="cardlink" href="ex-0-c-3.html"><span class="k">Example 0.C.3</span><h3>Speed from the acceleration as a function of time</h3><p>Given a(t) = 6 sin 2t and v(0) = 4, find the speed as a function of time.</p><div class="tags"><span>scalar kinematics</span><span>integration</span></div></a>
+<a class="cardlink" href="ex-0-c-4.html"><span class="k">Example 0.C.4</span><h3>Speed from the acceleration as a function of position</h3><p>Given a(s) = 8s³ and v(0) = 5, find the speed as a function of position.</p><div class="tags"><span>scalar kinematics</span><span>integration</span><span>chain rule</span></div></a></div>
+<p class="credit">Problems adapted from <em>Dynamics: A Lecturebook</em>, Chapter 0, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). The solutions and animations are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="kinematics.html"><small>← Previous</small>C · Scalar kinematics</a><a class="next" href="ex-0-a-1.html"><small>Next →</small>Example 0.A.1</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/kit.js"></script>
+</body>
+</html>

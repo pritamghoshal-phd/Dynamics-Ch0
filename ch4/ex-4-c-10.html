@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 4.C.10 · Chapter 4 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 4</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="newton.html">A · Newton's laws</a>
+    <a href="energy.html">B · Work–energy</a>
+    <a href="impulse.html">C · Linear impulse–momentum</a>
+    <a href="angular.html">D · Angular impulse–momentum</a>
+    <a href="examples.html" class=active>Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Linear impulse and momentum examples"><a href="examples.html#group-C">All Linear impulse and momentum examples</a><a href="ex-4-c-1.html">4.C.1</a><a href="ex-4-c-2.html">4.C.2</a><a href="ex-4-c-3.html">4.C.3</a><a href="ex-4-c-4.html">4.C.4</a><a href="ex-4-c-5.html">4.C.5</a><a href="ex-4-c-6.html">4.C.6</a><a href="ex-4-c-7.html">4.C.7</a><a href="ex-4-c-8.html">4.C.8</a><a href="ex-4-c-9.html">4.C.9</a><a href="ex-4-c-10.html" class=active>4.C.10</a><a href="ex-4-c-11.html">4.C.11</a><a href="ex-4-c-12.html">4.C.12</a><a href="ex-4-c-13.html">4.C.13</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-C">Linear impulse and momentum</a> › Example 4.C.10</p>
+<h2><span class="num">Example 4.C.10</span>Impact that leaves block B at rest</h2>
+<div class="tags"><span>central impact</span><span>restitution</span><span>momentum</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>Blocks A and B, of masses $m_A$ and $m_B$, slide on a smooth horizontal surface. A moves to the right with speed $v_{A1}$ and B moves to the left with speed $v_{B1}$. A strikes B, and the coefficient of restitution for the impact is $e$. As a result of the impact, block B comes to rest.</p>
+<p>The data are $m_A = 2$ kg, $m_B = 3$ kg, $v_{A1} = 1.5$ m/s and $e = 0.4$.</p>
+<p><b>Find</b> the speed $v_{B1}$ of block B before the impact.</p>
+</div>
+<div class="demo" id="x4c-10">
+  <div class="demo-title"><span class="tag">Interactive</span><span>Head-on impact on a smooth surface</span></div>
+  <canvas id="x4c-10-anim" class="anim" style="height:230px"></canvas><canvas id="x4c-10-plot" class="plot" style="height:200px"></canvas><div class="legendrow"><span><span class="sw" style="background:var(--c1)"></span>block A</span><span><span class="sw" style="background:var(--c3)"></span>block B</span></div>
+  <div class="controls" id="x4c-10-ctl"></div>
+  <div class="bar" id="x4c-10-pre"><span class="lbl">Try:</span></div>
+  <div class="bar" id="x4c-10-btn"></div>
+  <div class="stats" id="x4c-10-stats"></div>
+  <p class="small concept-note">Move the speed of B and watch B after the impact. Only one value of $v_{B1}$ leaves B exactly at rest. The graph shows that both velocities jump at the instant of impact.</p>
+</div>
+<div class="demo v3d" data-clip="x4c-10"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Every solution follows the four-step method: free-body diagrams, kinetics equations, kinematics, solve. Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Draw the free-body diagrams</summary>
+<p>For A and B together, the contact force at the impact is internal. The weights and the normal forces are vertical, and the surface is smooth, so no horizontal external force acts. For B alone, the contact force $F$ from A acts to the right. It is this force that brings B to rest.</p>
+<div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 300 280" role="img" aria-label="A and B together" style="max-width:300px"><line x1="20.0" y1="150.0" x2="280.0" y2="150.0" stroke="#8b8f98" stroke-width="1.4"/><rect x="-30.0" y="-30.0" width="60.0" height="60.0" rx="4" transform="translate(105.0,120.0) rotate(0.0)" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><rect x="-33.0" y="-33.0" width="66.0" height="66.0" rx="4" transform="translate(168.0,117.0) rotate(0.0)" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><circle cx="105.0" cy="120.0" r="4" fill="#1c1d21"/><circle cx="168.0" cy="117.0" r="4" fill="#1c1d21"/><line x1="105.0" y1="120.0" x2="105.0" y2="201.0" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="105.0,212.0 99.5,201.0 110.5,201.0" fill="#c2410c"/><line x1="168.0" y1="117.0" x2="168.0" y2="201.0" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="168.0,212.0 162.5,201.0 173.5,201.0" fill="#c2410c"/><line x1="87.0" y1="210.0" x2="87.0" y2="161.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="87.0,150.0 92.5,161.0 81.5,161.0" fill="#17915a"/><line x1="194.0" y1="210.0" x2="194.0" y2="161.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="194.0,150.0 199.5,161.0 188.5,161.0" fill="#17915a"/><line x1="240.0" y1="60.0" x2="263.0" y2="60.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="274.0,60.0 263.0,65.5 263.0,54.5" fill="#7b808c"/><line x1="240.0" y1="60.0" x2="240.0" y2="37.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="240.0,26.0 245.5,37.0 234.5,37.0" fill="#7b808c"/><text x="91.0" y="104.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>A</tspan></text><text x="152.0" y="98.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>B</tspan></text><text x="115.0" y="226.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>m</tspan><tspan dy="4.8" style="font-size:10.8px">A</tspan><tspan dy="-4.8"> g</tspan></text><text x="152.0" y="226.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>m</tspan><tspan dy="4.8" style="font-size:10.8px">B</tspan><tspan dy="-4.8"> g</tspan></text><text x="73.0" y="222.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>N</tspan><tspan dy="4.8" style="font-size:10.8px">A</tspan></text><text x="210.0" y="222.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>N</tspan><tspan dy="4.8" style="font-size:10.8px">B</tspan></text><text x="284.0" y="60.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>x</tspan></text><text x="240.0" y="16.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>y</tspan></text></svg><figcaption>A and B together</figcaption></figure><figure><svg class="fbd" viewBox="0 0 240 280" role="img" aria-label="B alone during the impact" style="max-width:240px"><line x1="20.0" y1="150.0" x2="220.0" y2="150.0" stroke="#8b8f98" stroke-width="1.4"/><rect x="-33.0" y="-33.0" width="66.0" height="66.0" rx="4" transform="translate(130.0,117.0) rotate(0.0)" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><circle cx="130.0" cy="117.0" r="4" fill="#1c1d21"/><line x1="37.0" y1="105.0" x2="86.0" y2="105.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="97.0,105.0 86.0,110.5 86.0,99.5" fill="#2457d6"/><line x1="130.0" y1="117.0" x2="130.0" y2="201.0" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="130.0,212.0 124.5,201.0 135.5,201.0" fill="#c2410c"/><line x1="154.0" y1="210.0" x2="154.0" y2="161.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="154.0,150.0 159.5,161.0 148.5,161.0" fill="#17915a"/><text x="146.0" y="98.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>B</tspan></text><text x="25.0" y="91.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>F</tspan></text><text x="112.0" y="226.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>m</tspan><tspan dy="4.8" style="font-size:10.8px">B</tspan><tspan dy="-4.8"> g</tspan></text><text x="170.0" y="222.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>N</tspan><tspan dy="4.8" style="font-size:10.8px">B</tspan></text></svg><figcaption>B alone during the impact</figcaption></figure></div><p class="small fbdnote">Left: for A and B together the contact force at the impact is internal, and the remaining external forces are vertical. The horizontal momentum of the pair is therefore conserved. Right: on B alone the contact force $F$ from A is large and horizontal. It is the force that stops B.</p>
+</details>
+<details class="step"><summary>Step 2 · Write the kinetics equations</summary>
+<p>Take the right as positive. Then the velocity of B before the impact is $-v_{B1}$, and B's velocity after the impact is $v_{B2} = 0$. Conservation of the horizontal momentum of A and B gives</p>
+$$m_A v_{A1} - m_B v_{B1} = m_A v_{A2} + m_B (0)$$
+<p>The coefficient of restitution relates the speeds of separation and approach along the line of impact.</p>
+$$v_{B2} - v_{A2} = -e\left[(-v_{B1}) - v_{A1}\right] \quad\Longrightarrow\quad -v_{A2} = e\left(v_{B1} + v_{A1}\right)$$
+</details>
+<details class="step"><summary>Step 3 · Write the kinematics equations</summary>
+<p>The impact is central and the blocks move along one line, so no further kinematics is needed. The condition that B stops is $v_{B2} = 0$, which we have already used.</p>
+</details>
+<details class="step"><summary>Step 4 · Solve</summary>
+<p>Substitute $v_{A2} = -e\left(v_{B1} + v_{A1}\right)$ into the momentum equation.</p>
+$$m_A v_{A1} - m_B v_{B1} = -e\,m_A\left(v_{B1} + v_{A1}\right) \quad\Longrightarrow\quad v_{B1} = \frac{(1 + e)\,m_A\,v_{A1}}{m_B - e\,m_A}$$
+$$v_{B1} = \frac{(1.4)(2)(1.5)}{3 - (0.4)(2)} = \frac{4.2}{2.2} = 1.91\ \text{m/s}$$
+<p>Then $v_{A2} = -0.4\,(1.909 + 1.5) = -1.36$ m/s, so A bounces back to the left.</p>
+<p class="small">The result needs $m_B > e\,m_A$. If B is too light, no initial speed can bring it to rest.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>$v_{B1} = 1.91$ m/s to the left. After the impact A moves to the left at 1.36 m/s.</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Choose the preset "Elastic, e = 1" and then "Make B stop". Check the result against the formula above.</li><li>Set $m_A = 4$ kg with $e = 0.8$. Why can B no longer be brought to rest?</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 4, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-4-c-9.html"><small>← Previous</small>Example 4.C.9</a><a class="next" href="ex-4-c-11.html"><small>Next →</small>Example 4.C.11</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/kit.js"></script>
+<script src="../assets/ch4-exC2.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch4-3dC2.js"></script>
+</body>
+</html>

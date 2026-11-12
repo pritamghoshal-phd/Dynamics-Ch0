@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 5.A.14 · Chapter 5 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 5</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="newton-euler.html">A · Newton–Euler</a>
+    <a href="work-energy.html">B · Work–energy</a>
+    <a href="impulse-momentum.html">C · Impulse–momentum</a>
+    <a href="examples.html" class=active>Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Newton–Euler equations examples"><a href="examples.html#group-A">All Newton–Euler examples</a><a href="ex-5-a-1.html">5.A.1</a><a href="ex-5-a-2.html">5.A.2</a><a href="ex-5-a-3.html">5.A.3</a><a href="ex-5-a-4.html">5.A.4</a><a href="ex-5-a-5.html">5.A.5</a><a href="ex-5-a-6.html">5.A.6</a><a href="ex-5-a-7.html">5.A.7</a><a href="ex-5-a-8.html">5.A.8</a><a href="ex-5-a-9.html">5.A.9</a><a href="ex-5-a-10.html">5.A.10</a><a href="ex-5-a-11.html">5.A.11</a><a href="ex-5-a-12.html">5.A.12</a><a href="ex-5-a-13.html">5.A.13</a><a href="ex-5-a-14.html" class=active>5.A.14</a><a href="ex-5-a-15.html">5.A.15</a><a href="ex-5-a-16.html">5.A.16</a><a href="ex-5-a-17.html">5.A.17</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-A">Newton–Euler equations</a> › Example 5.A.14</p>
+<h2><span class="num">Example 5.A.14</span>Bar in two slots pushed by a force</h2>
+<div class="tags"><span>Newton–Euler</span><span>general plane motion</span><span>reactions</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>A thin, homogeneous bar AB of weight $W = 60$ lb and length $L = 4$ ft is guided by two smooth slots. End A moves in a horizontal slot and end B moves in a vertical slot, with A above and to the right of B. A horizontal force of 30 lb pushes end A to the right. The bar is released from rest when it makes an angle $\theta = 30°$ with the vertical slot.</p>
+<p><b>Find</b> (a) the angular acceleration of the bar at release and (b) the reaction forces on the bar at A and B at release.</p>
+</div>
+<div class="demo" id="xb-14">
+  <div class="demo-title"><span class="tag">Interactive</span><span>The bar moving in its slots</span></div>
+  <canvas id="xb-14-anim" class="anim" style="height:380px"></canvas>
+  <div class="controls" id="xb-14-ctl"></div>
+  <div class="bar" id="xb-14-btn"></div>
+  <div class="stats" id="xb-14-stats"></div>
+  <p class="small concept-note">The bar swings back and forth about the equilibrium angle, where $\tan\theta = 2P/W$, because the slots are smooth and nothing removes energy. The arrows show the forces on the bar to scale. The slot at A pushes up or down, and the slot at B pushes left or right.</p>
+</div>
+<div class="demo v3d" data-clip="xb-14"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Every solution follows the four-step method. Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Draw the free-body diagram</summary>
+<div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 340 300" role="img" aria-label="Bar AB (released at θ = 30° from the vertical)" style="max-width:340px"><line x1="110.0" y1="262.0" x2="210.0" y2="88.8" stroke="#8a6a12" stroke-width="15" stroke-linecap="round"/><line x1="110.0" y1="262.0" x2="210.0" y2="88.8" stroke="#f1e6c8" stroke-width="11" stroke-linecap="round"/><circle cx="160.0" cy="175.4" r="4" fill="#1c1d21"/><line x1="160.0" y1="175.4" x2="160.0" y2="222.4" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="160.0,233.4 154.5,222.4 165.5,222.4" fill="#c2410c"/><line x1="140.0" y1="88.8" x2="199.0" y2="88.8" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="210.0,88.8 199.0,94.3 199.0,83.3" fill="#2457d6"/><line x1="210.0" y1="88.8" x2="210.0" y2="47.8" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="210.0,36.8 215.5,47.8 204.5,47.8" fill="#17915a"/><line x1="50.0" y1="262.0" x2="99.0" y2="262.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="110.0,262.0 99.0,267.5 99.0,256.5" fill="#17915a"/><line x1="110.0" y1="262.0" x2="110.0" y2="142.0" stroke="#7b808c" stroke-width="1.4" stroke-dasharray="5 4"/><path d="M110.0,212.0 A50,50 0 0 1 135.0,218.7" fill="none" stroke="#7b808c" stroke-width="1.2"/><line x1="284.0" y1="284.0" x2="307.0" y2="284.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="318.0,284.0 307.0,289.5 307.0,278.5" fill="#7b808c"/><line x1="284.0" y1="284.0" x2="284.0" y2="261.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="284.0,250.0 289.5,261.0 278.5,261.0" fill="#7b808c"/><text x="224.0" y="92.8" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:14px;font-style:italic;fill:#1c1d21"><tspan>A</tspan></text><text x="108.0" y="284.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:14px;font-style:italic;fill:#1c1d21"><tspan>B</tspan></text><text x="144.0" y="169.4" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>G</tspan></text><text x="172.0" y="241.4" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>W</tspan></text><text x="126.0" y="88.8" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>P</tspan></text><text x="210.0" y="24.8" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>N</tspan><tspan dy="4.8" style="font-size:10.8px">A</tspan></text><text x="32.0" y="262.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>N</tspan><tspan dy="4.8" style="font-size:10.8px">B</tspan></text><text x="125.8" y="203.1" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>θ</tspan></text><text x="328.0" y="284.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>x</tspan></text><text x="284.0" y="240.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>y</tspan></text></svg><figcaption>Bar AB (released at θ = 30° from the vertical)</figcaption></figure></div><p class="small fbdnote">The slots are smooth, so the slot at A can only push vertically ($N_A$, drawn positive upward) and the slot at B only horizontally ($N_B$, drawn positive to the right). The solution finds $N_B < 0$, so the slot at B actually pushes to the left.</p><p>The bar is acted on by its weight $W$ at G, the applied force $P = 30$ lb to the right at A, a vertical reaction $N_A$ from the horizontal slot at A, and a horizontal reaction $N_B$ from the vertical slot at B. We take $N_A$ positive upward and $N_B$ positive to the right. The angle $\theta$ is measured from the vertical slot, and the bar turns clockwise when $\theta$ increases.</p>
+</details>
+<details class="step"><summary>Step 2 · Write the kinetics equations</summary>
+<p>With $m = W/g = 60/32.2 = 1.863$ slug and moments taken about G (clockwise positive),</p>
+$$P + N_B = m\,\ddot x_G, \qquad N_A - W = m\,\ddot y_G$$
+$$P\,\frac L2\cos\theta - N_A\,\frac L2\sin\theta - N_B\,\frac L2\cos\theta = \frac{1}{12}mL^2\,\ddot\theta$$
+</details>
+<details class="step"><summary>Step 3 · Write the kinematics equations</summary>
+<p>Measuring from the corner of the slots, with $y$ upward, G is at $x_G = \tfrac L2\sin\theta$ and $y_G = -\tfrac L2\cos\theta$. At release $\dot\theta = 0$, so</p>
+$$\ddot x_G = \frac L2\cos\theta\,\ddot\theta, \qquad \ddot y_G = \frac L2\sin\theta\,\ddot\theta$$
+</details>
+<details class="step"><summary>Step 4 · Solve</summary>
+<p>Substituting the reactions from Newton's equations into Euler's equation gives</p>
+$$\ddot\theta = \frac{P L\cos\theta - W\frac L2\sin\theta}{\frac13 mL^2} = \frac{30(4)(0.866) - 60(2)(0.5)}{\frac13(1.863)(16)} = \frac{43.92}{9.938} = 4.42\ \text{rad/s}^2$$
+<p>The reactions then follow from Newton's equations.</p>
+$$N_B = m\,\frac L2\cos\theta\,\ddot\theta - P = 1.863(2)(0.866)(4.42) - 30 = -15.7\ \text{lb}$$
+$$N_A = W + m\,\frac L2\sin\theta\,\ddot\theta = 60 + 1.863(2)(0.5)(4.42) = 68.2\ \text{lb}$$
+<p>The negative sign of $N_B$ means that the vertical slot pushes end B to the left.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>(a) $\alpha = 4.42$ rad/s² clockwise, that is $\boldsymbol\alpha = -4.42\,\hat{\mathbf k}$ rad/s². (b) At A the slot pushes upward with 68.2 lb. At B the slot pushes to the left with 15.7 lb.</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Set $P = 0$. In which direction does the bar now turn at release?</li><li>Find the value of $P$ for which the bar stays in equilibrium at $\theta = 30°$, and check it in the animation.</li><li>Watch $N_B$ during the motion. Does it ever change direction?</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 5, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-5-a-13.html"><small>← Previous</small>Example 5.A.13</a><a class="next" href="ex-5-a-15.html"><small>Next →</small>Example 5.A.15</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/ch5.js"></script>
+<script src="../assets/ch5-exA2.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch5-3dA2.js"></script>
+</body>
+</html>

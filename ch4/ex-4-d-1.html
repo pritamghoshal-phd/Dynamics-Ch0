@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 4.D.1 · Chapter 4 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 4</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="newton.html">A · Newton's laws</a>
+    <a href="energy.html">B · Work–energy</a>
+    <a href="impulse.html">C · Linear impulse–momentum</a>
+    <a href="angular.html">D · Angular impulse–momentum</a>
+    <a href="examples.html" class=active>Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Angular impulse and momentum examples"><a href="examples.html#group-D">All Angular impulse and momentum examples</a><a href="ex-4-d-1.html" class=active>4.D.1</a><a href="ex-4-d-2.html">4.D.2</a><a href="ex-4-d-3.html">4.D.3</a><a href="ex-4-d-4.html">4.D.4</a><a href="ex-4-d-5.html">4.D.5</a><a href="ex-4-d-6.html">4.D.6</a><a href="ex-4-d-7.html">4.D.7</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-D">Angular impulse and momentum</a> › Example 4.D.1</p>
+<h2><span class="num">Example 4.D.1</span>Particle sliding out along a spinning arm</h2>
+<div class="tags"><span>angular momentum</span><span>conservation</span><span>polar components</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>Particle P, which weighs 2 lb, can slide on a smooth, lightweight horizontal arm that turns freely about a vertical axis through O. Initially P is at rest relative to the arm, at a distance $R_1 = 3$ in from the axis, while the arm turns at $\omega_1 = 20$ rad/s. P is then free to slide.</p>
+<p><b>Find</b> the angular speed of the arm when P has moved outward to $R_2 = 24$ in from the axis of the shaft.</p>
+</div>
+<div class="demo" id="x4d-1">
+  <div class="demo-title"><span class="tag">Interactive</span><span>Top view of the arm while P slides outward</span></div>
+  <div class="grid2"><canvas id="x4d-1-anim" class="anim" style="height:400px"></canvas><div><canvas id="x4d-1-plot" class="plot" style="height:400px"></canvas></div></div>
+  <div class="controls" id="x4d-1-ctl"></div>
+  <div class="bar" id="x4d-1-btn"></div>
+  <div class="stats" id="x4d-1-stats"></div>
+  <p class="small concept-note">Because the arm is lightweight and smooth, it cannot push on P, so P moves along a straight line at constant speed (dashed green line). The arm simply follows P, and its rate drops as $1/R^2$.</p>
+</div>
+<div class="demo v3d" data-clip="x4d-1"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Every solution follows the four-step method: free-body diagrams, kinetics equations, kinematics, solve. Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Draw the free-body diagrams</summary>
+<p>First take the shaft, the arm and P together. The bearing forces act on the axis of rotation, and the weight $W$ of P is parallel to that axis. So none of the external forces has a moment about the axis.</p>
+<p>Then look at P alone in a top view. The smooth arm can only push on P across the arm, with a force $N$. The arm itself has negligible mass and nothing drives it, so the sum of the moments on the arm about the axis must be zero. The only such moment is $R N$, which means $N = 0$.</p>
+<div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 350 320" role="img" aria-label="Shaft, arm and P together (side view)" style="max-width:350px"><line x1="100.0" y1="50.0" x2="100.0" y2="230.0" stroke="#8a6a12" stroke-width="15" stroke-linecap="round"/><line x1="100.0" y1="50.0" x2="100.0" y2="230.0" stroke="#f1e6c8" stroke-width="11" stroke-linecap="round"/><line x1="100.0" y1="95.0" x2="320.0" y2="95.0" stroke="#8a6a12" stroke-width="12" stroke-linecap="round"/><line x1="100.0" y1="95.0" x2="320.0" y2="95.0" stroke="#f1e6c8" stroke-width="8" stroke-linecap="round"/><circle cx="240.0" cy="95.0" r="14.0" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><line x1="240.0" y1="109.0" x2="240.0" y2="158.0" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="240.0,169.0 234.5,158.0 245.5,158.0" fill="#c2410c"/><line x1="44.0" y1="70.0" x2="83.0" y2="70.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="94.0,70.0 83.0,75.5 83.0,64.5" fill="#17915a"/><line x1="44.0" y1="210.0" x2="83.0" y2="210.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="94.0,210.0 83.0,215.5 83.0,204.5" fill="#17915a"/><line x1="100.0" y1="272.0" x2="100.0" y2="241.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="100.0,230.0 105.5,241.0 94.5,241.0" fill="#17915a"/><line x1="100.0" y1="30.0" x2="100.0" y2="300.0" stroke="#7b808c" stroke-width="1.4" stroke-dasharray="5 4"/><line x1="290.0" y1="290.0" x2="313.0" y2="290.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="324.0,290.0 313.0,295.5 313.0,284.5" fill="#7b808c"/><line x1="290.0" y1="290.0" x2="290.0" y2="267.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="290.0,256.0 295.5,267.0 284.5,267.0" fill="#7b808c"/><text x="240.0" y="66.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>P</tspan></text><text x="256.0" y="171.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>W</tspan></text><text x="32.0" y="58.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>A</tspan><tspan dy="4.8" style="font-size:10.8px">x</tspan></text><text x="32.0" y="198.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>B</tspan><tspan dy="4.8" style="font-size:10.8px">x</tspan></text><text x="118.0" y="284.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>B</tspan><tspan dy="4.8" style="font-size:10.8px">z</tspan></text><text x="92.0" y="300.0" text-anchor="end" dominant-baseline="middle" style="font-family:system-ui,sans-serif;font-size:11px;fill:#7b808c">axis of rotation</text><text x="334.0" y="290.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>x</tspan></text><text x="290.0" y="246.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>z</tspan></text></svg><figcaption>Shaft, arm and P together (side view)</figcaption></figure><figure><svg class="fbd" viewBox="0 0 260 290" role="img" aria-label="P alone (top view)" style="max-width:260px"><line x1="20.0" y1="210.0" x2="115.0" y2="158.0" stroke="#7b808c" stroke-width="1.4" stroke-dasharray="5 4"/><line x1="145.0" y1="142.0" x2="240.0" y2="90.0" stroke="#7b808c" stroke-width="1.4" stroke-dasharray="5 4"/><circle cx="130.0" cy="150.0" r="16.0" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><line x1="89.5" y1="75.5" x2="117.7" y2="127.3" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="123.0,137.0 112.9,130.0 122.6,124.7" fill="#17915a"/><text x="160.0" y="164.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>P</tspan></text><text x="71.7" y="65.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>N</tspan></text><text x="130.0" y="268.0" text-anchor="middle" dominant-baseline="middle" style="font-family:system-ui,sans-serif;font-size:11px;fill:#7b808c">smooth arm: no force along the arm</text></svg><figcaption>P alone (top view)</figcaption></figure></div><p class="small fbdnote">Left: the bearing forces act on the axis and the weight $W$ is parallel to it, so no external force has a moment about the axis. Right: the smooth arm can push on P only across the arm. Because the arm is lightweight and turns freely, the moment $R N$ of this force about the axis must be zero, so $N = 0$ while P slides.</p>
+</details>
+<details class="step"><summary>Step 2 · Write the kinetics equation (angular impulse and momentum)</summary>
+<p>No external force has a moment about the vertical axis, so the angular momentum of the system about that axis is conserved. The arm has negligible mass, so all of this angular momentum belongs to P. Only the transverse velocity component $v_\theta$ of P contributes, because the radial component points at the axis.</p>
+$$H_{O1} = H_{O2} \quad\Longrightarrow\quad m R_1 v_{\theta 1} = m R_2 v_{\theta 2}$$
+</details>
+<details class="step"><summary>Step 3 · Write the kinematics equations</summary>
+<p>P stays on the arm, so its transverse velocity component equals the speed of the point of the arm that it occupies.</p>
+$$v_{\theta} = R\,\omega$$
+<p>Substituting this into the conservation equation gives $R_1^2\,\omega_1 = R_2^2\,\omega_2$. The mass of P cancels, so its weight is not needed.</p>
+</details>
+<details class="step"><summary>Step 4 · Solve</summary>
+$$\omega_2 = \omega_1\left(\frac{R_1}{R_2}\right)^2 = 20\left(\frac{3}{24}\right)^2 = 0.3125\ \text{rad/s}$$
+<p class="small">A useful check comes from the second free-body diagram. With $N = 0$ no horizontal force acts on P, so P moves in a straight line at its initial speed $R_1\omega_1 = 60$ in/s. It reaches $R = 24$ in after $\sqrt{24^2 - 3^2}/60 = 0.397$ s, when the arm has turned through $82.8°$. At that point $v_\theta = 3(60)/24 = 7.5$ in/s, which again gives $\omega_2 = 7.5/24 = 0.3125$ rad/s.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>$\omega_2 = 0.3125$ rad/s, which is $1/64$ of the initial rate.</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Change the initial distance $R_1$. Why does the final rate depend so strongly on it?</li><li>Watch the velocity arrows. The speed of P never changes, but its direction relative to the arm does. Where does the transverse component go?</li><li>Suppose a motor kept the arm turning at 20 rad/s. Would the angular momentum of P still be conserved? Why not?</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 4, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-4-c-13.html"><small>← Previous</small>Example 4.C.13</a><a class="next" href="ex-4-d-2.html"><small>Next →</small>Example 4.D.2</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/kit.js"></script>
+<script src="../assets/ch4-exD.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch4-3dD.js"></script>
+</body>
+</html>

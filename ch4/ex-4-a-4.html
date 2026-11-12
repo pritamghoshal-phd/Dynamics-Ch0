@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 4.A.4 · Chapter 4 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 4</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="newton.html">A · Newton's laws</a>
+    <a href="energy.html">B · Work–energy</a>
+    <a href="impulse.html">C · Linear impulse–momentum</a>
+    <a href="angular.html">D · Angular impulse–momentum</a>
+    <a href="examples.html" class=active>Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Newton's second law examples"><a href="examples.html#group-A">All Newton's second law examples</a><a href="ex-4-a-1.html">4.A.1</a><a href="ex-4-a-2.html">4.A.2</a><a href="ex-4-a-3.html">4.A.3</a><a href="ex-4-a-4.html" class=active>4.A.4</a><a href="ex-4-a-5.html">4.A.5</a><a href="ex-4-a-6.html">4.A.6</a><a href="ex-4-a-7.html">4.A.7</a><a href="ex-4-a-8.html">4.A.8</a><a href="ex-4-a-9.html">4.A.9</a><a href="ex-4-a-10.html">4.A.10</a><a href="ex-4-a-11.html">4.A.11</a><a href="ex-4-a-12.html">4.A.12</a><a href="ex-4-a-13.html">4.A.13</a><a href="ex-4-a-14.html">4.A.14</a><a href="ex-4-a-15.html">4.A.15</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-A">Newton's second law</a> › Example 4.A.4</p>
+<h2><span class="num">Example 4.A.4</span>A collar on a rod in an accelerating frame</h2>
+<div class="tags"><span>Newton's law</span><span>smooth rod</span><span>normal force</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>A collar P of mass $m$ slides freely on a smooth rod that is mounted at an angle $\theta = 36.87°$ in a frame. The rod falls from the upper left to the lower right of the frame. The frame moves along a horizontal surface with a constant acceleration $a$ to the right.</p>
+<p><b>Find</b> the value of $a$ for which the collar does not slide along the rod.</p>
+</div>
+<div class="demo" id="x4a-4">
+  <div class="demo-title"><span class="tag">Interactive</span><span>The frame accelerates and the collar stays put, or slides</span></div>
+  <div class="grid2"><canvas id="x4a-4-anim" class="anim" style="height:360px"></canvas><div><canvas id="x4a-4-plot" class="plot" style="height:300px"></canvas></div></div>
+  <div class="controls" id="x4a-4-ctl"></div>
+  <div class="bar" id="x4a-4-pre"><span class="lbl">Try:</span></div>
+  <div class="bar" id="x4a-4-btn"></div>
+  <div class="stats" id="x4a-4-stats"></div>
+  <p class="small concept-note">The camera follows the frame, and the ticks on the floor mark every 0.5 m. The graph shows the position of P along the rod, measured down the rod from the middle.</p>
+</div>
+<div class="demo v3d" data-clip="x4a-4"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Every solution follows the four-step method: free-body diagrams, kinetics equations, kinematics, solve. Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Draw the free-body diagram</summary>
+<p>Two forces act on the collar. The weight $mg$ acts downward. The rod is smooth, so it can push on the collar only perpendicular to itself, with the normal force $N$. Because the rod falls to the right, its normal points up and to the right, at the angle $\theta$ from the vertical. If P does not slide, it moves with the frame and its acceleration is $a$ to the right.</p>
+<div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 320 260" role="img" aria-label="Collar P" style="max-width:320px"><line x1="54.0" y1="53.0" x2="246.0" y2="197.0" stroke="#7b808c" stroke-width="1.4" stroke-dasharray="5 4"/><rect x="-26.0" y="-15.0" width="52.0" height="30.0" rx="4" transform="translate(150.0,125.0) rotate(36.9)" fill="#d8d4c8" stroke="#8a6a12" stroke-width="2"/><line x1="150.0" y1="125.0" x2="150.0" y2="189.0" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="150.0,200.0 144.5,189.0 155.5,189.0" fill="#c2410c"/><line x1="150.0" y1="125.0" x2="188.4" y2="73.8" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="195.0,65.0 192.8,77.1 184.0,70.5" fill="#17915a"/><path d="M97.2,85.4 A34,34 0 0 0 104.0,65.0" fill="none" stroke="#7b808c" stroke-width="1.2"/><line x1="40.0" y1="240.0" x2="63.0" y2="240.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="74.0,240.0 63.0,245.5 63.0,234.5" fill="#7b808c"/><line x1="40.0" y1="240.0" x2="40.0" y2="217.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="40.0,206.0 45.5,217.0 34.5,217.0" fill="#7b808c"/><text x="116.0" y="107.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:16px;font-style:italic;fill:#1c1d21"><tspan>P</tspan></text><text x="166.0" y="204.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>mg</tspan></text><text x="202.2" y="55.4" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>N</tspan></text><text x="112.7" y="79.2" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>θ</tspan></text><text x="84.0" y="240.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>x</tspan></text><text x="40.0" y="196.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>y</tspan></text></svg><figcaption>Collar P</figcaption></figure><figure><svg class="fbd" viewBox="0 0 200 260" role="img" aria-label="Kinetic diagram" style="max-width:200px"><rect x="-26.0" y="-15.0" width="52.0" height="30.0" rx="4" transform="translate(100.0,125.0) rotate(36.9)" fill="#d8d4c8" stroke="#8a6a12" stroke-width="2"/><line x1="90.0" y1="125.0" x2="139.0" y2="125.0" stroke="#7b808c" stroke-width="2.6" stroke-linecap="round"/><polygon points="150.0,125.0 139.0,130.5 139.0,119.5" fill="#7b808c"/><text x="148.0" y="111.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#7b808c"><tspan>ma</tspan></text></svg><figcaption>Kinetic diagram</figcaption></figure></div><p class="small fbdnote">The rod is smooth, so the only force from the rod is the normal force $N$, perpendicular to the rod. When P does not slide, it has the same acceleration $a$ as the frame, to the right.</p>
+</details>
+<details class="step"><summary>Step 2 · Write the kinetics equations</summary>
+<p>With $x$ to the right and $y$ upward, Newton's second law gives</p>
+$$\sum F_x = N\sin\theta = m a, \qquad \sum F_y = N\cos\theta - mg = 0$$
+</details>
+<details class="step"><summary>Step 3 · Write the kinematics equations</summary>
+<p>The collar does not slide along the rod, so its acceleration equals the acceleration of the frame, $\mathbf a_P = a\,\hat{\imath}$.</p>
+</details>
+<details class="step"><summary>Step 4 · Solve</summary>
+<p>The second equation gives $N = mg/\cos\theta$. Substituting it into the first gives</p>
+$$a = g\tan\theta = 9.81 \times 0.75 = 7.36\ \text{m/s}^2$$
+<p class="small">If the frame accelerates less, the collar slides down the rod. If it accelerates more, the collar slides up the rod. Relative to the frame, the collar accelerates along the rod at $g\sin\theta - a\cos\theta$, which is zero only for $a = g\tan\theta$.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>$a = g\tan\theta = 7.36$ m/s² to the right.</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Use the preset with the frame at rest. How fast does P accelerate down the rod?</li><li>Change the angle to 60°. Why must the frame accelerate faster than $g$ to keep the collar in place?</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 4, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-4-a-3.html"><small>← Previous</small>Example 4.A.3</a><a class="next" href="ex-4-a-5.html"><small>Next →</small>Example 4.A.5</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/kit.js"></script>
+<script src="../assets/ch4-exA1.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch4-3dA1.js"></script>
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Newton–Euler equations · Chapter 5 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 5</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="newton-euler.html" class=active>A · Newton–Euler</a>
+    <a href="work-energy.html">B · Work–energy</a>
+    <a href="impulse-momentum.html">C · Impulse–momentum</a>
+    <a href="examples.html">Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<section>
+<h2><span class="num">A</span>The Newton–Euler equations</h2>
+<p>A rigid body can be thought of as a very large number of particles that cannot move relative to one another. If we write Newton's second law for every particle and add the results, the internal forces cancel in pairs. Two equations remain, and together they describe the motion of the body.</p>
+<p><b>Newton's equation</b> describes the motion of the mass center G:</p>
+$$\sum\mathbf F = m\,\mathbf a_G$$
+<p><b>Euler's equation</b> describes the rotation. For planar motion, with moments taken about any point A of the body, it reads</p>
+$$\sum\mathbf M_A = I_A\,\boldsymbol\alpha + \mathbf r_{G/A}\times m\,\mathbf a_A$$
+<p>Here $I_A$ is the mass moment of inertia about an axis through A, $\boldsymbol\alpha$ is the angular acceleration of the body, and $\mathbf r_{G/A}$ is the position vector from A to G.</p>
+
+<h3>Two equations with two separate jobs</h3>
+<p>Newton's equation states that G moves exactly like a particle of mass $m$ acted on by the total force. This is true no matter where on the body the forces are applied. Euler's equation, written about G, becomes $\sum M_G = I_G\,\alpha$. It states that the body rotates as if it were pinned at G and acted on by the total moment. The location of a force therefore changes the rotation of the body, but it never changes the motion of G.</p>
+<div class="demo concept" id="c-ne">
+  <div class="demo-title"><span class="tag concept-tag">Concept</span><span>The same force gives the same path for G but a different rotation</span></div>
+  <canvas id="c-ne-anim" class="anim" style="height:330px"></canvas>
+  <div class="controls" id="c-ne-ctl"></div>
+  <div class="bar" id="c-ne-pre"><span class="lbl">Try:</span></div>
+  <div class="bar" id="c-ne-btn"></div>
+  <div class="stats" id="c-ne-stats"></div>
+  <p class="small concept-note">Both plates feel the same force $F$. The upper plate is pushed through G, so it only translates. The lower plate is pushed at a distance $e$ from G. Its mass center follows exactly the same path (the two green traces match), but the plate also rotates.</p>
+</div>
+
+<h3>Choosing the moment point</h3>
+<p>Moments may be taken about any point. The last term in Euler's equation vanishes in three convenient cases, and these are the points you should normally use.</p>
+<ul>
+<li>If A is the mass center G, the equation becomes $\sum M_G = I_G\,\alpha$.</li>
+<li>If A is a fixed pivot O, the equation becomes $\sum M_O = I_O\,\alpha$. The pin reactions at O pass through O, so they do not appear in this equation.</li>
+<li>If the acceleration of A points along the line from A to G, the cross product is zero. The most common example is the contact point C of a uniform wheel that rolls without slipping. The acceleration of C points toward the center of the wheel, which is G, so $\sum M_C = I_C\,\alpha$.</li>
+</ul>
+<p>Whichever point you choose, use it consistently for the moments, for $I_A$, for $\mathbf a_A$ and for $\mathbf r_{G/A}$. In Newton's equation the acceleration is always that of G. Use the same sign convention for moments and for $\alpha$. The usual choice is counterclockwise positive, with $\hat{\mathbf k}$ pointing out of the page.</p>
+
+<h3>The mass moment of inertia</h3>
+<p>The moment of inertia measures how the mass of a body is distributed about an axis. It is defined as $I_A = \int r^2\,dm$, where $r$ is the distance of the mass element $dm$ from the axis through A. Because the distance is squared, mass far from the axis contributes much more than mass close to it. The animation below makes this concrete. Two rotors carry the same masses and are driven by the same moment, but the masses sit at different radii.</p>
+<div class="demo concept" id="c-inertia">
+  <div class="demo-title"><span class="tag concept-tag">Concept</span><span>The same moment applied to two rotors with different mass placement</span></div>
+  <canvas id="c-inertia-anim" class="anim" style="height:320px"></canvas>
+  <div class="controls" id="c-inertia-ctl"></div>
+  <div class="bar" id="c-inertia-pre"><span class="lbl">Try:</span></div>
+  <div class="bar" id="c-inertia-btn"></div>
+  <div class="stats" id="c-inertia-stats"></div>
+  <p class="small concept-note">Each rotor has a light hub and two equal masses $m$. The same moment $M$ acts on both. The rotor whose masses are farther from the axis has the larger moment of inertia and therefore the smaller angular acceleration.</p>
+</div>
+<p>Doubling the radius of the masses roughly quadruples their contribution to $I$, so the rotor accelerates about four times more slowly. The table lists the moments of inertia of common uniform bodies about their mass centers.</p>
+<div class="tblwrap"><table class="tbl"><tr><th>Body of mass $m$</th><th>$I_G$</th><th>Body of mass $m$</th><th>$I_G$</th></tr>
+<tr><td>thin bar of length $L$</td><td>$\tfrac1{12}mL^2$</td><td>disk or cylinder of radius $R$</td><td>$\tfrac12 mR^2$</td></tr>
+<tr><td>thin ring or hoop of radius $R$</td><td>$mR^2$</td><td>solid sphere of radius $R$</td><td>$\tfrac25 mR^2$</td></tr>
+<tr><td>rectangular plate, $a \times b$</td><td>$\tfrac1{12}m(a^2+b^2)$</td><td>elliptical plate with semi-axes $a$ and $b$</td><td>$\tfrac14 m(a^2+b^2)$</td></tr>
+</table></div>
+<p>Two results allow us to move these values to other axes. The <b>parallel-axis theorem</b> states that $I_A = I_G + m\,d^2$, where $d$ is the distance between the axis through G and the parallel axis through A. Since $md^2$ can never be negative, the moment of inertia of a body is smallest about its mass center. The <b>radius of gyration</b> is defined by $k_A = \sqrt{I_A/m}$, so that $I_A = m k_A^2$. It is the distance from the axis at which all of the mass could be concentrated without changing $I_A$.</p>
+<div class="demo concept" id="c-pivot">
+  <div class="demo-title"><span class="tag concept-tag">Concept</span><span>Moving the pivot changes $I_O = I_G + md^2$</span></div>
+  <div class="grid2"><canvas id="c-pivot-anim" class="anim" style="height:340px"></canvas><div><canvas id="c-pivot-plot" class="plot" style="height:300px"></canvas></div></div>
+  <div class="controls" id="c-pivot-ctl"></div>
+  <div class="bar" id="c-pivot-pre"><span class="lbl">Try:</span></div>
+  <div class="bar" id="c-pivot-btn"></div>
+  <div class="stats" id="c-pivot-stats"></div>
+  <div class="notes" id="c-pivot-notes"></div>
+  <p class="small concept-note">A uniform bar is released from a horizontal position. When the pivot is at G, the bar stays where it is. When the pivot is at one end, the bar falls quickly. The graph shows the angular acceleration at release for every pivot position.</p>
+</div>
+<p>The release experiment above shows the trade-off contained in $I_O = I_G + md^2$. Moving the pivot away from G increases the moment of gravity, $mgd$, but it also increases the moment of inertia. As a result, the angular acceleration at release, $\alpha = gd/(L^2/12 + d^2)$, is largest when $d = L/\sqrt{12}$. At that point the pivot is exactly one radius of gyration away from G.</p>
+
+<h3>Forces at a pin</h3>
+<p>A pin does more than hold a body up. Because G moves on a circle about the pin, the pin must supply whatever force is needed to give G its tangential acceleration $r\alpha$ and its normal acceleration $r\omega^2$. For a uniform bar of length $L$ that is pinned at one end and released from rest in a horizontal position, Newton's equation in the normal and tangential directions gives</p>
+$$O_n = \tfrac52\,mg\sin\theta, \qquad O_t = \tfrac14\,mg\cos\theta$$
+<p>where $\theta$ is the angle of the bar below the horizontal, $O_n$ pulls G toward the pin and $O_t$ acts perpendicular to the bar. At the instant of release the pin carries only one quarter of the weight, because the bar is starting to fall. As the bar passes through the vertical position the pin must pull upward with $2.5\,mg$.</p>
+<div class="demo concept" id="c-pinforce">
+  <div class="demo-title"><span class="tag concept-tag">Concept</span><span>The force that the pin exerts on a falling bar</span></div>
+  <div class="grid2"><canvas id="c-pinforce-anim" class="anim" style="height:360px"></canvas><div><canvas id="c-pinforce-plot" class="plot" style="height:320px"></canvas><div class="legendrow"><span><span class="sw" style="background:var(--c1)"></span>upward pin force</span><span><span class="sw" style="background:var(--c3)"></span>horizontal pin force</span><span><span class="sw" style="background:var(--c2)"></span>weight mg, for comparison</span></div></div></div>
+  <div class="controls" id="c-pinforce-ctl"></div>
+  <div class="bar" id="c-pinforce-btn"></div>
+  <div class="stats" id="c-pinforce-stats"></div>
+  <p class="small concept-note">The red arrow shows the force of the pin on the bar and the orange arrow shows the weight, both drawn to the same scale. Notice that the pin force is almost never equal to the weight $mg$.</p>
+</div>
+
+<h3>Translation without rotation: sliding or tipping?</h3>
+<p>When a body translates without rotating, $\alpha = 0$, and Euler's equation about G becomes $\sum M_G = 0$. This condition decides how the normal force is shared between the supports. Consider a crate that is pushed across a rough floor. The push and the friction force both try to rotate the crate forward, so the front edge must carry more of the weight than the rear edge. If the push is applied high enough, the required rear normal force becomes negative. A floor cannot pull on the crate, so the crate tips about its front edge instead of sliding.</p>
+<div class="demo concept" id="c-tip">
+  <div class="demo-title"><span class="tag concept-tag">Concept</span><span>Pushing a crate: does it slide or tip?</span></div>
+  <canvas id="c-tip-anim" class="anim" style="height:320px"></canvas>
+  <div class="controls" id="c-tip-ctl"></div>
+  <div class="bar" id="c-tip-pre"><span class="lbl">Try:</span></div>
+  <div class="bar" id="c-tip-btn"></div>
+  <div class="stats" id="c-tip-stats"></div>
+  <p class="small concept-note">The crate has mass 20 kg, width 0.6 m and height 1.0 m. The motion is computed from the full Newton–Euler equations with contact and friction. The green arrows are the normal forces and the red arrows are the friction forces, drawn to scale. Raise the push and watch the rear normal force shrink until the crate tips. Once only the front edge touches, the normal force and the friction force act at that edge alone. A strong push can even lift the crate completely off the floor, and then no floor forces act at all.</p>
+</div>
+
+<h3>Rolling down a slope</h3>
+<p>Consider a round body of radius $R$ and radius of gyration $k_G$ that rolls without slipping down an incline of angle $\theta$. Its mass center accelerates at</p>
+$$a_G = \frac{g\sin\theta}{1 + k_G^2/R^2}$$
+<p>This result does not depend on the mass or on the size of the body. Only the shape of the mass distribution, expressed by the ratio $k_G/R$, decides which body is fastest.</p>
+<div class="demo concept" id="c-race">
+  <div class="demo-title"><span class="tag concept-tag">Concept</span><span>A rolling race between a hoop, a disk, a sphere and a sliding block</span></div>
+  <canvas id="c-race-anim" class="anim" style="height:380px"></canvas>
+  <div class="controls" id="c-race-ctl"></div>
+  <div class="bar" id="c-race-btn"></div>
+  <div class="stats" id="c-race-stats"></div>
+  <p class="small concept-note">Every body starts from rest at the top of an identical slope. The frictionless block does not rotate, so all of the work done by gravity goes into translation, and the block wins. Among the rolling bodies, the one with the least mass far from its center is fastest.</p>
+</div>
+
+<h3>Which way does a pulled spool roll?</h3>
+<p>The contact point is often the best moment point for a rolling body, because $\sum M_C = I_C\,\alpha$ and the unknown friction and normal forces drop out. A spool that is pulled by a string wound around its hub shows how useful this is. Only the string tension has a moment about C. If its line of action passes above C, the spool rolls toward the pull. If it passes below C, the spool rolls away from the pull, even though the string is pulling it forward. The two cases are separated by the critical angle $\cos\varphi_c = r/R$, at which the line of action passes through C and the spool does not roll at all.</p>
+<div class="demo concept" id="c-spool">
+  <div class="demo-title"><span class="tag concept-tag">Concept</span><span>Pulling a spool by a string wound around its hub</span></div>
+  <canvas id="c-spool-anim" class="anim" style="height:320px"></canvas>
+  <div class="controls" id="c-spool-ctl"></div>
+  <div class="bar" id="c-spool-pre"><span class="lbl">Try:</span></div>
+  <div class="bar" id="c-spool-btn"></div>
+  <div class="stats" id="c-spool-stats"></div>
+  <div class="notes" id="c-spool-notes"></div>
+  <p class="small concept-note">The dashed line is the line of action of the string tension, and C is the contact point. The spool rolls without slipping in every case.</p>
+</div>
+
+<h3>From skidding to rolling</h3>
+<p>A bowling ball is usually released with a forward speed $v_0$ and little spin, so its contact point slides along the lane. Kinetic friction then acts against the sliding. Newton's equation shows that friction slows the ball, $\dot v = -\mu_k g$, while Euler's equation about G shows that the same force spins it up, $R\dot\omega = \tfrac52\mu_k g$ for a solid sphere. When $v = R\omega$, the contact point stops sliding, friction vanishes, and the ball rolls at a constant speed. With no initial spin the final speed is $\tfrac57 v_0$, whatever the friction coefficient.</p>
+<div class="demo concept" id="c-bowl">
+  <div class="demo-title"><span class="tag concept-tag">Concept</span><span>A bowling ball skids and then rolls</span></div>
+  <canvas id="c-bowl-anim" class="anim" style="height:230px"></canvas><canvas id="c-bowl-plot" class="plot" style="height:240px"></canvas><div class="legendrow"><span><span class="sw" style="background:var(--c1)"></span>speed of the center, v<sub>G</sub></span><span><span class="sw" style="background:var(--c4)"></span>rim speed, Rω (dashed)</span></div>
+  <div class="controls" id="c-bowl-ctl"></div>
+  <div class="bar" id="c-bowl-pre"><span class="lbl">Spin at release:</span></div>
+  <div class="bar" id="c-bowl-btn"></div>
+  <div class="stats" id="c-bowl-stats"></div>
+  <p class="small concept-note">The view follows the ball, and the tick marks on the lane are 0.5 m apart. The blue arrow is the velocity of the center G. The red arrow is the velocity of the contact point C, $v_C = v_G - R\omega$, which is the speed at which the ball slides over the lane. The purple dots trace the path of one point on the ball. While the ball skids, $v_C \neq 0$ and kinetic friction acts against the sliding. Friction slows the center and changes the spin until $v_G = R\omega$. From then on $v_C = 0$, friction vanishes, the traced point follows a cycloid, and the ball rolls at a constant speed. With strong backspin the final speed is negative, so the ball comes back.</p>
+</div>
+<div class="try"><h4>Try this</h4><ul><li>In the first animation, change the sign of the offset $e$. Predict the direction of rotation with Euler's equation before you look.</li><li>Place the pivot at G in the second animation. Explain why the bar does not move, whatever its starting angle.</li><li>In the race, make the slope steeper. Does the finishing order change? Do the finishing times change?</li><li>Predict where a thick-walled pipe, which lies between a hoop and a disk, would finish.</li><li>In the crate animation, find the lowest push height at which the crate tips when $\mu = 0.3$. Does a larger friction coefficient make tipping easier or harder? Explain with $\sum M_G = 0$.</li><li>Pull the spool at exactly the critical angle. Why does it stay in place even though the tension is not zero?</li><li>Release the bowling ball with backspin $R\omega_0 = -2.5\,v_0$. Predict its final speed from $v_f = (5v_0 + 2R\omega_0)/7$ before you watch.</li></ul></div>
+<div class="wild"><span class="wi" aria-hidden="true">🛹</span><div><b class="wh">Rigid bodies in the wild</b><p>Figure skaters, divers and falling cats all control their rotation by changing their moment of inertia. A hammer is also easier to swing when you hold it near the head, because a pivot closer to G gives a smaller moment of inertia about your hand.</p></div></div>
+</section>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="index.html"><small>← Previous</small>Overview</a><a class="next" href="work-energy.html"><small>Next →</small>B · Work–energy</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/ch5.js"></script>
+</body>
+</html>

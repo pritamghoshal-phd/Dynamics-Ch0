@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 5.A.2 · Chapter 5 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 5</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="newton-euler.html">A · Newton–Euler</a>
+    <a href="work-energy.html">B · Work–energy</a>
+    <a href="impulse-momentum.html">C · Impulse–momentum</a>
+    <a href="examples.html" class=active>Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Newton–Euler equations examples"><a href="examples.html#group-A">All Newton–Euler examples</a><a href="ex-5-a-1.html">5.A.1</a><a href="ex-5-a-2.html" class=active>5.A.2</a><a href="ex-5-a-3.html">5.A.3</a><a href="ex-5-a-4.html">5.A.4</a><a href="ex-5-a-5.html">5.A.5</a><a href="ex-5-a-6.html">5.A.6</a><a href="ex-5-a-7.html">5.A.7</a><a href="ex-5-a-8.html">5.A.8</a><a href="ex-5-a-9.html">5.A.9</a><a href="ex-5-a-10.html">5.A.10</a><a href="ex-5-a-11.html">5.A.11</a><a href="ex-5-a-12.html">5.A.12</a><a href="ex-5-a-13.html">5.A.13</a><a href="ex-5-a-14.html">5.A.14</a><a href="ex-5-a-15.html">5.A.15</a><a href="ex-5-a-16.html">5.A.16</a><a href="ex-5-a-17.html">5.A.17</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-A">Newton–Euler equations</a> › Example 5.A.2</p>
+<h2><span class="num">Example 5.A.2</span>Why a braking car dips its nose</h2>
+<div class="tags"><span>Newton–Euler</span><span>load transfer</span><span>friction</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>An automobile travels to the right and brakes. Its mass center G is a height $d$ above the road, a distance $b_R$ in front of the rear axle and a distance $b_F$ behind the front axle. It is observed that the front of the car dips toward the road, or "nose dives", during braking.</p>
+<p><b>Explain</b> why this happens.</p>
+</div>
+<div class="demo" id="xa-2">
+  <div class="demo-title"><span class="tag">Interactive</span><span>A braking car on its suspension</span></div>
+  <canvas id="xa-2-anim" class="anim" style="height:340px"></canvas>
+  <div class="controls" id="xa-2-ctl"></div>
+  <div class="bar" id="xa-2-pre"><span class="lbl">Try:</span></div>
+  <div class="bar" id="xa-2-btn"></div>
+  <div class="stats" id="xa-2-stats"></div>
+  <p class="small concept-note">The car has a mass of 1500 kg, $b_R = 1.5$ m and $b_F = 1.1$ m. Each axle sits on a spring of stiffness 50 kN/m, and each spring settles smoothly toward the load it carries. The tire forces are drawn to scale. The view follows the car, and the tick marks on the road are 1 m apart.</p>
+</div>
+<div class="demo v3d" data-clip="xa-2"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Every solution follows the four-step method. Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Draw the free-body diagram</summary>
+<p>The car is acted on by its weight $mg$ at G and by the road at each axle. At the rear axle the road applies a normal force $N_R$ and a braking friction force, and at the front axle it applies $N_F$ and a braking friction force. Both friction forces point backward, to the left. Their sum is $F$.</p><div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 380 260" role="img" aria-label="Car moving to the right, cut free from the road" style="max-width:380px"><polygon points="40.0,140.0 40.0,112.0 92.0,104.0 122.0,78.0 222.0,78.0 258.0,104.0 312.0,110.0 312.0,140.0" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2" stroke-linejoin="round"/><circle cx="85.0" cy="146.0" r="22.0" fill="#d9d4c6" stroke="#8a6a12" stroke-width="2"/><circle cx="268.0" cy="146.0" r="22.0" fill="#d9d4c6" stroke="#8a6a12" stroke-width="2"/><circle cx="168.0" cy="118.0" r="4" fill="#1c1d21"/><line x1="168.0" y1="118.0" x2="168.0" y2="147.0" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="168.0,158.0 162.5,147.0 173.5,147.0" fill="#c2410c"/><line x1="85.0" y1="224.0" x2="85.0" y2="179.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="85.0,168.0 90.5,179.0 79.5,179.0" fill="#17915a"/><line x1="268.0" y1="224.0" x2="268.0" y2="179.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="268.0,168.0 273.5,179.0 262.5,179.0" fill="#17915a"/><line x1="85.0" y1="168.0" x2="52.0" y2="168.0" stroke="#b42346" stroke-width="2.6" stroke-linecap="round"/><polygon points="41.0,168.0 52.0,162.5 52.0,173.5" fill="#b42346"/><line x1="268.0" y1="168.0" x2="235.0" y2="168.0" stroke="#b42346" stroke-width="2.6" stroke-linecap="round"/><polygon points="224.0,168.0 235.0,162.5 235.0,173.5" fill="#b42346"/><line x1="85.0" y1="124.0" x2="85.0" y2="36.0" stroke="#7b808c" stroke-width="1.4" stroke-dasharray="5 4"/><line x1="168.0" y1="118.0" x2="168.0" y2="36.0" stroke="#7b808c" stroke-width="1.4" stroke-dasharray="5 4"/><line x1="268.0" y1="124.0" x2="268.0" y2="36.0" stroke="#7b808c" stroke-width="1.4" stroke-dasharray="5 4"/><line x1="85.0" y1="42.0" x2="168.0" y2="42.0" stroke="#7b808c" stroke-width="1.2"/><line x1="85.0" y1="37.0" x2="85.0" y2="47.0" stroke="#7b808c" stroke-width="1.2"/><line x1="168.0" y1="37.0" x2="168.0" y2="47.0" stroke="#7b808c" stroke-width="1.2"/><line x1="168.0" y1="42.0" x2="268.0" y2="42.0" stroke="#7b808c" stroke-width="1.2"/><line x1="168.0" y1="37.0" x2="168.0" y2="47.0" stroke="#7b808c" stroke-width="1.2"/><line x1="268.0" y1="37.0" x2="268.0" y2="47.0" stroke="#7b808c" stroke-width="1.2"/><line x1="172.0" y1="118.0" x2="350.0" y2="118.0" stroke="#7b808c" stroke-width="1.4" stroke-dasharray="5 4"/><line x1="344.0" y1="118.0" x2="344.0" y2="168.0" stroke="#7b808c" stroke-width="1.2"/><line x1="349.0" y1="118.0" x2="339.0" y2="118.0" stroke="#7b808c" stroke-width="1.2"/><line x1="349.0" y1="168.0" x2="339.0" y2="168.0" stroke="#7b808c" stroke-width="1.2"/><line x1="330.0" y1="244.0" x2="353.0" y2="244.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="364.0,244.0 353.0,249.5 353.0,238.5" fill="#7b808c"/><line x1="330.0" y1="244.0" x2="330.0" y2="221.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="330.0,210.0 335.5,221.0 324.5,221.0" fill="#7b808c"/><text x="154.0" y="106.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>G</tspan></text><text x="184.0" y="158.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>mg</tspan></text><text x="85.0" y="236.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>N</tspan><tspan dy="4.8" style="font-size:10.8px">R</tspan></text><text x="268.0" y="236.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>N</tspan><tspan dy="4.8" style="font-size:10.8px">F</tspan></text><text x="29.0" y="168.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#b42346"><tspan>F</tspan><tspan dy="4.8" style="font-size:10.8px">R</tspan></text><text x="246.0" y="181.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#b42346"><tspan>F</tspan><tspan dy="4.8" style="font-size:10.8px">F</tspan></text><text x="126.5" y="30.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>b</tspan><tspan dy="4.2" style="font-size:9.4px">R</tspan></text><text x="218.0" y="30.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>b</tspan><tspan dy="4.2" style="font-size:9.4px">F</tspan></text><text x="328.0" y="143.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>d</tspan></text><text x="374.0" y="244.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>x</tspan></text><text x="330.0" y="200.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>y</tspan></text></svg><figcaption>Car moving to the right, cut free from the road</figcaption></figure></div><p class="small fbdnote">Both braking friction forces point backward. Their sum is $F = F_R + F_F$.</p>
+</details>
+<details class="step"><summary>Step 2 · Write the kinetics equations</summary>
+<p>Let the car decelerate at a rate $a$, so $a_G = -a$ in the direction of travel. Treating the car as a single rigid body that translates, Newton's equation gives</p>
+$$-F = -m\,a, \qquad N_R + N_F - mg = 0$$
+<p>Because the body does not rotate, the moments about G must add to zero. The friction forces act at the road, a distance $d$ below G, and point backward, so they produce a moment that tends to rotate the car nose down. The normal forces must balance it.</p>
+$$\sum M_G = N_F\,b_F - N_R\,b_R - F\,d = 0$$
+</details>
+<details class="step"><summary>Step 3 · Write the kinematics equation</summary>
+<p>Apart from the small motion of the suspension, the car translates, so $\alpha = 0$ and every point decelerates at the rate $a$.</p>
+</details>
+<details class="step"><summary>Step 4 · Solve</summary>
+<p>Solving the three equations gives</p>
+$$N_F = \frac{m\,(g\,b_R + a\,d)}{b_R + b_F}, \qquad N_R = \frac{m\,(g\,b_F - a\,d)}{b_R + b_F}$$
+<p>When the car is not braking ($a = 0$), these reduce to the static loads. During braking, a force $m a d/(b_R + b_F)$ is transferred from the rear axle to the front axle. The front springs carry more load and compress, while the rear springs carry less and extend. The body therefore rotates nose down.</p>
+<p class="small">The transfer grows with the deceleration and with the height of G. If $a\,d > g\,b_F$, the rear normal force would become negative, and the rear wheels would lift off the road.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>The braking friction forces act at the road, below G, and produce a moment that tends to pitch the car forward. To keep the body from rotating, the road must push harder on the front wheels and less hard on the rear wheels: $N_F = m(g b_R + a d)/(b_R + b_F)$ and $N_R = m(g b_F - a d)/(b_R + b_F)$. The extra load compresses the front suspension, so the nose dips.</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Raise the mass center $d$. How does the load transfer change?</li><li>With the hard stop, compare $N_F$ during braking with its static value.</li><li>Watch the car after it stops. Why does the nose rise again?</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 5, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-5-a-1.html"><small>← Previous</small>Example 5.A.1</a><a class="next" href="ex-5-a-3.html"><small>Next →</small>Example 5.A.3</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/ch5.js"></script>
+<script src="../assets/ch5-exA1.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch5-3dA1.js"></script>
+</body>
+</html>

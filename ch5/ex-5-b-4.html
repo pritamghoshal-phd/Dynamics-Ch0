@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 5.B.4 · Chapter 5 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 5</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="newton-euler.html">A · Newton–Euler</a>
+    <a href="work-energy.html">B · Work–energy</a>
+    <a href="impulse-momentum.html">C · Impulse–momentum</a>
+    <a href="examples.html" class=active>Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Work and energy examples"><a href="examples.html#group-B">All work–energy examples</a><a href="ex-5-b-1.html">5.B.1</a><a href="ex-5-b-3.html">5.B.3</a><a href="ex-5-b-4.html" class=active>5.B.4</a><a href="ex-5-b-5.html">5.B.5</a><a href="ex-5-b-6.html">5.B.6</a><a href="ex-5-b-7.html">5.B.7</a><a href="ex-5-b-8.html">5.B.8</a><a href="ex-5-b-9.html">5.B.9</a><a href="ex-5-b-10.html">5.B.10</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-B">Work and energy</a> › Example 5.B.4</p>
+<h2><span class="num">Example 5.B.4</span>Plate swinging about a corner</h2>
+<div class="tags"><span>work–energy</span><span>fixed-axis rotation</span><span>parallel axis</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>A homogeneous rectangular plate of height $d$ and width $1.5d$ is pinned at its upper right corner O. The plate is released from rest with its top edge horizontal, and the pin is smooth.</p>
+<p><b>Find</b> the largest angular velocity that the plate reaches as it swings about O.</p>
+</div>
+<div class="demo" id="e-b4">
+  <div class="demo-title"><span class="tag">Interactive</span><span>The swinging plate and its angular velocity</span></div>
+  <div class="grid2"><canvas id="e-b4-anim" class="anim" style="height:360px"></canvas><div><canvas id="e-b4-plot" class="plot" style="height:320px"></canvas></div></div>
+  <div class="controls" id="e-b4-ctl"></div>
+  <div class="bar" id="e-b4-btn"></div>
+  <div class="stats" id="e-b4-stats"></div>
+  <p class="small concept-note">The blue trace is the simulated motion and the dashed curve is the prediction of the work–energy principle. The largest angular velocity occurs when G passes directly below O.</p>
+</div>
+<div class="demo v3d" data-clip="e-b4"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Every solution follows the four-step method. Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Draw the free-body diagram</summary>
+<p>The plate is acted on by its weight $mg$ at the center G and by the pin reaction at O. The pin does not move, so the pin reaction does no work.</p><div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 320 300" role="img" aria-label="Plate in a general position" style="max-width:320px"><rect x="-75.0" y="-50.0" width="150.0" height="100.0" rx="4" transform="translate(176.6,142.6) rotate(-20.0)" fill="#f1e6c8" stroke="#8a6a12" stroke-width="2"/><circle cx="230.0" cy="70.0" r="4.5" fill="#fff" stroke="#1c1d21" stroke-width="2"/><circle cx="176.6" cy="142.6" r="4" fill="#1c1d21"/><line x1="176.6" y1="142.6" x2="176.6" y2="201.6" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="176.6,212.6 171.1,201.6 182.1,201.6" fill="#c2410c"/><line x1="230.0" y1="70.0" x2="271.0" y2="70.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="282.0,70.0 271.0,75.5 271.0,64.5" fill="#17915a"/><line x1="230.0" y1="70.0" x2="230.0" y2="33.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="230.0,22.0 235.5,33.0 224.5,33.0" fill="#17915a"/><line x1="230.0" y1="70.0" x2="176.6" y2="142.6" stroke="#7b808c" stroke-width="1.4" stroke-dasharray="5 4"/><line x1="230.0" y1="70.0" x2="230.0" y2="280.0" stroke="#7b808c" stroke-width="1" stroke-dasharray="5 4"/><text x="246.0" y="82.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>O</tspan></text><text x="190.6" y="136.6" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>G</tspan></text><text x="190.6" y="224.6" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>mg</tspan></text><text x="294.0" y="70.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>O</tspan><tspan dy="4.8" style="font-size:10.8px">x</tspan></text><text x="230.0" y="10.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>O</tspan><tspan dy="4.8" style="font-size:10.8px">y</tspan></text><text x="217.3" y="114.3" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:14px;font-style:italic;fill:#7b808c"><tspan>ρ</tspan></text></svg><figcaption>Plate in a general position</figcaption></figure></div><p class="small fbdnote">Only the weight $mg$ does work. The pin reaction ($O_x$, $O_y$) acts at the fixed point O. G is a distance $\rho = \tfrac{\sqrt{13}}{4}d$ from O; it is lowest when it passes the dashed vertical line through O.</p>
+</details>
+<details class="step"><summary>Step 2 · Write the kinetics equation (work–energy)</summary>
+<p>Only gravity does work, so mechanical energy is conserved and $T_1 + V_1 = T_2 + V_2$ with $T_1 = 0$. The kinetic energy is largest where the potential energy is smallest, which is when G is directly below O. At that position $\sum M_O = 0$, so $\alpha = 0$ and $\omega$ has stopped increasing.</p>
+$$\tfrac12 I_O\,\omega_{max}^2 = m g\,\Delta h$$
+</details>
+<details class="step"><summary>Step 3 · Work out the geometry and the moment of inertia</summary>
+<p>Relative to O, the mass center G lies $0.75d$ to the side and $0.5d$ below. Its distance from O is therefore $\rho = d\sqrt{0.75^2 + 0.5^2} = \tfrac{\sqrt{13}}{4}d$. G starts $0.5d$ below O and ends $\rho$ below O, so it falls through</p>
+$$\Delta h = \rho - \tfrac d2 = \tfrac{\sqrt{13} - 2}{4}\,d$$
+<p>The parallel-axis theorem gives the moment of inertia about O.</p>
+$$I_O = \tfrac1{12}m\left[(1.5d)^2 + d^2\right] + m\rho^2 = \tfrac{13}{48}md^2 + \tfrac{13}{16}md^2 = \tfrac{13}{12}md^2$$
+</details>
+<details class="step"><summary>Step 4 · Solve</summary>
+$$\omega_{max}^2 = \frac{2mg\,\Delta h}{I_O} = \frac{6(\sqrt{13} - 2)}{13}\,\frac gd \quad\Longrightarrow\quad \omega_{max} = 0.861\sqrt{g/d}$$
+<p class="small">For $d = 1$ m this gives 2.70 rad/s, which matches the statistic in the animation.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>$\omega_{max} = \sqrt{\dfrac{6(\sqrt{13}-2)}{13}\,\dfrac gd} \approx 0.861\sqrt{g/d}$. It is reached when G passes directly below O.</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Change $d$. Does the product $\omega_{max}\sqrt{d/g}$ stay the same? Explain why.</li><li>Make the plate square by setting the ratio to 1. Predict $\omega_{max}\sqrt{d/g}$ before you look.</li><li>How far does the plate swing on the other side? Explain your answer with energy.</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 5, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-5-b-3.html"><small>← Previous</small>Example 5.B.3</a><a class="next" href="ex-5-b-5.html"><small>Next →</small>Example 5.B.5</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/ch5.js"></script>
+<script src="../assets/ch5-exB.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch5-3dB.js"></script>
+</body>
+</html>

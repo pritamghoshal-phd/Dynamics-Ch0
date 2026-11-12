@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 5.A.4 · Chapter 5 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 5</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="newton-euler.html">A · Newton–Euler</a>
+    <a href="work-energy.html">B · Work–energy</a>
+    <a href="impulse-momentum.html">C · Impulse–momentum</a>
+    <a href="examples.html" class=active>Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Newton–Euler equations examples"><a href="examples.html#group-A">All Newton–Euler examples</a><a href="ex-5-a-1.html">5.A.1</a><a href="ex-5-a-2.html">5.A.2</a><a href="ex-5-a-3.html">5.A.3</a><a href="ex-5-a-4.html" class=active>5.A.4</a><a href="ex-5-a-5.html">5.A.5</a><a href="ex-5-a-6.html">5.A.6</a><a href="ex-5-a-7.html">5.A.7</a><a href="ex-5-a-8.html">5.A.8</a><a href="ex-5-a-9.html">5.A.9</a><a href="ex-5-a-10.html">5.A.10</a><a href="ex-5-a-11.html">5.A.11</a><a href="ex-5-a-12.html">5.A.12</a><a href="ex-5-a-13.html">5.A.13</a><a href="ex-5-a-14.html">5.A.14</a><a href="ex-5-a-15.html">5.A.15</a><a href="ex-5-a-16.html">5.A.16</a><a href="ex-5-a-17.html">5.A.17</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-A">Newton–Euler equations</a> › Example 5.A.4</p>
+<h2><span class="num">Example 5.A.4</span>A rod held at an angle in an accelerating frame</h2>
+<div class="tags"><span>Newton–Euler</span><span>accelerating frame</span><span>smooth contact</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>A uniform slender rod AB of length $L$ rests inside a frame. End A touches the smooth left wall of the frame, and end B rests on the smooth floor of the frame, so the rod makes an angle $\theta$ with the floor. The frame moves to the right with acceleration $a$.</p>
+<p><b>Find</b> the acceleration $a$ for which the rod keeps the orientation shown.</p>
+</div>
+<div class="demo" id="xa-4">
+  <div class="demo-title"><span class="tag">Interactive</span><span>The rod inside the accelerating frame</span></div>
+  <canvas id="xa-4-anim" class="anim" style="height:330px"></canvas>
+  <div class="controls" id="xa-4-ctl"></div>
+  <div class="bar" id="xa-4-pre"><span class="lbl">Try:</span></div>
+  <div class="bar" id="xa-4-btn"></div>
+  <div class="stats" id="xa-4-stats"></div>
+  <p class="small concept-note">The animation integrates the equation of motion of the rod relative to the frame. With exactly $a = g\cot\theta$ the rod keeps its angle. Try the presets that are slightly too small or too large, and notice how quickly the rod moves away. The orientation is an unstable equilibrium.</p>
+</div>
+<div class="demo v3d" data-clip="xa-4"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Every solution follows the four-step method. Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Draw the free-body diagram</summary>
+<p>The rod is acted on by its weight $mg$ at its midpoint G, by a normal force $N_A$ from the wall at A, which is horizontal and points to the right, and by a normal force $N_B$ from the floor at B, which points up. Both surfaces are smooth, so there are no friction forces.</p><div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 320 290" role="img" aria-label="Rod AB, cut free from the wall and the floor" style="max-width:320px"><line x1="90.0" y1="52.0" x2="270.0" y2="196.0" stroke="#8a6a12" stroke-width="13" stroke-linecap="round"/><line x1="90.0" y1="52.0" x2="270.0" y2="196.0" stroke="#f1e6c8" stroke-width="9" stroke-linecap="round"/><circle cx="180.0" cy="124.0" r="4" fill="#1c1d21"/><line x1="24.0" y1="52.0" x2="79.0" y2="52.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="90.0,52.0 79.0,57.5 79.0,46.5" fill="#17915a"/><line x1="270.0" y1="256.0" x2="270.0" y2="207.0" stroke="#17915a" stroke-width="2.6" stroke-linecap="round"/><polygon points="270.0,196.0 275.5,207.0 264.5,207.0" fill="#17915a"/><line x1="180.0" y1="124.0" x2="180.0" y2="163.0" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/><polygon points="180.0,174.0 174.5,163.0 185.5,163.0" fill="#c2410c"/><line x1="270.0" y1="196.0" x2="170.0" y2="196.0" stroke="#7b808c" stroke-width="1.4" stroke-dasharray="5 4"/><path d="M237.2,169.8 A42,42 0 0 0 228.0,196.0" fill="none" stroke="#7b808c" stroke-width="1.2"/><line x1="28.0" y1="272.0" x2="51.0" y2="272.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="62.0,272.0 51.0,277.5 51.0,266.5" fill="#7b808c"/><line x1="28.0" y1="272.0" x2="28.0" y2="249.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="28.0,238.0 33.5,249.0 22.5,249.0" fill="#7b808c"/><text x="94.0" y="30.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>A</tspan></text><text x="286.0" y="182.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>B</tspan></text><text x="174.0" y="106.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>G</tspan></text><text x="12.0" y="52.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>N</tspan><tspan dy="4.8" style="font-size:10.8px">A</tspan></text><text x="270.0" y="268.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#17915a"><tspan>N</tspan><tspan dy="4.8" style="font-size:10.8px">B</tspan></text><text x="164.0" y="180.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#c2410c"><tspan>mg</tspan></text><text x="220.0" y="178.5" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>θ</tspan></text><text x="148.0" y="80.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>L/2</tspan></text><text x="232.0" y="138.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>L/2</tspan></text><text x="72.0" y="272.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>x</tspan></text><text x="28.0" y="228.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>y</tspan></text></svg><figcaption>Rod AB, cut free from the wall and the floor</figcaption></figure></div><p class="small fbdnote">Both surfaces are smooth, so only normal forces act at A and B.</p>
+</details>
+<details class="step"><summary>Step 2 · Write the kinetics equations</summary>
+<p>If the rod keeps its orientation, it moves with the frame, so $a_G = a$ to the right and $\alpha = 0$. Newton's equation gives</p>
+$$N_A = m\,a, \qquad N_B - mg = 0$$
+<p>Relative to G, end A is at $\left(-\tfrac L2\cos\theta,\ \tfrac L2\sin\theta\right)$ and end B is at $\left(\tfrac L2\cos\theta,\ -\tfrac L2\sin\theta\right)$. The moment about G must be zero.</p>
+$$\sum M_G = -N_A\,\tfrac L2\sin\theta + N_B\,\tfrac L2\cos\theta = 0$$
+</details>
+<details class="step"><summary>Step 3 · Write the kinematics equation</summary>
+<p>The rod translates with the frame, so every point has acceleration $a$ to the right and $\alpha = 0$.</p>
+</details>
+<details class="step"><summary>Step 4 · Solve</summary>
+<p>The moment equation gives $N_A\sin\theta = N_B\cos\theta$. Substituting $N_A = m a$ and $N_B = m g$ gives</p>
+$$a = g\cot\theta = \frac{g}{\tan\theta}$$
+<p class="small">The answer does not depend on $m$ or $L$. The equilibrium is unstable. If $a$ is slightly larger, the rod swings up toward the wall, and if $a$ is slightly smaller, it slides down toward the floor.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>$a = g\cot\theta$, directed toward the floor end B (to the right in the figure).</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Change $\theta$ and apply the preset $a = g\cot\theta$ each time. How does the required acceleration change as the rod becomes steeper?</li><li>Use the preset that is 5% too large. Which way does the rod move, and why?</li><li>Why does the result not depend on the length of the rod?</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 5, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-5-a-3.html"><small>← Previous</small>Example 5.A.3</a><a class="next" href="ex-5-a-5.html"><small>Next →</small>Example 5.A.5</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/ch5.js"></script>
+<script src="../assets/ch5-exA1.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch5-3dA1.js"></script>
+</body>
+</html>

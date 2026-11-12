@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 3.B.2 · Chapter 3 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 3</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="frames-2d.html">A · 2D rotating frames</a>
+    <a href="frames-3d.html">B · 3D rotating frames</a>
+    <a href="coriolis.html">C · Coriolis in real life</a>
+    <a href="examples.html" class=active>Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="3D rotating frames examples"><a href="examples.html#group-B">All 3D rotating frames examples</a><a href="ex-3-b-1.html">3.B.1</a><a href="ex-3-b-2.html" class=active>3.B.2</a><a href="ex-3-b-3.html">3.B.3</a><a href="ex-3-b-4.html">3.B.4</a><a href="ex-3-b-5.html">3.B.5</a><a href="ex-3-b-6.html">3.B.6</a><a href="ex-3-b-7.html">3.B.7</a><a href="ex-3-b-8.html">3.B.8</a><a href="ex-3-b-9.html">3.B.9</a><a href="ex-3-b-10.html">3.B.10</a><a href="ex-3-b-11.html">3.B.11</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-B">3D rotating frames</a> › Example 3.B.2</p>
+<h2><span class="num">Example 3.B.2</span>Radar antenna</h2>
+<div class="tags"><span>3D frames</span><span>angular velocity</span><span>angular acceleration</span><span>components in moving axes</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>A radar antenna rotates about a fixed vertical axis at a constant rate $\Omega = 0.2$ rad/s. The elevation angle $\theta$ of the dish increases at a constant rate $\dot\theta = 0.5$ rad/s. The observer and the $xyz$ axes are attached to the antenna dish, with $x$ along the axis of the dish. The $XYZ$ axes are fixed.</p>
+<p><b>Find</b> (a) the angular velocity and (b) the angular acceleration of the observer when $\theta = 36.87^\circ$.</p>
+</div>
+<div class="demo" id="x3b-2">
+  <div class="demo-title"><span class="tag">Interactive</span><span>The antenna turns about the vertical axis while the dish is raised</span></div>
+  <canvas id="x3b-2-anim" class="anim" style="height:420px"></canvas><canvas id="x3b-2-plot" class="plot" style="height:230px"></canvas><div class="legendrow"><span><span class="sw" style="background:var(--c1)"></span>ω<sub>X</sub></span><span><span class="sw" style="background:var(--c2)"></span>ω<sub>Y</sub></span><span><span class="sw" style="background:var(--c3)"></span>ω<sub>Z</sub></span></div>
+  <div class="controls" id="x3b-2-ctl"></div>
+  <div class="bar" id="x3b-2-pre"><span class="lbl">Try:</span></div>
+  <div class="bar" id="x3b-2-btn"></div>
+  <div class="stats" id="x3b-2-stats"></div>
+  <p class="small concept-note">The motion runs at true speed, from an elevation of 5° to 80°. The dashed tangent lines in the graph show the components of α as slopes of the ω curves.</p>
+</div>
+<div class="demo v3d" data-clip="x3b-2"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Choose the observer and the axes</summary>
+<p>The observer rides on the dish. The $x$ axis points along the axis of the dish toward the feed P, the $y$ axis is perpendicular to it in the vertical plane of the dish, and the $z$ axis is along the elevation pin at O. At the instant shown the $XYZ$ and $xyz$ axes share the same $z$ direction, so $\hat k = \hat K$, and</p>
+<div class="formula">$$\hat J = \sin\theta\,\hat\imath + \cos\theta\,\hat\jmath,\qquad \hat I = \cos\theta\,\hat\imath - \sin\theta\,\hat\jmath$$</div>
+<p>For $\theta = 36.87^\circ$ we have $\sin\theta = 0.6$ and $\cos\theta = 0.8$.</p>
+</details>
+<details class="step"><summary>Step 2 · Find the angular velocity</summary>
+<p>The dish turns about the vertical axis at $\Omega$, and about the elevation pin at $\dot\theta$. The pin is carried around by the base, so</p>
+<div class="formula">$$\vec\omega = \Omega\,\hat J + \dot\theta\,\hat k$$</div>
+<div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 370 310" role="img" aria-label="At θ = 36.87°, side view of the dish" style="max-width:370px"><line x1="90" y1="210" x2="90" y2="282" stroke="#7b808c" stroke-width="8"/><rect x="68" y="276" width="44" height="12" fill="#cfcabd" stroke="#55585f" stroke-width="1.4"/><path d="M178.0,234.0 Q98.0,194.0 82.0,106.0" fill="#d3d3d8" stroke="#55585f" stroke-width="2"/><line x1="90.0" y1="200.0" x2="258.0" y2="74.0" stroke="#3a3d44" stroke-width="2"/><circle cx="210.0" cy="110.0" r="4" fill="#1c1d21"/><circle cx="90.0" cy="200.0" r="4.5" fill="#fff" stroke="#1c1d21" stroke-width="2"/><line x1="90.0" y1="200.0" x2="290.0" y2="200.0" stroke="#7b808c" stroke-width="1.4" stroke-dasharray="5 4"/><path d="M160.0,200.0 A70,70 0 0 0 146.0,158.0" fill="none" stroke="#7b808c" stroke-width="1.2"/><line x1="90.0" y1="200.0" x2="33.0" y2="124.0" stroke="#7b808c" stroke-width="1.4" stroke-dasharray="5 4"/><line x1="330.0" y1="190.0" x2="330.0" y2="131.0" stroke="#8a3fd1" stroke-width="2.6" stroke-linecap="round"/><polygon points="330.0,120.0 335.5,131.0 324.5,131.0" fill="#8a3fd1"/><circle cx="230.0" cy="262.0" r="8" fill="#fff" stroke="#8a3fd1" stroke-width="2"/><circle cx="230.0" cy="262.0" r="2.6" fill="#8a3fd1"/><circle cx="249.0" cy="238.0" r="1.6" fill="#8a3fd1"/><line x1="300.0" y1="296.0" x2="323.0" y2="296.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="334.0,296.0 323.0,301.5 323.0,290.5" fill="#7b808c"/><line x1="300.0" y1="296.0" x2="300.0" y2="273.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="300.0,262.0 305.5,273.0 294.5,273.0" fill="#7b808c"/><text x="216.0" y="96.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>P</tspan></text><text x="74.0" y="208.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>O</tspan></text><text x="267.6" y="66.8" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>x</tspan></text><text x="166.8" y="174.4" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>θ</tspan></text><text x="26.4" y="115.2" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>y</tspan></text><text x="330.0" y="106.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#8a3fd1"><tspan>Ω Ĵ</tspan></text><text x="244.0" y="250.0" text-anchor="start" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#8a3fd1"><tspan>θ k̂</tspan></text><text x="344.0" y="296.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>X</tspan></text><text x="300.0" y="252.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>Y</tspan></text></svg><figcaption>At θ = 36.87°, side view of the dish</figcaption></figure></div><p class="small fbdnote">The rate Ω acts along the fixed vertical axis. The rate θ̇ acts along the elevation pin, which points out of the page at this instant.</p>
+<div class="formula">$$\vec\omega = 0.2\,\hat J + 0.5\,\hat K = 0.2(0.6\,\hat\imath + 0.8\,\hat\jmath) + 0.5\,\hat k = 0.12\,\hat\imath + 0.16\,\hat\jmath + 0.5\,\hat k\ \text{rad/s}$$</div>
+</details>
+<details class="step"><summary>Step 3 · Differentiate to find the angular acceleration</summary>
+<p>Both rates are constant and $\hat J$ is fixed. The elevation pin axis $\hat k$ turns with the base at $\Omega\hat J$, so $d\hat k/dt = \Omega\hat J\times\hat k$. Then</p>
+<div class="formula">$$\vec\alpha = \dot\theta\,\frac{d\hat k}{dt} = \Omega\dot\theta\left(\hat J\times\hat k\right) = (0.2)(0.5)\,\hat I = 0.1\,\hat I\ \text{rad/s}^2$$</div>
+<div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 340 280" role="img" aria-label="Top view: the elevation pin axis k̂ is carried around by Ω" style="max-width:340px"><line x1="110.0" y1="50.0" x2="110.0" y2="189.0" stroke="#3a3d44" stroke-width="2.6" stroke-linecap="round"/><polygon points="110.0,200.0 104.5,189.0 115.5,189.0" fill="#3a3d44"/><line x1="110.0" y1="50.0" x2="179.5" y2="170.4" stroke="#7b808c" stroke-width="2.6" stroke-linecap="round"/><polygon points="185.0,179.9 174.7,173.1 184.3,167.6" fill="#7b808c"/><line x1="110.0" y1="200.0" x2="174.4" y2="182.8" stroke="#b42346" stroke-width="2.4" stroke-linecap="round"/><polygon points="185.0,179.9 175.8,188.1 173.0,177.4" fill="#b42346"/><path d="M110.0,112.0 A62,62 0 0 0 141.0,103.7" fill="none" stroke="#7b808c" stroke-width="1.2"/><circle cx="110.0" cy="50.0" r="4" fill="#1c1d21"/><line x1="260.0" y1="170.0" x2="283.0" y2="170.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="294.0,170.0 283.0,175.5 283.0,164.5" fill="#7b808c"/><line x1="260.0" y1="170.0" x2="260.0" y2="193.0" stroke="#7b808c" stroke-width="1.6" stroke-linecap="round"/><polygon points="260.0,204.0 254.5,193.0 265.5,193.0" fill="#7b808c"/><text x="250.0" y="22.0" text-anchor="middle" dominant-baseline="middle" style="font-family:system-ui,sans-serif;font-size:11px;fill:#7b808c">Y points up, out of the page</text><text x="102.0" y="216.0" text-anchor="end" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#3a3d44"><tspan>k̂</tspan><tspan dy="4.8" style="font-size:10.8px">(t)</tspan></text><text x="195.0" y="173.9" text-anchor="start" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#7b808c"><tspan>k̂</tspan><tspan dy="4.8" style="font-size:10.8px">(t + dt)</tspan></text><text x="151.5" y="234.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#b42346"><tspan>dk̂ = Ω dt Î</tspan></text><text x="128.9" y="120.5" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"></text><text x="116.0" y="154.0" text-anchor="start" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>Ω dt</tspan></text><text x="96.0" y="44.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>O</tspan></text><text x="304.0" y="170.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>X</tspan></text><text x="260.0" y="214.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>Z</tspan></text></svg><figcaption>Top view: the elevation pin axis k̂ is carried around by Ω</figcaption></figure></div>
+</details>
+<details class="step"><summary>Step 4 · Write the results in the observer's axes</summary>
+<p>Using $\hat I = \cos\theta\,\hat\imath - \sin\theta\,\hat\jmath$,</p>
+<div class="formula">$$\vec\alpha = 0.1(0.8\,\hat\imath - 0.6\,\hat\jmath) = 0.08\,\hat\imath - 0.06\,\hat\jmath\ \text{rad/s}^2$$</div>
+<p class="small">The angular acceleration is horizontal and perpendicular to the elevation pin. Its size, $\Omega\dot\theta$, does not depend on the elevation angle.</p>
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>(a) $\vec\omega = 0.2\,\hat J + 0.5\,\hat K = 0.12\,\hat\imath + 0.16\,\hat\jmath + 0.5\,\hat k$ rad/s, with $|\vec\omega| = 0.539$ rad/s.</p>
+<p>(b) $\vec\alpha = 0.1\,\hat I = 0.08\,\hat\imath - 0.06\,\hat\jmath$ rad/s².</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Freeze the motion and change the elevation rate. Which components of $\vec\omega$ in the $xyz$ axes change?</li><li>Find the elevation angle at which the $\hat\imath$ and $\hat\jmath$ components of $\vec\omega$ are equal.</li><li>Watch the graph. Which fixed components of $\vec\omega$ change in time, and why does $\omega_Y$ stay constant?</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 3, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-3-b-1.html"><small>← Previous</small>Example 3.B.1</a><a class="next" href="ex-3-b-3.html"><small>Next →</small>Example 3.B.3</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/kit.js"></script>
+<script src="../assets/ch3-exB1.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch3-3dB1.js"></script>
+</body>
+</html>

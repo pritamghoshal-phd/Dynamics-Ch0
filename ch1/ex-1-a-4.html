@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example 1.A.4 · Chapter 1 · Dynamics</title>
+<meta name="description" content="Interactive notes and animations for undergraduate dynamics.">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    chtml: { scale: 1.0 }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="../index.html"><svg class="logo vec" viewBox="0 0 26 26" aria-hidden="true"><line class="ax" x1="3" y1="23" x2="24" y2="23"/><line class="ax" x1="3" y1="23" x2="3" y2="2"/><g class="v"><line x1="3" y1="23" x2="19" y2="9"/><path class="hd" d="M21.5 6.8 L14.6 9.3 L18.6 13.1 Z"/></g></svg>Dynamics <span>Chapter 1</span></a></div></header>
+<nav class="toc" aria-label="Pages">
+  <div class="wrap">
+    <a href="../index.html">All chapters</a>
+    <a href="index.html">Overview</a>
+    <a href="planar.html">A · Planar descriptions</a>
+    <a href="threed.html">B · 3D descriptions</a>
+    <a href="joint.html">C · Joint description</a>
+    <a href="relative.html">D · Relative & constrained</a>
+    <a href="examples.html" class=active>Examples</a>
+  </div>
+</nav>
+<main class="wrap">
+<nav class="sub" aria-label="Planar descriptions examples"><a href="examples.html#group-A">All Planar descriptions examples</a><a href="ex-1-a-1.html">1.A.1</a><a href="ex-1-a-2.html">1.A.2</a><a href="ex-1-a-3.html">1.A.3</a><a href="ex-1-a-4.html" class=active>1.A.4</a></nav>
+<p class="crumbs"><a href="examples.html">Worked examples</a> › <a href="examples.html#group-A">Planar descriptions</a> › Example 1.A.4</p>
+<h2><span class="num">Example 1.A.4</span>Motion on a spiral</h2>
+<div class="tags"><span>polar</span><span>Coriolis term</span><span>spiral</span></div>
+<div class="card problem"><h3>Problem</h3>
+<p>Particle A travels on a path such that its radial position is given by $r = 5\theta$, where $r$ is in metres and $\theta$ is in radians. It is also known that $\dot\theta = 2$ rad/s, a constant.</p>
+<p><b>Find</b> (a) the velocity vector and (b) the acceleration vector of A when $\theta = \pi$.</p>
+</div>
+<div class="demo" id="x1a-4">
+  <div class="demo-title"><span class="tag">Interactive</span><span>Motion on the spiral</span></div>
+  <canvas id="x1a-4-anim" class="anim" style="height:420px"></canvas>
+  <div class="controls" id="x1a-4-ctl"></div>
+  <div class="bar" id="x1a-4-pre"><span class="lbl">Try:</span></div>
+  <div class="bar" id="x1a-4-btn"></div>
+  <div class="stats" id="x1a-4-stats"></div>
+  <p class="small concept-note">Click "Stop at θ = π" to freeze the instant in the problem. The purple arrows are the unit vectors $\hat{\mathbf e}_r$ and $\hat{\mathbf e}_\theta$. At θ = π they point in the −î and −ĵ directions.</p>
+</div>
+<div class="demo v3d" data-clip="x1a-4"><div class="demo-title"><span class="tag">3D</span><span>The same motion in 3D</span></div><div class="v3d-stage"></div><div class="bar"><button class="btn" data-a="reset3d">Reset view</button><span class="lbl">Drag to rotate the view, scroll or pinch to zoom. The sliders and buttons above control both views.</span></div></div>
+<h3>Solution</h3>
+<p class="small">Try the problem first, and then open one step at a time to check your work.</p>
+<details class="step"><summary>Step 1 · Choose a description and draw the kinematics diagram</summary>
+<p>The path is given as $r(\theta)$ and the rate $\dot\theta$ is known, so the polar description is the natural choice.</p>
+$$\mathbf v = \dot r\,\hat{\mathbf e}_r + r\dot\theta\,\hat{\mathbf e}_\theta, \qquad \mathbf a = \left(\ddot r - r\dot\theta^2\right)\hat{\mathbf e}_r + \left(r\ddot\theta + 2\dot r\dot\theta\right)\hat{\mathbf e}_\theta$$
+<div class="fbdrow"><figure><svg class="fbd" viewBox="0 0 340 280" role="img" aria-label="Polar description at θ = π" style="max-width:340px"><line x1="103.0" y1="125.0" x2="315.0" y2="125.0" stroke="#7b808c" stroke-width="1.4" stroke-dasharray="5 4"/><line x1="215.0" y1="265.0" x2="215.0" y2="15.0" stroke="#7b808c" stroke-width="1.4" stroke-dasharray="5 4"/><polyline points="215.0,125.0 216.5,124.9 217.9,124.7 219.3,124.3 220.7,123.8 222.1,123.1 223.4,122.3 224.6,121.3 225.7,120.2 226.8,119.0 227.7,117.7 228.5,116.2 229.2,114.7 229.8,113.0 230.3,111.3 230.6,109.4 230.7,107.6 230.7,105.6 230.5,103.7 230.2,101.6 229.7,99.6 229.0,97.6 228.1,95.5 227.1,93.5 225.9,91.5 224.5,89.6 222.9,87.7 221.2,85.9 219.3,84.2 217.2,82.5 215.0,81.0 212.6,79.6 210.1,78.3 207.4,77.2 204.6,76.2 201.7,75.4 198.7,74.8 195.6,74.4 192.3,74.1 189.0,74.1 185.7,74.2 182.3,74.6 178.8,75.2 175.3,76.0 171.8,77.1 168.3,78.3 164.9,79.9 161.5,81.6 158.1,83.6 154.8,85.9 151.5,88.3 148.4,91.1 145.4,94.0 142.5,97.2 139.7,100.5 137.1,104.1 134.7,107.9 132.5,111.9 130.4,116.1 128.6,120.5 127.0,125.0" fill="none" stroke="#8b8f98" stroke-width="2" stroke-dasharray="6 4"/><line x1="215.0" y1="125.0" x2="127.0" y2="125.0" stroke="#2457d6" stroke-width="1.4" stroke-dasharray="5 4"/><path d="M231.0,125.0 A16,16 0 0 0 199.0,125.0" fill="none" stroke="#7b808c" stroke-width="1.2"/><circle cx="215.0" cy="125.0" r="3" fill="#1c1d21"/><circle cx="127.0" cy="125.0" r="4" fill="#1c1d21"/><line x1="127.0" y1="125.0" x2="112.0" y2="125.0" stroke="#7b808c" stroke-width="2.6" stroke-linecap="round"/><polygon points="101.0,125.0 112.0,119.5 112.0,130.5" fill="#7b808c"/><line x1="127.0" y1="125.0" x2="127.0" y2="144.0" stroke="#7b808c" stroke-width="2.6" stroke-linecap="round"/><polygon points="127.0,155.0 121.5,144.0 132.5,144.0" fill="#7b808c"/><line x1="127.0" y1="125.0" x2="101.6" y2="205.0" stroke="#2457d6" stroke-width="2.6" stroke-linecap="round"/><polygon points="98.2,215.5 96.3,203.4 106.8,206.7" fill="#2457d6"/><line x1="127.0" y1="125.0" x2="183.6" y2="161.0" stroke="#b42346" stroke-width="2.6" stroke-linecap="round"/><polygon points="192.8,166.9 180.6,165.6 186.5,156.3" fill="#b42346"/><text x="325.0" y="125.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>x</tspan></text><text x="225.0" y="19.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>y</tspan></text><text x="177.0" y="113.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:12px;font-style:italic;fill:#2457d6"><tspan>r = 5π m</tspan></text><text x="215.0" y="98.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"></text><text x="245.0" y="143.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:13px;font-style:italic;fill:#7b808c"><tspan>θ = π</tspan></text><text x="225.0" y="137.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>O</tspan></text><text x="115.0" y="113.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#1c1d21"><tspan>A</tspan></text><text x="89.0" y="125.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#7b808c"><tspan>ê</tspan><tspan dy="4.8" style="font-size:10.8px">r</tspan></text><text x="141.0" y="161.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#7b808c"><tspan>ê</tspan><tspan dy="4.8" style="font-size:10.8px">θ</tspan></text><text x="94.6" y="227.0" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#2457d6"><tspan>v</tspan></text><text x="203.0" y="173.3" text-anchor="middle" dominant-baseline="middle" style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-style:italic;fill:#b42346"><tspan>a</tspan></text></svg><figcaption>Polar description at θ = π</figcaption></figure></div><p class="small fbdnote">At $\theta = \pi$ the unit vector $\hat{\mathbf e}_r$ points in the $-\hat{\mathbf i}$ direction and $\hat{\mathbf e}_\theta$ points in the $-\hat{\mathbf j}$ direction.</p>
+</details>
+<details class="step"><summary>Step 2 · Find r and its time derivatives</summary>
+<p>Differentiate $r = 5\theta$ with respect to time, using $\dot\theta = 2$ rad/s and $\ddot\theta = 0$.</p>
+$$r = 5\pi = 15.71\ \text{m}, \qquad \dot r = 5\dot\theta = 10\ \text{m/s}, \qquad \ddot r = 5\ddot\theta = 0$$
+</details>
+<details class="step"><summary>Step 3 · Evaluate the velocity</summary>
+$$\mathbf v = 10\,\hat{\mathbf e}_r + (5\pi)(2)\,\hat{\mathbf e}_\theta = 10\,\hat{\mathbf e}_r + 31.42\,\hat{\mathbf e}_\theta\ \text{m/s}$$
+</details>
+<details class="step"><summary>Step 4 · Evaluate the acceleration</summary>
+$$\mathbf a = \left(0 - 5\pi(2)^2\right)\hat{\mathbf e}_r + \left(0 + 2(10)(2)\right)\hat{\mathbf e}_\theta = -62.83\,\hat{\mathbf e}_r + 40\,\hat{\mathbf e}_\theta\ \text{m/s}^2$$
+<p class="small">The transverse component is not zero even though $\dot\theta$ is constant. The term $2\dot r\dot\theta$ (the Coriolis term) appears because A moves outward while the line OA turns.</p>
+</details>
+<details class="step"><summary>Step 5 · Express the vectors in Cartesian components</summary>
+<p>At $\theta = \pi$ the unit vectors are $\hat{\mathbf e}_r = -\hat{\mathbf i}$ and $\hat{\mathbf e}_\theta = -\hat{\mathbf j}$, so</p>
+$$\mathbf v = -10\,\hat{\mathbf i} - 31.42\,\hat{\mathbf j}\ \text{m/s}, \qquad \mathbf a = 62.83\,\hat{\mathbf i} - 40\,\hat{\mathbf j}\ \text{m/s}^2$$
+</details>
+<details class="answer"><summary>Answer</summary>
+<p>(a) $\mathbf v = 10\,\hat{\mathbf e}_r + 31.42\,\hat{\mathbf e}_\theta$ m/s $= -10\,\hat{\mathbf i} - 31.42\,\hat{\mathbf j}$ m/s.</p>
+<p>(b) $\mathbf a = -62.83\,\hat{\mathbf e}_r + 40\,\hat{\mathbf e}_\theta$ m/s² $= 62.83\,\hat{\mathbf i} - 40\,\hat{\mathbf j}$ m/s².</p>
+</details>
+<div class="try"><h4>Explore</h4><ul><li>Follow the spiral outward. The radial component $-r\dot\theta^2$ keeps growing, but the Coriolis component $2\dot r\dot\theta$ stays at 40 m/s². Why?</li><li>Double $\dot\theta$. By what factor does each acceleration component change?</li><li>Is the speed of A constant? Use the statistics below the animation to decide.</li></ul></div>
+<p class="credit">Problem adapted from <em>Dynamics: A Lecturebook</em>, Chapter 1, by Charles M. Krousgrill and Jeffrey F. Rhoads (Purdue University). Animation and solution write-up are by the course instructor.</p>
+<nav class="pager" aria-label="Page navigation"><a class="prev" href="ex-1-a-3.html"><small>← Previous</small>Example 1.A.3</a><a class="next" href="ex-1-b-1.html"><small>Next →</small>Example 1.B.1</a></nav>
+</main>
+<footer><div class="wrap"><p>Created by Pritam Ghoshal, Purdue University</p></div></footer>
+<script src="../assets/common.js"></script>
+<script src="../assets/clip.js"></script>
+<script src="../assets/kit.js"></script>
+<script src="../assets/ch1-exA.js"></script>
+<script src="../assets/view3d.js"></script>
+<script src="../assets/ch1-3dA.js"></script>
+</body>
+</html>
